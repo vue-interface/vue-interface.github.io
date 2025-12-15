@@ -1,0 +1,53 @@
+{
+  "name": "@vue-interface/popover",
+  "version": "1.0.0",
+  "description": "A Vue popover component.",
+  "type": "module",
+  "main": "./dist/popover.umd.cjs",
+  "module": "./dist/popover.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "source": "./index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/popover.js",
+      "require": "./dist/popover.umd.cjs"
+    }
+  },
+  "browserslist": "last 2 versions, > 0.5%, ie >= 11",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vue-interface/popover"
+  },
+  "keywords": [
+    "popover",
+    "Vue",
+    "Component",
+    "Tailwind",
+    "Bootstrap"
+  ],
+  "author": "Justin Kimbrell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vue-interface/popover"
+  },
+  "homepage": "https://github.com/vue-interface/vue-interface",
+  "peerDependencies": {
+    "@floating-ui/vue": "^1.1.9",
+    "@vue-interface/btn": "workspace:*",
+    "vue": "^3.3.4"
+  },
+  "files": [
+    "dist",
+    "index.css",
+    "index.ts"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
