@@ -48,5 +48,13 @@
   },
   "devDependencies": {
     "@floating-ui/dom": "^1.7.2"
+  },
+  "files": [
+    "dist",
+    "index.css",
+    "index.ts"
+  ],
+  "publishConfig": {
+    "access": "public"
   }
 }
