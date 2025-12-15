@@ -1,11 +1,5 @@
 # @vue-interface/tooltip
 
-## 2.0.1
-
-### Patch Changes
-
-- b9b99fe: Fix issue with dist not being published
-
 ## 2.0.0
 
 ### Major Changes
