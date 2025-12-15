@@ -1,5 +1,11 @@
 # @vue-interface/tooltip
 
+## 2.0.2
+
+### Patch Changes
+
+- 63ea504: Added README to package
+
 ## 2.0.1
 
 ### Patch Changes
