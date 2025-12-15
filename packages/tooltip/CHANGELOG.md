@@ -1,5 +1,11 @@
 # @vue-interface/tooltip
 
+## 2.0.2
+
+### Patch Changes
+
+- d814a0f: Testing the publish workflow
+
 ## 2.0.1
 
 ### Patch Changes
