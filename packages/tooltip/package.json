@@ -52,5 +52,8 @@
     "dist",
     "index.css",
     "index.ts"
-  ]
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }
