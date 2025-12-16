@@ -1,5 +1,14 @@
 # @vue-interface/input-field
 
+## 2.0.9
+
+### Patch Changes
+
+- aea22a9: Fixed issues with package.json exports
+- Updated dependencies [aea22a9]
+  - @vue-interface/activity-indicator@3.0.4
+  - @vue-interface/form-control@2.0.8
+
 ## 2.0.8
 
 ### Patch Changes

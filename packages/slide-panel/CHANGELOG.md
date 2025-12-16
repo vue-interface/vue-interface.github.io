@@ -1,5 +1,11 @@
 # @vue-interface/slide-panel
 
+## 3.0.6
+
+### Patch Changes
+
+- aea22a9: Fixed issues with package.json exports
+
 ## 3.0.5
 
 ### Patch Changes

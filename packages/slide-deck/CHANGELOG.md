@@ -1,5 +1,11 @@
 # @vue-interface/slide-deck
 
+## 3.0.5
+
+### Patch Changes
+
+- aea22a9: Fixed issues with package.json exports
+
 ## 3.0.4
 
 ### Patch Changes
