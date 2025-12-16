@@ -1,5 +1,12 @@
 # @vue-interface/btn-activity
 
+## 4.0.0
+
+### Patch Changes
+
+- Updated dependencies [b16f8e1]
+  - @vue-interface/btn@5.0.0
+
 ## 3.0.1
 
 ### Patch Changes
