@@ -1,5 +1,11 @@
 # @vue-interface/autogrow
 
+## 1.0.4
+
+### Patch Changes
+
+- aea22a9: Fixed issues with package.json exports
+
 ## 1.0.3
 
 ### Patch Changes

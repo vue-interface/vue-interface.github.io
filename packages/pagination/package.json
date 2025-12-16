@@ -1,6 +1,6 @@
 {
 	"name": "@vue-interface/pagination",
-	"version": "3.0.3",
+	"version": "3.0.4",
 	"description": "A Vue pagination component.",
 	"type": "module",
 	"main": "./dist/pagination.umd.js",
@@ -10,7 +10,7 @@
 		".": {
 			"source": "./index.ts",
 			"types": "./dist/index.d.ts",
-      "style": "./index.css",
+			"style": "./index.css",
 			"import": "./dist/pagination.js",
 			"require": "./dist/pagination.umd.js"
 		}

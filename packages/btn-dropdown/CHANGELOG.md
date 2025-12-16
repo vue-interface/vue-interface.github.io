@@ -1,5 +1,13 @@
 # @vue-interface/btn-dropdown
 
+## 4.0.4
+
+### Patch Changes
+
+- aea22a9: Fixed issues with package.json exports
+- Updated dependencies [aea22a9]
+  - @vue-interface/dropdown-menu@3.0.4
+
 ## 4.0.3
 
 ### Patch Changes

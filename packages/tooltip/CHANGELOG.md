@@ -1,5 +1,11 @@
 # @vue-interface/tooltip
 
+## 2.0.6
+
+### Patch Changes
+
+- aea22a9: Fixed issues with package.json exports
+
 ## 2.0.5
 
 ### Patch Changes
