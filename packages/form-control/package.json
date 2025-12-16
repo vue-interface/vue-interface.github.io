@@ -9,10 +9,10 @@
   "exports": {
     ".": {
       "source": "./index.ts",
-      "style": "./index.css",
       "types": "./dist/index.d.ts",
       "require": "./dist/form-control.umd.js",
-      "import": "./dist/form-control.js"
+      "import": "./dist/form-control.js",
+      "style": "./index.css"
     },
     "./css": "./index.css"
   },
