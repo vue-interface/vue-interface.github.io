@@ -74,7 +74,7 @@ The `slide deck` component extends the [button](/packages/btn/) classes, allowin
 
 <ClientOnly>
 <!-- #region basicUsage -->
-<div class="my-6"> 
+<div class="my-6">
     <div class="flex justify-between mb-3">
         <button class="btn btn-primary" @click="firstSlide">First</button>
         <button class="btn btn-primary" @click="lastSlide">Last</button>
