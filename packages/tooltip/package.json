@@ -38,7 +38,7 @@
   "bugs": {
     "url": "https://github.com/vue-interface/vue-interface.github.io"
   },
-  "homepage": "https://github.com/vue-interface/vue-interface.github.io",
+  "homepage": "https://vue-interface.github.io/packages/tooltip",
   "dependencies": {
     "@popperjs/core": "^2.4.4"
   },

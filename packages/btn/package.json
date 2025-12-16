@@ -26,7 +26,7 @@
   "bugs": {
     "url": "https://github.com/vue-interface/vue-interface.github.io"
   },
-  "homepage": "https://github.com/vue-interface/vue-interface",
+  "homepage": "https://vue-interface.github.io/packages/btn",
   "readme": "README.md",
   "files": [
     "index.css",

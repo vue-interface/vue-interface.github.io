@@ -37,7 +37,7 @@
   "bugs": {
     "url": "https://github.com/vue-interface/vue-interface.github.io"
   },
-  "homepage": "https://github.com/vue-interface/vue-interface",
+  "homepage": "https://vue-interface.github.io/packages/checkbox-field",
   "readme": "README.md",
   "files": [
     "dist",

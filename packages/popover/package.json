@@ -37,18 +37,16 @@
   "bugs": {
     "url": "https://github.com/vue-interface/vue-interface.github.io"
   },
-  "homepage": "https://vue-interface.github.io/packages/popover/",
-  "peerDependencies": {
-    "@floating-ui/vue": "^1.1.9",
-    "vue": "^3.3.4"
-  },
+  "homepage": "https://vue-interface.github.io/packages/popover",
+  "readme": "README.md",
   "files": [
     "dist",
     "index.css",
     "README.md",
     "LICENSE"
   ],
-  "publishConfig": {
-    "access": "public"
+  "peerDependencies": {
+    "@floating-ui/vue": "^1.1.9",
+    "vue": "^3.3.4"
   }
 }
