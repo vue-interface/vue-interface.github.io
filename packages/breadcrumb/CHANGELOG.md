@@ -1,5 +1,11 @@
 # @vue-interface/breadcrumb
 
+## 2.0.4
+
+### Patch Changes
+
+- 721aaba: Added text decoration on hover to breadcrumb links
+
 ## 2.0.3
 
 ### Patch Changes
