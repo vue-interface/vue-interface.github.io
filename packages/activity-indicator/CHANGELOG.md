@@ -1,5 +1,11 @@
 # @vue-interface/activity-indicator
 
+## 3.0.5
+
+### Patch Changes
+
+- c5fa58a: Fix issues with activity indicator types not being exported
+
 ## 3.0.4
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @vue-interface/light-switch-field
 
+## 3.0.12
+
+### Patch Changes
+
+- c5fa58a: Fixed issue with model types not using generics
+- Updated dependencies [c5fa58a]
+  - @vue-interface/form-control@2.0.11
+
 ## 3.0.11
 
 ### Patch Changes

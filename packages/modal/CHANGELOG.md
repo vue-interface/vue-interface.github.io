@@ -1,5 +1,12 @@
 # @vue-interface/modal
 
+## 3.0.7
+
+### Patch Changes
+
+- Updated dependencies [c5fa58a]
+  - @vue-interface/activity-indicator@3.0.5
+
 ## 3.0.6
 
 ### Patch Changes
