@@ -1,5 +1,11 @@
 # @vue-interface/popover
 
+## 1.0.3
+
+### Patch Changes
+
+- 0631b52: Fixed issues with package.json exports
+
 ## 1.0.2
 
 ### Patch Changes

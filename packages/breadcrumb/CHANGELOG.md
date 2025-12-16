@@ -1,5 +1,11 @@
 # @vue-interface/breadcrumb
 
+## 2.0.3
+
+### Patch Changes
+
+- 0631b52: Fixed issues with package.json exports
+
 ## 2.0.2
 
 ### Patch Changes

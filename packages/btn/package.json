@@ -1,6 +1,6 @@
 {
   "name": "@vue-interface/btn",
-  "version": "5.0.2",
+  "version": "5.0.3",
   "description": "A Tailwind CSS utility for buttons.",
   "type": "module",
   "main": "./index.css",
