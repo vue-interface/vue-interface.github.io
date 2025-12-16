@@ -17,6 +17,9 @@
     --breadcrumb-link-color: var(--color-neutral-600);
     --breadcrumb-link-dark-color: var(--color-neutral-400);
     
+    /* Breadcrumb hover link variables */
+    --breadcrumb-link-hover-text-decoration: underline;
+    
     /* Breadcrumb active link variables */
     --breadcrumb-link-active-color: var(--active-color-primary);
     --breadcrumb-link-active-pointer-events: none;
@@ -53,6 +56,10 @@
         text-decoration: var(--breadcrumb-link-text-decoration);
         color: var(--breadcrumb-link-color);
         font-weight: var(--breadcrumb-link-font-weight);
+
+        &:hover {
+            text-decoration: var(--breadcrumb-link-hover-text-decoration);
+        }
 
         &.active {
             color: var(--breadcrumb-link-active-color);
