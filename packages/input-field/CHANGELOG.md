@@ -1,5 +1,13 @@
 # @vue-interface/input-field
 
+## 2.0.11
+
+### Patch Changes
+
+- 90a09cb: Fixed issue with form control padding not being correct with an icon if no size is present
+- Updated dependencies [90a09cb]
+  - @vue-interface/form-control@2.0.10
+
 ## 2.0.10
 
 ### Patch Changes
