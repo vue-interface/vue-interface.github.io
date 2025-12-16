@@ -1,5 +1,11 @@
 # @vue-interface/form-control
 
+## 2.0.5
+
+### Patch Changes
+
+- 2f2335f: Added "style" to package exports
+
 ## 2.0.4
 
 ### Patch Changes
