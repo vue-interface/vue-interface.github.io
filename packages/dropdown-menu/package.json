@@ -13,8 +13,7 @@
       "style": "./index.css",
       "import": "./dist/dropdown-menu.js",
       "require": "./dist/dropdown-menu.umd.js"
-    },
-    "./css": "./demo.css"
+    }
   },
   "browserslist": "last 2 versions, > 0.5%, ie >= 11",
   "scripts": {
