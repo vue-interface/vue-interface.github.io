@@ -1,5 +1,13 @@
 # @vue-interface/checkbox-field
 
+## 3.0.2
+
+### Patch Changes
+
+- 8bc226f: Updated package.json homepage url
+- Updated dependencies [8bc226f]
+  - @vue-interface/form-control@2.0.2
+
 ## 3.0.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @vue-interface/breadcrumb
 
+## 2.0.2
+
+### Patch Changes
+
+- 8bc226f: Updated package.json homepage url
+
 ## 2.0.1
 
 ### Patch Changes

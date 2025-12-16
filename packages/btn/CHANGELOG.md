@@ -1,5 +1,11 @@
 # @vue-interface/btn
 
+## 5.0.1
+
+### Patch Changes
+
+- 8bc226f: Updated package.json homepage url
+
 ## 5.0.0
 
 ### Major Changes

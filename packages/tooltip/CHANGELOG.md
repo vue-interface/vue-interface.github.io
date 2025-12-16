@@ -1,5 +1,11 @@
 # @vue-interface/tooltip
 
+## 2.0.4
+
+### Patch Changes
+
+- 8bc226f: Updated package.json homepage url
+
 ## 2.0.3
 
 ### Patch Changes

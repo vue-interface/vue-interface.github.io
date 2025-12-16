@@ -1,5 +1,14 @@
 # @vue-interface/slide-panel
 
+## 3.0.1
+
+### Patch Changes
+
+- 8bc226f: Updated package.json homepage url
+- Updated dependencies [8bc226f]
+  - @vue-interface/input-field@2.0.2
+  - @vue-interface/btn@5.0.1
+
 ## 3.0.0
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @vue-interface/autogrow
 
+## 1.0.2
+
+### Patch Changes
+
+- 8bc226f: Updated package.json homepage url
+
 ## 1.0.1
 
 ### Patch Changes
