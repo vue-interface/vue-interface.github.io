@@ -1,5 +1,11 @@
 # @vue-interface/input-field
 
+## 2.0.4
+
+### Patch Changes
+
+- a1a7467: minor updates to fix latest vue-tsc errors
+
 ## 2.0.3
 
 ### Patch Changes

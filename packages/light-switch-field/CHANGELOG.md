@@ -1,5 +1,11 @@
 # @vue-interface/light-switch-field
 
+## 3.0.4
+
+### Patch Changes
+
+- a1a7467: minor updates to fix latest vue-tsc errors
+
 ## 3.0.3
 
 ### Patch Changes
