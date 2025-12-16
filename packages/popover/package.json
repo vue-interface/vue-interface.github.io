@@ -39,7 +39,6 @@
   "homepage": "https://github.com/vue-interface/vue-interface",
   "peerDependencies": {
     "@floating-ui/vue": "^1.1.9",
-    "@vue-interface/btn": "workspace:*",
     "vue": "^3.3.4"
   },
   "files": [

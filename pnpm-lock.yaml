@@ -193,9 +193,6 @@ importers:
       '@floating-ui/vue':
         specifier: ^1.1.9
         version: 1.1.9(vue@3.5.25(typescript@5.9.3))
-      '@vue-interface/btn':
-        specifier: workspace:*
-        version: link:../btn
       vue:
         specifier: ^3.3.4
         version: 3.5.25(typescript@5.9.3)
@@ -223,9 +220,6 @@ importers:
 
   packages/slide-deck:
     dependencies:
-      '@vue-interface/btn':
-        specifier: workspace:*
-        version: link:../btn
       vue:
         specifier: ^3.3.4
         version: 3.5.22(typescript@5.9.3)
