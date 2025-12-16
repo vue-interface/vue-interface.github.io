@@ -1,5 +1,12 @@
 # @vue-interface/slide-panel
 
+## 3.0.4
+
+### Patch Changes
+
+- Updated dependencies [a1a7467]
+  - @vue-interface/input-field@2.0.4
+
 ## 3.0.3
 
 ### Patch Changes
