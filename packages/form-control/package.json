@@ -43,6 +43,7 @@
   "readme": "README.md",
   "files": [
     "src",
+    "dist",
     "index.css",
     "README.md",
     "LICENSE"
