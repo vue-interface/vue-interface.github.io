@@ -14,13 +14,9 @@ const external = [
 ];
 
 export default ({ command }) => defineConfig({
-    resolve: {
-        conditions: [
-            'source',
-            'import',
-            'require',
-        ]
-    },
+    resolve: command === 'serve' 
+        ? ['source', 'import', 'module', 'browser', 'default']
+        : ['import', 'module', 'browser', 'default'],
     build: {
         sourcemap: command === 'build',
         lib: {
