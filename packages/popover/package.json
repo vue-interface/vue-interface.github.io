@@ -1,6 +1,6 @@
 {
   "name": "@vue-interface/popover",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "A Vue popover component.",
   "type": "module",
   "main": "./dist/popover.umd.cjs",
@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vue-interface/popover"
+    "url": "git+https://github.com/vue-interface/vue-interface.github.io"
   },
   "keywords": [
     "popover",
@@ -33,11 +33,11 @@
     "Bootstrap"
   ],
   "author": "Justin Kimbrell",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vue-interface/popover"
+    "url": "https://github.com/vue-interface/vue-interface.github.io"
   },
-  "homepage": "https://github.com/vue-interface/vue-interface",
+  "homepage": "https://vue-interface.github.io/packages/popover/",
   "peerDependencies": {
     "@floating-ui/vue": "^1.1.9",
     "vue": "^3.3.4"
