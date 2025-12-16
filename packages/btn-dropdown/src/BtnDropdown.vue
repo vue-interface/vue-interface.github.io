@@ -17,10 +17,10 @@ const emit = defineEmits<BtnDropdownEvents>();
     <Component
         :is="!split ? BtnDropdownSingle : BtnDropdownSplit"
         v-bind="props"
-        @click="(...args) => emit('click', ...args)"
-        @click-toggle="(...args) => emit('clickToggle', ...args)"
-        @show="(...args) => emit('show', ...args)"
-        @hide="(...args) => emit('hide', ...args)">
+        @click="(e: MouseEvent) => emit('click', e)"
+        @click-toggle="(e: MouseEvent) => emit('clickToggle', e)"
+        @show="() => emit('show')"
+        @hide="() => emit('hide')">
         <template #button="slot">
             <slot
                 name="button"
