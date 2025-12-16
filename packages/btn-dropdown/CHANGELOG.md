@@ -1,5 +1,12 @@
 # @vue-interface/btn-dropdown
 
+## 4.0.2
+
+### Patch Changes
+
+- Updated dependencies [f5a27cf]
+  - @vue-interface/btn@5.0.2
+
 ## 4.0.1
 
 ### Patch Changes
