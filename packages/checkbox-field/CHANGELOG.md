@@ -1,5 +1,13 @@
 # @vue-interface/checkbox-field
 
+## 3.0.4
+
+### Patch Changes
+
+- 0631b52: Fixed issues with package.json exports
+- Updated dependencies [0631b52]
+  - @vue-interface/form-control@2.0.4
+
 ## 3.0.3
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @vue-interface/btn
 
+## 5.0.3
+
+### Patch Changes
+
+- 0631b52: Fixed issues with package.json exports
+
 ## 5.0.2
 
 ### Patch Changes
