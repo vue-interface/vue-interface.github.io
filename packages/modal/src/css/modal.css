@@ -27,8 +27,8 @@
     --modal-backdrop-z-index: 1;
     --modal-backdrop-width: 100%;
     --modal-backdrop-height: 100%;
-    --modal-backdrop-background-color: color-mix(in oklch, var(--color-neutral-500, oklch(55.3% 0.013 58.071)) 75%, transparent);
-    --modal-backdrop-dark-background-color: color-mix(in oklch, var(--color-neutral-800, oklch(26.8% 0.007 34.298)) 75%, transparent);
+    --modal-backdrop-background-color: color-mix(in oklch, var(--color-neutral-950, oklch(55.3% 0.013 58.071)) 75%, transparent);
+    --modal-backdrop-dark-background-color: color-mix(in oklch, var(--color-neutral-950, oklch(26.8% 0.007 34.298)) 75%, transparent);
 
     /* Modal Container */
     --modal-container-position: relative;
