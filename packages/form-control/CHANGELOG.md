@@ -1,5 +1,11 @@
 # @vue-interface/form-control
 
+## 2.0.12
+
+### Patch Changes
+
+- f14515e: Fixed issues with padding and activity indicators
+
 ## 2.0.11
 
 ### Patch Changes
