@@ -1,5 +1,11 @@
 # @vue-interface/form-control
 
+## 2.0.3
+
+### Patch Changes
+
+- a23040a: Fix issue with package.json exports
+
 ## 2.0.2
 
 ### Patch Changes
