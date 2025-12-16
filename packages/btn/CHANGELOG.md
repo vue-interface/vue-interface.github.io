@@ -1,5 +1,11 @@
 # @vue-interface/btn
 
+## 5.0.0
+
+### Major Changes
+
+- b16f8e1: Fix issue with border color with active and hover states
+
 ## 4.0.1
 
 ### Patch Changes
