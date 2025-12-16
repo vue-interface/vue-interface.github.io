@@ -12,7 +12,8 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/popover.js",
       "require": "./dist/popover.umd.cjs"
-    }
+    },
+    "./css": "./index.css"
   },
   "browserslist": "last 2 versions, > 0.5%, ie >= 11",
   "scripts": {
@@ -44,7 +45,8 @@
   "files": [
     "dist",
     "index.css",
-    "index.ts"
+    "README.md",
+    "LICENSE"
   ],
   "publishConfig": {
     "access": "public"
