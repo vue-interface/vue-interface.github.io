@@ -124,6 +124,15 @@
         }
     }
 
+    &.has-icon { 
+        padding: 0rem;
+
+        .form-control-icon {
+            padding-left: calc(--value(--form-control-font-size-*, [length]) * 2);
+            padding-left: calc(--spacing(--value(integer)) * 2);
+        }
+    }
+    
     &::placeholder {
         color: var(--form-control-placeholder-color);
         opacity: var(--form-control-placeholder-opacity);
