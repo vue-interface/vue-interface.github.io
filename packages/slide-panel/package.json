@@ -40,6 +40,7 @@
   "homepage": "https://vue-interface.github.io/packages/slide-panel",
   "readme": "README.md",
   "files": [
+    "src",
     "dist",
     "index.css",
     "README.md",
@@ -50,8 +51,6 @@
     "deepmerge": "^4.2.2"
   },
   "peerDependencies": {
-    "vue": "^3.3.4",
-    "@vue-interface/input-field": "workspace:*",
-    "@vue-interface/btn": "workspace:*"
+    "vue": "^3.3.4"
   }
 }

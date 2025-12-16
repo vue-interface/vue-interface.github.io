@@ -42,6 +42,7 @@
   },
   "homepage": "https://vue-interface.github.io/packages/activity-indicator",
   "files": [
+    "src",
     "dist",
     "index.css",
     "README.md",

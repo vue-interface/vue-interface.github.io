@@ -41,6 +41,7 @@
   "homepage": "https://vue-interface.github.io/packages/btn-dropdown",
   "readme": "README.md",
   "files": [
+    "src",
     "dist",
     "index.css",
     "README.md",

@@ -50,6 +50,7 @@
     "@floating-ui/dom": "^1.7.2"
   },
   "files": [
+    "src",
     "dist",
     "index.css",
     "README.md",

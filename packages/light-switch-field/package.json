@@ -42,6 +42,7 @@
   "homepage": "https://vue-interface.github.io/packages/light-switch-field",
   "readme": "README.md",
   "files": [
+    "src",
     "dist",
     "index.css",
     "README.md",

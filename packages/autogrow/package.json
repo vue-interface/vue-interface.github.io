@@ -39,6 +39,7 @@
   },
   "homepage": "https://vue-interface.github.io/packages/autogrow",
   "files": [
+    "src",
     "dist",
     "README.md",
     "LICENSE"

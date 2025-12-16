@@ -226,12 +226,6 @@ importers:
 
   packages/slide-panel:
     dependencies:
-      '@vue-interface/btn':
-        specifier: workspace:*
-        version: link:../btn
-      '@vue-interface/input-field':
-        specifier: workspace:*
-        version: link:../input-field
       css-unit-converter:
         specifier: ^1.1.2
         version: 1.1.2
