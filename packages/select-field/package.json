@@ -1,6 +1,6 @@
 {
   "name": "@vue-interface/select-field",
-  "version": "2.0.0",
+  "version": "2.0.12",
   "description": "A Vue select field component.",
   "type": "module",
   "main": "./dist/select-field.umd.js",
@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vue-interface/select-field"
+    "url": "git+https://github.com/vue-interface/vue-interface.github.io"
   },
   "keywords": [
     "Select",
@@ -33,11 +33,20 @@
     "Bootstrap"
   ],
   "author": "Justin Kimbrell",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vue-interface/select-field"
+    "url": "https://github.com/vue-interface/vue-interface.github.io"
   },
-  "homepage": "https://github.com/vue-interface/vue-interface",
+  "homepage": "https://vue-interface.github.io/packages/select-field",
+  "readme": "README.md",
+  "files": [
+    "src",
+    "dist",
+    "index.ts",
+    "index.css",
+    "README.md",
+    "LICENSE"
+  ],
   "peerDependencies": {
     "@vue-interface/activity-indicator": "workspace:*",
     "@vue-interface/form-control": "workspace:*",

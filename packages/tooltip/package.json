@@ -1,7 +1,8 @@
 {
   "name": "@vue-interface/tooltip",
-  "version": "2.0.1",
+  "version": "2.0.6",
   "description": "A Vue tooltip component.",
+  "readme": "README.md",
   "type": "module",
   "main": "./dist/tooltip.umd.js",
   "module": "./dist/tooltip.js",
@@ -9,12 +10,12 @@
   "exports": {
     ".": {
       "source": "./index.ts",
-      "types": "./index.ts",
+      "types": "./dist/index.d.ts",
+      "style": "./index.css",
       "import": "./dist/tooltip.js",
       "require": "./dist/tooltip.umd.js"
     },
-    "./tailwindcss": "./tailwindcss/index.cjs",
-    "./tailwindcss/safelist": "./tailwindcss/safelist.cjs"
+    "./css": "./index.css"
   },
   "browserslist": "last 2 versions, > 0.5%, ie >= 11",
   "scripts": {
@@ -24,7 +25,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vue-interface/tooltip"
+    "url": "git+https://github.com/vue-interface/vue-interface.github.io"
   },
   "keywords": [
     "Tooltip",
@@ -34,11 +35,11 @@
     "Bootstrap"
   ],
   "author": "Justin Kimbrell",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vue-interface/tooltip"
+    "url": "https://github.com/vue-interface/vue-interface.github.io"
   },
-  "homepage": "https://github.com/vue-interface/vue-interface",
+  "homepage": "https://vue-interface.github.io/packages/tooltip",
   "dependencies": {
     "@popperjs/core": "^2.4.4"
   },
@@ -50,9 +51,12 @@
     "@floating-ui/dom": "^1.7.2"
   },
   "files": [
+    "src",
     "dist",
+    "index.ts",
     "index.css",
-    "index.ts"
+    "README.md",
+    "LICENSE"
   ],
   "publishConfig": {
     "access": "public"

@@ -1,6 +1,6 @@
 {
   "name": "@vue-interface/btn-dropdown",
-  "version": "3.0.0",
+  "version": "4.0.6",
   "description": "A Vue button dropdown component.",
   "type": "module",
   "main": "./dist/btn-dropdown.umd.js",
@@ -10,6 +10,7 @@
     ".": {
       "source": "./index.ts",
       "types": "./dist/index.d.ts",
+      "style": "./index.css",
       "import": "./dist/btn-dropdown.js",
       "require": "./dist/btn-dropdown.umd.js"
     }
@@ -22,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vue-interface/btn-dropdown"
+    "url": "git+https://github.com/vue-interface/vue-interface.github.io"
   },
   "keywords": [
     "Button",
@@ -34,11 +35,20 @@
     "Bootstrap"
   ],
   "author": "Justin Kimbrell",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vue-interface/btn-dropdown"
+    "url": "https://github.com/vue-interface/vue-interface.github.io"
   },
-  "homepage": "https://github.com/vue-interface/vue-interface",
+  "homepage": "https://vue-interface.github.io/packages/btn-dropdown",
+  "readme": "README.md",
+  "files": [
+    "src",
+    "dist",
+    "index.ts",
+    "index.css",
+    "README.md",
+    "LICENSE"
+  ],
   "peerDependencies": {
     "@floating-ui/dom": "^1.7.1",
     "@floating-ui/vue": "^1.1.6",

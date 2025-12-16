@@ -1,7 +1,7 @@
 <script setup lang="ts" generic="ModelValue, Value">
 import type { CheckedFormControlProps, FormControlEvents, FormControlProps, FormControlSlots } from '@vue-interface/form-control';
 import { FormControlErrors, FormControlFeedback, useFormControl } from '@vue-interface/form-control';
-import { InputHTMLAttributes, onMounted, ref } from 'vue';
+import { InputHTMLAttributes, onMounted, useTemplateRef } from 'vue';
 
 const props = withDefaults(defineProps<CheckedFormControlProps<InputHTMLAttributes, CheckboxFieldControlSizePrefix, ModelValue, Value>>(), {
     formControlClass: 'form-check',
@@ -18,31 +18,32 @@ defineSlots<Exclude<FormControlSlots<CheckboxFieldControlSizePrefix,ModelValue>,
     default: () => unknown
 }>();
 
-const emit = defineEmits<FormControlEvents<ModelValue>>();
+const emit = defineEmits<FormControlEvents>();
 
 const {
     controlAttributes,
     formGroupClasses,
     listeners,
-} = useFormControl<InputHTMLAttributes, CheckboxFieldControlSizePrefix, ModelValue, Value>({ model, props, emit });
+} = useFormControl<InputHTMLAttributes, CheckboxFieldControlSizePrefix, ModelValue|undefined, Value>({ model, props, emit });
 
-const field = ref<HTMLInputElement>();
+const field = useTemplateRef<HTMLInputElement>('field');
 
 onMounted(() => {
-    if(!props.checked) {
+    if(!props.checked || !field.value) {
         return;
     }
     
-    if(Array.isArray(props.modelValue)
-        && !props.modelValue.includes(props.value)
-        || !props.modelValue) {
-            
-        field.value?.click();
-    }
+    field.value.checked = true;
 
-    if(field.value) {
-        field.value.checked = true;
-    }
+    // This is old code. Keeping it commented out for a while and will remove
+    // in the future if it is found to not be useful.
+    
+    // if(Array.isArray(props.modelValue)
+    //     && !props.modelValue.includes(props.value)
+    //     || !props.modelValue) {
+            
+    //     field.value?.click();
+    // }
 });
 </script>
 

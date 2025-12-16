@@ -1,6 +1,6 @@
 {
   "name": "@vue-interface/btn",
-  "version": "4.0.0",
+  "version": "5.0.3",
   "description": "A Tailwind CSS utility for buttons.",
   "type": "module",
   "main": "./index.css",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vue-interface/btn"
+    "url": "git+https://github.com/vue-interface/vue-interface.github.io"
   },
   "keywords": [
     "Button",
@@ -22,9 +22,16 @@
     "Bootstrap"
   ],
   "author": "Justin Kimbrell",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vue-interface/btn"
+    "url": "https://github.com/vue-interface/vue-interface.github.io"
   },
-  "homepage": "https://github.com/vue-interface/vue-interface"
+  "homepage": "https://vue-interface.github.io/packages/btn",
+  "readme": "README.md",
+  "files": [
+    "src",
+    "index.css",
+    "README.md",
+    "LICENSE"
+  ]
 }

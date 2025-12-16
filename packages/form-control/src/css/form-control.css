@@ -68,6 +68,10 @@
     --form-control-activity-indicator-top: 50%;
     --form-control-activity-indicator-transform: translate(-1rem, -50%);
     --form-control-activity-indicator-transition: all .15s ease-in;
+    --form-control-activity-indicator-display: flex;
+    --form-control-activity-indicator-align-items: center;
+    --form-control-activity-indicator-justify-content: center;
+    --form-control-activity-indicator-font-size: 1em;
 
     /* Form control color specific */
     --form-control-color-width: 3rem;
@@ -108,6 +112,10 @@
     @variant dark {
         background-color: var(--form-control-dark-background-color);
         border-color: var(--form-control-dark-border-color);
+    }
+
+    .has-icon &.form-control-icon {
+        padding-left: calc(var(--form-control-font-size) * 2);
     }
 
     &:focus {
@@ -233,6 +241,10 @@
     top: var(--form-control-activity-indicator-top);
     transform: var(--form-control-activity-indicator-transform);
     transition: var(--form-control-activity-indicator-transition);
+    display: var(--form-control-activity-indicator-display);
+    align-items: var(--form-control-activity-indicator-align-items);
+    justify-content: var(--form-control-activity-indicator-justify-content);
+    font-size: var(--form-control-activity-indicator-font-size);
 }
 
 @utility form-control-color {

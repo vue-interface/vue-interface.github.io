@@ -3,12 +3,13 @@ import { ActivityIndicator } from '@vue-interface/activity-indicator';
 import { vAutogrow } from '@vue-interface/autogrow';
 import type { FormControlEvents, FormControlProps, FormControlSlots } from '@vue-interface/form-control';
 import { FormControlErrors, FormControlFeedback, useFormControl } from '@vue-interface/form-control';
-import { InputHTMLAttributes, ref, TextareaHTMLAttributes, useSlots, watch } from 'vue';
+import { InputHTMLAttributes, TextareaHTMLAttributes, useSlots, useTemplateRef, watch } from 'vue';
 
 const props = withDefaults(defineProps<TextareaFieldProps<ModelValue,Value>>(), {
     autogrow: false,
     formControlClass: 'form-control',
-    labelClass: 'form-label'
+    labelClass: 'form-label',
+    size: 'form-control-md'
 });
 
 defineOptions({
@@ -19,15 +20,15 @@ const model = defineModel<ModelValue>();
 
 defineSlots<FormControlSlots<TextareaFieldControlSizePrefix,ModelValue>>();
 
-const emit = defineEmits<FormControlEvents<ModelValue>>();
+const emit = defineEmits<FormControlEvents>();
 
 const {
     controlAttributes,
     formGroupClasses,
     listeners
-} = useFormControl<InputHTMLAttributes, TextareaFieldControlSizePrefix, ModelValue, Value>({ model, props, emit });
+} = useFormControl<InputHTMLAttributes, TextareaFieldControlSizePrefix, ModelValue|undefined, Value>({ model, props, emit });
 
-const field = ref<HTMLTextAreaElement>();
+const field = useTemplateRef<HTMLTextAreaElement>('field');
 
 watch(model, () => {
     field.value?.dispatchEvent(new Event('resize'));
@@ -68,7 +69,7 @@ export type TextareaFieldProps<ModelValue, Value> = FormControlProps<
                 <div
                     v-if="useSlots().icon"
                     class="form-control-inner-icon"
-                    @click="() => field?.focus()">
+                    @click="field?.focus()">
                     <slot name="icon" />
                 </div>
                 <textarea

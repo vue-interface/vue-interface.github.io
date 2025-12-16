@@ -26,6 +26,10 @@ yarn add @vue-interface/slide-panel
 ```bash [npm]
 npm i @vue-interface/slide-panel
 ```
+
+```bash [bun]
+bun i @vue-interface/slide-panel
+```
 :::
 
 ## Basic Usage

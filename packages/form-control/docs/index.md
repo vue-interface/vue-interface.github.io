@@ -24,6 +24,10 @@ yarn add @vue-interface/form-control
 ```bash [npm]
 npm i @vue-interface/form-control
 ```
+
+```bash [bun]
+bun i @vue-interface/form-control
+```
 :::
 
 ### Tailwind Setup

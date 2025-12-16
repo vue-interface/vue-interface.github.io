@@ -2,11 +2,12 @@
 import { ActivityIndicator } from '@vue-interface/activity-indicator';
 import type { FormControlEvents, FormControlProps, FormControlSlots } from '@vue-interface/form-control';
 import { FormControlErrors, FormControlFeedback, useFormControl } from '@vue-interface/form-control';
-import { InputHTMLAttributes, ref } from 'vue';
+import { InputHTMLAttributes, useTemplateRef } from 'vue';
 
 const props = withDefaults(defineProps<InputFieldProps<ModelValue,Value>>(), {
     formControlClass: 'form-control',
-    labelClass: 'form-label'
+    labelClass: 'form-label',
+    size: 'form-control-md'
 });
 
 defineOptions({
@@ -17,15 +18,15 @@ const model = defineModel<ModelValue>();
 
 defineSlots<FormControlSlots<InputFieldControlSizePrefix,ModelValue>>();
 
-const emit = defineEmits<FormControlEvents<ModelValue>>();
+const emit = defineEmits<FormControlEvents>();
 
 const {
     controlAttributes,
     formGroupClasses,
     listeners
-} = useFormControl<InputHTMLAttributes, InputFieldControlSizePrefix, ModelValue, Value>({ model, props, emit });
+} = useFormControl<InputHTMLAttributes, InputFieldControlSizePrefix, ModelValue|undefined, Value>({ model, props, emit });
 
-const field = ref<HTMLInputElement>();
+const field = useTemplateRef<HTMLInputElement>('field');
 </script>
 
 <script lang="ts">

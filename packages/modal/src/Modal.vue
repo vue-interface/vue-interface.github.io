@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, FunctionalComponent, onMounted, onUnmounted, ref, watchEffect, useAttrs, type Component, type RenderFunction } from 'vue';
+import { computed, FunctionalComponent, onMounted, onUnmounted, ref, useAttrs, watch, watchEffect, type Component, type RenderFunction } from 'vue';
 import CheckCircleIcon from '../src/CheckCircleIcon.vue';
 import ExclamationCircleIcon from '../src/ExclamationCircleIcon.vue';
 import ExclamationTriangleIcon from '../src/ExclamationTriangleIcon.vue';
@@ -155,6 +155,25 @@ function onClickTrigger() {
         open();
     }
 }
+
+function onEsc(e: KeyboardEvent) {
+    if(e.code === 'Escape') {
+        close();
+    }
+}
+
+watch(showing, () => {
+    if(!props.dismissable) {
+        return;
+    }
+
+    if(showing.value) {
+        window.addEventListener('keydown', onEsc);
+    }
+    else if(!showing.value) {
+        window.removeEventListener('keydown', onEsc);
+    }
+})
 
 onMounted(() => {
     mounted.value = props.show;

@@ -1,6 +1,6 @@
 {
   "name": "@vue-interface/checkbox-field",
-  "version": "3.0.0",
+  "version": "3.0.12",
   "description": "A Vue checkbox field component.",
   "type": "module",
   "main": "./dist/checkbox-field.umd.js",
@@ -10,6 +10,7 @@
     ".": {
       "source": "./index.ts",
       "types": "./dist/index.d.ts",
+      "style": "./index.css",
       "import": "./dist/checkbox-field.js",
       "require": "./dist/checkbox-field.umd.cjs"
     }
@@ -22,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vue-interface/checkbox-field"
+    "url": "git+https://github.com/vue-interface/vue-interface.github.io"
   },
   "keywords": [
     "Checkbox",
@@ -33,11 +34,20 @@
     "Bootstrap"
   ],
   "author": "Justin Kimbrell",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vue-interface/checkbox-field"
+    "url": "https://github.com/vue-interface/vue-interface.github.io"
   },
-  "homepage": "https://github.com/vue-interface/vue-interface",
+  "homepage": "https://vue-interface.github.io/packages/checkbox-field",
+  "readme": "README.md",
+  "files": [
+    "src",
+    "dist",
+    "index.ts",
+    "index.css",
+    "README.md",
+    "LICENSE"
+  ],
   "peerDependencies": {
     "@vue-interface/form-control": "workspace:*",
     "vue": "^3.3.4"

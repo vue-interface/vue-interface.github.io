@@ -38,6 +38,10 @@ yarn add @vue-interface/btn-dropdown
 ```bash [npm]
 npm i @vue-interface/btn-dropdown
 ```
+
+```bash [bun]
+bun i @vue-interface/btn-dropdown
+```
 :::
 
 ## Basic Usage
@@ -46,12 +50,12 @@ npm i @vue-interface/btn-dropdown
 
 ::: raw
 <!-- #region basicUsage-->
-<btn-dropdown label="Dropdown" @click-toggle="onToggle">
+<BtnDropdown label="Dropdown" @click-toggle="onToggle">
     <a href="#/test" @click="onClickItem">Action</a>
     <a href="#">Another Action</a>
     <hr>
     <a href="#">Something else here</a>
-</btn-dropdown>
+</BtnDropdown>
 <!-- #endregion basicUsage-->
 :::
 
@@ -63,12 +67,12 @@ Create a split `btn-dropdown` component by adding the `split` prop.
 
 ::: raw
 <!-- #region split-->
-<btn-dropdown label="Dropdown" @click-toggle="onToggle" split>
+<BtnDropdown label="Dropdown" @click-toggle="onToggle" split>
     <a href="#/test" @click="onClickItem">Action</a>
     <a href="#">Another Action</a>
     <hr>
     <a href="#">Something else here</a>
-</btn-dropdown>
+</BtnDropdown>
 <!-- #endregion split-->
 :::
 
@@ -83,14 +87,14 @@ The split dropdown button is a combination of a [button-group](/packages/btn/btn
 ::: raw
 <div class="flex items-center gap-2">
     <!-- #region custom1 -->
-    <btn-dropdown :caret="false" label="+" button-class="btn-primary rounded-full p-0 size-8" @click-toggle="onToggle">
+    <BtnDropdown :caret="false" label="+" button-class="btn-primary rounded-full p-0 size-8" @click-toggle="onToggle">
         <a href="#/test" @click="onClickItem">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
+    </BtnDropdown>
     <!-- #endregion custom1 -->
     <!-- #region custom2 -->
-    <btn-dropdown>
+    <BtnDropdown>
         <template #button="{ target, onBlur, onClickToggle, expanded }">
             <button :ref="target" class="bg-gray-100 p-2 rounded-full outline-none active:ring-4 focus:ring-4 ring-blue-500/50" :class="{'rotate-z-90': expanded}" @blur="onBlur" @click="onClickToggle">
                 <svg version="1.0" class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
@@ -112,7 +116,7 @@ The split dropdown button is a combination of a [button-group](/packages/btn/btn
         <a href="#/test" @click="onClickItem">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>  
+    </BtnDropdown>  
     <!-- #endregion custom2 -->
 </div>
 :::
@@ -130,51 +134,51 @@ The split dropdown button is a combination of a [button-group](/packages/btn/btn
 ::: raw
 <div class="flex flex-wrap gap-2">
     <!-- #region variants -->
-    <btn-dropdown label="Primary" variant="btn-primary">
+    <BtnDropdown label="Primary" variant="btn-primary">
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Secondary" variant="btn-secondary">
+    </BtnDropdown>
+    <BtnDropdown label="Secondary" variant="btn-secondary">
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Success" variant="btn-success">
+    </BtnDropdown>
+    <BtnDropdown label="Success" variant="btn-success">
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Info" variant="btn-info">
+    </BtnDropdown>
+    <BtnDropdown label="Info" variant="btn-info">
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Warning" variant="btn-warning">
+    </BtnDropdown>
+    <BtnDropdown label="Warning" variant="btn-warning">
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Danger" variant="btn-danger">
+    </BtnDropdown>
+    <BtnDropdown label="Danger" variant="btn-danger">
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Dark" variant="btn-dark">
+    </BtnDropdown>
+    <BtnDropdown label="Dark" variant="btn-dark">
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Light" variant="btn-light">
+    </BtnDropdown>
+    <BtnDropdown label="Light" variant="btn-light">
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Muted" variant="btn-muted">
+    </BtnDropdown>
+    <BtnDropdown label="Muted" variant="btn-muted">
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
+    </BtnDropdown>
     <!-- #endregion variants -->
 </div>
 :::
@@ -188,51 +192,51 @@ The split dropdown button is a combination of a [button-group](/packages/btn/btn
 ::: raw
 <div class="flex flex-wrap gap-2">
     <!-- #region outlineVariants -->
-    <btn-dropdown label="Primary" variant="btn-outline-primary" outline>
+    <BtnDropdown label="Primary" variant="btn-outline-primary" outline>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Secondary" variant="btn-outline-secondary" outline>
+    </BtnDropdown>
+    <BtnDropdown label="Secondary" variant="btn-outline-secondary" outline>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Success" variant="btn-outline-success" outline>
+    </BtnDropdown>
+    <BtnDropdown label="Success" variant="btn-outline-success" outline>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Info" variant="btn-outline-info" outline>
+    </BtnDropdown>
+    <BtnDropdown label="Info" variant="btn-outline-info" outline>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Warning" variant="btn-outline-warning" outline>
+    </BtnDropdown>
+    <BtnDropdown label="Warning" variant="btn-outline-warning" outline>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Danger" variant="btn-outline-danger" outline>
+    </BtnDropdown>
+    <BtnDropdown label="Danger" variant="btn-outline-danger" outline>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Dark" variant="btn-outline-dark" outline>
+    </BtnDropdown>
+    <BtnDropdown label="Dark" variant="btn-outline-dark" outline>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Light" variant="btn-outline-light" outline>
+    </BtnDropdown>
+    <BtnDropdown label="Light" variant="btn-outline-light" outline>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Muted" variant="btn-outline-muted" outline>
+    </BtnDropdown>
+    <BtnDropdown label="Muted" variant="btn-outline-muted" outline>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
+    </BtnDropdown>
     <!-- #endregion outlineVariants -->
 </div>
 :::
@@ -246,51 +250,51 @@ The split dropdown button is a combination of a [button-group](/packages/btn/btn
 ::: raw
 <div class="flex flex-wrap gap-2">
     <!-- #region splitVariants -->
-    <btn-dropdown label="Primary" variant="btn-primary" split>
+    <BtnDropdown label="Primary" variant="btn-primary" split>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Secondary" variant="btn-secondary" split>
+    </BtnDropdown>
+    <BtnDropdown label="Secondary" variant="btn-secondary" split>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Success" variant="btn-success" split>
+    </BtnDropdown>
+    <BtnDropdown label="Success" variant="btn-success" split>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Info" variant="btn-info" split>
+    </BtnDropdown>
+    <BtnDropdown label="Info" variant="btn-info" split>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Warning" variant="btn-warning" split>
+    </BtnDropdown>
+    <BtnDropdown label="Warning" variant="btn-warning" split>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Danger" variant="btn-danger" split>
+    </BtnDropdown>
+    <BtnDropdown label="Danger" variant="btn-danger" split>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Dark" variant="btn-dark" split>
+    </BtnDropdown>
+    <BtnDropdown label="Dark" variant="btn-dark" split>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Light" variant="btn-light" split>
+    </BtnDropdown>
+    <BtnDropdown label="Light" variant="btn-light" split>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Muted" variant="btn-muted" split>
+    </BtnDropdown>
+    <BtnDropdown label="Muted" variant="btn-muted" split>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
+    </BtnDropdown>
     <!-- #endregion splitVariants -->
 </div>
 :::
@@ -304,51 +308,51 @@ The split dropdown button is a combination of a [button-group](/packages/btn/btn
 ::: raw
 <div class="flex flex-wrap gap-2">
     <!-- #region splitOutlineVariants -->
-    <btn-dropdown label="Primary" variant="btn-outline-primary" outline split>
+    <BtnDropdown label="Primary" variant="btn-outline-primary" outline split>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Secondary" variant="btn-outline-secondary" outline split>
+    </BtnDropdown>
+    <BtnDropdown label="Secondary" variant="btn-outline-secondary" outline split>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Success" variant="btn-outline-success" outline split>
+    </BtnDropdown>
+    <BtnDropdown label="Success" variant="btn-outline-success" outline split>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Info" variant="btn-outline-info" outline split>
+    </BtnDropdown>
+    <BtnDropdown label="Info" variant="btn-outline-info" outline split>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Warning" variant="btn-outline-warning" outline split>
+    </BtnDropdown>
+    <BtnDropdown label="Warning" variant="btn-outline-warning" outline split>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Danger" variant="btn-outline-danger" outline split>
+    </BtnDropdown>
+    <BtnDropdown label="Danger" variant="btn-outline-danger" outline split>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Dark" variant="btn-outline-dark" outline split>
+    </BtnDropdown>
+    <BtnDropdown label="Dark" variant="btn-outline-dark" outline split>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Light" variant="btn-outline-light" outline split>
+    </BtnDropdown>
+    <BtnDropdown label="Light" variant="btn-outline-light" outline split>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Muted" variant="btn-outline-muted" outline split>
+    </BtnDropdown>
+    <BtnDropdown label="Muted" variant="btn-outline-muted" outline split>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
+    </BtnDropdown>
     <!-- #endregion splitOutlineVariants -->
 </div>
 :::
@@ -369,67 +373,67 @@ The size can be customized using predetermined size classes: `xs`, `sm`, `md`, `
 <div class="flex flex-wrap gap-2">
     <!-- #region predetermined-->
     <div>
-        <btn-dropdown label="xs" size="btn-group-xs" variant="btn-secondary">
+        <BtnDropdown label="xs" size="btn-group-xs" variant="btn-secondary">
             <a href="#">Action</a>
             <a href="#">Another Action</a>
             <a href="#">Something else here</a>
-        </btn-dropdown>
+        </BtnDropdown>
     </div>
     <div>
-        <btn-dropdown label="sm" size="btn-group-sm" variant="btn-secondary">
+        <BtnDropdown label="sm" size="btn-group-sm" variant="btn-secondary">
             <a href="#">Action</a>
             <a href="#">Another Action</a>
             <a href="#">Something else here</a>
-        </btn-dropdown>
+        </BtnDropdown>
     </div>
     <div>
-        <btn-dropdown label="md" size="btn-group-md" variant="btn-secondary">
+        <BtnDropdown label="md" size="btn-group-md" variant="btn-secondary">
             <a href="#">Action</a>
             <a href="#">Another Action</a>
             <a href="#">Something else here</a>
-        </btn-dropdown>
+        </BtnDropdown>
     </div>
     <div>
-        <btn-dropdown label="lg" size="btn-group-lg" variant="btn-secondary">
+        <BtnDropdown label="lg" size="btn-group-lg" variant="btn-secondary">
             <a href="#">Action</a>
             <a href="#">Another Action</a>
             <a href="#">Something else here</a>
-        </btn-dropdown>
+        </BtnDropdown>
     </div>
     <div>
-        <btn-dropdown label="xl" size="btn-group-xl" variant="btn-secondary">
+        <BtnDropdown label="xl" size="btn-group-xl" variant="btn-secondary">
             <a href="#">Action</a>
             <a href="#">Another Action</a>
             <a href="#">Something else here</a>
-        </btn-dropdown>
+        </BtnDropdown>
     </div>
     <div>
-        <btn-dropdown label="2xl" size="btn-group-2xl" variant="btn-secondary">
+        <BtnDropdown label="2xl" size="btn-group-2xl" variant="btn-secondary">
             <a href="#">Action</a>
             <a href="#">Another Action</a>
             <a href="#">Something else here</a>
-        </btn-dropdown>
+        </BtnDropdown>
     </div>
     <div>
-        <btn-dropdown label="3xl" size="btn-group-3xl" variant="btn-secondary">
+        <BtnDropdown label="3xl" size="btn-group-3xl" variant="btn-secondary">
             <a href="#">Action</a>
             <a href="#">Another Action</a>
             <a href="#">Something else here</a>
-        </btn-dropdown>
+        </BtnDropdown>
     </div>
     <div>
-        <btn-dropdown label="4xl" size="btn-group-4xl" variant="btn-secondary">
+        <BtnDropdown label="4xl" size="btn-group-4xl" variant="btn-secondary">
             <a href="#">Action</a>
             <a href="#">Another Action</a>
             <a href="#">Something else here</a>
-        </btn-dropdown>
+        </BtnDropdown>
     </div>
     <div>
-        <btn-dropdown label="5xl" size="btn-group-5xl" variant="btn-secondary">
+        <BtnDropdown label="5xl" size="btn-group-5xl" variant="btn-secondary">
             <a href="#">Action</a>
             <a href="#">Another Action</a>
             <a href="#">Something else here</a>
-        </btn-dropdown>
+        </BtnDropdown>
     </div>
     <!-- #endregion predetermined -->
 </div>
@@ -447,25 +451,25 @@ For more granular control over button sizes, use Tailwind's numeric sizing scale
 <div class="flex gap-2">
     <!-- #region tailwind-->
     <div>
-        <btn-dropdown label="btn-group-3" size="btn-group-3" variant="btn-secondary">
+        <BtnDropdown label="btn-group-3" size="btn-group-3" variant="btn-secondary">
             <a href="#">Action</a>
             <a href="#">Another Action</a>
             <a href="#">Something else here</a>
-        </btn-dropdown>
+        </BtnDropdown>
     </div>
     <div>
-        <btn-dropdown label="btn-group-4" size="btn-group-4" variant="btn-secondary">
+        <BtnDropdown label="btn-group-4" size="btn-group-4" variant="btn-secondary">
             <a href="#">Action</a>
             <a href="#">Another Action</a>
             <a href="#">Something else here</a>
-        </btn-dropdown>
+        </BtnDropdown>
     </div>
     <div>
-        <btn-dropdown label="btn-group-5" size="btn-group-5" variant="btn-secondary">
+        <BtnDropdown label="btn-group-5" size="btn-group-5" variant="btn-secondary">
             <a href="#">Action</a>
             <a href="#">Another Action</a>
             <a href="#">Something else here</a>
-        </btn-dropdown>
+        </BtnDropdown>
     </div>
     <!-- #endregion tailwind-->
 </div>
@@ -483,18 +487,18 @@ For precise sizing, specify exact pixel values using the syntax `btn-group-[Npx]
 <div class="flex gap-2">
     <!-- #region arbitrary-->
     <div>
-        <btn-dropdown label="btn-group-[16px]" size="btn-group-[16px]" variant="btn-secondary">
+        <BtnDropdown label="btn-group-[16px]" size="btn-group-[16px]" variant="btn-secondary">
             <a href="#">Action</a>
             <a href="#">Another Action</a>
             <a href="#">Something else here</a>
-        </btn-dropdown>
+        </BtnDropdown>
     </div>
     <div>
-        <btn-dropdown label="btn-group-[1rem]" size="btn-group-[1rem]" variant="btn-secondary">
+        <BtnDropdown label="btn-group-[1rem]" size="btn-group-[1rem]" variant="btn-secondary">
             <a href="#">Action</a>
             <a href="#">Another Action</a>
             <a href="#">Something else here</a>
-        </btn-dropdown>
+        </BtnDropdown>
     </div>
     <!-- #endregion arbitrary-->
 </div>
@@ -516,67 +520,67 @@ The size can be customized using predetermined size classes: `xs`, `sm`, `md`, `
 <div class="flex flex-wrap gap-2">
     <!-- #region splitPredetermined-->
     <div>
-        <btn-dropdown label="xs" size="btn-group-xs" variant="btn-secondary" split>
+        <BtnDropdown label="xs" size="btn-group-xs" variant="btn-secondary" split>
             <a href="#">Action</a>
             <a href="#">Another Action</a>
             <a href="#">Something else here</a>
-        </btn-dropdown>
+        </BtnDropdown>
     </div>
     <div>
-        <btn-dropdown label="sm" size="btn-group-sm" variant="btn-secondary" split>
+        <BtnDropdown label="sm" size="btn-group-sm" variant="btn-secondary" split>
             <a href="#">Action</a>
             <a href="#">Another Action</a>
             <a href="#">Something else here</a>
-        </btn-dropdown>
+        </BtnDropdown>
     </div>
     <div>
-        <btn-dropdown label="md" size="btn-group-md" variant="btn-secondary" split>
+        <BtnDropdown label="md" size="btn-group-md" variant="btn-secondary" split>
             <a href="#">Action</a>
             <a href="#">Another Action</a>
             <a href="#">Something else here</a>
-        </btn-dropdown>
+        </BtnDropdown>
     </div>
     <div>
-        <btn-dropdown label="lg" size="btn-group-lg" variant="btn-secondary" split>
+        <BtnDropdown label="lg" size="btn-group-lg" variant="btn-secondary" split>
             <a href="#">Action</a>
             <a href="#">Another Action</a>
             <a href="#">Something else here</a>
-        </btn-dropdown>
+        </BtnDropdown>
     </div>
     <div>
-        <btn-dropdown label="xl" size="btn-group-xl" variant="btn-secondary" split>
+        <BtnDropdown label="xl" size="btn-group-xl" variant="btn-secondary" split>
             <a href="#">Action</a>
             <a href="#">Another Action</a>
             <a href="#">Something else here</a>
-        </btn-dropdown>
+        </BtnDropdown>
     </div>
     <div>
-        <btn-dropdown label="2xl" size="btn-group-2xl" variant="btn-secondary" split>
+        <BtnDropdown label="2xl" size="btn-group-2xl" variant="btn-secondary" split>
             <a href="#">Action</a>
             <a href="#">Another Action</a>
             <a href="#">Something else here</a>
-        </btn-dropdown>
+        </BtnDropdown>
     </div>
     <div>
-        <btn-dropdown label="3xl" size="btn-group-3xl" variant="btn-secondary" split>
+        <BtnDropdown label="3xl" size="btn-group-3xl" variant="btn-secondary" split>
             <a href="#">Action</a>
             <a href="#">Another Action</a>
             <a href="#">Something else here</a>
-        </btn-dropdown>
+        </BtnDropdown>
     </div>
     <div>
-        <btn-dropdown label="4xl" size="btn-group-4xl" variant="btn-secondary" split>
+        <BtnDropdown label="4xl" size="btn-group-4xl" variant="btn-secondary" split>
             <a href="#">Action</a>
             <a href="#">Another Action</a>
             <a href="#">Something else here</a>
-        </btn-dropdown>
+        </BtnDropdown>
     </div>
     <div>
-        <btn-dropdown label="5xl" size="btn-group-5xl" variant="btn-secondary" split>
+        <BtnDropdown label="5xl" size="btn-group-5xl" variant="btn-secondary" split>
             <a href="#">Action</a>
             <a href="#">Another Action</a>
             <a href="#">Something else here</a>
-        </btn-dropdown>
+        </BtnDropdown>
     </div>
     <!-- #endregion splitPredetermined -->
 </div>
@@ -594,25 +598,25 @@ For more granular control over button sizes, use Tailwind's numeric sizing scale
 <div class="flex gap-2">
     <!-- #region splitTailwind-->
     <div>
-        <btn-dropdown label="btn-group-3" size="btn-group-3" variant="btn-secondary" split>
+        <BtnDropdown label="btn-group-3" size="btn-group-3" variant="btn-secondary" split>
             <a href="#">Action</a>
             <a href="#">Another Action</a>
             <a href="#">Something else here</a>
-        </btn-dropdown>
+        </BtnDropdown>
     </div>
     <div>
-        <btn-dropdown label="btn-group-4" size="btn-group-4" variant="btn-secondary" split>
+        <BtnDropdown label="btn-group-4" size="btn-group-4" variant="btn-secondary" split>
             <a href="#">Action</a>
             <a href="#">Another Action</a>
             <a href="#">Something else here</a>
-        </btn-dropdown>
+        </BtnDropdown>
     </div>
     <div>
-        <btn-dropdown label="btn-group-5" size="btn-group-5" variant="btn-secondary" split>
+        <BtnDropdown label="btn-group-5" size="btn-group-5" variant="btn-secondary" split>
             <a href="#">Action</a>
             <a href="#">Another Action</a>
             <a href="#">Something else here</a>
-        </btn-dropdown>
+        </BtnDropdown>
     </div>
     <!-- #endregion splitTailwind-->
 </div>
@@ -631,18 +635,18 @@ For precise sizing, specify exact pixel values using the syntax `btn-group-[Npx]
 <div class="flex gap-2">
     <!-- #region splitArbitrary-->
     <div>
-        <btn-dropdown label="btn-group-[16px]" size="btn-group-[16px]" variant="btn-secondary" split>
+        <BtnDropdown label="btn-group-[16px]" size="btn-group-[16px]" variant="btn-secondary" split>
             <a href="#">Action</a>
             <a href="#">Another Action</a>
             <a href="#">Something else here</a>
-        </btn-dropdown>
+        </BtnDropdown>
     </div>
     <div>
-        <btn-dropdown label="btn-group-[1rem]" size="btn-group-[1rem]" variant="btn-secondary" split>
+        <BtnDropdown label="btn-group-[1rem]" size="btn-group-[1rem]" variant="btn-secondary" split>
             <a href="#">Action</a>
             <a href="#">Another Action</a>
             <a href="#">Something else here</a>
-        </btn-dropdown>
+        </BtnDropdown>
     </div>
     <!-- #endregion splitArbitrary-->
 </div>
@@ -659,26 +663,26 @@ Customize the alignment of the dropdown menu  relative to the button using the `
 ::: raw
 <div class="flex gap-2">
     <!-- #region menuAlignment-->
-    <btn-dropdown align="start" label="Align Left" variant="btn-secondary">
+    <BtnDropdown align="start" label="Align Left" variant="btn-secondary">
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown align="start" label="Align Left (Split)" variant="btn-secondary" split>
+    </BtnDropdown>
+    <BtnDropdown align="start" label="Align Left (Split)" variant="btn-secondary" split>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown align="end" label="Align Right" variant="btn-secondary">
+    </BtnDropdown>
+    <BtnDropdown align="end" label="Align Right" variant="btn-secondary">
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown align="end" label="Align Right (Split)" variant="btn-secondary" split>
+    </BtnDropdown>
+    <BtnDropdown align="end" label="Align Right (Split)" variant="btn-secondary" split>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
+    </BtnDropdown>
     <!-- #endregion menuAlignment-->
 </div>
 :::
@@ -696,16 +700,16 @@ Specify the direction of the dropdown menu using the [dropup](#dropup), [droprig
 ::: raw
 <div class="flex gap-2">
     <!-- #region dropup-->
-    <btn-dropdown label="Dropup" variant="btn-secondary" dropup>
+    <BtnDropdown label="Dropup" variant="btn-secondary" dropup>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Dropup (Split)" variant="btn-secondary" dropup split>
+    </BtnDropdown>
+    <BtnDropdown label="Dropup (Split)" variant="btn-secondary" dropup split>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
+    </BtnDropdown>
     <!-- #endregion dropup-->
 </div>
 :::
@@ -719,16 +723,16 @@ Specify the direction of the dropdown menu using the [dropup](#dropup), [droprig
 ::: raw
 <div class="flex gap-2">
     <!-- #region dropright-->
-    <btn-dropdown label="Dropright" variant="btn-secondary" dropright>
+    <BtnDropdown label="Dropright" variant="btn-secondary" dropright>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Dropright (Split)" variant="btn-secondary" dropright split>
+    </BtnDropdown>
+    <BtnDropdown label="Dropright (Split)" variant="btn-secondary" dropright split>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
+    </BtnDropdown>
     <!-- #endregion dropright-->
 </div>
 :::
@@ -742,16 +746,16 @@ Specify the direction of the dropdown menu using the [dropup](#dropup), [droprig
 ::: raw
 <div class="flex gap-2">
     <!-- #region dropleft-->
-    <btn-dropdown label="Dropleft" variant="btn-secondary" dropleft>
+    <BtnDropdown label="Dropleft" variant="btn-secondary" dropleft>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
-    <btn-dropdown label="Dropleft (Split)" variant="btn-secondary" dropleft split>
+    </BtnDropdown>
+    <BtnDropdown label="Dropleft (Split)" variant="btn-secondary" dropleft split>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
-    </btn-dropdown>
+    </BtnDropdown>
     <!-- #endregion dropleft-->
 </div>
 :::

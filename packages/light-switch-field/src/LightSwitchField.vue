@@ -1,22 +1,22 @@
-<script setup lang="ts" generic="ModelValue, Value">
+<script setup lang="ts" generic="Value, ModelValue = boolean">
 import type { CheckedFormControlProps, FormControlSlots } from '@vue-interface/form-control';
 import { FormControlErrors, FormControlEvents, FormControlFeedback, useFormControl } from '@vue-interface/form-control';
-import { computed, InputHTMLAttributes, ref } from 'vue';
+import { computed, InputHTMLAttributes } from 'vue';
 
 const props = withDefaults(defineProps<LightSwitchFieldProps<ModelValue, Value>>(), {
     formControlClass: 'form-switch',
-    labelClass: 'form-switch-label',
-    onValue: undefined,
-    offValue: undefined
+    labelClass: 'form-switch-label'
 });
 
 defineOptions({
     inheritAttrs: false
 });
 
-const model = defineModel<ModelValue, string, boolean>({
+const model = defineModel<ModelValue, string, boolean, ModelValue>({
+    default: false,
+    required: false,
     get(value) {
-        return (value === onValue.value) || props.checked;
+        return (value === onValue.value) || props.checked || false;
     },
     set(value) {
         return value ? onValue.value : offValue.value;
@@ -30,21 +30,25 @@ defineSlots<FormControlSlots<LightSwitchFieldControlSizePrefix, ModelValue> & {
     default: () => unknown
 }>();
 
-const emit = defineEmits<FormControlEvents<ModelValue>>();
+const emit = defineEmits<FormControlEvents>();
 
 const {
     controlAttributes,
     formGroupClasses,
     listeners,
-} = useFormControl<InputHTMLAttributes, LightSwitchFieldControlSizePrefix, ModelValue, Value, boolean | undefined>({ model, props, emit });
-
-const field = ref<HTMLTextAreaElement>();
+} = useFormControl<
+    InputHTMLAttributes,
+    LightSwitchFieldControlSizePrefix,
+    ModelValue,
+    Value,
+    boolean
+>({ model, props, emit });
 </script>
 
 <script lang="ts">
 export type LightSwitchFieldControlSizePrefix = 'form-switch';
 
-export type LightSwitchFieldProps<ModelValue = undefined, Value = undefined> = CheckedFormControlProps<
+export type LightSwitchFieldProps<ModelValue, Value = undefined> = CheckedFormControlProps<
     InputHTMLAttributes,
     LightSwitchFieldControlSizePrefix,
     ModelValue,
@@ -66,9 +70,7 @@ export type LightSwitchFieldProps<ModelValue = undefined, Value = undefined> = C
                 name="control"
                 v-bind="{ controlAttributes, listeners }">
                 <input
-                    ref="field"
                     v-model="model"
-                    type="checkbox"
                     v-bind="{...controlAttributes, ...listeners}">
                 <slot name="label">{{ label }}</slot>
             </slot>

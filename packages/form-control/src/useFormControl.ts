@@ -1,7 +1,7 @@
 import { ActivityIndicatorSize } from '@vue-interface/activity-indicator';
-import { computed, nextTick, onBeforeMount, ref, useAttrs, useSlots, watch, type Component, type EmitFn, type HTMLAttributes, type ModelRef } from 'vue';
+import { computed, nextTick, onBeforeMount, ref, useAttrs, useSlots, watch, type Component, type ComputedRef, type EmitFn, type HTMLAttributes, type ModelRef, type Ref, type SetupContext } from 'vue';
 
-export type NativeFormControlEvents = {
+export type FormControlEvents = {
     blur: [event: FocusEvent];
     focus: [event: FocusEvent];
     focusin: [event: FocusEvent];
@@ -38,10 +38,6 @@ export type NativeFormControlEvents = {
     beforeinput: [event: Event];
 };
 
-export type FormControlEvents<ModelValue> = {
-    'update:modelValue': [value: ModelValue];
-} & NativeFormControlEvents;
-
 export type FormControlListeners<T> = {
   [K in keyof T as `on${Capitalize<string & K>}`]: T[K] extends [infer Arg1, infer Arg2]
     ? (arg1: Arg1, arg2: Arg2) => void
@@ -74,7 +70,7 @@ export type FormControlSlots<Prefix extends string, ModelValue> = {
 export type FormControlSlot<Prefix extends string, ModelValue> = (
     props: {
         controlAttributes: FormControlAttributes<Prefix, ModelValue>;
-        listeners: FormControlListeners<NativeFormControlEvents>;
+        listeners: FormControlListeners<FormControlEvents>;
     }
 ) => unknown;
 
@@ -185,7 +181,23 @@ export type UseFormControlOptions<
 > = {
     model: ModelRef<ModelValue,string,Getter,Setter>;
     props: FormControlProps<Attributes,Size,ModelValue,Value> | CheckedFormControlProps<Attributes,Size,ModelValue,Value>;
-    emit: EmitFn<FormControlEvents<ModelValue>>;
+    emit: EmitFn<FormControlEvents>;
+}
+
+export type UseFormControl<Size extends string, ModelValue, Getter, Setter>  = {
+    attrs: SetupContext['attrs'];
+    controlAttributes: ComputedRef<FormControlAttributes<Size, ModelValue>>
+    controlClasses: ComputedRef<FormControlClasses<Size>>
+    formGroupClasses: ComputedRef<FormGroupClasses>;
+    hasChanged: Ref<boolean>;
+    hasFocus: Ref<boolean>;
+    hasIcon: Ref<boolean>;
+    isDirty: Ref<boolean>;
+    isEmpty: Ref<boolean>;
+    isInvalid: Ref<boolean>;
+    isValid: Ref<boolean>;
+    listeners: FormControlListeners<FormControlEvents>;
+    model: ModelRef<ModelValue,string,Getter,Setter>;
 }
 
 export function useFormControl<
@@ -193,9 +205,18 @@ export function useFormControl<
     Size extends string,
     ModelValue,
     Value,
-    Getter = ModelValue|undefined,
-    Setter = ModelValue|undefined,
->({ props, emit, model }: UseFormControlOptions<Attributes,Size,ModelValue,Value,Getter,Setter>) {
+    Getter = ModelValue,
+    Setter = ModelValue,
+>(options: UseFormControlOptions<Attributes,Size,ModelValue,Value,Getter,Setter>): UseFormControl<Size,ModelValue,Getter,Setter>;
+
+export function useFormControl<
+    Attributes extends HTMLAttributes,
+    Size extends string,
+    ModelValue,
+    Value,
+    Getter = ModelValue,
+    Setter = ModelValue,
+>({ props, emit, model }: UseFormControlOptions<Attributes,Size,ModelValue,Value,Getter,Setter>): UseFormControl<Size, ModelValue, Getter, Setter> {
     const attrs = useAttrs();
     
     const hasChanged = ref(false);
@@ -256,7 +277,7 @@ export function useFormControl<
         'is-empty': isEmpty.value,
     }));
     
-    const listeners: FormControlListeners<NativeFormControlEvents> = {
+    const listeners: FormControlListeners<FormControlEvents> = {
         onBlur: (e: FocusEvent) => {
             hasFocus.value = false;
             emit('blur', e);

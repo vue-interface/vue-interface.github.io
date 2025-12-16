@@ -35,6 +35,10 @@ yarn add @vue-interface/autogrow
 ```bash [npm]
 npm i @vue-interface/autogrow
 ```
+
+```bash [bun]
+bun i @vue-interface/autogrow
+```
 :::
 
 ## Basic Usage

@@ -13,7 +13,7 @@ Since Vue Interface is modular, you install specific packages rather than a sing
 
 ::: code-group
 ```bash [pnpm]
-pnpm add @vue-interface/input-field @vue-interface/form-control
+pnpm i @vue-interface/input-field @vue-interface/form-control
 ```
 
 ```bash [yarn]
@@ -21,7 +21,11 @@ yarn add @vue-interface/input-field @vue-interface/form-control
 ```
 
 ```bash [npm]
-npm install @vue-interface/input-field @vue-interface/form-control
+npm i @vue-interface/input-field @vue-interface/form-control
+```
+
+```bash [bun]
+npm i @vue-interface/input-field @vue-interface/form-control
 ```
 :::
 

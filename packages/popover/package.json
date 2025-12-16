@@ -1,6 +1,6 @@
 {
   "name": "@vue-interface/popover",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "A Vue popover component.",
   "type": "module",
   "main": "./dist/popover.umd.cjs",
@@ -10,9 +10,11 @@
     ".": {
       "source": "./index.ts",
       "types": "./dist/index.d.ts",
+      "style": "./index.css",
       "import": "./dist/popover.js",
       "require": "./dist/popover.umd.cjs"
-    }
+    },
+    "./css": "./index.css"
   },
   "browserslist": "last 2 versions, > 0.5%, ie >= 11",
   "scripts": {
@@ -22,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vue-interface/popover"
+    "url": "git+https://github.com/vue-interface/vue-interface.github.io"
   },
   "keywords": [
     "popover",
@@ -32,22 +34,22 @@
     "Bootstrap"
   ],
   "author": "Justin Kimbrell",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vue-interface/popover"
+    "url": "https://github.com/vue-interface/vue-interface.github.io"
   },
-  "homepage": "https://github.com/vue-interface/vue-interface",
+  "homepage": "https://vue-interface.github.io/packages/popover",
+  "readme": "README.md",
+  "files": [
+    "src",
+    "dist",
+    "index.ts",
+    "index.css",
+    "README.md",
+    "LICENSE"
+  ],
   "peerDependencies": {
     "@floating-ui/vue": "^1.1.9",
-    "@vue-interface/btn": "workspace:*",
     "vue": "^3.3.4"
-  },
-  "files": [
-    "dist",
-    "index.css",
-    "index.ts"
-  ],
-  "publishConfig": {
-    "access": "public"
   }
 }

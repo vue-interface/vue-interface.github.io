@@ -1,6 +1,6 @@
 {
   "name": "@vue-interface/slide-deck",
-  "version": "3.0.0",
+  "version": "3.0.5",
   "description": "A Vue slide deck component.",
   "type": "module",
   "main": "./dist/slide-deck.umd.cjs",
@@ -10,6 +10,7 @@
     ".": {
       "source": "./index.ts",
       "types": "./dist/index.d.ts",
+      "style": "./index.css",
       "import": "./dist/slide-deck.js",
       "require": "./dist/slide-deck.umd.cjs"
     }
@@ -22,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vue-interface/slide-deck"
+    "url": "git+https://github.com/vue-interface/vue-interface.github.io"
   },
   "keywords": [
     "Slide",
@@ -33,13 +34,20 @@
     "Bootstrap"
   ],
   "author": "Justin Kimbrell",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vue-interface/slide-deck"
+    "url": "https://github.com/vue-interface/vue-interface.github.io"
   },
-  "homepage": "https://github.com/vue-interface/vue-interface",
+  "homepage": "https://vue-interface.github.io/packages/slide-deck",
+  "readme": "README.md",
+  "files": [
+    "src",
+    "dist",
+    "index.css",
+    "README.md",
+    "LICENSE"
+  ],
   "peerDependencies": {
-    "@vue-interface/btn": "workspace:*",
     "vue": "^3.3.4"
   }
 }

@@ -61,6 +61,21 @@
                     <a href="#">Another Action</a>
                     <a href="#">Something else here</a>
                 </btn-dropdown>
+
+                <btn-dropdown>
+                    <template #button="{ target, onClickToggle, onBlur }">
+                        <button
+                            :ref="target"
+                            class="flex size-8 items-center justify-center rounded-full btn-primary outline-none overflow-hidden"
+                            @click="onClickToggle"
+                            @blur="onBlur">
+                            JK
+                        </button>
+                    </template>
+                    <a href="#/test" @click="onClickItem">Action</a>
+                    <a href="#">Another Action</a>
+                    <a href="#">Something else here</a>
+                </btn-dropdown>
             </div>
 
             <h2 class="text-2xl mt-6 mb-3">Variants</h2>

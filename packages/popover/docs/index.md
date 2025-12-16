@@ -5,9 +5,7 @@ title: Popover
 <script setup>
 import '../demo.css'
 import { ref } from 'vue';
-/* #region script */
 import Popover from '../src/Popover.vue';
-/* #endregion script */
 </script>
 
 # Popover
@@ -28,74 +26,76 @@ yarn add @vue-interface/popover
 ```bash [npm]
 npm i @vue-interface/popover
 ```
+
+```bash [bun]
+bun i @vue-interface/popover
+```
 :::
 
 ## Basic Usage
 
-The Popover component uses a `default` slot for content and a `trigger` slot for the element that toggles the popover. The `trigger` slot receives `isOpen`, `open`, `close`, and `toggle` methods/state.
+The Popover component uses a `default` slot for content and a `trigger` slot for the element that toggles the popover. The `trigger` slot receives `red`, `isOpen`, `open`, `close`, and `toggle` methods/state.
 
-<!-- #region basicUsage -->
-<div class="flex gap-4 ml-6">
+::: raw
+<div>
+    <!-- #region basicUsage -->
     <Popover>
-        <template #trigger="{ toggle, isOpen }">
-            <button class="btn" @click="toggle">
+        <template #trigger="{ ref, toggle, isOpen }">
+            <button :ref="ref" class="btn" :class="{'btn-primary': !isOpen, 'btn-secondary': isOpen}" @click="toggle">
                 Click me
             </button>
         </template>
-        <div>
-            <h3 class="font-bold text-lg mb-2">Popover</h3>
-            <p>This is a popover</p>
-        </div>
+        <div>This is a popover</div>
     </Popover>
-    <Popover placement="top">
-        <template #trigger="{ toggle, isOpen }">
-            <button class="btn" @click="toggle">
-                Top Aligned
-            </button>
-        </template>
-        <div>
-            top aligned
-        </div>
-    </Popover>
-    <Popover placement="left">
-        <template #trigger="{ toggle, isOpen }">
-            <button class="btn" @click="toggle">
-                Left Aligned
-            </button>
-        </template>
-        <div>
-            left aligned
-        </div>
-    </Popover>
-    <Popover placement="right">
-        <template #trigger="{ toggle, isOpen }">
-            <button class="btn" @click="toggle">
-                Right Aligned
-            </button>
-        </template>
-        <div>
-            right aligned
-        </div>
-    </Popover>
+    <!-- #endregion basicUsage -->
 </div>
-<!-- #endregion basicUsage -->
+:::
 
-<<< ./index.md#script{js}
 <<< ./index.md#basicUsage{html}
 
-## Props
+## Placement
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `arrow` | `boolean` | `true` | Whether to display the arrow pointing to the trigger. |
-| `placement` | `Placement` | `undefined` | Preferred placement of the popover (e.g., 'top', 'bottom', 'left', 'right'). |
-| `strategy` | `Strategy` | `undefined` | Positioning strategy ('absolute' or 'fixed'). |
-| `flip` | `FlipOptions` | `undefined` | Options for the flip middleware. |
-| `offset` | `OffsetOptions` | `{ mainAxis: 10 }` | Options for the offset middleware. |
+The `placement` prop determines where the popover appears relative to its trigger element. You can set it to values like `"top"`, `"left"`, `"right"`, or `"bottom"` to control the popover's alignment.
 
-## Slots
+::: raw
+<div class="flex gap-2">
+    <!-- #region placement -->
+    <Popover placement="top">
+        <template #trigger="{ ref, toggle, isOpen }">
+            <button :ref="ref" class="btn" :class="{'btn-primary': !isOpen, 'btn-secondary': isOpen}" @click="toggle">
+                Top
+            </button>
+        </template>
+        <div>Top aligned popover</div>
+    </Popover>
+    <Popover placement="left">
+        <template #trigger="{ ref, toggle, isOpen }">
+            <button :ref="ref" class="btn" :class="{'btn-primary': !isOpen, 'btn-secondary': isOpen}" @click="toggle">
+                Left
+            </button>
+        </template>
+        <div>Left aligned popover</div>
+    </Popover>
+    <Popover placement="right">
+        <template #trigger="{ ref, toggle, isOpen }">
+            <button :ref="ref" class="btn" :class="{'btn-primary': !isOpen, 'btn-secondary': isOpen}" @click="toggle">
+                Right
+            </button>
+        </template>
+        <div>Right aligned popover</div>
+    </Popover>
+    <Popover placement="bottom">
+        <template #trigger="{ ref, toggle, isOpen }">
+            <button :ref="ref" class="btn" :class="{'btn-primary': !isOpen, 'btn-secondary': isOpen}" @click="toggle">
+                Bottom
+            </button>
+        </template>
+        <div>Bottom aligned popover</div>
+    </Popover>
+    <!-- #endregion placement -->
+</div>
+:::
 
-| Slot | Scoped Props | Description |
-| --- | --- | --- |
-| `trigger` | `{ isOpen, open, close, toggle }` | The element that triggers the popover. |
-| `default` | - | The content of the popover. |
+::: details Show Code
+<<< ./index.md#placement{html}
+:::

@@ -1,7 +1,7 @@
 <script setup lang="ts" generic="ModelValue, Value">
 import type { CheckedFormControlProps, FormControlEvents, FormControlProps, FormControlSlots } from '@vue-interface/form-control';
 import { FormControlErrors, FormControlFeedback, useFormControl } from '@vue-interface/form-control';
-import { InputHTMLAttributes, onMounted, ref } from 'vue';
+import { InputHTMLAttributes, onMounted, useTemplateRef } from 'vue';
 
 const props = withDefaults(defineProps<CheckedFormControlProps<InputHTMLAttributes, RadioFieldControlSizePrefix, ModelValue, Value>>(), {
     formControlClass: 'form-check',
@@ -18,28 +18,22 @@ defineSlots<Exclude<FormControlSlots<RadioFieldControlSizePrefix,ModelValue>, 'a
     default: () => unknown
 }>();
 
-const emit = defineEmits<FormControlEvents<ModelValue>>();
+const emit = defineEmits<FormControlEvents>();
 
 const {
     controlAttributes,
     formGroupClasses,
     listeners,
-} = useFormControl<InputHTMLAttributes, RadioFieldControlSizePrefix, ModelValue, Value>({ model, props, emit });
+} = useFormControl<InputHTMLAttributes, RadioFieldControlSizePrefix, ModelValue|undefined, Value>({ model, props, emit });
 
-const field = ref<HTMLInputElement>();
+const field = useTemplateRef<HTMLInputElement>('field');
 
 onMounted(() => {
-    if(!props.checked) {
+    if(!props.checked || !field.value) {
         return;
     }
 
-    if(!props.modelValue) {  
-        field.value?.click();
-    }
-
-    if(field.value) {
-        field.value.checked = true;
-    }
+    field.value.checked = true;
 });
 </script>
 

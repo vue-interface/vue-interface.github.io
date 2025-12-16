@@ -1,6 +1,6 @@
 {
   "name": "@vue-interface/slide-panel",
-  "version": "2.0.0",
+  "version": "3.0.6",
   "description": "A Vue slide panel component.",
   "type": "module",
   "main": "./dist/slide-panel.umd.cjs",
@@ -10,6 +10,7 @@
     ".": {
       "source": "./index.ts",
       "types": "./dist/index.d.ts",
+      "style": "./index.css",
       "import": "./dist/slide-panel.js",
       "require": "./dist/slide-panel.umd.cjs"
     }
@@ -22,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vue-interface/slide-panel"
+    "url": "git+https://github.com/vue-interface/vue-interface.github.io"
   },
   "keywords": [
     "Slide",
@@ -33,18 +34,25 @@
     "Bootstrap"
   ],
   "author": "Justin Kimbrell",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vue-interface/slide-panel"
+    "url": "https://github.com/vue-interface/vue-interface.github.io"
   },
-  "homepage": "https://github.com/vue-interface/vue-interface",
+  "homepage": "https://vue-interface.github.io/packages/slide-panel",
+  "readme": "README.md",
+  "files": [
+    "src",
+    "dist",
+    "index.ts",
+    "index.css",
+    "README.md",
+    "LICENSE"
+  ],
   "dependencies": {
     "css-unit-converter": "^1.1.2",
     "deepmerge": "^4.2.2"
   },
   "peerDependencies": {
-    "vue": "^3.3.4",
-    "@vue-interface/input-field": "workspace:*",
-    "@vue-interface/btn": "workspace:*"
+    "vue": "^3.3.4"
   }
 }

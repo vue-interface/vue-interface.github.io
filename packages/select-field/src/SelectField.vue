@@ -2,7 +2,7 @@
 import { ActivityIndicator } from '@vue-interface/activity-indicator';
 import type { FormControlEvents, FormControlProps, FormControlSlots } from '@vue-interface/form-control';
 import { FormControlErrors, FormControlFeedback, useFormControl } from '@vue-interface/form-control';
-import { InputHTMLAttributes, onMounted, ref, SelectHTMLAttributes, useSlots } from 'vue';
+import { InputHTMLAttributes, onMounted, SelectHTMLAttributes, useSlots, useTemplateRef } from 'vue';
 
 const props = withDefaults(defineProps<SelectFieldProps<ModelValue,Value>>(), {
     formControlClass: 'form-select',
@@ -19,21 +19,15 @@ defineSlots<FormControlSlots<SelectFieldControlSizePrefix,ModelValue> & {
     default: () => unknown
 }>();
 
-const emit = defineEmits<FormControlEvents<ModelValue>>();
+const emit = defineEmits<FormControlEvents>();
 
 const {
     controlAttributes,
     formGroupClasses,
     listeners,
-} = useFormControl<InputHTMLAttributes, SelectFieldControlSizePrefix, ModelValue, Value>({ model, props, emit });
+} = useFormControl<InputHTMLAttributes, SelectFieldControlSizePrefix, ModelValue|undefined, Value>({ model, props, emit });
 
-const field = ref<HTMLSelectElement>();
-
-function onMousedownLabel(e: MouseEvent) {
-    listeners.onClick(e);
-
-    field.value?.focus();
-}
+const field = useTemplateRef<HTMLSelectElement>('field');
 
 // Check the option slots for selected options. If the field has hardcoded
 // selected options, this will ensure the value of the field is always set to
@@ -78,7 +72,7 @@ export type SelectFieldProps<ModelValue, Value> = FormControlProps<
                 ref="label"
                 :for="controlAttributes.id"
                 :class="labelClass"
-                @mousedown="onMousedownLabel">
+                @click="field?.click()">
                 {{ label }}
             </label>
         </slot>
