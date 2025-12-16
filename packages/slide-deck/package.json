@@ -10,6 +10,7 @@
     ".": {
       "source": "./index.ts",
       "types": "./dist/index.d.ts",
+      "style": "./index.css",
       "import": "./dist/slide-deck.js",
       "require": "./dist/slide-deck.umd.cjs"
     }

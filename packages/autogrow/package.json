@@ -41,6 +41,7 @@
   "files": [
     "src",
     "dist",
+    "index.ts",
     "README.md",
     "LICENSE"
   ],

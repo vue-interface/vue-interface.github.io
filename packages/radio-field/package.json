@@ -10,6 +10,7 @@
     ".": {
       "source": "./index.ts",
       "types": "./dist/index.d.ts",
+      "style": "./index.css",
       "import": "./dist/radio-field.js",
       "require": "./dist/radio-field.umd.js"
     }

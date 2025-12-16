@@ -10,6 +10,7 @@
     ".": {
       "source": "./index.ts",
       "types": "./dist/index.d.ts",
+      "style": "./index.css",
       "import": "./dist/popover.js",
       "require": "./dist/popover.umd.cjs"
     },
@@ -42,6 +43,7 @@
   "files": [
     "src",
     "dist",
+    "index.ts",
     "index.css",
     "README.md",
     "LICENSE"

@@ -10,6 +10,7 @@
     ".": {
       "source": "./index.ts",
       "types": "./dist/index.d.ts",
+      "style": "./index.css",
       "import": "./dist/input-field.js",
       "require": "./dist/input-field.umd.js"
     }
@@ -42,6 +43,7 @@
   "files": [
     "src",
     "dist",
+    "index.ts",
     "index.css",
     "README.md",
     "LICENSE"

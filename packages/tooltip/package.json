@@ -11,6 +11,7 @@
     ".": {
       "source": "./index.ts",
       "types": "./dist/index.d.ts",
+      "style": "./index.css",
       "import": "./dist/tooltip.js",
       "require": "./dist/tooltip.umd.js"
     },
@@ -52,6 +53,7 @@
   "files": [
     "src",
     "dist",
+    "index.ts",
     "index.css",
     "README.md",
     "LICENSE"

@@ -10,6 +10,7 @@
     ".": {
       "source": "./index.ts",
       "types": "./dist/index.d.ts",
+      "style": "./index.css",
       "import": "./dist/btn-dropdown.js",
       "require": "./dist/btn-dropdown.umd.js"
     }
@@ -43,6 +44,7 @@
   "files": [
     "src",
     "dist",
+    "index.ts",
     "index.css",
     "README.md",
     "LICENSE"

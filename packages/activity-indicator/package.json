@@ -11,6 +11,7 @@
     ".": {
       "source": "./index.ts",
       "types": "./dist/index.d.ts",
+      "style": "./index.css",
       "require": "./dist/activity-indicator.umd.js",
       "import": "./dist/activity-indicator.js"
     },
@@ -44,6 +45,7 @@
   "files": [
     "src",
     "dist",
+    "index.ts",
     "index.css",
     "README.md",
     "LICENSE"
