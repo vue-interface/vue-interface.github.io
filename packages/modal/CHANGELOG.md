@@ -1,5 +1,11 @@
 # @vue-interface/modal
 
+## 3.0.6
+
+### Patch Changes
+
+- eb28ce5: Fixed escape keybinding and default backdrop color
+
 ## 3.0.5
 
 ### Patch Changes
