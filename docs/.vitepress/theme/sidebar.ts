@@ -65,6 +65,9 @@ export const sidebar: DefaultTheme.SidebarItem[] = [{
     text: 'Pagination',
     link: '/packages/pagination/'
 }, {
+    text: 'Popover',
+    link: '/packages/popover/'
+}, {
     text: 'Radio Field',
     link: '/packages/radio-field/'
 }, {

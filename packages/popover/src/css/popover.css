@@ -21,7 +21,7 @@
     --popover-arrow-dark-bg: var(--color-neutral-800, oklch(26% 0 0));
     --popover-arrow-dark-border-color: var(--color-neutral-700, oklch(37% 0 0));
 
-    --popover-container-z-index: 10;
+    --popover-container-z-index: 100;
     --popover-container-bg: transparent;
     --popover-container-height: 100vh; 
     --popover-container-width: 100vw;
