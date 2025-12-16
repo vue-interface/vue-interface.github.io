@@ -1,6 +1,6 @@
 {
   "name": "@vue-interface/autogrow",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Vue directive that makes textareas grow as the user types.",
   "readme": "README.md",
   "type": "module",

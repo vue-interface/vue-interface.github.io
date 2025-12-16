@@ -1,5 +1,13 @@
 # @vue-interface/breadcrumb
 
+## 2.0.1
+
+### Patch Changes
+
+- d81d6a7: - Fixed issues with dist not being published
+  - Added README.md
+  - Added MIT license
+
 ## 2.0.0
 
 ### Major Changes
