@@ -1,5 +1,11 @@
 # @vue-interface/tooltip
 
+## 2.0.3
+
+### Patch Changes
+
+- b1b56fc: Updated MIT license
+
 ## 2.0.2
 
 ### Patch Changes
