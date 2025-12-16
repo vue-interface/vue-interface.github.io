@@ -55,7 +55,7 @@ The Popover component uses a `default` slot for content and a `trigger` slot for
 
 ## Placement
 
-
+The `placement` prop determines where the popover appears relative to its trigger element. You can set it to values like `"top"`, `"left"`, `"right"`, or `"bottom"` to control the popover's alignment.
 
 ::: raw
 <div class="flex gap-2">
