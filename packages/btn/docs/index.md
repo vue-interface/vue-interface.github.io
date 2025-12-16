@@ -24,6 +24,10 @@ yarn add @vue-interface/btn
 ```bash [npm]
 npm i @vue-interface/btn
 ```
+
+```bash [bun]
+bun i @vue-interface/btn
+```
 :::
 
 ### Tailwind Setup

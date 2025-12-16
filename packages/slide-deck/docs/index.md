@@ -62,6 +62,10 @@ yarn add @vue-interface/slide-deck
 ```bash [npm]
 npm i @vue-interface/slide-deck
 ```
+
+```bash [bun]
+bun i @vue-interface/slide-deck
+```
 :::
 
 ## Basic Usage
@@ -75,7 +79,7 @@ The `slide deck` component extends the [button](/packages/btn/) classes, allowin
         <button class="btn btn-primary" @click="firstSlide">First</button>
         <button class="btn btn-primary" @click="lastSlide">Last</button>
     </div>
-    <slide-deck ref="deck" @enter="onEnter" @leave="onLeave" :active="0">
+    <SlideDeck ref="deck" @enter="onEnter" @leave="onLeave" :active="0">
         <template #default="{ next, prev }">
             <div key="Slide 1" class="p-3 bg-red-100">
                 <h2 class="text-3xl mb-3">Slide 1</h2>
@@ -102,7 +106,7 @@ The `slide deck` component extends the [button](/packages/btn/) classes, allowin
                     <button class="btn btn-primary" @click="prev">&larr; Prev</button>
             </div>
         </template>
-    </slide-deck>
+    </SlideDeck>
 </div>
 <!-- #endregion basicUsage -->
 </ClientOnly>

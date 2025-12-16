@@ -39,6 +39,10 @@ yarn add @vue-interface/pagination
 ```bash [npm]
 npm i @vue-interface/pagination
 ```
+
+```bash [bun]
+bun i @vue-interface/pagination
+```
 :::
 
 ## Props
@@ -63,12 +67,12 @@ The `pagination` component utilizes five [Vue props](https://vuejs.org/guide/com
 
 ::: raw
 <!-- #region basicUsage -->
-<pagination v-model="pageNum" :total-pages="100" class="mb-3"></pagination>
+<Pagination v-model="pageNum" :total-pages="100" class="mb-3"></Pagination>
 
-<pagination :page="1" :total-pages="100" class="mb-3"></pagination>
-<pagination :page="50" :total-pages="100" class="mb-3"></pagination>
-<pagination :page="100" :total-pages="100" class="mb-3"></pagination>
-<pagination :page="50" :total-pages="100" class="mb-3" disabled></pagination>
+<Pagination :page="1" :total-pages="100" class="mb-3"></Pagination>
+<Pagination :page="50" :total-pages="100" class="mb-3"></Pagination>
+<Pagination :page="100" :total-pages="100" class="mb-3"></Pagination>
+<Pagination :page="50" :total-pages="100" class="mb-3" disabled></Pagination>
 <!-- #endregion basicUsage -->
 :::
 
@@ -84,15 +88,15 @@ The size can be customized using predetermined `size prop` values: `xs`, `sm`, `
 
 ::: raw
 <!-- #region predeterminedSizes -->
-<pagination size="pagination-xs" :page="1" :total-pages="100" class="mb-3"></pagination>
-<pagination size="pagination-sm" :page="1" :total-pages="100" class="mb-3"></pagination>
-<pagination size="pagination-md" :page="1" :total-pages="100" class="mb-3"></pagination>
-<pagination size="pagination-lg" :page="1" :total-pages="100" class="mb-3"></pagination>
-<pagination size="pagination-xl" :page="1" :total-pages="100" class="mb-3"></pagination>
-<pagination size="pagination-2xl" :page="1" :total-pages="100" class="mb-3"></pagination>
-<pagination size="pagination-3xl" :page="1" :total-pages="100" class="mb-3"></pagination>
-<pagination size="pagination-4xl" :page="1" :total-pages="100" class="mb-3"></pagination>
-<pagination size="pagination-5xl" :page="1" :total-pages="100" class="mb-3"></pagination>
+<Pagination size="pagination-xs" :page="1" :total-pages="100" class="mb-3"></Pagination>
+<Pagination size="pagination-sm" :page="1" :total-pages="100" class="mb-3"></Pagination>
+<Pagination size="pagination-md" :page="1" :total-pages="100" class="mb-3"></Pagination>
+<Pagination size="pagination-lg" :page="1" :total-pages="100" class="mb-3"></Pagination>
+<Pagination size="pagination-xl" :page="1" :total-pages="100" class="mb-3"></Pagination>
+<Pagination size="pagination-2xl" :page="1" :total-pages="100" class="mb-3"></Pagination>
+<Pagination size="pagination-3xl" :page="1" :total-pages="100" class="mb-3"></Pagination>
+<Pagination size="pagination-4xl" :page="1" :total-pages="100" class="mb-3"></Pagination>
+<Pagination size="pagination-5xl" :page="1" :total-pages="100" class="mb-3"></Pagination>
 <!-- #endregion predeterminedSizes -->
 :::
 
@@ -106,10 +110,10 @@ For more granular control over sizes, use Tailwind's numeric sizing scale classe
 
 ::: raw
 <!-- #region tailwindSizes -->
-<pagination size="pagination-3" :page="1" :total-pages="100" class="mb-3"></pagination>
-<pagination size="pagination-4" :page="1" :total-pages="100" class="mb-3"></pagination>
-<pagination size="pagination-5" :page="1" :total-pages="100" class="mb-3"></pagination>
-<pagination size="pagination-6" :page="1" :total-pages="100" class="mb-3"></pagination>
+<Pagination size="pagination-3" :page="1" :total-pages="100" class="mb-3"></Pagination>
+<Pagination size="pagination-4" :page="1" :total-pages="100" class="mb-3"></Pagination>
+<Pagination size="pagination-5" :page="1" :total-pages="100" class="mb-3"></Pagination>
+<Pagination size="pagination-6" :page="1" :total-pages="100" class="mb-3"></Pagination>
 <!-- #endregion tailwindSizes -->
 :::
 
@@ -123,8 +127,8 @@ For precise sizing, specify exact pixel values using the syntax `pagination-[Npx
 
 ::: raw
 <!-- #region arbitraySizes -->
-<pagination size="pagination-[16px]" :page="1" :total-pages="100" class="mb-3"></pagination>
-<pagination size="pagination-[1.5rem]" :page="1" :total-pages="100" class="mb-3"></pagination>
+<Pagination size="pagination-[16px]" :page="1" :total-pages="100" class="mb-3"></Pagination>
+<Pagination size="pagination-[1.5rem]" :page="1" :total-pages="100" class="mb-3"></Pagination>
 <!-- #endregion arbitraySizes -->
 :::
 
@@ -138,10 +142,10 @@ Customize the color of a `pagination` component with the [Tailwind color palette
 
 ::: raw
 <!-- #region customColors -->
-<pagination color="pagination-amber-500" :page="1" :total-pages="100" class="mb-3"></pagination>
-<pagination color="pagination-green-500" :page="1" :total-pages="100" class="mb-3"></pagination>
-<pagination color="pagination-purple-500" :page="1" :total-pages="100" class="mb-3"></pagination>
-<pagination color="pagination-neutral-500" :page="1" :total-pages="100" class="mb-3"></pagination>
+<Pagination color="pagination-amber-500" :page="1" :total-pages="100" class="mb-3"></Pagination>
+<Pagination color="pagination-green-500" :page="1" :total-pages="100" class="mb-3"></Pagination>
+<Pagination color="pagination-purple-500" :page="1" :total-pages="100" class="mb-3"></Pagination>
+<Pagination color="pagination-neutral-500" :page="1" :total-pages="100" class="mb-3"></Pagination>
 <!-- #endregion customColors -->
 :::
 
@@ -161,9 +165,9 @@ Customize the alignment of the pagination component on the page using the `align
 
 ::: raw
 <!-- #region alignment -->
-<pagination align="start" :page="1" :total-pages="100" class="mb-3"></pagination>
-<pagination align="center" :page="1" :total-pages="100" class="mb-3"></pagination>
-<pagination align="end" :page="1" :total-pages="100" class="mb-3"></pagination>
+<Pagination align="start" :page="1" :total-pages="100" class="mb-3"></Pagination>
+<Pagination align="center" :page="1" :total-pages="100" class="mb-3"></Pagination>
+<Pagination align="end" :page="1" :total-pages="100" class="mb-3"></Pagination>
 <!-- #endregion alignment -->
 :::
 
@@ -181,9 +185,9 @@ The value of `show-pages` must be an **even number**
 
 ::: raw
 <!-- #region customPageNum -->
-<pagination :page="50" :total-pages="100" :show-pages="2" class="mb-3"></pagination>
-<pagination :page="50" :total-pages="100" :show-pages="8" class="mb-3"></pagination>
-<pagination :page="50" :total-pages="100" :show-pages="10" class="mb-3"></pagination>
+<Pagination :page="50" :total-pages="100" :show-pages="2" class="mb-3"></Pagination>
+<Pagination :page="50" :total-pages="100" :show-pages="8" class="mb-3"></Pagination>
+<Pagination :page="50" :total-pages="100" :show-pages="10" class="mb-3"></Pagination>
 <!-- #endregion customPageNum -->
 :::
 
@@ -197,7 +201,7 @@ The current page is: {{ page }}
 
 ::: raw
 <!-- #region reactivePage -->
-<pagination :page="page" :total-pages="100" class="mb-3"></pagination>
+<Pagination :page="page" :total-pages="100" class="mb-3"></Pagination>
 <!-- #endregion reactivePage -->
 :::
 

@@ -30,6 +30,10 @@ yarn add @vue-interface/modal
 ```bash [npm]
 npm i @vue-interface/modal
 ```
+
+```bash [bun]
+bun i @vue-interface/modal
+```
 :::
 
 ## Basic Usage

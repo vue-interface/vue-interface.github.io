@@ -24,6 +24,10 @@ yarn add @vue-interface/breadcrumb
 ```bash [npm]
 npm i @vue-interface/breadcrumb
 ```
+
+```bash [bun]
+bun i @vue-interface/breadcrumb
+```
 :::
 
 ## Basic Usage

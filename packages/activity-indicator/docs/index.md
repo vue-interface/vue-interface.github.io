@@ -44,6 +44,10 @@ yarn add @vue-interface/activity-indicator
 ```bash [npm]
 npm i @vue-interface/activity-indicator
 ```
+
+```bash [bun]
+bun i @vue-interface/activity-indicator
+```
 :::
 
 ## Sizing

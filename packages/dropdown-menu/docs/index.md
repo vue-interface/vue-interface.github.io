@@ -39,6 +39,10 @@ yarn add @vue-interface/dropdown-menu
 ```bash [npm]
 npm i @vue-interface/dropdown-menu
 ```
+
+```bash [bun]
+bun i @vue-interface/dropdown-menu
+```
 :::
 
 ## Basic Usage

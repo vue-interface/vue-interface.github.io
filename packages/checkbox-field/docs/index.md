@@ -45,6 +45,10 @@ yarn add @vue-interface/checkbox-field
 ```bash [npm]
 npm i @vue-interface/checkbox-field
 ```
+
+```bash [bun]
+bun i @vue-interface/checkbox-field
+```
 :::
 
 ## Basic Usage
@@ -55,7 +59,7 @@ npm i @vue-interface/checkbox-field
 
 <div class="mb-4">
     <!-- #region basicUsage -->
-    <checkbox-field
+    <CheckboxField
         v-model="value"
         label="Checked"
         value="1"
@@ -63,7 +67,7 @@ npm i @vue-interface/checkbox-field
         @click="onClick"
         @blur="onBlur"
         @focus="onFocus">
-    </checkbox-field>
+    </CheckboxField>
     <!-- #endregion basicUsage -->
 </div>
 
@@ -79,45 +83,45 @@ Customize the color of a checkbox using a Tailwind color using the class: `form-
 
 <div class="mb-4">
     <!-- #region customColors -->
-    <checkbox-field 
+    <CheckboxField 
         v-model="colors" 
         label="Red" 
         value="red" 
         color="form-check-red-500" 
         checked>
-    </checkbox-field>
-    <checkbox-field 
+    </CheckboxField>
+    <CheckboxField 
         v-model="colors" 
         label="Green" 
         value="green" 
         color="form-check-green-500">
-    </checkbox-field>
-    <checkbox-field 
+    </CheckboxField>
+    <CheckboxField 
         v-model="colors" 
         label="Blue" 
         value="blue" 
         color="form-check-blue-500">
-    </checkbox-field>
-    <checkbox-field 
+    </CheckboxField>
+    <CheckboxField 
         v-model="colors" 
         label="Yellow" 
         value="yellow" 
         color="form-check-yellow-500">
-    </checkbox-field>
-    <checkbox-field 
+    </CheckboxField>
+    <CheckboxField 
         v-model="colors" 
         label="Purple" 
         value="purple" 
         color="form-check-purple-500">
         Purple
-    </checkbox-field>
-    <checkbox-field 
+    </CheckboxField>
+    <CheckboxField 
         v-model="colors" 
         label="Pink" 
         value="pink" 
         color="form-check-pink-500">
         Pink
-    </checkbox-field>
+    </CheckboxField>
     <!-- #endregion customColors -->
 </div>
 
@@ -129,12 +133,12 @@ Customize the color of a checkbox using a Tailwind color using the class: `form-
 
 <div class="mb-4">
     <!-- #region states -->
-    <checkbox-field label="Disabled" disabled></checkbox-field>
-    <checkbox-field label="Disabled (checked)" checked disabled></checkbox-field>
-    <checkbox-field label="Readonly" readonly></checkbox-field>
-    <checkbox-field label="Readonly (checked)" checked readonly></checkbox-field>
-    <checkbox-field label="Readonly & Disabled" readonly disabled></checkbox-field>
-    <checkbox-field label="Readonly & Disabled (checked)" readonly disabled checked></checkbox-field>
+    <CheckboxField label="Disabled" disabled></CheckboxField>
+    <CheckboxField label="Disabled (checked)" checked disabled></CheckboxField>
+    <CheckboxField label="Readonly" readonly></CheckboxField>
+    <CheckboxField label="Readonly (checked)" checked readonly></CheckboxField>
+    <CheckboxField label="Readonly & Disabled" readonly disabled></CheckboxField>
+    <CheckboxField label="Readonly & Disabled (checked)" readonly disabled checked></CheckboxField>
     <!-- #endregion states -->
 </div>
 
@@ -151,15 +155,15 @@ Customize the checkbox's size using a [predetermined size](#predetermined-sizes)
 The size can be customized using predetermined size classes: `xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`. Use the syntax: `form-check-[size]`.
 
 <!-- #region predeterminedSizes -->
-<checkbox-field name="size[]" class="form-check-xs" placeholder="Extra Small">xs</checkbox-field>
-<checkbox-field name="size[]" class="form-check-sm" placeholder="Small">Small</checkbox-field>
-<checkbox-field name="size[]" class="form-check-md" placeholder="Medium">Medium</checkbox-field>
-<checkbox-field name="size[]" class="form-check-lg" placeholder="Large">Large</checkbox-field>
-<checkbox-field name="size[]" class="form-check-xl" placeholder="Extra Large">XL</checkbox-field>
-<checkbox-field name="size[]" class="form-check-2xl" placeholder="2xl">2xl</checkbox-field>
-<checkbox-field name="size[]" class="form-check-3xl" placeholder="3xl">3xl</checkbox-field>
-<checkbox-field name="size[]" class="form-check-4xl" placeholder="4xl">4xl</checkbox-field>
-<checkbox-field name="size[]" class="form-check-5xl" placeholder="5xl">5xl</checkbox-field>
+<CheckboxField name="size[]" class="form-check-xs" placeholder="Extra Small">xs</CheckboxField>
+<CheckboxField name="size[]" class="form-check-sm" placeholder="Small">Small</CheckboxField>
+<CheckboxField name="size[]" class="form-check-md" placeholder="Medium">Medium</CheckboxField>
+<CheckboxField name="size[]" class="form-check-lg" placeholder="Large">Large</CheckboxField>
+<CheckboxField name="size[]" class="form-check-xl" placeholder="Extra Large">XL</CheckboxField>
+<CheckboxField name="size[]" class="form-check-2xl" placeholder="2xl">2xl</CheckboxField>
+<CheckboxField name="size[]" class="form-check-3xl" placeholder="3xl">3xl</CheckboxField>
+<CheckboxField name="size[]" class="form-check-4xl" placeholder="4xl">4xl</CheckboxField>
+<CheckboxField name="size[]" class="form-check-5xl" placeholder="5xl">5xl</CheckboxField>
 <!-- #endregion predeterminedSizes -->
 
 ::: details Show Code
@@ -171,9 +175,9 @@ The size can be customized using predetermined size classes: `xs`, `sm`, `md`, `
 For more granular control over sizes, use Tailwind's numeric sizing scale classes: `form-check-1` - `form-check-96`. 
 
 <!-- #region tailwindSizes -->
-<checkbox-field name="size[]" class="form-check-4" placeholder="form-check-4">form-check-4</checkbox-field>
-<checkbox-field name="size[]" class="form-check-5" placeholder="form-check-5">form-check-5</checkbox-field>
-<checkbox-field name="size[]" class="form-check-6" placeholder="form-check-6">form-check-6</checkbox-field>
+<CheckboxField name="size[]" class="form-check-4" placeholder="form-check-4">form-check-4</CheckboxField>
+<CheckboxField name="size[]" class="form-check-5" placeholder="form-check-5">form-check-5</CheckboxField>
+<CheckboxField name="size[]" class="form-check-6" placeholder="form-check-6">form-check-6</CheckboxField>
 <!-- #endregion tailwindSizes -->
 
 ::: details Show Code
@@ -185,8 +189,8 @@ For more granular control over sizes, use Tailwind's numeric sizing scale classe
 For precise sizing, specify exact pixel values using the syntax `form-check-[Npx]` or any other CSS length units (`rem`, `em`, `mm`, etc.).
 
 <!-- #region arbitrarySizes -->
-<checkbox-field name="size[]" class="form-check-[16px]" placeholder="form-check-[16px]">form-check-[16px]</checkbox-field>
-<checkbox-field name="size[]" class="form-check-[1.5rem]" placeholder="form-check-[1.5rem]">form-check-[1.5rem]</checkbox-field>
+<CheckboxField name="size[]" class="form-check-[16px]" placeholder="form-check-[16px]">form-check-[16px]</CheckboxField>
+<CheckboxField name="size[]" class="form-check-[1.5rem]" placeholder="form-check-[1.5rem]">form-check-[1.5rem]</CheckboxField>
 <!-- #endregion arbitrarySizes -->
 
 ::: details Show Code
@@ -196,41 +200,41 @@ For precise sizing, specify exact pixel values using the syntax `form-check-[Npx
 ## Validation
 
 <!-- #region validation -->
-<checkbox-field 
+<CheckboxField 
     label="Empty Array of Errors" 
     :errors="[]" 
     class="mb-3">
-</checkbox-field>
+</CheckboxField>
 
-<checkbox-field 
+<CheckboxField 
     label="Single Inline Error" 
     class="mb-3 invalid-feedback" 
     error="This is an inline error.">
-</checkbox-field>
-<checkbox-field 
+</CheckboxField>
+<CheckboxField 
     name="multiple" 
     class="mb-3 invalid-feedback" 
     label="Multiple Errors From Object" 
     :errors="{'multiple': ['This is an inline error #1.', 'This is an inline error #2.']}">
-</checkbox-field>
+</CheckboxField>
         
-<checkbox-field 
+<CheckboxField 
     label="Valid Field" 
     valid 
     class="mb-3 valid-feedback">
-</checkbox-field>
-<checkbox-field 
+</CheckboxField>
+<CheckboxField 
     label="Valid Field with Feedback" 
     valid 
     feedback="This is some success message." 
     class="mb-3 valid-feedback">
-</checkbox-field>            
-<checkbox-field 
+</CheckboxField>            
+<CheckboxField 
     label="Valid Field with Array of Feedback" 
     valid 
     :feedback="['This is some success message.', 'This is some success message.']" 
     class="mb-3 valid-feedback">
-</checkbox-field>
+</CheckboxField>
 <!-- #endregion validation -->
 
 ::: details Show Code
