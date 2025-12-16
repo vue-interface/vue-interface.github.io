@@ -1,5 +1,15 @@
 # @vue-interface/select-field
 
+## 2.0.11
+
+### Patch Changes
+
+- c5fa58a: Fixed issue with model types not using generics
+- Updated dependencies [c5fa58a]
+- Updated dependencies [c5fa58a]
+  - @vue-interface/activity-indicator@3.0.5
+  - @vue-interface/form-control@2.0.11
+
 ## 2.0.10
 
 ### Patch Changes

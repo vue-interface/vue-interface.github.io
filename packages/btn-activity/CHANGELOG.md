@@ -1,5 +1,12 @@
 # @vue-interface/btn-activity
 
+## 4.0.5
+
+### Patch Changes
+
+- Updated dependencies [c5fa58a]
+  - @vue-interface/activity-indicator@3.0.5
+
 ## 4.0.4
 
 ### Patch Changes
