@@ -1,5 +1,11 @@
 # @vue-interface/dropdown-menu
 
+## 3.0.5
+
+### Patch Changes
+
+- d634aff: Fixed issue with package.json exports
+
 ## 3.0.4
 
 ### Patch Changes
