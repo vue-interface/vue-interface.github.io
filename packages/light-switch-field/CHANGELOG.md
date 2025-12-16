@@ -1,5 +1,12 @@
 # @vue-interface/light-switch-field
 
+## 3.0.11
+
+### Patch Changes
+
+- Updated dependencies [90a09cb]
+  - @vue-interface/form-control@2.0.10
+
 ## 3.0.10
 
 ### Patch Changes

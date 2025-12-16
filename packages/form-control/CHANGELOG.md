@@ -1,5 +1,11 @@
 # @vue-interface/form-control
 
+## 2.0.10
+
+### Patch Changes
+
+- 90a09cb: Fixed issue with form control padding not being correct with an icon if no size is present
+
 ## 2.0.9
 
 ### Patch Changes

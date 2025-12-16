@@ -1,5 +1,12 @@
 # @vue-interface/radio-field
 
+## 3.0.10
+
+### Patch Changes
+
+- Updated dependencies [90a09cb]
+  - @vue-interface/form-control@2.0.10
+
 ## 3.0.9
 
 ### Patch Changes

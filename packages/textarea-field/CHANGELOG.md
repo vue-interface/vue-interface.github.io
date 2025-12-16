@@ -1,5 +1,12 @@
 # @vue-interface/textarea-field
 
+## 2.0.10
+
+### Patch Changes
+
+- Updated dependencies [90a09cb]
+  - @vue-interface/form-control@2.0.10
+
 ## 2.0.9
 
 ### Patch Changes
