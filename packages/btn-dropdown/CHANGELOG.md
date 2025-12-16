@@ -1,5 +1,11 @@
 # @vue-interface/btn-dropdown
 
+## 4.0.6
+
+### Patch Changes
+
+- 73c53f9: Fix issues with internal types
+
 ## 4.0.5
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @vue-interface/modal
 
+## 3.0.5
+
+### Patch Changes
+
+- 73c53f9: Fix issue with package.json exports
+
 ## 3.0.4
 
 ### Patch Changes
