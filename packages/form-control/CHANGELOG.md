@@ -1,5 +1,11 @@
 # @vue-interface/form-control
 
+## 2.0.6
+
+### Patch Changes
+
+- d619286: Fix issues with package exports
+
 ## 2.0.5
 
 ### Patch Changes
