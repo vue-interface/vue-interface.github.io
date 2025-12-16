@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vue-interface/btn"
+    "url": "git+https://github.com/vue-interface/vue-interface.github.io"
   },
   "keywords": [
     "Button",
@@ -22,9 +22,15 @@
     "Bootstrap"
   ],
   "author": "Justin Kimbrell",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vue-interface/btn"
+    "url": "https://github.com/vue-interface/vue-interface.github.io"
   },
-  "homepage": "https://github.com/vue-interface/vue-interface"
+  "homepage": "https://github.com/vue-interface/vue-interface",
+  "readme": "README.md",
+  "files": [
+    "index.css",
+    "README.md",
+    "LICENSE"
+  ]
 }

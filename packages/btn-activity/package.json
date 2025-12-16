@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vue-interface/btn-activity"
+    "url": "git+https://github.com/vue-interface/vue-interface.github.io"
   },
   "keywords": [
     "Form",
@@ -33,11 +33,18 @@
     "Bootstrap"
   ],
   "author": "Justin Kimbrell",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vue-interface/btn-activity"
+    "url": "https://github.com/vue-interface/vue-interface.github.io"
   },
   "homepage": "https://github.com/vue-interface/vue-interface",
+  "readme": "README.md",
+  "files": [
+    "dist",
+    "index.css",
+    "README.md",
+    "LICENSE"
+  ],
   "peerDependencies": {
     "vue": "^3.3.4",
     "@vue-interface/activity-indicator": "workspace:*",
