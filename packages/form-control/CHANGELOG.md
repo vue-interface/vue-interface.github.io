@@ -1,5 +1,11 @@
 # @vue-interface/form-control
 
+## 2.0.9
+
+### Patch Changes
+
+- 0c83d57: Fix issue with form-icon not working properly if the form-control doesn't specify a size
+
 ## 2.0.8
 
 ### Patch Changes
