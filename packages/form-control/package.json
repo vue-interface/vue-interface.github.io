@@ -6,6 +6,7 @@
   "main": "./dist/form-control.umd.cjs",
   "module": "./dist/form-control.js",
   "types": "./dist/index.d.ts",
+  "style": "./index.css",
   "exports": {
     ".": {
       "source": "./index.ts",
