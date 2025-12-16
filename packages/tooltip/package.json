@@ -34,7 +34,7 @@
     "Bootstrap"
   ],
   "author": "Justin Kimbrell",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/vue-interface/vue-interface.github.io"
   },
@@ -52,7 +52,8 @@
   "files": [
     "dist",
     "index.css",
-    "README.md"
+    "README.md",
+    "LICENSE"
   ],
   "publishConfig": {
     "access": "public"
