@@ -21,6 +21,7 @@ All packages combine [Vue.js](https://vuejs.org/) and [TailwindCSS v4](https://t
 - [Light Switch Field](/packages/light-switch-field/)
 - [Modal](/packages/modal/)
 - [Pagination](/packages/pagination/)
+- [Popover](/packages/popover/)
 - [Radio Field](/packages/radio-field/)
 - [Select Field](/packages/select-field/)
 - [Slide Deck](/packages/slide-deck/)

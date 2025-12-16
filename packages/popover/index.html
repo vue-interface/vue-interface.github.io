@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Popover</title>
+    </head>
+    <body class="dark:bg-neutral-900 dark:text-white bg-neutral-50">
+        <div id="app" class="container mx-auto">
+            <h1 class="text-4xl mb-6">Popover</h1>
+
+            <div class="flex gap-4 ml-8">
+                <Popover>
+                    <template #trigger="{ toggle, isOpen }">
+                        <button class="btn" @click="toggle">
+                            Popover
+                        </button>
+                    </template>
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">Popover</h3>
+                        <p>This is a popover</p>
+                    </div>
+                </Popover>
+
+                <Popover placement="top">
+                    <template #trigger="{ toggle, isOpen }">
+                        <button class="btn" @click="toggle">
+                            Top Aligned
+                        </button>
+                    </template>
+                    <div>
+                        top aligned
+                    </div>
+                </Popover>
+
+                <Popover placement="left">
+                    <template #trigger="{ toggle, isOpen }">
+                        <button class="btn" @click="toggle">
+                            Left Aligned
+                        </button>
+                    </template>
+                    <div>
+                        left aligned
+                    </div>
+                </Popover>
+
+                <Popover placement="right">
+                    <template #trigger="{ toggle, isOpen }">
+                        <button class="btn" @click="toggle">
+                            Right Aligned
+                        </button>
+                    </template>
+                    <div>
+                        right aligned
+                    </div>
+                </Popover>
+            </div>
+        
+        <script type="module">
+            import './demo.css';
+            import { createApp } from 'vue/dist/vue.esm-bundler.js';
+            import { Popover } from './index.ts';
+            
+            const vue = createApp({
+                components: {
+                    Popover
+                }
+            });
+
+            vue.mount('#app')
+        </script>
+    </body>
+</html>

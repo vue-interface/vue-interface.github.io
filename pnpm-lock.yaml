@@ -188,6 +188,18 @@ importers:
         specifier: ^3.3.4
         version: 3.5.22(typescript@5.9.3)
 
+  packages/popover:
+    dependencies:
+      '@floating-ui/vue':
+        specifier: ^1.1.9
+        version: 1.1.9(vue@3.5.25(typescript@5.9.3))
+      '@vue-interface/btn':
+        specifier: workspace:*
+        version: link:../btn
+      vue:
+        specifier: ^3.3.4
+        version: 3.5.25(typescript@5.9.3)
+
   packages/radio-field:
     dependencies:
       '@vue-interface/form-control':
@@ -3129,6 +3141,15 @@ snapshots:
       - '@vue/composition-api'
       - vue
 
+  '@floating-ui/vue@1.1.9(vue@3.5.25(typescript@5.9.3))':
+    dependencies:
+      '@floating-ui/dom': 1.7.4
+      '@floating-ui/utils': 0.2.10
+      vue-demi: 0.14.10(vue@3.5.25(typescript@5.9.3))
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+
   '@heroicons/vue@2.2.0(vue@3.5.25(typescript@5.9.3))':
     dependencies:
       vue: 3.5.25(typescript@5.9.3)
@@ -5113,6 +5134,10 @@ snapshots:
   vue-demi@0.14.10(vue@3.5.22(typescript@5.9.3)):
     dependencies:
       vue: 3.5.22(typescript@5.9.3)
+
+  vue-demi@0.14.10(vue@3.5.25(typescript@5.9.3)):
+    dependencies:
+      vue: 3.5.25(typescript@5.9.3)
 
   vue-eslint-parser@9.4.3(eslint@9.39.1(jiti@2.6.1)):
     dependencies:
