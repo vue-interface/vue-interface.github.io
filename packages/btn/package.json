@@ -29,6 +29,7 @@
   "homepage": "https://vue-interface.github.io/packages/btn",
   "readme": "README.md",
   "files": [
+    "src",
     "index.css",
     "README.md",
     "LICENSE"

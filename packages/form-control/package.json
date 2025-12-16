@@ -41,7 +41,7 @@
   "homepage": "https://vue-interface.github.io/packages/form-control",
   "readme": "README.md",
   "files": [
-    "dist",
+    "src",
     "index.css",
     "README.md",
     "LICENSE"
