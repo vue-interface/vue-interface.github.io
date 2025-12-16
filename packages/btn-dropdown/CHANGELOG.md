@@ -1,5 +1,14 @@
 # @vue-interface/btn-dropdown
 
+## 4.0.1
+
+### Patch Changes
+
+- 8bc226f: Updated package.json homepage url
+- Updated dependencies [8bc226f]
+  - @vue-interface/dropdown-menu@3.0.2
+  - @vue-interface/btn@5.0.1
+
 ## 4.0.0
 
 ### Patch Changes

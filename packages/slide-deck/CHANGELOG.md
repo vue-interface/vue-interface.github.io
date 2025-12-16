@@ -1,5 +1,11 @@
 # @vue-interface/slide-deck
 
+## 3.0.3
+
+### Patch Changes
+
+- 8bc226f: Updated package.json homepage url
+
 ## 3.0.2
 
 ### Patch Changes
