@@ -124,13 +124,8 @@
         }
     }
 
-    &.has-icon { 
-        padding: 0rem;
-
-        .form-control-icon {
-            padding-left: calc(--value(--form-control-font-size-*, [length]) * 2);
-            padding-left: calc(--spacing(--value(integer)) * 2);
-        }
+    :has(.has-icon) &.form-control-icon {
+        padding-left: calc(var(--form-control-font-size) * 2);
     }
     
     &::placeholder {
