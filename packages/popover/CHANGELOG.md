@@ -1,5 +1,11 @@
 # @vue-interface/popover
 
+## 1.0.5
+
+### Patch Changes
+
+- f042fac: Standardize vite.config.js and fixed export issue.
+
 ## 1.0.4
 
 ### Patch Changes

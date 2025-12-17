@@ -1,5 +1,13 @@
 # @vue-interface/select-field
 
+## 2.0.14
+
+### Patch Changes
+
+- f042fac: Standardize vite.config.js and fixed export issue.
+- Updated dependencies [f042fac]
+  - @vue-interface/form-control@2.0.14
+
 ## 2.0.13
 
 ### Patch Changes
