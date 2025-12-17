@@ -98,4 +98,4 @@ The `placement` prop determines where the popover appears relative to its trigge
 
 ::: details Show Code
 <<< ./index.md#placement{html}
-::: 
+:::
