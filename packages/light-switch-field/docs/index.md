@@ -165,7 +165,7 @@ Validation classes provides error-checking styling for the `light-switch-field` 
 <LightSwitchField label="Valid Field" valid class="mb-3 valid-feedback"></LightSwitchField>
 <LightSwitchField label="Valid Field with Feedback" valid feedback="This is some success message." class="mb-3 valid-feedback"></LightSwitchField>
 <LightSwitchField label="Valid Field with Array of Feedback" valid :feedback="['This is some success message.', 'This is some success message.']" class="mb-3 valid-feedback"></LightSwitchField>
-<!-- #endregion validatin -->
+<!-- #endregion validation -->
 
 ::: details Show Code
 <<< ./index.md#validation{html}

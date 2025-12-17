@@ -303,6 +303,10 @@ Customize the color of the `pagination` component with the [Tailwind color palet
     <!-- #endregion customColors -->
 </div>
 
+::: details Show Code
+<<< ./index.md#customColors{html}
+:::
+
 ## Color Shades
 
 Color shades automatically invert the text color for light and dark colors.
