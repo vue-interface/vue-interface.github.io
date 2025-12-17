@@ -1,7 +1,7 @@
 {
   "name": "@vue-interface/breadcrumb",
   "version": "2.0.5",
-  "description": "A TailwindCSS breadcrumb.",
+  "description": "A TailwindCSS breadcrumb utility.",
   "type": "module",
   "main": "./index.css",
   "module": "./index.css",
