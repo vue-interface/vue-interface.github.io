@@ -1,5 +1,11 @@
 # @vue-interface/pagination
 
+## 4.0.2
+
+### Patch Changes
+
+- e042544: Fixed typo in README.md
+
 ## 4.0.1
 
 ### Patch Changes
