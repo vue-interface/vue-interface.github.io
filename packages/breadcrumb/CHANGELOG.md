@@ -1,5 +1,11 @@
 # @vue-interface/breadcrumb
 
+## 2.0.6
+
+### Patch Changes
+
+- c9e62c6: Updated the package.json description
+
 ## 2.0.5
 
 ### Patch Changes

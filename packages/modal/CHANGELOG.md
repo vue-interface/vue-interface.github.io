@@ -1,5 +1,12 @@
 # @vue-interface/modal
 
+## 3.0.10
+
+### Patch Changes
+
+- Updated dependencies [5fd3b02]
+  - @vue-interface/btn@5.0.5
+
 ## 3.0.9
 
 ### Patch Changes
