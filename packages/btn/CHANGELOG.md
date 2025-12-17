@@ -1,5 +1,11 @@
 # @vue-interface/btn
 
+## 5.0.5
+
+### Patch Changes
+
+- 5fd3b02: Fixed some minor inconsistencies with custom variation text colors
+
 ## 5.0.4
 
 ### Patch Changes

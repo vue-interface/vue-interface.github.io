@@ -1,6 +1,6 @@
 {
   "name": "@vue-interface/pagination",
-  "version": "3.0.4",
+  "version": "4.0.0",
   "description": "A TailwindCSS pagination utility.",
   "type": "module",
   "main": "./index.css",

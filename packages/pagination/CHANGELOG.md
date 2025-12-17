@@ -1,5 +1,11 @@
 # @vue-interface/pagination
 
+## 4.0.0
+
+### Major Changes
+
+- 5fd3b02: Removed the Pagination.vue component and made this a pure Tailwind CSS utility
+
 ## 3.0.1
 
 ### Patch Changes
