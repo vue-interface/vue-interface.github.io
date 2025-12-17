@@ -10,7 +10,7 @@
     --form-check-color-adjust: exact;
     --form-check-padding: 0;
     --form-check-transition: background-color .15s ease-in-out, background-position .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-    --form-check-background-color: var(--form-background-color, inherit);
+    --form-check-background-color: var(--form-background-color, #fff);
     --form-check-background-repeat: var(--form-background-repeat, no-repeat);
     --form-check-border-width: var(--form-border-width, 1px);
     --form-check-border-style: var(--form-border-style, solid);
