@@ -12,7 +12,7 @@
       "source": "./index.ts",
       "types": "./dist/index.d.ts",
       "import": "./dist/autogrow.js",
-      "require": "./dist/autogrow.umd.js"
+      "require": "./dist/autogrow.umd.cjs"
     }
   },
   "scripts": {

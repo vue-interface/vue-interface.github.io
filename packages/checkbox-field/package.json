@@ -3,7 +3,7 @@
   "version": "3.0.13",
   "description": "A Vue checkbox field component.",
   "type": "module",
-  "main": "./dist/checkbox-field.umd.js",
+  "main": "./dist/checkbox-field.umd.cjs",
   "module": "./dist/checkbox-field.js",
   "types": "./dist/index.d.ts",
   "exports": {

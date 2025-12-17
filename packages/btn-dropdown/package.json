@@ -3,7 +3,7 @@
   "version": "4.0.6",
   "description": "A Vue button dropdown component.",
   "type": "module",
-  "main": "./dist/btn-dropdown.umd.js",
+  "main": "./dist/btn-dropdown.umd.cjs",
   "module": "./dist/btn-dropdown.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -12,7 +12,7 @@
       "types": "./dist/index.d.ts",
       "style": "./index.css",
       "import": "./dist/btn-dropdown.js",
-      "require": "./dist/btn-dropdown.umd.js"
+      "require": "./dist/btn-dropdown.umd.cjs"
     }
   },
   "browserslist": "last 2 versions, > 0.5%, ie >= 11",

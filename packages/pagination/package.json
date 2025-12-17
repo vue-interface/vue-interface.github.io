@@ -1,52 +1,44 @@
 {
-	"name": "@vue-interface/pagination",
-	"version": "3.0.4",
-	"description": "A Vue pagination component.",
-	"type": "module",
-	"main": "./dist/pagination.umd.js",
-	"module": "./dist/pagination.js",
-	"types": "./dist/index.d.ts",
-	"exports": {
-		".": {
-			"source": "./index.ts",
-			"types": "./dist/index.d.ts",
-			"style": "./index.css",
-			"import": "./dist/pagination.js",
-			"require": "./dist/pagination.umd.js"
-		}
-	},
-	"browserslist": "last 2 versions, > 0.5%, ie >= 11",
-	"scripts": {
-		"dev": "vite",
-		"build": "vue-tsc && vite build",
-		"preview": "vite preview"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/vue-interface/vue-interface.github.io"
-	},
-	"keywords": [
-		"Pagination",
-		"Vue",
-		"Component",
-		"Tailwind",
-		"Bootstrap"
-	],
-	"author": "Justin Kimbrell",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/vue-interface/vue-interface.github.io"
-	},
-	"homepage": "https://vue-interface.github.io/packages/pagination",
-	"readme": "README.md",
-	"files": [
-		"src",
-		"dist",
-		"index.css",
-		"README.md",
-		"LICENSE"
-	],
-	"peerDependencies": {
-		"vue": "^3.3.4"
-	}
+    "name": "@vue-interface/pagination",
+    "version": "3.0.0",
+    "description": "A Vue pagination component.",
+    "type": "module",
+    "main": "./dist/pagination.umd.js",
+    "module": "./dist/pagination.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "source": "./index.ts",
+            "types": "./dist/index.d.ts",
+            "style": "./index.css",
+            "import": "./dist/pagination.js",
+            "require": "./dist/pagination.umd.js"
+        }
+    },
+    "browserslist": "last 2 versions, > 0.5%, ie >= 11",
+    "scripts": {
+        "dev": "vite",
+        "build": "vue-tsc && vite build",
+        "preview": "vite preview"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/vue-interface/pagination"
+    },
+    "keywords": [
+        "Pagination",
+        "Vue",
+        "Component",
+        "Tailwind",
+        "Bootstrap"
+    ],
+    "author": "Justin Kimbrell",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/vue-interface/pagination"
+    },
+    "homepage": "https://github.com/vue-interface/vue-interface",
+    "peerDependencies": {
+        "vue": "^3.3.4"
+    }
 }

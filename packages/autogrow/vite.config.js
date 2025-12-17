@@ -14,6 +14,9 @@ const external = [
 ];
 
 export default ({ command }) => defineConfig({
+    resolve: command === 'serve'
+        ? ['source', 'import', 'module', 'browser', 'default']
+        : ['import', 'module', 'browser', 'default'],
     build: {
         sourcemap: command === 'build',
         lib: {
@@ -37,16 +40,11 @@ export default ({ command }) => defineConfig({
             ]
         }
     },
-    resolve: {
-        conditions: process.env.NODE_ENV === 'development' 
-            ? ['source', 'import', 'module', 'browser', 'default']
-            : ['import', 'module', 'browser', 'default'],
-    },
     plugins: [
         vue(),
         dts({
             entryRoot: path.resolve(__dirname, './'),
         }),
-        tailwindcss(),
+        tailwindcss()
     ],
 });

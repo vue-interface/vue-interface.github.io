@@ -3,7 +3,7 @@
   "version": "2.0.13",
   "description": "A Vue textarea field component.",
   "type": "module",
-  "main": "./dist/textarea-field.umd.js",
+  "main": "./dist/textarea-field.umd.cjs",
   "module": "./dist/textarea-field.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -12,7 +12,7 @@
       "types": "./dist/index.d.ts",
       "style": "./index.css",
       "import": "./dist/textarea-field.js",
-      "require": "./dist/textarea-field.umd.js"
+      "require": "./dist/textarea-field.umd.cjs"
     }
   },
   "browserslist": "last 2 versions, > 0.5%, ie >= 11",

@@ -12,7 +12,7 @@
       "types": "./dist/index.d.ts",
       "style": "./index.css",
       "import": "./dist/input-field.js",
-      "require": "./dist/input-field.umd.js"
+      "require": "./dist/input-field.umd.cjs"
     }
   },
   "browserslist": "last 2 versions, > 0.5%, ie >= 11",
