@@ -305,7 +305,7 @@ Customize the color of the `pagination` component with the [Tailwind color palet
 
 ## Color Shades
 
-Customize the color of the `pagination` component with the [Tailwind color palette](https://tailwindcss.com/docs/colors) by using the class: `pagination-[color]`.
+Color shades automatically invert the text color for light and dark colors.
 
 <div class="flex flex-col gap-3">
     <!-- #region colorShades -->
