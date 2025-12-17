@@ -1,5 +1,11 @@
 # @vue-interface/form-control
 
+## 2.0.15
+
+### Patch Changes
+
+- 418803a: fix TW colors to be backwards compatable
+
 ## 2.0.14
 
 ### Patch Changes

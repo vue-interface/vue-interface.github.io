@@ -1,6 +1,6 @@
 {
   "name": "@vue-interface/checkbox-field",
-  "version": "3.0.14",
+  "version": "3.0.15",
   "description": "A Vue checkbox field component.",
   "type": "module",
   "main": "./dist/checkbox-field.umd.cjs",
