@@ -1,5 +1,11 @@
 # @vue-interface/light-switch-field
 
+## 3.0.17
+
+### Patch Changes
+
+- 8ac0c48: fix: fixed broken light-switch-field component
+
 ## 3.0.16
 
 ### Patch Changes
