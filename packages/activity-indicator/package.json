@@ -1,6 +1,6 @@
 {
   "name": "@vue-interface/activity-indicator",
-  "version": "3.0.5",
+  "version": "3.0.6",
   "description": "An Vue activity indicator component.",
   "readme": "README.md",
   "type": "module",
