@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "./index.css";
+@import "../btn/index.css";
 
 @variant dark {
     body {
