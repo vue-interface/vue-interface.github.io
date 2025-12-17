@@ -1,5 +1,13 @@
 # @vue-interface/input-field
 
+## 2.0.14
+
+### Patch Changes
+
+- Updated dependencies [f042fac]
+  - @vue-interface/activity-indicator@3.0.6
+  - @vue-interface/form-control@2.0.13
+
 ## 2.0.13
 
 ### Patch Changes
