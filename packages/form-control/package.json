@@ -11,7 +11,7 @@
       "source": "./index.ts",
       "types": "./dist/index.d.ts",
       "style": "./index.css",
-      "require": "./dist/form-control.umd.js",
+      "require": "./dist/form-control.umd.cjs",
       "import": "./dist/form-control.js"
     },
     "./css": "./index.css"

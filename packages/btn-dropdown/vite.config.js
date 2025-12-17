@@ -14,7 +14,7 @@ const external = [
 ];
 
 export default ({ command }) => defineConfig({
-    resolve: command === 'serve' 
+    resolve: command === 'serve'
         ? ['source', 'import', 'module', 'browser', 'default']
         : ['import', 'module', 'browser', 'default'],
     build: {
@@ -45,6 +45,6 @@ export default ({ command }) => defineConfig({
         dts({
             entryRoot: path.resolve(__dirname, './'),
         }),
-        tailwindcss(),
+        tailwindcss()
     ],
 });

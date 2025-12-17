@@ -4,7 +4,7 @@
   "description": "A Vue tooltip component.",
   "readme": "README.md",
   "type": "module",
-  "main": "./dist/tooltip.umd.js",
+  "main": "./dist/tooltip.umd.cjs",
   "module": "./dist/tooltip.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -13,7 +13,7 @@
       "types": "./dist/index.d.ts",
       "style": "./index.css",
       "import": "./dist/tooltip.js",
-      "require": "./dist/tooltip.umd.js"
+      "require": "./dist/tooltip.umd.cjs"
     },
     "./css": "./index.css"
   },

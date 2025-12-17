@@ -12,7 +12,7 @@
       "types": "./dist/index.d.ts",
       "style": "./index.css",
       "import": "./dist/light-switch-field.js",
-      "require": "./dist/light-switch-field.umd.js"
+      "require": "./dist/light-switch-field.umd.cjs"
     }
   },
   "browserslist": "last 2 versions, > 0.5%, ie >= 11",

@@ -3,15 +3,16 @@
   "version": "2.0.12",
   "description": "A Vue select field component.",
   "type": "module",
-  "main": "./dist/select-field.umd.js",
+  "main": "./dist/select-field.umd.cjs",
   "module": "./dist/select-field.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "source": "./index.ts",
       "types": "./dist/index.d.ts",
+      "style": "./index.css",
       "import": "./dist/select-field.js",
-      "require": "./dist/select-field.umd.js"
+      "require": "./dist/select-field.umd.cjs"
     }
   },
   "browserslist": "last 2 versions, > 0.5%, ie >= 11",
