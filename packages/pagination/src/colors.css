@@ -1,45 +1,16 @@
 @theme {
-    --btn-text-default: var(--color-white);
+    --pagination-background-color-primary: var(--color-primary, var(--color-blue-500));
+    --pagination-background-color-secondary: var(--color-secondary, var(--color-gray-500));
+    --pagination-background-color-success: var(--color-success, var(--color-green-500));
+    --pagination-background-color-danger: var(--color-danger, var(--color-red-700));
+    --pagination-background-color-warning: var(--color-warning, var(--color-amber-500));
+    --pagination-background-color-info: var(--color-info, var(--color-teal-400));
+
+    --pagination-background-color-light: var(--color-light, var(--color-gray-100));
+    --pagination-color-light: var(--color-black, #fff);
     
-    --btn-primary: var(--color-primary, var(--color-blue-600));
-    --btn-primary-text: var(--color-white);
-
-    --btn-secondary: var(--color-secondary, var(--color-gray-600));
-    --btn-secondary-text: var(--color-white);
-
-    --btn-success: var(--color-success, var(--color-green-600));
-    --btn-success-text: var(--color-white);
-
-    --btn-danger: var(--color-danger, var(--color-red-700));
-    --btn-danger-text: var(--color-white);
-    
-    --btn-warning: var(--color-warning, var(--color-amber-500));
-    --btn-warning-text: var(--color-white);
-
-    --btn-info: var(--color-info, var(--color-teal-400));
-    --btn-info-text: var(--color-white);
-    
-    --btn-light: var(--color-light, var(--color-gray-100));
-    --btn-light-text: var(--color-black);
-    
-    --btn-dark: var(--color-dark, var(--color-gray-800));
-    --btn-dark-text: var(--color-white);
-
-    /* Dark theme colors for dropdown-menu*/
-    --dropdown-menu-bg-dark: var(--color-neutral-800);
-	--dropdown-menu-border-dark: var(--color-neutral-700);
-
-	--dropdown-menu-item-color-dark: var(--color-neutral-300);
-	--dropdown-menu-item-hover-bg-dark: var(--color-neutral-600);
-	--dropdown-menu-item-hover-color-dark: var(--color-neutral-200);
-
-	--dropdown-menu-item-active-bg-dark: var(--color-blue-500);
-	--dropdown-menu-item-active-color-dark: var(--color-neutral-200);
-
-	--dropdown-menu-header-color-dark: var(--color-neutral-400);
-	--dropdown-menu-text-color-dark: var(--color-neutral-200);
-	--dropdown-menu-divider-border-dark: var(--color-neutral-700);
-
+    --pagination-background-color-dark: var(--color-dark, var(--color-gray-800));
+ 
     /* Grays */
     --text-for-gray-50: var(--color-black, black);
     --text-for-gray-100: var(--color-black, black);

@@ -1,0 +1,193 @@
+@theme {
+    /* Pagination */
+    --pagination-display: inline-flex;
+    --pagination-justify-content: flex-start;
+    --pagination-align-items: center;
+    
+    /* Page Link */
+    --pagination-link-position: relative;
+    --pagination-link-text-decoration: none;
+    --pagination-link-background-color: inherit;
+    --pagination-link-font-size: 1rem;
+    --pagination-link-border-width: 1px;
+    --pagination-link-border-style: solid;
+    --pagination-link-border-color: var(--color-neutral-200, oklch(92.2% 0 0));
+    --pagination-link-border-radius: 0.25rem;
+    --pagination-link-color: inherit;
+    --pagination-link-padding-x: 0.375;
+    --pagination-link-padding-y: 1;
+
+    --pagination-link-dark-color: var(--color-white, #fff);
+    --pagination-link-dark-border-color: var(--color-neutral-700, oklch(37.1% 0 0));
+
+    /* Page Link Hover */
+    --pagination-link-hover-z-index: 2;
+    --pagination-link-hover-text-decoration: none;
+    --pagination-link-hover-background-color: color-mix(in oklch, var(--color-neutral-200, oklch(92.2% 0 0)) 50%, transparent);
+
+    --pagination-link-hover-dark-background-color: color-mix(in oklch, var(--color-neutral-700, oklch(37.1% 0 0)) 50%, transparent);
+
+    /* Page Link Focus */
+    --pagination-link-focus-z-index: 3;
+    --pagination-link-focus-outline: 0;
+    --pagination-link-focus-box-shadow-width: 0.25rem;
+    --pagination-link-focus-box-shadow-color: var(--color-blue-600, oklch(54.1% 0.202 252.551));
+
+    /* Page Link Active */
+    --pagination-link-active-z-index: 2;
+    --pagination-link-active-color: var(--color-white, #fff);
+    --pagination-link-active-border-color: var(--color-blue-600, oklch(54.6% 0.245 262.881));
+    --pagination-link-active-background-color: var(--color-blue-600, oklch(54.6% 0.245 262.881));
+
+    /* Page Link Disabled */
+    --pagination-link-disabled-z-index: 1;
+    --pagination-link-disabled-color: var(--color-neutral-400, oklch(70.8% 0 0));
+    --pagination-link-disabled-pointer-events: none;
+    --pagination-link-disabled-background-color: inherit;
+
+    --pagination-link-disabled-dark-color: var(--color-neutral-500, oklch(70.8% 0 0));
+    --pagination-link-disabled-dark-background-color: inherit;
+}
+
+@utility pagination {
+    display: var(--pagination-display);
+    justify-content: var(--pagination-justify-content);
+    align-items: var(--pagination-align-items);
+    
+    .pagination-link {
+        position: var(--pagination-link-position);
+        text-decoration: var(--pagination-link-text-decoration);
+        background-color: var(--pagination-link-background-color);
+        font-size: var(--pagination-link-font-size);        
+        padding: calc(var(--pagination-link-font-size) * var(--pagination-link-padding-x)) calc(var(--pagination-link-font-size) * var(--pagination-link-padding-y));
+        color: var(--pagination-link-color);
+        border-style:  var(--pagination-link-border-style);
+        border-color: var(--pagination-link-border-color);
+        border-top-width: var(--pagination-link-border-width);
+        border-bottom-width: var(--pagination-link-border-width);
+        border-left-width: var(--pagination-link-border-width);
+
+        &:last-child {
+            border-right-width: var(--pagination-link-border-width);
+        }       
+
+        @variant dark {
+            color: var(--pagination-link-dark-color);
+            border-color: var(--pagination-link-dark-border-color);
+        }
+        
+        &:first-child {
+            border-top-left-radius: var(--pagination-link-border-radius);
+            border-bottom-left-radius: var(--pagination-link-border-radius);
+        }
+
+        &:last-child {
+            border-top-right-radius: var(--pagination-link-border-radius);
+            border-bottom-right-radius: var(--pagination-link-border-radius);
+        }
+        
+        &:hover {
+            z-index: var(--pagination-link-hover-z-index);
+            text-decoration: var(--pagination-link-hover-text-decoration);
+            background-color: var(--pagination-link-hover-background-color);
+
+            @variant dark {
+                background-color: var(--pagination-link-hover-dark-background-color);
+            }
+        }
+
+        &:focus {
+            z-index: var(--pagination-link-focus-z-index);
+            outline: var(--pagination-link-focus-outline);
+            box-shadow: 0 0 0 var(--pagination-link-focus-box-shadow-width) --alpha(var(--pagination-link-focus-box-shadow-color) / 50%);
+            border-color: var(--pagination-link-active-border-color);
+        }
+
+        &.active:not(.disabled) {
+            z-index: var(--pagination-link-active-z-index);
+            color: var(--pagination-link-active-color);
+            background-color: var(--pagination-link-active-background-color);
+            border-color: var(--pagination-link-active-border-color);
+        }
+
+        &:focus, &.active:not(.disabled) {
+            border-left-width: var(--pagination-link-border-width) !important;
+            border-right-width: var(--pagination-link-border-width) !important;
+
+            &:not(.disabled) + .pagination-link {
+                border-left: none
+            }
+        }
+
+        &.disabled {
+            color: var(--pagination-link-disabled-color);
+            background-color: var(--pagination-link-disabled-background-color);
+            z-index: var(--pagination-link-disabled-z-index);
+            pointer-events: var(--pagination-link-disabled-pointer-events);
+            
+            @variant dark {                
+                color: var(--pagination-link-disabled-dark-color);
+                background-color: var(--pagination-link-disabled-dark-background-color);
+            }
+
+            &.active {
+                background-color: var(--pagination-link-border-color);
+
+                @variant dark {                
+                    background-color: var(--pagination-link-dark-border-color);
+                }
+            }
+        }
+    }
+}
+
+@utility pagination-* {
+    .pagination-link {
+        font-size: --value(--pagination-font-size-*, [length]);
+        font-size: --spacing(--value(integer));
+        padding: calc(--value(--pagination-font-size-*, [length]) * var(--pagination-link-padding-x)) calc(--value(--pagination-font-size-*, [length]) * var(--pagination-link-padding-y));
+        padding: calc(--spacing(--value(integer)) * var(--pagination-link-padding-x)) calc(--spacing(--value(integer)) * var(--pagination-link-padding-y));
+        border-color: --value(--pagination-background-color-*, --color-*, [color]);
+
+        &:first-child {
+            border-top-left-radius: calc(--value(--pagination-font-size-*, [length]) / 4);
+            border-top-left-radius: calc(--spacing(--value(integer)) / 4);
+            border-bottom-left-radius: calc(--value(--pagination-font-size-*, [length]) / 4);
+            border-bottom-left-radius: calc(--spacing(--value(integer)) / 4);
+        }
+
+        &:last-child {
+            border-top-right-radius: calc(--value(--pagination-font-size-*, [length]) / 4);
+            border-top-right-radius: calc(--spacing(--value(integer)) / 4);
+            border-bottom-right-radius: calc(--value(--pagination-font-size-*, [length]) / 4);
+            border-bottom-right-radius: calc(--spacing(--value(integer)) / 4);
+        }  
+                
+        &:hover {
+            background-color: color-mix(in oklch, --value(--pagination-background-color-*, --color-*, [color]) 15%, transparent);
+
+            @variant dark {
+                background-color: color-mix(in oklch, --value(--pagination-background-color-*, --color-*, [color]) 33%, transparent);
+            }
+        }
+
+        &:focus {
+            box-shadow: 0 0 0 var(--pagination-link-focus-box-shadow-width) --alpha(--value(--pagination-background-color-*, --color-*, [color]) / 50%);
+            border-color: --value(--pagination-background-color-*, --color-*, [color]);
+        }
+
+        &.active:not(.disabled)  {
+            background-color: --value(--pagination-background-color-*, --color-*, [color]);
+            border-color: --value(--pagination-background-color-*, --color-*, [color]);
+            color: --value(--pagination-color-*, --text-for-*);
+        }
+
+        &.disabled, &.disabled.active {
+            background-color: transparent;
+
+            @variant dark {
+                background-color: transparent;
+            }
+        }
+    }
+}

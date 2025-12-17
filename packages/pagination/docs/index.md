@@ -2,28 +2,13 @@
 title: Pagination
 ---
 
-<script setup>
+<script type="module">
 import '../demo.css'
-import Pagination from '../src/Pagination.vue';
-
-
-const pageNum = ref(1)
-
-/* #region reactive */
-import { ref, onMounted } from 'vue'
-const page = ref(1)
-
-onMounted(() => {
-    setTimeout(() => {
-        page.value = 50
-    }, 1000)
-})
-/* #endregion reactive */
 </script>
 
 # Pagination
 
-The `pagination` component provides flexible and customizable pagination control with customizable sizes, colors, and states.
+The `pagination` utility class provides a flexible and customizable pagination component system with customizable color variants and sizes.
 
 ### Installation
 
@@ -45,60 +30,107 @@ bun i @vue-interface/pagination
 ```
 :::
 
-## Props
-
-The `pagination` component utilizes five [Vue props](https://vuejs.org/guide/components/props.html#prop-validation) for different customizations.
-
-| Prop | Usage Syntax | Description | 
-|------|--------------|-------------|
-| `page` | `:page="[value]" ` | Active page |
-| `total-pages` | `:total-pages="[value]" ` | Total number of pages |
-| `show-pages` | `:show-pages="[value]" ` | [Number of pages visible](#custom-display-amount) |
-| `size` | `size="pagination-[size]"` | [Pagination Size](#sizes) | 
-| `color` | `color="pagination-[color]"` | [Pagination Color](#custom-colors) |
-| `align` | `align="[value]"` | [Custom Alignment](#alignment) |
-| `disabled` | `disabled` | Toggle disabled state |
-
 ## Basic Usage
 
-<div class="bg-neutral-100 dark:bg-neutral-800 p-3 mb-4">
-    Page: {{ pageNum }}
+To create a pagination component, use the parent `pagination` class and then add the `pagination-link` class to the links in the pagination. Use the `active` class to indicate the current page and `disabled` class for non-clickable links.
+
+<div class="flex flex-col gap-3">
+    <!-- #region basicUsage -->
+    <div class="pagination">
+        <a href="#" class="pagination-link">«</a>
+        <a href="#" class="pagination-link">1</a>
+        <div class="pagination-link active disabled">2</div>
+        <a href="#" class="pagination-link">3</a>
+        <div class="pagination-link disabled">...</div>
+        <a href="#" class="pagination-link">4</a>
+        <a href="#" class="pagination-link active">5</a>
+        <a href="#" class="pagination-link">6</a>
+        <div class="pagination-link disabled">...</div>
+        <a href="#" class="pagination-link">7</a>
+        <a href="#" class="pagination-link">8</a>
+        <a href="#" class="pagination-link">9</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <!-- #endregion basicUsage -->
 </div>
-
-::: raw
-<!-- #region basicUsage -->
-<Pagination v-model="pageNum" :total-pages="100" class="mb-3"></Pagination>
-
-<Pagination :page="1" :total-pages="100" class="mb-3"></Pagination>
-<Pagination :page="50" :total-pages="100" class="mb-3"></Pagination>
-<Pagination :page="100" :total-pages="100" class="mb-3"></Pagination>
-<Pagination :page="50" :total-pages="100" class="mb-3" disabled></Pagination>
-<!-- #endregion basicUsage -->
-:::
 
 <<< ./index.md#basicUsage{html}
 
 ## Sizes
 
-Customize the size of a `pagination` component using a [predetermined size](#predetermined-sizes), [tailwind's numeric sizing classes](#tailwind-sizes), or an [arbitrary](#arbitrary-sizes) CSS length unit.
+Customize the size of a `pagination` using a [predetermined size](#predetermined-sizes), [tailwind's numeric sizing classes](#tailwind-sizes), or an [arbitrary](#arbitrary-sizes) CSS length unit.
 
 ### Predetermined Sizes
 
-The size can be customized using predetermined `size prop` values: `xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`. Use the syntax: `pagination-[size]`.
+The size can be customized using predetermined size classes: `xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`. Use the syntax: `pagination-[size]`.
 
-::: raw
-<!-- #region predeterminedSizes -->
-<Pagination size="pagination-xs" :page="1" :total-pages="100" class="mb-3"></Pagination>
-<Pagination size="pagination-sm" :page="1" :total-pages="100" class="mb-3"></Pagination>
-<Pagination size="pagination-md" :page="1" :total-pages="100" class="mb-3"></Pagination>
-<Pagination size="pagination-lg" :page="1" :total-pages="100" class="mb-3"></Pagination>
-<Pagination size="pagination-xl" :page="1" :total-pages="100" class="mb-3"></Pagination>
-<Pagination size="pagination-2xl" :page="1" :total-pages="100" class="mb-3"></Pagination>
-<Pagination size="pagination-3xl" :page="1" :total-pages="100" class="mb-3"></Pagination>
-<Pagination size="pagination-4xl" :page="1" :total-pages="100" class="mb-3"></Pagination>
-<Pagination size="pagination-5xl" :page="1" :total-pages="100" class="mb-3"></Pagination>
-<!-- #endregion predeterminedSizes -->
-:::
+<div class="flex flex-col gap-3">
+    <!-- #region predeterminedSizes-->
+    <div class="pagination pagination-xs">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <div class="pagination pagination-sm">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <div class="pagination pagination-md">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <div class="pagination pagination-lg">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <div class="pagination pagination-xl">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <div class="pagination pagination-2xl">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <div class="pagination pagination-3xl">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <div class="pagination pagination-4xl">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <div class="pagination pagination-5xl">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <!-- #endregion predeterminedSizes-->
+</div>
 
 ::: details Show Code
 <<< ./index.md#predeterminedSizes{html}
@@ -106,104 +138,257 @@ The size can be customized using predetermined `size prop` values: `xs`, `sm`, `
 
 ### Tailwind Sizes
 
-For more granular control over sizes, use Tailwind's numeric sizing scale classes: `pagination-1` - `pagination-96`.
+For more granular control over pagination sizes, use Tailwind's numeric sizing scale classes: `pagination-1` - `pagination-96`.
 
-::: raw
-<!-- #region tailwindSizes -->
-<Pagination size="pagination-3" :page="1" :total-pages="100" class="mb-3"></Pagination>
-<Pagination size="pagination-4" :page="1" :total-pages="100" class="mb-3"></Pagination>
-<Pagination size="pagination-5" :page="1" :total-pages="100" class="mb-3"></Pagination>
-<Pagination size="pagination-6" :page="1" :total-pages="100" class="mb-3"></Pagination>
-<!-- #endregion tailwindSizes -->
-:::
+<div class="flex flex-col gap-3">
+    <!-- #region tailwindSizes-->
+    <div class="pagination pagination-4">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <div class="pagination pagination-5">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <div class="pagination pagination-6">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <!-- #endregion tailwindSizes-->
+</div>
 
 ::: details Show Code
 <<< ./index.md#tailwindSizes{html}
 :::
 
-### Arbitrary Sizes
+### Arbitrary sizes
 
 For precise sizing, specify exact pixel values using the syntax `pagination-[Npx]` or any other CSS length units (`rem`, `em`, `mm`, etc.).
 
-::: raw
-<!-- #region arbitraySizes -->
-<Pagination size="pagination-[16px]" :page="1" :total-pages="100" class="mb-3"></Pagination>
-<Pagination size="pagination-[1.5rem]" :page="1" :total-pages="100" class="mb-3"></Pagination>
-<!-- #endregion arbitraySizes -->
-:::
+<div class="flex flex-col gap-3">
+    <!-- #region arbitrarySizes-->
+    <div class="pagination pagination-[16px]">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <div class="pagination pagination-[1.5rem]">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <!-- #endregion arbitrarySizes-->
+</div>
 
 ::: details Show Code
-<<< ./index.md#arbitraySizes{html}
+<<< ./index.md#arbitrarySizes{html}
+:::
+
+## Variants
+
+The pagination component supports eight standard color variants: `primary`, `secondary`, `success`, `danger`, `warning`, `info`, `light`, `dark`. Use the syntax: `pagination-[variant]`.
+
+<div class="flex flex-col gap-3">
+    <!-- #region variants -->
+    <div class="pagination pagination-primary">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <div class="pagination pagination-secondary">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <div class="pagination pagination-success">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <div class="pagination pagination-danger">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <div class="pagination pagination-warning">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <div class="pagination pagination-info">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <div class="pagination pagination-light">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <div class="pagination pagination-dark">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <!-- #endregion variants -->
+</div>
+
+::: details Show Code
+<<< ./index.md#variants{html}
 :::
 
 ## Custom Colors
 
-Customize the color of a `pagination` component with the [Tailwind color palette](https://tailwindcss.com/docs/colors) by specifying the `color prop`: `color="pagination-[color]"`.
+Customize the color of the `pagination` component with the [Tailwind color palette](https://tailwindcss.com/docs/colors) by using the class: `pagination-[color]`.
 
-::: raw
-<!-- #region customColors -->
-<Pagination color="pagination-amber-500" :page="1" :total-pages="100" class="mb-3"></Pagination>
-<Pagination color="pagination-green-500" :page="1" :total-pages="100" class="mb-3"></Pagination>
-<Pagination color="pagination-purple-500" :page="1" :total-pages="100" class="mb-3"></Pagination>
-<Pagination color="pagination-neutral-500" :page="1" :total-pages="100" class="mb-3"></Pagination>
-<!-- #endregion customColors -->
-:::
+<div class="flex flex-col gap-3">
+    <!-- #region customColors -->
+    <div class="pagination pagination-green-500">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <div class="pagination pagination-amber-500">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <div class="pagination pagination-yellow-500">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <div class="pagination pagination-red-500">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <!-- #endregion customColors -->
+</div>
+
+## Color Shades
+
+Customize the color of the `pagination` component with the [Tailwind color palette](https://tailwindcss.com/docs/colors) by using the class: `pagination-[color]`.
+
+<div class="flex flex-col gap-3">
+    <!-- #region colorShades -->
+    <div class="pagination pagination-red-50">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <div class="pagination pagination-red-100">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <div class="pagination pagination-red-200">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <div class="pagination pagination-red-300">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <div class="pagination pagination-red-400">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <div class="pagination pagination-red-500">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <div class="pagination pagination-red-600">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <div class="pagination pagination-red-700">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <div class="pagination pagination-red-800">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <div class="pagination pagination-red-900">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <div class="pagination pagination-red-950">
+        <a href="#" class="pagination-link disabled">«</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">»</a>
+    </div>
+    <!-- #endregion colorShades -->
+</div>
 
 ::: details Show Code
-<<< ./index.md#customColors{html}
+<<< ./index.md#colorShades{html}
 :::
-
-## Alignment
-
-Customize the alignment of the pagination component on the page using the `align` prop. Syntax: `align="[value]"`. 
-
-| Value | Result |
-|-------|--------|
-| `start` | Left-Aligned | 
-| `center ` | Centered | 
-| `end` | Right-Aligned |
-
-::: raw
-<!-- #region alignment -->
-<Pagination align="start" :page="1" :total-pages="100" class="mb-3"></Pagination>
-<Pagination align="center" :page="1" :total-pages="100" class="mb-3"></Pagination>
-<Pagination align="end" :page="1" :total-pages="100" class="mb-3"></Pagination>
-<!-- #endregion alignment -->
-:::
-
-::: details Show Code
-<<< ./index.md#alignment{html}
-:::
-
-## Custom Display Amount
-
-Customize the number of pages that display in the pagination component using the `:show-pages` prop. Syntax: `:show-pages="[number of pages]"`
-
-::: warning
-The value of `show-pages` must be an **even number**
-:::
-
-::: raw
-<!-- #region customPageNum -->
-<Pagination :page="50" :total-pages="100" :show-pages="2" class="mb-3"></Pagination>
-<Pagination :page="50" :total-pages="100" :show-pages="8" class="mb-3"></Pagination>
-<Pagination :page="50" :total-pages="100" :show-pages="10" class="mb-3"></Pagination>
-<!-- #endregion customPageNum -->
-:::
-
-::: details Show Code
-<<< ./index.md#customPageNum{html}
-:::
-
-## Reactive Page Prop
-
-The current page is: {{ page }}
-
-::: raw
-<!-- #region reactivePage -->
-<Pagination :page="page" :total-pages="100" class="mb-3"></Pagination>
-<!-- #endregion reactivePage -->
-:::
-
-<<< ./index.md#reactivePage{html}
-<<< ./index.md#reactive{js}
