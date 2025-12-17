@@ -1,5 +1,12 @@
 # @vue-interface/form-control
 
+## 2.0.13
+
+### Patch Changes
+
+- Updated dependencies [f042fac]
+  - @vue-interface/activity-indicator@3.0.6
+
 ## 2.0.12
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @vue-interface/activity-indicator
 
+## 3.0.6
+
+### Patch Changes
+
+- f042fac: Standardized vite.config.js and fixed issue with require export.
+
 ## 3.0.5
 
 ### Patch Changes
