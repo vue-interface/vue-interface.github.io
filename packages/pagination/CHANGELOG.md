@@ -1,5 +1,11 @@
 # @vue-interface/pagination
 
+## 3.0.1
+
+### Patch Changes
+
+- f042fac: Standardize vite.config.js and fixed export issue.
+
 ## 3.0.4
 
 ### Patch Changes

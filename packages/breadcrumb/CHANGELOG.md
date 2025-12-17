@@ -1,5 +1,11 @@
 # @vue-interface/breadcrumb
 
+## 2.0.5
+
+### Patch Changes
+
+- f042fac: Standardize vite.config.js and fixed export issue.
+
 ## 2.0.4
 
 ### Patch Changes

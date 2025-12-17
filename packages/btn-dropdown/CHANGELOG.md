@@ -1,5 +1,14 @@
 # @vue-interface/btn-dropdown
 
+## 4.0.7
+
+### Patch Changes
+
+- f042fac: Standardize vite.config.js and fixed export issue.
+- Updated dependencies [f042fac]
+  - @vue-interface/btn@5.0.4
+  - @vue-interface/dropdown-menu@3.0.6
+
 ## 4.0.6
 
 ### Patch Changes

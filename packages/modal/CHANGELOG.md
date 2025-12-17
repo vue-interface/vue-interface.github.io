@@ -1,5 +1,13 @@
 # @vue-interface/modal
 
+## 3.0.9
+
+### Patch Changes
+
+- f042fac: Standardize vite.config.js and fixed export issue.
+- Updated dependencies [f042fac]
+  - @vue-interface/btn@5.0.4
+
 ## 3.0.8
 
 ### Patch Changes

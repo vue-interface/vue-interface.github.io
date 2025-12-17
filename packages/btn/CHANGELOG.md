@@ -1,5 +1,11 @@
 # @vue-interface/btn
 
+## 5.0.4
+
+### Patch Changes
+
+- f042fac: Standardize vite.config.js and fixed export issue.
+
 ## 5.0.3
 
 ### Patch Changes

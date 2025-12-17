@@ -1,5 +1,11 @@
 # @vue-interface/dropdown-menu
 
+## 3.0.6
+
+### Patch Changes
+
+- f042fac: Standardize vite.config.js and fixed export issue.
+
 ## 3.0.5
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @vue-interface/tooltip
 
+## 2.0.7
+
+### Patch Changes
+
+- f042fac: Standardize vite.config.js and fixed export issue.
+
 ## 2.0.6
 
 ### Patch Changes
