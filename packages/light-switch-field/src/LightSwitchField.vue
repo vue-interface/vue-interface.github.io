@@ -70,6 +70,8 @@ export type LightSwitchFieldProps<ModelValue, Value = undefined> = CheckedFormCo
                 name="control"
                 v-bind="{ controlAttributes, listeners }">
                 <input
+                    type="checkbox"
+                    :class="formControlClass"
                     v-model="model"
                     v-bind="{...controlAttributes, ...listeners}">
                 <slot name="label">{{ label }}</slot>
