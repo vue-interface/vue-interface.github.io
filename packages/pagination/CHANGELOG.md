@@ -1,5 +1,11 @@
 # @vue-interface/pagination
 
+## 4.0.1
+
+### Patch Changes
+
+- 4ac9ea9: Updated README.md
+
 ## 4.0.0
 
 ### Major Changes
