@@ -7,6 +7,9 @@ export const sidebar: DefaultTheme.SidebarItem[] = [{
     text: 'Autogrow',
     link: '/packages/autogrow/'
 }, {
+    text: 'Badge',
+    link: '/packages/badge/'
+}, {
     text: 'Breadcrumb',
     link: '/packages/breadcrumb/'
 }, {

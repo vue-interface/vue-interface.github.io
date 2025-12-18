@@ -4,6 +4,7 @@ All packages combine [Vue.js](https://vuejs.org/) and [TailwindCSS v4](https://t
 
 - [Activity Indicator](/packages/activity-indicator/)
 - [Autogrow](/packages/autogrow/)
+- [Badge](/packages/badge/)
 - [Breadcrumb](/packages/breadcrumb/)
 - [Button](/packages/btn/)
 - [Button Activity](/packages/btn-activity/)
