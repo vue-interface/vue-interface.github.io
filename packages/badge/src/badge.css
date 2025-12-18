@@ -1,0 +1,171 @@
+@import 'tailwindcss';
+
+@theme {
+    /* badge variables */
+    --badge-display: inline-flex;
+    --badge-align: center;
+    --badge-gap: 0;
+    --badge-link-font-size: 1rem;
+
+    /* badge-link variables */
+    --badge-link-padding: 0.2em 0.4em;
+    --badge-link-display: flex;
+    --badge-link-align: center;
+    --badge-link-color: var(--color-white, #fff);
+    --badge-link-font-weight: normal;
+    --badge-link-text-decoration: none;
+    --badge-link-background-color: var(--badge-primary, var(--color-blue-600));
+    --badge-link-border-color: var(--badge-primary, var(--color-blue-600));
+    --badge-link-border-radius: 0.25rem;
+    --badge-link-border-style: solid;
+    --badge-link-border-width: 1px;
+    --badge-link-border-radius-left: 0;
+    --badge-link-border-radius-right: 0;
+
+    /* close-button variables */
+    --close-button-position: relative;
+    --close-button-display: inline-flex;
+    --close-button-align-items: center;
+    --close-button-justify-content: center;
+    --close-button-padding: 0em 0em;
+    --close-button-hover-bg: color-mix(in oklch, var(--badge-link-background-color) 95%, black);
+    --close-button-width: 1.5rem;
+    --close-button-height: 2rem;
+    --badge-link-border-left-width: 0;
+    --badge-link-border-right-width: 0;
+    
+        /* X icon */
+        --close-button-before-content: "";
+        --close-button-before-position: absolute;
+        --close-button-before-width: 1em;
+        --close-button-before-height: 1em;
+        --close-button-before-bg: currentColor;
+        --close-button-before-pointer-events: none;
+        --close-button-icon: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Cpath%20stroke='black'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'%20d='M6%2018L18%206M6%206l12%2012'/%3E%3C/svg%3E");
+
+    /* badge-outline variables */
+    --badge-outline-background-color: transparent;
+    --badge-outline-color:  var(--badge-primary, var(--color-blue-600));
+    --badge-outline-hover-color: var(--color-white, #fff);
+}
+
+@utility badge {
+    display: var(--badge-display);
+    align-items: var(--badge-align);
+    gap: var(--badge-gap);
+
+    & .badge-link {
+        font-size: var(--badge-link-font-size);
+        padding: var(--badge-link-padding);
+        display: var(--badge-link-display);
+        align-items: var(--badge-link-align);
+        text-decoration: var(--badge-link-text-decoration);
+        color: var(--badge-link-color);
+        font-weight: var(--badge-link-font-weight);
+        background-color: var(--badge-link-background-color);
+        border-radius: var(--badge-link-border-radius);
+        border-style: var(--badge-link-border-style);
+        border-width: var(--badge-link-border-width);
+        border-color: var(--badge-link-border-color);
+
+        &:not(:first-child) {
+            border-top-left-radius: var(--badge-link-border-radius-left);
+            border-bottom-left-radius: var(--badge-link-border-radius-right);
+            border-left-width: var(--badge-link-border-left-width);
+        }
+
+        &:not(:last-child) {
+            border-top-right-radius: var(--badge-link-border-radius-left);
+            border-bottom-right-radius: var(--badge-link-border-radius-right);
+            border-right-width: var(--badge-link-border-right-width);
+        }
+    }
+
+    & .close-button {
+        position: var(--close-button-position);
+        display: var(--close-button-display);
+        align-items: var(--close-button-align-items);
+        justify-content: var(--close-button-justify-content);
+        width: var(--close-button-width);
+        height: var(--close-button-height);
+        padding: var(--close-button-padding);
+        background-color: var(--badge-link-background-color);
+        border-radius: var(--badge-link-border-radius);
+
+        &:hover {
+            background-color: var(--close-button-hover-bg);
+        }
+
+        &::before {
+            content: var(--close-button-before-content);
+            position: var(--close-button-before-position);
+            width: var(--close-button-before-width);
+            height: var(--close-button-before-height);
+            background-color: var(--close-button-before-bg);
+            -webkit-mask: var(--close-button-icon) center / contain no-repeat;
+            mask: var(--close-button-icon) center / contain no-repeat;
+            pointer-events: var(--close-button-before-pointer-events);
+        }
+    }
+}
+
+@utility badge-* {
+    & .badge-link {
+        font-size: --value(--badge-font-size-*, [length]);
+        font-size: --spacing(--value(integer));
+        border-color: --value(--badge-*, --color-*, [color]);
+        background-color: --value(--badge-*, --color-*, [color]);
+        color: --value(--text-for-*, --badge-*-text);
+    }
+
+    & .close-button {
+        width: calc(--value(--badge-font-size-*, [length]) * 1.5);
+        width: calc(--spacing(--value(integer)) * 1.5);
+        height: calc(--value(--badge-font-size-*, [length]) * 2);
+        height: calc(--spacing(--value(integer)) * 2);
+
+        &:hover {
+            background-color: color-mix(in oklch, --value(--badge-*, --color-*) 95%, black);
+        }
+    }
+}
+
+@utility badge-outline {
+    & .badge-link {
+        background-color: var(--badge-outline-background-color);
+        color: var(--badge-outline-color);
+    }
+
+    & .close-button {        
+        &:hover {            
+            &::before {
+                background-color: var(--badge-outline-hover-color);
+            }
+        }
+    }
+}
+
+@utility badge-outline-* {
+    & .badge-link {
+        font-size: --value(--badge-font-size-*, [length]);
+        font-size: --spacing(--value(integer));
+        border-color: --value(--badge-*, --color-*, [color]);
+        color: --value(--badge-outline-*, --badge-*, --color-*, [color]);
+        background-color: var(--badge-outline-background-color);
+    }
+
+    & .close-button {
+        width: calc(--value(--badge-font-size-*, [length]) * 1.5);
+        width: calc(--spacing(--value(integer)) * 1.5);
+        height: calc(--value(--badge-font-size-*, [length]) * 2);
+        height: calc(--spacing(--value(integer)) * 2);
+        
+        &:hover {
+            background-color: --value(--badge-*, --color-*, [color]);
+            
+            &::before {
+                background-color: var(--badge-outline-hover-color);
+            }
+        }
+    }
+}
