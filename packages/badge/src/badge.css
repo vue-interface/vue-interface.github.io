@@ -1,14 +1,12 @@
-@import 'tailwindcss';
-
 @theme {
     /* badge variables */
     --badge-display: inline-flex;
     --badge-align: center;
     --badge-gap: 0;
-    --badge-link-font-size: 1rem;
+    --badge-font-size: var(--badge-font-size-md);
 
     /* badge-link variables */
-    --badge-link-padding: 0.2em 0.4em;
+    --badge-link-padding: calc(var(--badge-font-size) / 4) calc(var(--badge-font-size, [length]) / 2);
     --badge-link-display: flex;
     --badge-link-align: center;
     --badge-link-color: var(--color-white, #fff);
@@ -23,25 +21,17 @@
     --badge-link-border-radius-right: 0;
 
     /* close-button variables */
-    --close-button-position: relative;
     --close-button-display: inline-flex;
     --close-button-align-items: center;
     --close-button-justify-content: center;
-    --close-button-padding: 0em 0em;
+    --close-button-padding: calc(var(--badge-font-size) / 4) 0;
     --close-button-hover-bg: color-mix(in oklch, var(--badge-link-background-color) 95%, black);
-    --close-button-width: 1.5rem;
-    --close-button-height: 2rem;
     --badge-link-border-left-width: 0;
     --badge-link-border-right-width: 0;
     
-        /* X icon */
-        --close-button-before-content: "";
-        --close-button-before-position: absolute;
-        --close-button-before-width: 1em;
-        --close-button-before-height: 1em;
-        --close-button-before-bg: currentColor;
-        --close-button-before-pointer-events: none;
-        --close-button-icon: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Cpath%20stroke='black'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'%20d='M6%2018L18%206M6%206l12%2012'/%3E%3C/svg%3E");
+    /* X icon - fixed small size */
+    --close-button-icon-size: calc(var(--badge-font-size-md) * 1.5);
+    --close-button-icon: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Cpath%20stroke='black'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'%20d='M6%2018L18%206M6%206l12%2012'/%3E%3C/svg%3E");
 
     /* badge-outline variables */
     --badge-outline-background-color: transparent;
@@ -53,9 +43,9 @@
     display: var(--badge-display);
     align-items: var(--badge-align);
     gap: var(--badge-gap);
+    font-size: var(--badge-font-size);
 
     & .badge-link {
-        font-size: var(--badge-link-font-size);
         padding: var(--badge-link-padding);
         display: var(--badge-link-display);
         align-items: var(--badge-link-align);
@@ -82,12 +72,9 @@
     }
 
     & .close-button {
-        position: var(--close-button-position);
         display: var(--close-button-display);
         align-items: var(--close-button-align-items);
         justify-content: var(--close-button-justify-content);
-        width: var(--close-button-width);
-        height: var(--close-button-height);
         padding: var(--close-button-padding);
         background-color: var(--badge-link-background-color);
         border-radius: var(--badge-link-border-radius);
@@ -97,35 +84,37 @@
         }
 
         &::before {
-            content: var(--close-button-before-content);
-            position: var(--close-button-before-position);
-            width: var(--close-button-before-width);
-            height: var(--close-button-before-height);
-            background-color: var(--close-button-before-bg);
+            content: "";
+            display: block;
+            width: var(--close-button-icon-size);
+            height: var(--close-button-icon-size);
+            background-color: currentColor;
             -webkit-mask: var(--close-button-icon) center / contain no-repeat;
             mask: var(--close-button-icon) center / contain no-repeat;
-            pointer-events: var(--close-button-before-pointer-events);
         }
     }
 }
 
 @utility badge-* {
+    font-size: --value(--badge-font-size-*, [length]);
+    font-size: --spacing(--value(integer));
+
     & .badge-link {
-        font-size: --value(--badge-font-size-*, [length]);
-        font-size: --spacing(--value(integer));
         border-color: --value(--badge-*, --color-*, [color]);
         background-color: --value(--badge-*, --color-*, [color]);
         color: --value(--text-for-*, --badge-*-text);
     }
 
     & .close-button {
-        width: calc(--value(--badge-font-size-*, [length]) * 1.5);
-        width: calc(--spacing(--value(integer)) * 1.5);
-        height: calc(--value(--badge-font-size-*, [length]) * 2);
-        height: calc(--spacing(--value(integer)) * 2);
-
         &:hover {
             background-color: color-mix(in oklch, --value(--badge-*, --color-*) 95%, black);
+        }
+
+        &::before {
+            width: calc(--value(--badge-font-size-*, [length]) * 1.5);
+            width: calc(--spacing(--value(integer)) * 1.5);
+            height: calc(--value(--badge-font-size-*, [length]) * 1.5);
+            height: calc(--spacing(--value(integer)) * 1.5);
         }
     }
 }
@@ -146,26 +135,29 @@
 }
 
 @utility badge-outline-* {
+    font-size: --value(--badge-font-size-*, [length]);
+    font-size: --spacing(--value(integer));
+
     & .badge-link {
-        font-size: --value(--badge-font-size-*, [length]);
-        font-size: --spacing(--value(integer));
         border-color: --value(--badge-*, --color-*, [color]);
         color: --value(--badge-outline-*, --badge-*, --color-*, [color]);
         background-color: var(--badge-outline-background-color);
     }
 
     & .close-button {
-        width: calc(--value(--badge-font-size-*, [length]) * 1.5);
-        width: calc(--spacing(--value(integer)) * 1.5);
-        height: calc(--value(--badge-font-size-*, [length]) * 2);
-        height: calc(--spacing(--value(integer)) * 2);
-        
         &:hover {
             background-color: --value(--badge-*, --color-*, [color]);
             
             &::before {
                 background-color: var(--badge-outline-hover-color);
             }
+        }
+
+        &::before {
+            width: calc(--value(--badge-font-size-*, [length]) * 1.5);
+            width: calc(--spacing(--value(integer)) * 1.5);
+            height: calc(--value(--badge-font-size-*, [length]) * 1.5);
+            height: calc(--spacing(--value(integer)) * 1.5);
         }
     }
 }
