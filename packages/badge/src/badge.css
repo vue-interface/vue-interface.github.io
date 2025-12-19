@@ -106,7 +106,7 @@
     --badge-border-style: solid;
     --badge-border-width: 1px;
     --badge-hover-color: var(--badge-outline-color);
-    --badge-hover-mix-percentage: 80%;
+    --badge-hover-mix-percentage: 85%;
 
     border: var(--badge-border-width) var(--badge-border-style) var(--badge-border-color);
 }
@@ -118,7 +118,7 @@
     --badge-border-style: solid;
     --badge-border-width: 1px;
     --badge-hover-color: --value(--badge-*, --color-*, [color]);
-    --badge-hover-mix-percentage: 80%;
+    --badge-hover-mix-percentage: 85%;
 
     border: var(--badge-border-width) var(--badge-border-style) var(--badge-border-color);
 }
