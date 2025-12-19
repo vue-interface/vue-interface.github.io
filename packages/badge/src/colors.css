@@ -23,7 +23,8 @@
     --badge-light-text: var(--color-black);
     
     --badge-dark: var(--color-dark, var(--color-gray-800));
-    --badge-dark-text: var(--color-white);
+    --badge-dark-text: var(--color-white, #fff);
+    --badge-dark-hover-color: var(--color-white, #fff);
 
     /* Grays */
     --text-for-gray-50: var(--color-black, black);
@@ -38,6 +39,10 @@
     --text-for-gray-900: var(--color-white, white);
     --text-for-gray-950: var(--color-white, white);
 
+    --hover-color-for-gray-800: var(--color-white, white);
+    --hover-color-for-gray-900: var(--color-white, white);
+    --hover-color-for-gray-950: var(--color-white, white);
+
     /* Slate */
     --text-for-slate-50: var(--color-black, black);
     --text-for-slate-100: var(--color-black, black);
@@ -50,6 +55,10 @@
     --text-for-slate-800: var(--color-white, white);
     --text-for-slate-900: var(--color-white, white);
     --text-for-slate-950: var(--color-white, white);
+
+    --hover-color-for-slate-800: var(--color-white, white);
+    --hover-color-for-slate-900: var(--color-white, white);
+    --hover-color-for-slate-950: var(--color-white, white);
 
     /* Zinc */
     --text-for-zinc-50: var(--color-black, black);
@@ -64,6 +73,10 @@
     --text-for-zinc-900: var(--color-white, white);
     --text-for-zinc-950: var(--color-white, white);
 
+    --hover-color-for-zinc-800: var(--color-white, white);
+    --hover-color-for-zinc-900: var(--color-white, white);
+    --hover-color-for-zinc-950: var(--color-white, white);
+
     /* Neutral */
     --text-for-neutral-50: var(--color-black, black);
     --text-for-neutral-100: var(--color-black, black);
@@ -76,6 +89,10 @@
     --text-for-neutral-800: var(--color-white, white);
     --text-for-neutral-900: var(--color-white, white);
     --text-for-neutral-950: var(--color-white, white);
+
+    --hover-color-for-neutral-800: var(--color-white, white);
+    --hover-color-for-neutral-900: var(--color-white, white);
+    --hover-color-for-neutral-950: var(--color-white, white);
 
     /* Stone */
     --text-for-stone-50: var(--color-black, black);
@@ -90,6 +107,10 @@
     --text-for-stone-900: var(--color-white, white);
     --text-for-stone-950: var(--color-white, white);
 
+    --hover-color-for-stone-800: var(--color-white, white);
+    --hover-color-for-stone-900: var(--color-white, white);
+    --hover-color-for-stone-950: var(--color-white, white);
+
     /* Red */
     --text-for-red-50: var(--color-black, black);
     --text-for-red-100: var(--color-black, black);
@@ -102,6 +123,10 @@
     --text-for-red-800: var(--color-white, white);
     --text-for-red-900: var(--color-white, white);
     --text-for-red-950: var(--color-white, white);
+
+    --hover-color-for-red-800: var(--color-white, white);
+    --hover-color-for-red-900: var(--color-white, white);
+    --hover-color-for-red-950: var(--color-white, white);
 
     /* Orange */
     --text-for-orange-50: var(--color-black, black);
@@ -116,6 +141,10 @@
     --text-for-orange-900: var(--color-white, white);
     --text-for-orange-950: var(--color-white, white);
 
+    --hover-color-for-orange-800: var(--color-white, white);
+    --hover-color-for-orange-900: var(--color-white, white);
+    --hover-color-for-orange-950: var(--color-white, white);
+
     /* Amber */
     --text-for-amber-50: var(--color-black, black);
     --text-for-amber-100: var(--color-black, black);
@@ -128,6 +157,10 @@
     --text-for-amber-800: var(--color-white, white);
     --text-for-amber-900: var(--color-white, white);
     --text-for-amber-950: var(--color-white, white);
+
+    --hover-color-for-amber-800: var(--color-white, white);
+    --hover-color-for-amber-900: var(--color-white, white);
+    --hover-color-for-amber-950: var(--color-white, white);
 
     /* Yellow */
     --text-for-yellow-50: var(--color-black, black);
@@ -142,6 +175,10 @@
     --text-for-yellow-900: var(--color-white, white);
     --text-for-yellow-950: var(--color-white, white);
 
+    --hover-color-for-yellow-800: var(--color-white, white);
+    --hover-color-for-yellow-900: var(--color-white, white);
+    --hover-color-for-yellow-950: var(--color-white, white);
+
     /* Lime */
     --text-for-lime-50: var(--color-black, black);
     --text-for-lime-100: var(--color-black, black);
@@ -154,6 +191,10 @@
     --text-for-lime-800: var(--color-white, white);
     --text-for-lime-900: var(--color-white, white);
     --text-for-lime-950: var(--color-white, white);
+
+    --hover-color-for-lime-800: var(--color-white, white);
+    --hover-color-for-lime-900: var(--color-white, white);
+    --hover-color-for-lime-950: var(--color-white, white);
 
     /* Green */
     --text-for-green-50: var(--color-black, black);
@@ -168,6 +209,10 @@
     --text-for-green-900: var(--color-white, white);
     --text-for-green-950: var(--color-white, white);
 
+    --hover-color-for-green-800: var(--color-white, white);
+    --hover-color-for-green-900: var(--color-white, white);
+    --hover-color-for-green-950: var(--color-white, white);
+
     /* Emerald */
     --text-for-emerald-50: var(--color-black, black);
     --text-for-emerald-100: var(--color-black, black);
@@ -180,6 +225,10 @@
     --text-for-emerald-800: var(--color-white, white);
     --text-for-emerald-900: var(--color-white, white);
     --text-for-emerald-950: var(--color-white, white);
+
+    --hover-color-for-emerald-800: var(--color-white, white);
+    --hover-color-for-emerald-900: var(--color-white, white);
+    --hover-color-for-emerald-950: var(--color-white, white);
 
     /* Teal */
     --text-for-teal-50: var(--color-black, black);
@@ -194,6 +243,10 @@
     --text-for-teal-900: var(--color-white, white);
     --text-for-teal-950: var(--color-white, white);
 
+    --hover-color-for-teal-800: var(--color-white, white);
+    --hover-color-for-teal-900: var(--color-white, white);
+    --hover-color-for-teal-950: var(--color-white, white);
+
     /* Cyan */
     --text-for-cyan-50: var(--color-black, black);
     --text-for-cyan-100: var(--color-black, black);
@@ -206,6 +259,10 @@
     --text-for-cyan-800: var(--color-white, white);
     --text-for-cyan-900: var(--color-white, white);
     --text-for-cyan-950: var(--color-white, white);
+
+    --hover-color-for-cyan-800: var(--color-white, white);
+    --hover-color-for-cyan-900: var(--color-white, white);
+    --hover-color-for-cyan-950: var(--color-white, white);
 
     /* Sky */
     --text-for-sky-50: var(--color-black, black);
@@ -220,6 +277,10 @@
     --text-for-sky-900: var(--color-white, white);
     --text-for-sky-950: var(--color-white, white);
 
+    --hover-color-for-sky-800: var(--color-white, white);
+    --hover-color-for-sky-900: var(--color-white, white);
+    --hover-color-for-sky-950: var(--color-white, white);
+
     /* Blue */
     --text-for-blue-50: var(--color-black, black);
     --text-for-blue-100: var(--color-black, black);
@@ -232,6 +293,10 @@
     --text-for-blue-800: var(--color-white, white);
     --text-for-blue-900: var(--color-white, white);
     --text-for-blue-950: var(--color-white, white);
+
+    --hover-color-for-blue-800: var(--color-white, white);
+    --hover-color-for-blue-900: var(--color-white, white);
+    --hover-color-for-blue-950: var(--color-white, white);
 
     /* Indigo */
     --text-for-indigo-50: var(--color-black, black);
@@ -246,6 +311,10 @@
     --text-for-indigo-900: var(--color-white, white);
     --text-for-indigo-950: var(--color-white, white);
 
+    --hover-color-for-indigo-800: var(--color-white, white);
+    --hover-color-for-indigo-900: var(--color-white, white);
+    --hover-color-for-indigo-950: var(--color-white, white);
+
     /* Violet */
     --text-for-violet-50: var(--color-black, black);
     --text-for-violet-100: var(--color-black, black);
@@ -258,6 +327,10 @@
     --text-for-violet-800: var(--color-white, white);
     --text-for-violet-900: var(--color-white, white);
     --text-for-violet-950: var(--color-white, white);
+
+    --hover-color-for-violet-800: var(--color-white, white);
+    --hover-color-for-violet-900: var(--color-white, white);
+    --hover-color-for-violet-950: var(--color-white, white);
 
     /* Purple */
     --text-for-purple-50: var(--color-black, black);
@@ -272,6 +345,10 @@
     --text-for-purple-900: var(--color-white, white);
     --text-for-purple-950: var(--color-white, white);
 
+    --hover-color-for-purple-800: var(--color-white, white);
+    --hover-color-for-purple-900: var(--color-white, white);
+    --hover-color-for-purple-950: var(--color-white, white);
+
     /* Fuchsia */
     --text-for-fuchsia-50: var(--color-black, black);
     --text-for-fuchsia-100: var(--color-black, black);
@@ -284,6 +361,10 @@
     --text-for-fuchsia-800: var(--color-white, white);
     --text-for-fuchsia-900: var(--color-white, white);
     --text-for-fuchsia-950: var(--color-white, white);
+
+    --hover-color-for-fuchsia-800: var(--color-white, white);
+    --hover-color-for-fuchsia-900: var(--color-white, white);
+    --hover-color-for-fuchsia-950: var(--color-white, white);
 
     /* Pink */
     --text-for-pink-50: var(--color-black, black);
@@ -298,6 +379,10 @@
     --text-for-pink-900: var(--color-white, white);
     --text-for-pink-950: var(--color-white, white);
 
+    --hover-color-for-pink-800: var(--color-white, white);
+    --hover-color-for-pink-900: var(--color-white, white);
+    --hover-color-for-pink-950: var(--color-white, white);
+
     /* Rose */
     --text-for-rose-50: var(--color-black, black);
     --text-for-rose-100: var(--color-black, black);
@@ -310,6 +395,10 @@
     --text-for-rose-800: var(--color-white, white);
     --text-for-rose-900: var(--color-white, white);
     --text-for-rose-950: var(--color-white, white);
+
+    --hover-color-for-rose-800: var(--color-white, white);
+    --hover-color-for-rose-900: var(--color-white, white);
+    --hover-color-for-rose-950: var(--color-white, white);
 
     /* Black and White */
     --text-for-black: var(--color-white, white);

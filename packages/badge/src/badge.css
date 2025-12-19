@@ -1,37 +1,12 @@
 @theme {
     /* badge variables */
     --badge-display: inline-flex;
-    --badge-align: center;
-    --badge-gap: 0;
+    --badge-align-items: stretch;
+    --badge-padding-y: .25;
+    --badge-padding-x: .375;
 
-    /* badge-link variables */
-    --badge-link-font-size: var(--badge-font-size-md);
-    --badge-link-padding: calc(var(--badge-link-font-size) / 7.5) calc(var(--badge-link-font-size, [length]) / 5);
-    --badge-link-display: flex;
-    --badge-link-align: center;
-    --badge-link-color: var(--color-white, #fff);
-    --badge-link-font-weight: normal;
-    --badge-link-text-decoration: none;
-    --badge-link-background-color: var(--badge-primary, var(--color-blue-600));
-    --badge-link-border-color: var(--badge-primary, var(--color-blue-600));
-    --badge-link-border-radius: 0.25rem;
-    --badge-link-border-style: solid;
-    --badge-link-border-width: 1px;
-    --badge-link-border-radius-left: 0;
-    --badge-link-border-radius-right: 0;
-
-    /* close-button variables */
-    --close-button-display: inline-flex;
-    --close-button-align-items: center;
-    --close-button-justify-content: center;
-    --close-button-padding: calc(var(--badge-link-font-size) * (1.5 + 2 / 7.5 - 0.75) / 2) calc(var(--badge-link-font-size, [length]) / 5);
-    --close-button-hover-bg: color-mix(in oklch, var(--badge-link-background-color) 95%, black);
-    --badge-link-border-left-width: 0;
-    --badge-link-border-right-width: 0;
-    
-    /* X icon - fixed small size */
-    --close-button-icon-size: calc(var(--badge-font-size-md) * 0.75);
-    --close-button-icon: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Cpath%20stroke='black'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'%20d='M6%2018L18%206M6%206l12%2012'/%3E%3C/svg%3E");
+    --badge-close-display: inline-flex;
+    --badge-close-icon: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Cpath%20stroke='black'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'%20d='M6%2018L18%206M6%206l12%2012'/%3E%3C/svg%3E");
 
     /* badge-outline variables */
     --badge-outline-background-color: transparent;
@@ -40,138 +15,110 @@
 }
 
 @utility badge {
+    --badge-border-radius: --spacing(1);
+    --badge-font-size: --spacing(4);
+    --badge-padding-top: calc(var(--badge-font-size) * var(--badge-padding-y));
+    --badge-padding-bottom: calc(var(--badge-font-size) * var(--badge-padding-y));
+    --badge-padding-left: calc(var(--badge-font-size) * var(--badge-padding-x));
+    --badge-padding-right: calc(var(--badge-font-size) * var(--badge-padding-x));
+    --badge-gap: calc(var(--badge-font-size) * var(--badge-padding-x) / 2);
+    --badge-color: var(--badge-text-default);
+    --badge-background-color: var(--badge-primary);
+    --badge-hover-color: black;
+    --badge-hover-mix-percentage: 90%;
+    --badge-close-icon-size: calc(var(--badge-font-size) * 0.75);
+
+    @variant dark {
+        --badge-hover-color: white;
+    }
+    
     display: var(--badge-display);
-    align-items: var(--badge-align);
+    align-items: var(--badge-align-items);
     gap: var(--badge-gap);
+    font-size: var(--badge-font-size);
+    line-height: var(--badge-font-size);
+    color: var(--badge-color);
+    background-color: var(--badge-background-color);
+    border-radius: var(--badge-border-radius);
 
-    & .badge-link {
-        font-size: var(--badge-link-font-size);
-        padding: var(--badge-link-padding);
-        display: var(--badge-link-display);
-        align-items: var(--badge-link-align);
-        text-decoration: var(--badge-link-text-decoration);
-        color: var(--badge-link-color);
-        font-weight: var(--badge-link-font-weight);
-        background-color: var(--badge-link-background-color);
-        border-radius: var(--badge-link-border-radius);
-        border-style: var(--badge-link-border-style);
-        border-width: var(--badge-link-border-width);
-        border-color: var(--badge-link-border-color);
-
-        &:not(:first-child) {
-            border-top-left-radius: var(--badge-link-border-radius-left);
-            border-bottom-left-radius: var(--badge-link-border-radius-right);
-            border-left-width: var(--badge-link-border-left-width);
-        }
-
-        &:not(:last-child) {
-            border-top-right-radius: var(--badge-link-border-radius-left);
-            border-bottom-right-radius: var(--badge-link-border-radius-right);
-            border-right-width: var(--badge-link-border-right-width);
-        }
+    &:not(:has(:nth-child(1))) {
+        padding-top: var(--badge-padding-top);
+        padding-bottom: var(--badge-padding-bottom);
+        padding-left: var(--badge-padding-left);
+        padding-right: var(--badge-padding-right);
     }
 
-    & .close-button {
-        display: var(--close-button-display);
-        align-items: var(--close-button-align-items);
-        justify-content: var(--close-button-justify-content);
-        padding: var(--close-button-padding);
+    &:has(:nth-child(1)) {
+        > * {
+            padding-top: var(--badge-padding-top);
+            padding-bottom: var(--badge-padding-bottom);
+        }
+
+        > :first-child {
+            padding-left: var(--badge-padding-left);
+            border-top-left-radius: var(--badge-border-radius);
+            border-bottom-left-radius: var(--badge-border-radius);
+        }
+
+        > :last-child {
+            padding-right: var(--badge-padding-right);
+            border-top-right-radius: var(--badge-border-radius);
+            border-bottom-right-radius: var(--badge-border-radius);
+        }
         
-        background-color: var(--badge-link-background-color);
-        border-radius: var(--badge-link-border-radius);
-
-        &:hover {
-            background-color: var(--close-button-hover-bg);
-        }
-
-        &::before {
-            content: "";
-            display: block;
-            width: var(--close-button-icon-size);
-            height: var(--close-button-icon-size);
-            background-color: currentColor;
-            -webkit-mask: var(--close-button-icon) center / contain no-repeat;
-            mask: var(--close-button-icon) center / contain no-repeat;
-        }
-    }
-}
-
-@utility badge-outline {
-    & .badge-link {
-        background-color: var(--badge-outline-background-color);
-        color: var(--badge-outline-color);
-    }
-
-    & .close-button {        
-        &:hover {            
+        .badge-close {
+            display: flex;
+            align-items: center;
+            padding-left: calc(var(--badge-padding-left) / 3);
+            padding-right: calc(var(--badge-padding-left) / 3);
+            
             &::before {
-                background-color: var(--badge-outline-hover-color);
+                content: "";
+                display: block;
+                width: var(--badge-close-icon-size);
+                height: var(--badge-close-icon-size);
+                background-color: currentColor;
+                -webkit-mask: var(--badge-close-icon) center / contain no-repeat;
+                mask: var(--badge-close-icon) center / contain no-repeat;
+            }
+
+            &:hover {
+                background-color: color-mix(in oklab, var(--badge-background-color) var(--badge-hover-mix-percentage), var(--badge-hover-color));
             }
         }
     }
+
 }
 
 @utility badge-* {
-    & .badge-link {
-        font-size: --value(--badge-font-size-*, [length]);
-        font-size: --spacing(--value(integer));
-        padding: calc(--value(--badge-font-size-*, [length]) / 7.5) calc(--value(--badge-font-size-*, [length]) / 5);
-        padding: calc(--spacing(--value(integer)) / 7.5) calc(--spacing(--value(integer)) / 5);
-        border-radius: calc(--value(--badge-font-size-*, [length]) / 4);
-        border-radius: calc(--spacing(--value(integer)) / 4);
-        border-color: --value(--badge-*, --color-*, [color]);
-        background-color: --value(--badge-*, --color-*, [color]);
-        color: --value(--text-for-*, --badge-*-text);
-    }
+    --badge-font-size: --value(--badge-font-size-*, [length]);
+    --badge-font-size: --spacing(--value(integer));
+    --badge-border-radius: calc(var(--badge-font-size) * .25);
+    --badge-background-color: --value(--badge-*, --color-*, [color]);
+    --badge-color: --value(--badge-*-text, --text-for-*);
+    --badge-hover-color: --value(--badge-*-hover-color, --hover-color-for-*);
+}
 
-    & .close-button {
-        padding: calc(--value(--badge-font-size-*, [length]) * (1.5 + 2 / 7.5 - 0.75) / 2) calc(--value(--badge-font-size-*, [length]) / 5);
-        padding: calc(--spacing(--value(integer)) * (1.5 + 2 / 7.5 - 0.75) / 2) calc(--spacing(--value(integer)) / 5);
-        
+@utility badge-outline {
+    --badge-background-color: var(--badge-outline-background-color);
+    --badge-color: var(--badge-outline-color);
+    --badge-border-color: var(--badge-outline-color);
+    --badge-border-style: solid;
+    --badge-border-width: 1px;
+    --badge-hover-color: var(--badge-outline-color);
+    --badge-hover-mix-percentage: 80%;
 
-        &:hover {
-            background-color: color-mix(in oklch, --value(--badge-*, --color-*) 95%, black);
-        }
-
-        &::before {
-            width: calc(--value(--badge-font-size-*, [length]) * 0.75);
-            width: calc(--spacing(--value(integer)) * 0.75);
-            height: calc(--value(--badge-font-size-*, [length]) * 0.75);
-            height: calc(--spacing(--value(integer)) * 0.75);
-        }
-    }
+    border: var(--badge-border-width) var(--badge-border-style) var(--badge-border-color);
 }
 
 @utility badge-outline-* {
-    & .badge-link {
-        font-size: --value(--badge-font-size-*, [length]);
-        font-size: --spacing(--value(integer));
-        padding: calc(--value(--badge-font-size-*, [length]) / 7.5) calc(--value(--badge-font-size-*, [length]) / 5);
-        padding: calc(--spacing(--value(integer)) / 7.5) calc(--spacing(--value(integer)) / 5);
-        border-radius: calc(--value(--badge-font-size-*, [length]) / 4);
-        border-radius: calc(--spacing(--value(integer)) / 4);
-        border-color: --value(--badge-*, --color-*, [color]);
-        color: --value(--badge-outline-*, --badge-*, --color-*, [color]);
-        background-color: var(--badge-outline-background-color);
-    }
+    --badge-background-color: var(--badge-outline-background-color);
+    --badge-color: --value(--badge-*, --color-*, [color]);
+    --badge-border-color: --value(--badge-*, --color-*, [color]);
+    --badge-border-style: solid;
+    --badge-border-width: 1px;
+    --badge-hover-color: --value(--badge-*, --color-*, [color]);
+    --badge-hover-mix-percentage: 80%;
 
-    & .close-button {
-        padding: calc(--value(--badge-font-size-*, [length]) * (1.5 + 2 / 7.5 - 0.75) / 2) calc(--value(--badge-font-size-*, [length]) / 5);
-        padding: calc(--spacing(--value(integer)) * (1.5 + 2 / 7.5 - 0.75) / 2) calc(--spacing(--value(integer)) / 5);
-        
-        &:hover {
-            background-color: --value(--badge-*, --color-*, [color]);
-            
-            &::before {
-                background-color: var(--badge-outline-hover-color);
-            }
-        }
-
-        &::before {
-            width: calc(--value(--badge-font-size-*, [length]) * 0.75);
-            width: calc(--spacing(--value(integer)) * 0.75);
-            height: calc(--value(--badge-font-size-*, [length]) * 0.75);
-            height: calc(--spacing(--value(integer)) * 0.75);
-        }
-    }
+    border: var(--badge-border-width) var(--badge-border-style) var(--badge-border-color);
 }
