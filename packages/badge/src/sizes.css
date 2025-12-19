@@ -1,11 +1,11 @@
 @theme{
-    --badge-font-size-xs: --spacing(2.5);
-    --badge-font-size-sm: --spacing(3);
-    --badge-font-size-md: --spacing(4);
-    --badge-font-size-lg: --spacing(5);
-    --badge-font-size-xl: --spacing(6);
-    --badge-font-size-2xl: --spacing(7);
-    --badge-font-size-3xl: --spacing(8);
-    --badge-font-size-4xl: --spacing(9);
-    --badge-font-size-5xl: --spacing(10);
+    --badge-font-size-xs: --spacing(1.75);
+    --badge-font-size-sm: --spacing(2.75);
+    --badge-font-size-md: --spacing(3.75);
+    --badge-font-size-lg: --spacing(4.75);
+    --badge-font-size-xl: --spacing(5.75);
+    --badge-font-size-2xl: --spacing(6.75);
+    --badge-font-size-3xl: --spacing(7.75);
+    --badge-font-size-4xl: --spacing(8.75);
+    --badge-font-size-5xl: --spacing(9.75);
 }

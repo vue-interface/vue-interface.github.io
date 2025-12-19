@@ -3,10 +3,10 @@
     --badge-display: inline-flex;
     --badge-align: center;
     --badge-gap: 0;
-    --badge-font-size: var(--badge-font-size-md);
 
     /* badge-link variables */
-    --badge-link-padding: calc(var(--badge-font-size) / 4) calc(var(--badge-font-size, [length]) / 2);
+    --badge-link-font-size: var(--badge-font-size-md);
+    --badge-link-padding: calc(var(--badge-link-font-size) / 7.5) calc(var(--badge-link-font-size, [length]) / 5);
     --badge-link-display: flex;
     --badge-link-align: center;
     --badge-link-color: var(--color-white, #fff);
@@ -24,13 +24,13 @@
     --close-button-display: inline-flex;
     --close-button-align-items: center;
     --close-button-justify-content: center;
-    --close-button-padding: calc(var(--badge-font-size) / 4) 0;
+    --close-button-padding: calc(var(--badge-link-font-size) * (1.5 + 2 / 7.5 - 0.75) / 2) calc(var(--badge-link-font-size, [length]) / 5);
     --close-button-hover-bg: color-mix(in oklch, var(--badge-link-background-color) 95%, black);
     --badge-link-border-left-width: 0;
     --badge-link-border-right-width: 0;
     
     /* X icon - fixed small size */
-    --close-button-icon-size: calc(var(--badge-font-size-md) * 1.5);
+    --close-button-icon-size: calc(var(--badge-font-size-md) * 0.75);
     --close-button-icon: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Cpath%20stroke='black'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'%20d='M6%2018L18%206M6%206l12%2012'/%3E%3C/svg%3E");
 
     /* badge-outline variables */
@@ -43,9 +43,9 @@
     display: var(--badge-display);
     align-items: var(--badge-align);
     gap: var(--badge-gap);
-    font-size: var(--badge-font-size);
 
     & .badge-link {
+        font-size: var(--badge-link-font-size);
         padding: var(--badge-link-padding);
         display: var(--badge-link-display);
         align-items: var(--badge-link-align);
@@ -76,6 +76,7 @@
         align-items: var(--close-button-align-items);
         justify-content: var(--close-button-justify-content);
         padding: var(--close-button-padding);
+        
         background-color: var(--badge-link-background-color);
         border-radius: var(--badge-link-border-radius);
 
@@ -95,30 +96,6 @@
     }
 }
 
-@utility badge-* {
-    font-size: --value(--badge-font-size-*, [length]);
-    font-size: --spacing(--value(integer));
-
-    & .badge-link {
-        border-color: --value(--badge-*, --color-*, [color]);
-        background-color: --value(--badge-*, --color-*, [color]);
-        color: --value(--text-for-*, --badge-*-text);
-    }
-
-    & .close-button {
-        &:hover {
-            background-color: color-mix(in oklch, --value(--badge-*, --color-*) 95%, black);
-        }
-
-        &::before {
-            width: calc(--value(--badge-font-size-*, [length]) * 1.5);
-            width: calc(--spacing(--value(integer)) * 1.5);
-            height: calc(--value(--badge-font-size-*, [length]) * 1.5);
-            height: calc(--spacing(--value(integer)) * 1.5);
-        }
-    }
-}
-
 @utility badge-outline {
     & .badge-link {
         background-color: var(--badge-outline-background-color);
@@ -134,17 +111,54 @@
     }
 }
 
-@utility badge-outline-* {
-    font-size: --value(--badge-font-size-*, [length]);
-    font-size: --spacing(--value(integer));
-
+@utility badge-* {
     & .badge-link {
+        font-size: --value(--badge-font-size-*, [length]);
+        font-size: --spacing(--value(integer));
+        padding: calc(--value(--badge-font-size-*, [length]) / 7.5) calc(--value(--badge-font-size-*, [length]) / 5);
+        padding: calc(--spacing(--value(integer)) / 7.5) calc(--spacing(--value(integer)) / 5);
+        border-radius: calc(--value(--badge-font-size-*, [length]) / 4);
+        border-radius: calc(--spacing(--value(integer)) / 4);
+        border-color: --value(--badge-*, --color-*, [color]);
+        background-color: --value(--badge-*, --color-*, [color]);
+        color: --value(--text-for-*, --badge-*-text);
+    }
+
+    & .close-button {
+        padding: calc(--value(--badge-font-size-*, [length]) * (1.5 + 2 / 7.5 - 0.75) / 2) calc(--value(--badge-font-size-*, [length]) / 5);
+        padding: calc(--spacing(--value(integer)) * (1.5 + 2 / 7.5 - 0.75) / 2) calc(--spacing(--value(integer)) / 5);
+        
+
+        &:hover {
+            background-color: color-mix(in oklch, --value(--badge-*, --color-*) 95%, black);
+        }
+
+        &::before {
+            width: calc(--value(--badge-font-size-*, [length]) * 0.75);
+            width: calc(--spacing(--value(integer)) * 0.75);
+            height: calc(--value(--badge-font-size-*, [length]) * 0.75);
+            height: calc(--spacing(--value(integer)) * 0.75);
+        }
+    }
+}
+
+@utility badge-outline-* {
+    & .badge-link {
+        font-size: --value(--badge-font-size-*, [length]);
+        font-size: --spacing(--value(integer));
+        padding: calc(--value(--badge-font-size-*, [length]) / 7.5) calc(--value(--badge-font-size-*, [length]) / 5);
+        padding: calc(--spacing(--value(integer)) / 7.5) calc(--spacing(--value(integer)) / 5);
+        border-radius: calc(--value(--badge-font-size-*, [length]) / 4);
+        border-radius: calc(--spacing(--value(integer)) / 4);
         border-color: --value(--badge-*, --color-*, [color]);
         color: --value(--badge-outline-*, --badge-*, --color-*, [color]);
         background-color: var(--badge-outline-background-color);
     }
 
     & .close-button {
+        padding: calc(--value(--badge-font-size-*, [length]) * (1.5 + 2 / 7.5 - 0.75) / 2) calc(--value(--badge-font-size-*, [length]) / 5);
+        padding: calc(--spacing(--value(integer)) * (1.5 + 2 / 7.5 - 0.75) / 2) calc(--spacing(--value(integer)) / 5);
+        
         &:hover {
             background-color: --value(--badge-*, --color-*, [color]);
             
@@ -154,10 +168,10 @@
         }
 
         &::before {
-            width: calc(--value(--badge-font-size-*, [length]) * 1.5);
-            width: calc(--spacing(--value(integer)) * 1.5);
-            height: calc(--value(--badge-font-size-*, [length]) * 1.5);
-            height: calc(--spacing(--value(integer)) * 1.5);
+            width: calc(--value(--badge-font-size-*, [length]) * 0.75);
+            width: calc(--spacing(--value(integer)) * 0.75);
+            height: calc(--value(--badge-font-size-*, [length]) * 0.75);
+            height: calc(--spacing(--value(integer)) * 0.75);
         }
     }
 }

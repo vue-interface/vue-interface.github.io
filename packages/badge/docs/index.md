@@ -60,7 +60,7 @@ Customize the size of a `badge` using a [predetermined size](#predetermined-size
 
 The size can be customized using predetermined size classes: `xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`. Use the syntax: `badge-[size]`.
 
-<div class="flex flex-col gap-2">
+<div class="flex gap-2">
     <!-- #region predeterminedSizes-->
     <div class="badge badge-xs">
         <a class="badge-link">xs</a>
@@ -109,7 +109,7 @@ The size can be customized using predetermined size classes: `xs`, `sm`, `md`, `
 
 For more granular control over button sizes, use Tailwind's numeric sizing scale classes: `badge-1` - `badge-96`.
 
-<div class="flex flex-col gap-2">
+<div class="flex gap-2">
     <!-- #region tailwindSizes-->
     <div class="badge badge-4">
         <a class="badge-link">badge-4</a>
@@ -134,7 +134,7 @@ For more granular control over button sizes, use Tailwind's numeric sizing scale
 
 For precise sizing, specify exact pixel values using the syntax `badge-[Npx]` or any other CSS length units (`rem`, `em`, `mm`, etc.).
 
-<div class="flex flex-col gap-2">
+<div class="flex gap-2">
     <!-- #region arbitrarySizes-->
     <div class="badge badge-[16px]">
         <a class="badge-link">[16px]</a>
@@ -155,7 +155,7 @@ For precise sizing, specify exact pixel values using the syntax `badge-[Npx]` or
 
 The badge component supports eight standard color variants: `primary`, `secondary`, `success`, `danger`, `warning`, `info`, `light`, `dark`. Use the syntax: `badge-[variant]`.
 
-<div class="flex flex-col gap-2">
+<div class="flex gap-2">
     <!-- #region variants -->
     <div class="badge badge-primary">
         <a class="badge-link">Primary</a>
@@ -200,7 +200,7 @@ The badge component supports eight standard color variants: `primary`, `secondar
 
 Customize the color of the `badge` component with the [Tailwind color palette](https://tailwindcss.com/docs/colors) by using the class: `badge-[color]`.
 
-<div class="flex flex-col gap-2">
+<div class="flex gap-2">
     <!-- #region customColors -->
     <div class="badge badge-green-500">
         <a class="badge-link">badge-green-500</a>
@@ -284,7 +284,7 @@ Customize the size of a `badge-outline` using a [predetermined size](#predetermi
 
 The size can be customized using predetermined size classes: `xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`. Use the syntax: `badge-outline-[size]`.
 
-<div class="flex flex-col gap-2">
+<div class="flex gap-2">
     <!-- #region outlineSizes -->
     <div class="badge badge-outline badge-outline-xs">
         <a class="badge-link">xs</a>
@@ -333,7 +333,7 @@ The size can be customized using predetermined size classes: `xs`, `sm`, `md`, `
 
 For more granular control over button sizes, use Tailwind's numeric sizing scale classes: `badge-outline-1` - `badge-outline-96`.
 
-<div class="flex flex-col gap-2">
+<div class="flex gap-2">
     <!-- #region outlineTailwindSizes-->
     <div class="badge badge-outline badge-outline-4">
         <a class="badge-link">badge-4</a>
@@ -358,7 +358,7 @@ For more granular control over button sizes, use Tailwind's numeric sizing scale
 
 For precise sizing, specify exact pixel values using the syntax `badge-outline-[Npx]` or any other CSS length units (`rem`, `em`, `mm`, etc.).
 
-<div class="flex flex-col gap-2">
+<div class="flex gap-2">
     <!-- #region outlineArbitrarySizes-->
     <div class="badge badge-outline badge-outline-[16px]">
         <a class="badge-link">[16px]</a>
@@ -377,7 +377,7 @@ For precise sizing, specify exact pixel values using the syntax `badge-outline-[
 
 ## Outline Color Variants
 
-<div class="flex flex-col gap-2">
+<div class="flex gap-2">
     <!-- #region outlineVariants -->
     <div class="badge badge-outline-primary">
         <a class="badge-link">Primary</a>
