@@ -22,12 +22,41 @@ bun i @vue-interface/badge
 
 ## Basic Usage
 
-To create a badge component, use the parent `badge` class and then add the `badge-link` class to the links in the badge.
+To create a badge component, use the `badge` class. Use the `badge-close` class to add a close button to the badge.
 
 ```html
 <div class="badge">
-    <a class="badge-link">Basic Usage</a>
-    <a href="/" class="badge-link close-button"></a>
+    Basic usage
+</div>
+<div class="badge">
+    <span>With Inner</span>
+    <span>Elements</span>
+</div>
+<div class="badge">
+    <span>Right Close</span>
+    <button class="badge-close"></button>
+</div>
+<div class="badge">
+    <button class="badge-close"></button>
+    <span>Left Close</span>
+</div>
+```
+Use the `badge-outline` class to create an outlined badge.
+
+```html
+<div class="badge badge-outline">
+    No Children
+</div>
+<div class="badge badge-outline">
+    <span>With Children</span>
+</div>
+<div class="badge badge-outline">
+    <span>Right Close Button</span>
+    <button class="badge-close"></button>
+</div>
+<div class="badge badge-outline">
+    <button class="badge-close"></button>
+    <span>Left Close Button</span>
 </div>
 ```
 

@@ -312,6 +312,59 @@ Customize the color of the `badge` component with the [Tailwind color palette](h
 <<< ./index.md#colorShades{html}
 :::
 
+## Outline Sizes
+
+Customize the size of a `badge-outline` using a [predetermined size](#predetermined-sizes), [tailwind's numeric sizing classes](#tailwind-sizes), or an [arbitrary](#arbitrary-sizes) CSS length unit.
+
+### Predetermined Sizes
+
+The size can be customized using predetermined size classes: `xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`. Use the syntax: `badge-outline-[size]`.
+
+<div class="flex items-center gap-2">
+    <!-- #region outlinePredeterminedSizes-->
+    <div class="badge badge-outline badge-xs">
+        <span>xs</span>
+        <button class="badge-close"></button>
+    </div>
+    <div class="badge badge-outline badge-sm">
+        <span>sm</span>
+        <button class="badge-close"></button>
+    </div>
+    <div class="badge badge-outline badge-md">
+        <span>md</span>
+        <button class="badge-close"></button>
+    </div>
+    <div class="badge badge-outline badge-lg">
+        <span>lg</span>
+        <button class="badge-close"></button>
+    </div>
+    <div class="badge badge-outline badge-xl">
+        <span>xl</span>
+        <button class="badge-close"></button>
+    </div>
+    <div class="badge badge-outline badge-2xl">
+        <span>2xl</span>
+        <button class="badge-close"></button>
+    </div>
+    <div class="badge badge-outline badge-3xl">
+        <span>3xl</span>
+        <button class="badge-close"></button>
+    </div>
+    <div class="badge badge-outline badge-4xl">
+        <span>4xl</span>
+        <button class="badge-close"></button>
+    </div>
+    <div class="badge badge-outline badge-5xl">
+        <span>5xl</span>
+        <button class="badge-close"></button>
+    </div>
+    <!-- #endregion outlinePredeterminedSizes-->
+</div>
+
+::: details Show Code
+<<< ./index.md#outlinePredeterminedSizes{html}
+:::
+
 ### Tailwind Sizes
 
 For more granular control over button sizes, use Tailwind's numeric sizing scale classes: `badge-outline-1` - `badge-outline-96`.
