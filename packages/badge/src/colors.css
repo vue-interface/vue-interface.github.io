@@ -21,6 +21,7 @@
     
     --badge-light: var(--color-light, var(--color-gray-100));
     --badge-light-text: var(--color-black);
+    --hover-color-for-light: var(--color-black, #000);
     
     --badge-dark: var(--color-dark, var(--color-gray-800));
     --badge-dark-text: var(--color-white, #fff);

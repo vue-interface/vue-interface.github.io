@@ -2,8 +2,12 @@
     /* badge variables */
     --badge-display: inline-flex;
     --badge-align-items: stretch;
+    --badge-justify-content: space-between;
     --badge-padding-y: .25;
-    --badge-padding-x: .375;
+    --badge-padding-x: .350;
+
+    --badge-children-display: inline-flex;
+    --badge-children-align-items: center;
 
     --badge-close-display: inline-flex;
     --badge-close-icon: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Cpath%20stroke='black'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'%20d='M6%2018L18%206M6%206l12%2012'/%3E%3C/svg%3E");
@@ -11,7 +15,6 @@
     /* badge-outline variables */
     --badge-outline-background-color: transparent;
     --badge-outline-color:  var(--badge-primary, var(--color-blue-600));
-    --badge-outline-hover-color: var(--color-white, #fff);
 }
 
 @utility badge {
@@ -26,20 +29,19 @@
     --badge-background-color: var(--badge-primary);
     --badge-hover-color: black;
     --badge-hover-mix-percentage: 90%;
+    --badge-close-hover-color: var(--badge-color);
     --badge-close-icon-size: calc(var(--badge-font-size) * 0.75);
 
-    @variant dark {
-        --badge-hover-color: white;
-    }
-    
     display: var(--badge-display);
     align-items: var(--badge-align-items);
+    justify-content: var(--badge-justify-content);
     gap: var(--badge-gap);
     font-size: var(--badge-font-size);
     line-height: var(--badge-font-size);
     color: var(--badge-color);
     background-color: var(--badge-background-color);
     border-radius: var(--badge-border-radius);
+    text-decoration: none;
 
     &:not(:has(:nth-child(1))) {
         padding-top: var(--badge-padding-top);
@@ -50,6 +52,8 @@
 
     &:has(:nth-child(1)) {
         > * {
+            display: var(--badge-children-display);
+            align-items: var(--badge-children-align-items);
             padding-top: var(--badge-padding-top);
             padding-bottom: var(--badge-padding-bottom);
         }
@@ -67,11 +71,10 @@
         }
         
         .badge-close {
-            display: flex;
-            align-items: center;
             padding-left: calc(var(--badge-padding-left) / 3);
             padding-right: calc(var(--badge-padding-left) / 3);
             
+
             &::before {
                 content: "";
                 display: block;
@@ -84,6 +87,7 @@
 
             &:hover {
                 background-color: color-mix(in oklab, var(--badge-background-color) var(--badge-hover-mix-percentage), var(--badge-hover-color));
+                color: var(--badge-close-hover-color);
             }
         }
     }
@@ -106,7 +110,12 @@
     --badge-border-style: solid;
     --badge-border-width: 1px;
     --badge-hover-color: var(--badge-outline-color);
-    --badge-hover-mix-percentage: 85%;
+    --badge-hover-mix-percentage: 90%;
+    --badge-close-hover-color: var(--color-white, #fff);
+
+    @variant dark {
+        --badge-hover-mix-percentage: 0%;
+    }
 
     border: var(--badge-border-width) var(--badge-border-style) var(--badge-border-color);
 }
@@ -119,6 +128,11 @@
     --badge-border-width: 1px;
     --badge-hover-color: --value(--badge-*, --color-*, [color]);
     --badge-hover-mix-percentage: 85%;
+
+    @variant dark {
+        --badge-hover-mix-percentage: 0%;
+    --badge-close-hover-color: --value(--badge-*-text, --text-for-*);
+    }
 
     border: var(--badge-border-width) var(--badge-border-style) var(--badge-border-color);
 }
