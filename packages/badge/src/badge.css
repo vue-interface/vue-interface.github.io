@@ -111,10 +111,11 @@
     --badge-border-width: 1px;
     --badge-hover-color: var(--badge-outline-color);
     --badge-hover-mix-percentage: 90%;
-    --badge-close-hover-color: var(--color-white, #fff);
+    --badge-close-hover-color: var(--badge-outline-color);
 
     @variant dark {
         --badge-hover-mix-percentage: 0%;
+        --badge-close-hover-color: var(--color-white, #fff);
     }
 
     border: var(--badge-border-width) var(--badge-border-style) var(--badge-border-color);
