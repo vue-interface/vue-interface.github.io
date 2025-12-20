@@ -326,6 +326,7 @@
 
             &:hover {
                 background-color: color-mix(in oklch, --value(--btn-*, --color-*) 90%, black);
+                border-color: color-mix(in oklch, --value(--btn-*, --color-*) 90%, black);
             }   
 
             &:focus {
@@ -334,6 +335,7 @@
 
             &:active {
                 background-color: color-mix(in oklch, --value(--btn-*, --color-*) 95%, black);
+                border-color: color-mix(in oklch, --value(--btn-*, --color-*) 95%, black);
             }
         }
     }
