@@ -1,5 +1,11 @@
 # @vue-interface/modal
 
+## 3.0.11
+
+### Patch Changes
+
+- f4f6de9: fix: fixed btn border issue in modal footer
+
 ## 3.0.10
 
 ### Patch Changes
