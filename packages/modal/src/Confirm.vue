@@ -78,6 +78,12 @@ defineExpose({
             <button
                 ref="confirmButton"
                 class="btn"
+                :class="{
+                    'btn-primary': type === 'info',
+                    'btn-warning': type === 'warning',
+                    'btn-danger': type === 'critical' || type === 'danger',
+                    'btn-success': type === 'success',
+                }"
                 @click="handleConfirm(context)">
                 {{ confirmLabel }}
             </button>

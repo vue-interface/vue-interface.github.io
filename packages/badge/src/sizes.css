@@ -1,0 +1,11 @@
+@theme{
+    --badge-font-size-xs: --spacing(2.75);
+    --badge-font-size-sm: --spacing(3.5);
+    --badge-font-size-md: --spacing(4);
+    --badge-font-size-lg: --spacing(5);
+    --badge-font-size-xl: --spacing(6);
+    --badge-font-size-2xl: --spacing(7);
+    --badge-font-size-3xl: --spacing(8);
+    --badge-font-size-4xl: --spacing(9);
+    --badge-font-size-5xl: --spacing(10);
+}
