@@ -1,5 +1,11 @@
 # @vue-interface/slide-deck
 
+## 3.0.7
+
+### Patch Changes
+
+- 73f7c69: Remove border and unecessary styles
+
 ## 3.0.6
 
 ### Patch Changes
