@@ -1,0 +1,36 @@
+{
+  "name": "@vue-interface/banner",
+  "version": "1.0.0",
+  "description": "A TailwindCSS banner utility.",
+  "type": "module",
+  "main": "./index.css",
+  "module": "./index.css",
+  "browserslist": "last 2 versions, > 0.5%, ie >= 11",
+  "scripts": {
+    "dev": "vite",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vue-interface/vue-interface.github.io"
+  },
+  "keywords": [
+    "Banner",
+    "Component",
+    "Tailwind",
+    "Bootstrap"
+  ],
+  "author": "Justin Kimbrell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vue-interface/vue-interface.github.io"
+  },
+  "homepage": "https://vue-interface.github.io/packages/banner",
+  "readme": "README.md",
+  "files": [
+    "src",
+    "index.css",
+    "README.md",
+    "LICENSE"
+  ]
+}
