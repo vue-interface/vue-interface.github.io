@@ -1,5 +1,13 @@
 # @vue-interface/input-field
 
+## 2.0.17
+
+### Patch Changes
+
+- 48dda80: Added public exports to component
+- Updated dependencies [a2c2973]
+  - @vue-interface/form-control@2.0.16
+
 ## 2.0.16
 
 ### Patch Changes
