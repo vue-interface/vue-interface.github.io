@@ -1,5 +1,11 @@
 # @vue-interface/tooltip
 
+## 2.0.8
+
+### Patch Changes
+
+- a2c2973: clean up package dependencies
+
 ## 2.0.7
 
 ### Patch Changes
