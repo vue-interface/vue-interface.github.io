@@ -95,10 +95,15 @@ type NonEmptyCalcContentString = `${CalcExpressionChar}${string}` | CalcExpressi
 type ValidCalc = `calc(${NonEmptyCalcContentString})`;
 type ValidBracketContent =  NumericWithUnit | ValidCalc;
 
-export type FormControlSize<
+export type FormControlSizeValue<
     Prefix extends string,
     Value extends PredeterminedSize = PredeterminedSize
 > = `${Prefix}-${Value}` | `${Prefix}-${number}` | `${Prefix}-[${ValidBracketContent}]`;
+
+export type FormControlSize<
+    Prefix extends string,
+    Value extends PredeterminedSize = PredeterminedSize
+> = FormControlSizeValue<Prefix,Value> | Partial<Record<FormControlSizeValue<Prefix,Value>,boolean>>;
 
 export type FormControlProps<
     Attributes extends HTMLAttributes,
@@ -127,7 +132,7 @@ export type FormControlProps<
     readonly?: boolean;
     valid?: boolean;
     value?: Value;
-} & /* @vue-ignore */ Attributes;
+} & /* @vue-ignore */ Omit<Attributes, 'size'>;
 
 export type FormGroupClasses = {
     'has-activity': boolean;
@@ -262,9 +267,8 @@ export function useFormControl<
         'is-empty': isEmpty.value,
     }));
 
-    const controlClasses = computed<FormControlClasses<Size>>(() => ({        
+    const controlClasses = computed<FormControlClasses<Size>>(() => Object.assign({        
         [props.formControlClass ?? '']: !!props.formControlClass,
-        [props.size ?? '']: !!props.size,
         [props.color ?? '']: !!props.color,
         'form-control-plaintext': !!props.plaintext,
         'form-control-icon': hasIcon.value,
@@ -275,6 +279,8 @@ export function useFormControl<
         'is-invalid': isInvalid.value,
         'is-dirty': isDirty.value,
         'is-empty': isEmpty.value,
+    }, typeof props.size === 'object' ? props.size : {
+        [props.size ?? '']: !!props.size,
     }));
     
     const listeners: FormControlListeners<FormControlEvents> = {
