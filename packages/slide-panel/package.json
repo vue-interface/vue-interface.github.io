@@ -48,10 +48,6 @@
     "README.md",
     "LICENSE"
   ],
-  "dependencies": {
-    "css-unit-converter": "^1.1.2",
-    "deepmerge": "^4.2.2"
-  },
   "peerDependencies": {
     "vue": "^3.3.4"
   }
