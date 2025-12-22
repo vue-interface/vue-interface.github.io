@@ -1,5 +1,11 @@
 # @vue-interface/form-control
 
+## 2.0.16
+
+### Patch Changes
+
+- a2c2973: Added support for records types for the size property
+
 ## 2.0.15
 
 ### Patch Changes

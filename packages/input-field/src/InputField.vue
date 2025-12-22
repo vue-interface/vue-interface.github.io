@@ -26,7 +26,21 @@ const {
     listeners
 } = useFormControl<InputHTMLAttributes, InputFieldControlSizePrefix, ModelValue|undefined, Value>({ model, props, emit });
 
+const activity = useTemplateRef<InstanceType<typeof ActivityIndicator>>('activity');
+const help = useTemplateRef<HTMLElement>('help');
+const label = useTemplateRef<HTMLLabelElement>('label');
 const field = useTemplateRef<HTMLInputElement>('field');
+const wrapper = useTemplateRef<HTMLDivElement>('wrapper');
+
+defineExpose({
+    activity,
+    help,
+    field,
+    label,
+    wrapper,
+    focus: () => field.value?.focus(),
+    blur: () => field.value?.blur(),
+})
 </script>
 
 <script lang="ts">
@@ -42,6 +56,7 @@ export type InputFieldProps<ModelValue, Value> = FormControlProps<
 
 <template>
     <div
+        ref="wrapper"
         class="input-field"
         :class="formGroupClasses">
         <slot name="label">

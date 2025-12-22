@@ -46,7 +46,7 @@ function onAfterLeave(current, previous) {
 
 # Slide Deck
 
-A slide deck is an abstract component that adds a slide effect between components. The height of the slide deck will automatically grow to the next slide. Since each element must be different, or a key must be defined for Vue transitions, the component will automatically add the slide index as a key if a key isn't define. The component handles the differing animations for going backwards and forwards.
+The `SlideDeck` component is a [Vue](https://vuejs.org/) component and [Tailwind](https://tailwindcss.com/) utility that provides smooth animated transitions between each step in the slide. The height of the slide deck will automatically transition to the next and previous slides.
 
 ### Installation
 
@@ -70,7 +70,7 @@ bun i @vue-interface/slide-deck
 
 ## Basic Usage
 
-The `slide deck` component extends the [button](/packages/btn/) classes, allowing for the buttons to be customized with the various colors, variants, sizes, and states. Customize the slide deck headers and background colors with the appropriate [Tailwind](https://tailwindcss.com/) classes and [color palette](https://tailwindcss.com/docs/colors). 
+
 
 <ClientOnly>
 <!-- #region basicUsage -->
@@ -81,29 +81,29 @@ The `slide deck` component extends the [button](/packages/btn/) classes, allowin
     </div>
     <SlideDeck ref="deck" @enter="onEnter" @leave="onLeave" :active="0">
         <template #default="{ next, prev }">
-            <div key="Slide 1" class="p-3 bg-red-100">
-                <h2 class="text-3xl mb-3">Slide 1</h2>
+            <div key="Slide 1" class="p-4 bg-neutral-100 dark:bg-neutral-900">
+                <div class="text-3xl mb-4">Slide 1</div>
                 <button class="btn btn-primary" @click="next">Next &rarr;</button>
             </div>
-            <div key="Slide 2" class="p-3 bg-red-600">
-                <h2 class="text-3xl mb-3">Slide 2</h2>
+            <div key="Slide 2" class="p-4 bg-neutral-100 dark:bg-neutral-900">
+                <div class="text-3xl mb-4">Slide 2</div>
                 <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec felis nunc, gravida vitae euismod ut, bibendum facilisis justo. In hac habitasse platea dictumst. Curabitur elit ligula, euismod a suscipit sed, sodales non diam. Duis pellentesque blandit ligula, pellentesque condimentum dolor egestas quis. Aenean eget mollis odio. Praesent in posuere ligula, a viverra nisi. Nam diam ipsum, iaculis at tortor id, iaculis sollicitudin diam. Etiam vestibulum lacus quis vulputate rhoncus. Morbi tincidunt eros ipsum, sed sagittis sem blandit nec.</p>
                 <div class="flex justify-between">
                     <button class="btn btn-primary" @click="prev">&larr; Prev</button>
                     <button class="btn btn-primary" @click="next">Next &rarr;</button>
                 </div>
             </div>
-            <div key="Slide 3" class="p-3 bg-green-600 min-h-[200px]">
-                <h2 class="text-3xl mb-3">Slide 3</h2>
+            <div key="Slide 3" class="p-4 bg-neutral-100 dark:bg-neutral-900 min-h-50">
+                <div class="text-3xl mb-4">Slide 3</div>
                 <p class="mb-3">Ut mi urna, egestas ut congue eget, accumsan eget turpis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum egestas semper rutrum. Donec quis auctor orci. In venenatis odio nec luctus sodales.</p>
                 <div class="flex justify-between">
                     <button class="btn btn-primary" @click="prev">&larr; Prev</button>
                     <button class="btn btn-primary" @click="next">Next &rarr;</button>
                 </div>
             </div>
-            <div key="Slide 4" class="p-3">
-                <h2 class="text-3xl mb-3">Slide 4</h2>
-                    <button class="btn btn-primary" @click="prev">&larr; Prev</button>
+            <div key="Slide 4" class="p-4 bg-neutral-100 dark:bg-neutral-900">
+                <div class="text-3xl mb-4">Slide 4</div>
+                <button class="btn btn-primary" @click="prev">&larr; Prev</button>
             </div>
         </template>
     </SlideDeck>

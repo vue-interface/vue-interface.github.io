@@ -1,6 +1,6 @@
 {
   "name": "@vue-interface/slide-panel",
-  "version": "3.0.7",
+  "version": "3.0.8",
   "description": "A Vue slide panel component.",
   "type": "module",
   "main": "./dist/slide-panel.umd.cjs",
@@ -48,10 +48,6 @@
     "README.md",
     "LICENSE"
   ],
-  "dependencies": {
-    "css-unit-converter": "^1.1.2",
-    "deepmerge": "^4.2.2"
-  },
   "peerDependencies": {
     "vue": "^3.3.4"
   }
