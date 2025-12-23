@@ -10,6 +10,9 @@ export const sidebar: DefaultTheme.SidebarItem[] = [{
     text: 'Badge',
     link: '/packages/badge/'
 }, {
+    text: 'Banner',
+    link: '/packages/banner/'
+}, {
     text: 'Breadcrumb',
     link: '/packages/breadcrumb/'
 }, {
