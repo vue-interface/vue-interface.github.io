@@ -1,7 +1,7 @@
 {
-  "name": "@vue-interface/banner",
-  "version": "1.0.0",
-  "description": "A TailwindCSS banner utility.",
+  "name": "@vue-interface/alert",
+  "version": "3.0.0-beta.2",
+  "description": "A TailwindCSS alert utility.",
   "type": "module",
   "main": "./index.css",
   "module": "./index.css",
@@ -15,7 +15,7 @@
     "url": "git+https://github.com/vue-interface/vue-interface.github.io"
   },
   "keywords": [
-    "Banner",
+    "alert",
     "Component",
     "Tailwind",
     "Bootstrap"
@@ -25,7 +25,7 @@
   "bugs": {
     "url": "https://github.com/vue-interface/vue-interface.github.io"
   },
-  "homepage": "https://vue-interface.github.io/packages/banner",
+  "homepage": "https://vue-interface.github.io/packages/alert",
   "readme": "README.md",
   "files": [
     "src",

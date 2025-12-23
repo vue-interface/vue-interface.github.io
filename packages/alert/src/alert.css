@@ -1,0 +1,89 @@
+@theme {
+    /* alert variables */
+    --alert-display: flex;
+    --alert-align-items: center;
+    --alert-gap: 0.75rem;
+    --alert-padding: 1;
+    --alert-border-radius: 0.5rem;
+    --alert-border-width: 2px;
+    --alert-border-style: solid;
+    --alert-font-size: --spacing(4);
+
+    --alert-background-color: var(--alert-primary, var(--color-blue-600));
+    --alert-color: var(--alert-primary-text);
+    --alert-color-dark: var(--alert-dark-text-default);
+    --alert-border-color: color-mix(in oklch, var(--alert-background-color) 90%, black);
+    
+    --alert-dark-color: color-mix(in oklch, var(--alert-background-color) 20%, white);
+    --alert-dark-border-color: color-mix(in oklch, var(--alert-background-color) 80%, white);
+
+    /* Icon variables */
+    --alert-icon-size: calc(var(--alert-font-size) * 1.5);
+    --alert-icon-display: inline-flex;
+    --alert-icon-flex-shrink: 0;
+
+    --alert-icon-default: var(--alert-icon-info);
+    --alert-icon-info: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z'/%3E%3C/svg%3E");
+    --alert-icon-warning: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z'/%3E%3C/svg%3E");
+    --alert-icon-success: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z'/%3E%3C/svg%3E");
+    --alert-icon-danger: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M12 9v3.75m0 3.75h.007M21 12a9 9 0 11-18 0 9 9 0 0118 0z'/%3E%3C/svg%3E");
+}
+
+@utility alert {
+    display: var(--alert-display);
+    align-items: var(--alert-align-items);
+    gap: var(--alert-gap);
+    padding: calc(var(--alert-font-size) * var(--alert-padding));
+    font-size: var(--alert-font-size);
+    background-color: var(--alert-background-color);
+    color: var(--alert-color);
+    border: var(--alert-border-width) var(--alert-border-style) var(--alert-border-color);
+    border-radius: var(--alert-border-radius);
+
+    &::before {
+        content: "";
+        display: var(--alert-icon-display);
+        width: var(--alert-icon-size);
+        height: var(--alert-icon-size);
+        flex-shrink: var(--alert-icon-flex-shrink);
+        background-color: currentColor;
+        -webkit-mask: var(--alert-icon-default) center / contain no-repeat;
+        mask: var(--alert-icon-default) center / contain no-repeat;
+        padding-top: 5;
+    }
+
+    @variant dark {
+        color: var(--alert-color-dark);
+        border-color: var(--alert-dark-border-color);
+    }
+
+    &.alert-centered {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@utility alert-* {
+    --alert-icon-size: calc(--value(--alert-font-size-*, [length]) * 1.5);
+    --alert-icon-size: calc(--spacing(--value(number)) * 1.5);
+
+    font-size: --value(--alert-font-size-*, [length]);
+    font-size: --spacing(--value(number));
+    padding: calc(--value(--alert-font-size-*, [length]) * var(--alert-padding));
+    padding: calc(--spacing(--value(number)) * var(--alert-padding)); 
+    
+    background-color: --value(--alert-*, --color-*, [color]);
+    border-color: color-mix(in oklch, --value(--alert-*, --color-*, [color]) 90%, black);
+
+    color: --value(--text-for-*, --alert-*-text);
+
+    @variant dark {
+        color: --value(--dark-text-for-*, --alert-*-text-dark);
+        border-color: color-mix(in oklch, --value(--alert-*, --color-*, [color]) 80%, white);;
+    }
+       
+}
+
+@utility icon-* {
+    --alert-icon-default: --value(--alert-icon-*);  
+}

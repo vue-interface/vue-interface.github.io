@@ -4,14 +4,14 @@ export const sidebar: DefaultTheme.SidebarItem[] = [{
     text: 'Activity Indicator',
     link: '/packages/activity-indicator/'
 }, {
+    text: 'Alert',
+    link: '/packages/alert/'
+}, {
     text: 'Autogrow',
     link: '/packages/autogrow/'
 }, {
     text: 'Badge',
     link: '/packages/badge/'
-}, {
-    text: 'Banner',
-    link: '/packages/banner/'
 }, {
     text: 'Breadcrumb',
     link: '/packages/breadcrumb/'
