@@ -85,11 +85,11 @@
     border-color: --value(--btn-*, --color-*, [color]);
 
     padding: calc(--value(--btn-font-size-*, [length]) * 1.5 / 4) calc(--value(--btn-font-size-*, [length]) * 1.5 / 2);
-    padding: calc(--spacing(--value(integer)) * .75 / 2) calc(--spacing(--value(integer)) * .75);
+    padding: calc(--spacing(--value(number)) * .75 / 2) calc(--spacing(--value(number)) * .75);
     font-size: --value(--btn-font-size-*, [length]);
-    font-size: --spacing(--value(integer));
+    font-size: --spacing(--value(number));
     border-radius: calc(--value(--btn-font-size-*, [length]) / 4);
-    border-radius: calc(--spacing(--value(integer)) / 4);
+    border-radius: calc(--spacing(--value(number)) / 4);
 
     color: --value(--text-for-*, --btn-*-text);
     

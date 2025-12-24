@@ -37,6 +37,12 @@ bun i @vue-interface/tooltip
 ```
 :::
 
+### Tailwind Setup
+
+```css
+@import '@vue-interface/tooltip/index.css';
+```
+
 ## Basic Usage
 
 Tooltips can be positioned at the top, bottom, left, or right of the target element.

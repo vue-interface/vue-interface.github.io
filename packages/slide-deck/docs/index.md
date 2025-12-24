@@ -68,9 +68,13 @@ bun i @vue-interface/slide-deck
 ```
 :::
 
+### Tailwind Setup
+
+```css
+@import '@vue-interface/slide-deck/index.css';
+```
+
 ## Basic Usage
-
-
 
 <ClientOnly>
 <!-- #region basicUsage -->

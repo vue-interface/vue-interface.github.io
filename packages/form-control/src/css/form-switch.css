@@ -66,7 +66,7 @@
     --form-switch-disabled-filter: var(--form-disabled-filter);
     --form-switch-disabled-opacity: calc(var(--form-disabled-opacity) / 2);
 
-    /*Dark-Light mode toggle*/
+    /* Dark Mode */
     --form-switch-dark-border-color: var(--form-dark-border-color, oklch(55.6% 0 0));
     --form-switch-dark-bg: transparent;
 
@@ -75,6 +75,14 @@
 
     --form-switch-moon-bg: url("data:image/svg+xml;charset=utf-8;base64,PHN2ZyB2aWV3Qm94PSctMTIgLTEyIDI0IDI0JyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnPjxjaXJjbGUgcj0nOScgZmlsbD0nIzdlMjJjZScgdHJhbnNmb3JtPSdtYXRyaXgoMSwgMCwgMCwgMSwgNy4xMDU0MjczNTc2MDEwMDJlLTE1LCAwKScvPjxwYXRoIHN0cm9rZT0nd2hpdGUnIGZpbGw9J3doaXRlJyBzdHJva2UtbGluZWNhcD0ncm91bmQnIHN0cm9rZS1saW5lam9pbj0ncm91bmQnIGQ9J00gNiAyLjE2MiBDIDUuMjQgMi40NzkgNC40MjMgMi42NDIgMy41OTkgMi42NDEgQyAwLjE1MyAyLjY0MSAtMi42NDEgLTAuMTUzIC0yLjY0MSAtMy41OTkgQyAtMi42NDEgLTQuNDUgLTIuNDcgLTUuMjYxIC0yLjE2MiAtNiBDIC00LjQ4NiAtNS4wMyAtNiAtMi43NTggLTYgLTAuMjM5IEMgLTYgMy4yMDYgLTMuMjA2IDYgMC4yMzkgNiBDIDIuNzU4IDYuMDAxIDUuMDMgNC40ODcgNiAyLjE2MiBaJyB0cmFuc2Zvcm09J21hdHJpeCgxLCAwLCAwLCAxLCAzLjU1MjcxMzY3ODgwMDUwMWUtMTUsIDApJy8+PC9zdmc+");
     --form-switch-moon-bg-focus: url("data:image/svg+xml;charset=utf-8;base64,PHN2ZyB2aWV3Qm94PSctMTIgLTEyIDI0IDI0JyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnPjxjaXJjbGUgcj0nOScgZmlsbD0nIzZiMjFhOCcgdHJhbnNmb3JtPSdtYXRyaXgoMSwgMCwgMCwgMSwgNy4xMDU0MjczNTc2MDEwMDJlLTE1LCAwKScvPjxwYXRoIHN0cm9rZT0nd2hpdGUnIGZpbGw9J3doaXRlJyBzdHJva2UtbGluZWNhcD0ncm91bmQnIHN0cm9rZS1saW5lam9pbj0ncm91bmQnIGQ9J00gNiAyLjE2MiBDIDUuMjQgMi40NzkgNC40MjMgMi42NDIgMy41OTkgMi42NDEgQyAwLjE1MyAyLjY0MSAtMi42NDEgLTAuMTUzIC0yLjY0MSAtMy41OTkgQyAtMi42NDEgLTQuNDUgLTIuNDcgLTUuMjYxIC0yLjE2MiAtNiBDIC00LjQ4NiAtNS4wMyAtNiAtMi43NTggLTYgLTAuMjM5IEMgLTYgMy4yMDYgLTMuMjA2IDYgMC4yMzkgNiBDIDIuNzU4IDYuMDAxIDUuMDMgNC40ODcgNiAyLjE2MiBaJyB0cmFuc2Zvcm09J21hdHJpeCgxLCAwLCAwLCAxLCAzLjU1MjcxMzY3ODgwMDUwMWUtMTUsIDApJy8+PC9zdmc+");
+
+    /* Derived Switch Sizes */
+    --form-switch-width: calc(var(--form-switch-height) * 2);
+    --form-switch-before-width: calc(var(--form-switch-width) - var(--form-switch-border-width) * 2);
+    --form-switch-after-height: calc(var(--form-switch-height) * .75);
+    --form-switch-after-width: var(--form-switch-after-height);
+    --form-switch-after-translate-x: calc((var(--form-switch-height) - var(--form-switch-after-height) - var(--form-switch-border-width)) / 2);
+    --form-switch-after-checked-translate-x: calc((var(--form-switch-before-width) + var(--form-switch-height) - var(--form-switch-after-height) - var(--form-switch-border-width)) / 2);
 }
 
 @utility form-switch {
@@ -192,40 +200,43 @@
 
 @utility form-switch-* {
     --form-switch-height: calc(--value(--form-control-font-size-*, [length]) * 1.5 + (--value(--form-control-font-size-*, [length]) * .75) + 2px);
-    --form-switch-height: calc(--spacing(--value(integer)) * 1.5 + (--spacing(--value(integer)) * .75) + 2px);
-    --form-switch-width: calc(var(--form-switch-height) * 2);
+    --form-switch-height: calc(--spacing(--value(number)) * 1.5 + (--spacing(--value(number)) * .75) + 2px);
     --form-switch-focus-box-shadow-color: color-mix(in oklch, --value(--color-*, [color]) 50%, transparent);
+    --form-switch-width: calc(var(--form-switch-height) * 2); /* Moved here */
 
-    padding: calc(--value(--form-control-font-size-*, [length]) * .75 / 2) calc(--value(--form-control-font-size-*, [length]) * .75);
-    padding: calc(--spacing(--value(integer)) * .75 / 2) calc(--spacing(--value(integer)) * .75);
     font-size: --value(--form-control-font-size-*, [length]);
-    font-size: --spacing(--value(integer));
-    height: var(--form-switch-height);
-    width: var(--form-switch-width);
-    border-radius: calc(var(--form-switch-height));
+    font-size: --spacing(--value(number));
+    
+    &:where(input) {
+        padding: calc(--value(--form-control-font-size-*, [length]) * .75 / 2) calc(--value(--form-control-font-size-*, [length]) * .75);
+        padding: calc(--spacing(--value(number)) * .75 / 2) calc(--spacing(--value(number)) * .75);
+        height: var(--form-switch-height);
+        width: var(--form-switch-width);
+        border-radius: calc(var(--form-switch-height));
 
-    color: --value(--color-*, [color]);
-    border-color: --value(--color-*, [color]);
-        background-color: color-mix(in oklch, --value(--color-*, [color]) 10%, transparent);
-
-    &::after {
-        background-color: --value(--color-*, [color]);
-    }
-
-    &:checked {
-        background-color: color-mix(in oklch, --value(--color-*, [color]) 25%, transparent);
+        color: --value(--color-*, [color]);
         border-color: --value(--color-*, [color]);
+        background-color: color-mix(in oklch, --value(--color-*, [color]) 10%, transparent);
 
         &::after {
             background-color: --value(--color-*, [color]);
         }
-    }
 
-    &:focus {
-        border-color: --value(--color-*, [color]);
+        &:checked {
+            background-color: color-mix(in oklch, --value(--color-*, [color]) 25%, transparent);
+            border-color: --value(--color-*, [color]);
 
-        &::after {
-            background-color: --value(--color-*, [color]);
+            &::after {
+                background-color: --value(--color-*, [color]);
+            }
+        }
+
+        &:focus {
+            border-color: --value(--color-*, [color]);
+
+            &::after {
+                background-color: --value(--color-*, [color]);
+            }
         }
     }
 }

@@ -36,6 +36,12 @@ bun i @vue-interface/modal
 ```
 :::
 
+### Tailwind Setup
+
+```css
+@import '@vue-interface/modal/index.css';
+```
+
 ## Basic Usage
 
 <div>

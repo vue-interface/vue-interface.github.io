@@ -1,7 +1,7 @@
 <script setup lang="ts" generic="Value, ModelValue = boolean">
 import type { CheckedFormControlProps, FormControlSlots } from '@vue-interface/form-control';
 import { FormControlErrors, FormControlEvents, FormControlFeedback, useFormControl } from '@vue-interface/form-control';
-import { computed, InputHTMLAttributes } from 'vue';
+import { computed, InputHTMLAttributes, useTemplateRef } from 'vue';
 
 const props = withDefaults(defineProps<LightSwitchFieldProps<ModelValue, Value>>(), {
     formControlClass: 'form-switch',
@@ -43,6 +43,20 @@ const {
     Value,
     boolean
 >({ model, props, emit });
+
+const help = useTemplateRef<HTMLElement>('help');
+const label = useTemplateRef<HTMLLabelElement>('label');
+const field = useTemplateRef<HTMLInputElement>('field');
+const wrapper = useTemplateRef<HTMLDivElement>('wrapper');
+
+defineExpose({
+    help,
+    field,
+    label,
+    wrapper,
+    focus: () => field.value?.focus(),
+    blur: () => field.value?.blur(),
+});
 </script>
 
 <script lang="ts">
@@ -61,20 +75,23 @@ export type LightSwitchFieldProps<ModelValue, Value = undefined> = CheckedFormCo
 
 <template>
     <div
+        ref="wrapper"
         class="light-switch-field"
         :class="formGroupClasses">
         <label
+            ref="label"
             :for="controlAttributes.id"
             :class="labelClass">
             <slot
                 name="control"
                 v-bind="{ controlAttributes, listeners }">
                 <input
+                    ref="field"
                     type="checkbox"
                     :class="formControlClass"
                     v-model="model"
                     v-bind="{...controlAttributes, ...listeners}">
-                <slot name="label">{{ label }}</slot>
+                <slot name="label">{{ props.label }}</slot>
             </slot>
         </label>
 

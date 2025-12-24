@@ -51,6 +51,12 @@ bun i @vue-interface/checkbox-field
 ```
 :::
 
+### Tailwind Setup
+
+```css
+@import '@vue-interface/checkbox-field/index.css';
+```
+
 ## Basic Usage
 
 <div class="bg-neutral-100 dark:bg-neutral-800 p-3 mb-4">

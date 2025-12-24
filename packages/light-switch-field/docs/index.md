@@ -36,6 +36,12 @@ bun i @vue-interface/light-switch-field
 ```
 :::
 
+### Tailwind Setup
+
+```css
+@import '@vue-interface/light-switch-field/index.css';
+```
+
 ## Variations and States
 
 <!-- #region variations -->

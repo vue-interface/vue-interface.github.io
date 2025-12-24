@@ -33,8 +33,5 @@
     "index.css",
     "README.md",
     "LICENSE"
-  ],
-  "peerDependencies": {
-    "vue": "^3.3.4"
-  }
+  ]
 }

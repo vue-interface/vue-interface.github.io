@@ -30,6 +30,12 @@ bun i @vue-interface/badge
 ```
 :::
 
+### Tailwind Setup
+
+```css
+@import '@vue-interface/badge/index.css';
+```
+
 ## Basic Usage
 
 To create a badge component, use the `badge` class. Use the `badge-close` class to add a close button to the badge.

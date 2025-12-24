@@ -30,6 +30,12 @@ bun i @vue-interface/breadcrumb
 ```
 :::
 
+### Tailwind Setup
+
+```css
+@import '@vue-interface/breadcrumb/index.css';
+```
+
 ## Basic Usage
 
 To create a breadcrumb component, use the parent `breadcrumb` class and then add the `breadcrumb-link` class to the links in the breadcrumb. To remove the home icon, insert the `no-icon` class into the first link.

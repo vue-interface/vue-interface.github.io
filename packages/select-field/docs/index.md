@@ -42,6 +42,12 @@ bun i @vue-interface/select-field
 ```
 :::
 
+### Tailwind Setup
+
+```css
+@import '@vue-interface/select-field/index.css';
+```
+
 ## Variations and States
 
 <!-- #region variations -->
@@ -215,8 +221,9 @@ The following `select-field` components combine a select field with a [heroicon]
 3. Paste the SVG inside the `template` header.
 :::
 
+<div class="flex flex-col gap-3">
 <!-- #region icons -->
-<SelectField label="Small Icon" size="form-select-sm" class="form-select-sm mb-3">
+<SelectField label="Small Icon" size="form-select-sm">
     <option value="1">Option 1</option>
     <option value="2">Option 2</option>
     <option value="3">Option 3</option>
@@ -227,7 +234,7 @@ The following `select-field` components combine a select field with a [heroicon]
     </template>
 </SelectField>
 
-<SelectField label="Medium Icon" size="form-select-md" class="form-select-md mb-3">
+<SelectField label="Medium Icon" size="form-select-md">
     <option value="1">Option 1</option>
     <option value="2">Option 2</option>
     <option value="3">Option 3</option>
@@ -238,7 +245,7 @@ The following `select-field` components combine a select field with a [heroicon]
     </template>
 </SelectField>
 
-<SelectField label="Large Icon" size="form-select-lg" class="form-select-lg mb-3">
+<SelectField label="Large Icon" size="form-select-lg">
     <option value="1">Option 1</option>
     <option value="2">Option 2</option>
     <option value="3">Option 3</option>
@@ -249,7 +256,7 @@ The following `select-field` components combine a select field with a [heroicon]
     </template>
 </SelectField>
 
-<SelectField label="XL Icon" size="form-select-xl" class="form-select-xl mb-3">
+<SelectField label="XL Icon" size="form-select-xl">
     <option value="1">Option 1</option>
     <option value="2">Option 2</option>
     <option value="3">Option 3</option>
@@ -260,7 +267,7 @@ The following `select-field` components combine a select field with a [heroicon]
     </template>
 </SelectField>
 
-<SelectField label="Icon-7" size="form-select-7" class="form-select-7 mb-3">
+<SelectField label="Icon-7" size="form-select-7">
     <option value="1">Option 1</option>
     <option value="2">Option 2</option>
     <option value="3">Option 3</option>
@@ -271,7 +278,7 @@ The following `select-field` components combine a select field with a [heroicon]
     </template>
 </SelectField>
 
-<SelectField label="Icon-[16px]" size="form-select-[16px]" class="form-select-[16px] mb-3">
+<SelectField label="Icon-[16px]" size="form-select-[16px]">
     <option value="1">Option 1</option>
     <option value="2">Option 2</option>
     <option value="3">Option 3</option>
@@ -281,8 +288,8 @@ The following `select-field` components combine a select field with a [heroicon]
         </svg>
     </template>
 </SelectField>
-
 <!-- #endregion icons -->
+</div>
 
 ::: details Show Code
 <<< ./index.md#icons{html}

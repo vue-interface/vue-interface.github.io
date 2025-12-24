@@ -32,6 +32,12 @@ bun i @vue-interface/popover
 ```
 :::
 
+### Tailwind Setup
+
+```css
+@import '@vue-interface/popover/index.css';
+```
+
 ## Basic Usage
 
 The Popover component uses a `default` slot for content and a `trigger` slot for the element that toggles the popover. The `trigger` slot receives `red`, `isOpen`, `open`, `close`, and `toggle` methods/state.

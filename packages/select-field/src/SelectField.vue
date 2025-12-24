@@ -27,7 +27,21 @@ const {
     listeners,
 } = useFormControl<InputHTMLAttributes, SelectFieldControlSizePrefix, ModelValue|undefined, Value>({ model, props, emit });
 
+const activity = useTemplateRef<InstanceType<typeof ActivityIndicator>>('activity');
+const help = useTemplateRef<HTMLElement>('help');
+const label = useTemplateRef<HTMLLabelElement>('label');
 const field = useTemplateRef<HTMLSelectElement>('field');
+const wrapper = useTemplateRef<HTMLDivElement>('wrapper');
+
+defineExpose({
+    activity,
+    help,
+    field,
+    label,
+    wrapper,
+    focus: () => field.value?.focus(),
+    blur: () => field.value?.blur(),
+});
 
 // Check the option slots for selected options. If the field has hardcoded
 // selected options, this will ensure the value of the field is always set to
@@ -64,16 +78,17 @@ export type SelectFieldProps<ModelValue, Value> = FormControlProps<
 
 <template>
     <div
+        ref="wrapper"
         class="select-field"
         :class="formGroupClasses">
         <slot name="label">
             <label
-                v-if="label"
+                v-if="props.label"
                 ref="label"
                 :for="controlAttributes.id"
                 :class="labelClass"
                 @click="field?.click()">
-                {{ label }}
+                {{ props.label }}
             </label>
         </slot>
 
@@ -99,7 +114,7 @@ export type SelectFieldProps<ModelValue, Value> = FormControlProps<
                 <slot name="activity">
                     <Transition name="select-field-fade">
                         <ActivityIndicator
-                            v-if="activity && indicator"
+                            v-if="props.activity && indicator"
                             key="activity"
                             ref="activity"
                             :type="indicator"

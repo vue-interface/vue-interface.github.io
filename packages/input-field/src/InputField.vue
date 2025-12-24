@@ -61,11 +61,11 @@ export type InputFieldProps<ModelValue, Value> = FormControlProps<
         :class="formGroupClasses">
         <slot name="label">
             <label
-                v-if="label"
+                v-if="props.label"
                 ref="label"
                 :class="labelClass"
                 :for="controlAttributes.id">
-                {{ label }}
+                {{ props.label }}
             </label>
         </slot>
         
@@ -89,7 +89,7 @@ export type InputFieldProps<ModelValue, Value> = FormControlProps<
                 <slot name="activity">
                     <Transition name="input-field-fade">
                         <ActivityIndicator
-                            v-if="activity && indicator"
+                            v-if="props.activity && indicator"
                             key="activity"
                             ref="activity"
                             :type="indicator"

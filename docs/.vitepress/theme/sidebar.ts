@@ -19,14 +19,14 @@ export const sidebar: DefaultTheme.SidebarItem[] = [{
     text: 'Button',
     link: '/packages/btn/'
 }, {
-    text: 'Button Group',
-    link: '/packages/btn/btn-group'
-}, {
     text: 'Button Activity',
     link: '/packages/btn-activity/'
 }, {
     text: 'Button Dropdown',
     link: '/packages/btn-dropdown/'
+}, {
+    text: 'Button Group',
+    link: '/packages/btn/btn-group'
 }, {
     text: 'Checkbox Field',
     link: '/packages/checkbox-field/'

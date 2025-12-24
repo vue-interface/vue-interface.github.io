@@ -32,6 +32,12 @@ bun i @vue-interface/slide-panel
 ```
 :::
 
+### Tailwind Setup
+
+```css
+@import '@vue-interface/slide-panel/index.css';
+```
+
 ## Basic Usage
 
 <SlidePanelContainer class="top-16 h-[91vh]"/>
