@@ -96,7 +96,7 @@
 
 @utility badge-* {
     --badge-font-size: --value(--badge-font-size-*, [length]);
-    --badge-font-size: --spacing(--value(integer));
+    --badge-font-size: --spacing(--value(number));
     --badge-border-radius: calc(var(--badge-font-size) * .25);
     --badge-background-color: --value(--badge-*, --color-*, [color]);
     --badge-color: --value(--badge-*-text, --text-for-*);

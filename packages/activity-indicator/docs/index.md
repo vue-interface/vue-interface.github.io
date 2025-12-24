@@ -50,6 +50,12 @@ bun i @vue-interface/activity-indicator
 ```
 :::
 
+### Tailwind Setup
+
+```css
+@import '@vue-interface/activity-indicator/index.css';
+```
+
 ## Sizing
 
 The size of all indicators can be customized using predetermined size classes: `2xs`, `xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`,  `4xl`,`5xl`. 

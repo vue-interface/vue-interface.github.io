@@ -56,6 +56,12 @@ bun i @vue-interface/btn-activity
 ```
 :::
 
+### Tailwind Setup
+
+```css
+@import '@vue-interface/btn-activity/index.css';
+```
+
 ## Basic Usage
 
 <div class="mb-5 flex gap-2">

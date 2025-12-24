@@ -77,9 +77,9 @@
     
     &:has(input.form-control, .form-select) .form-label {
         padding: calc(--value(--form-control-font-size-*, [length]) * .75 / 2) calc(--value(--form-control-font-size-*, [length]) * .75);
-        padding: calc(--spacing(--value(integer)) * .75 / 2) calc(--spacing(--value(integer)) * .75);
+        padding: calc(--spacing(--value(number)) * .75 / 2) calc(--spacing(--value(number)) * .75);
         font-size: --value(--form-control-font-size-*, [length]);
-        font-size: --spacing(--value(integer));
+        font-size: --spacing(--value(number));
     }
 
     &:has(input.form-control):focus-within,
@@ -88,30 +88,30 @@
     &:has(.form-select>option:checked:not([value=""])) {
         .form-label {
             padding-left: calc(--value(--form-control-font-size-*, [length]) * .75);
-            padding-left: calc(--spacing(--value(integer)) * .75);
+            padding-left: calc(--spacing(--value(number)) * .75);
             font-size: calc(--value(--form-control-font-size-*, [length]) * .75);
-            font-size: calc(--spacing(--value(integer)) * .75);
+            font-size: calc(--spacing(--value(number)) * .75);
         }
         
         .form-control,
         .form-select {
             padding-top: calc(--value(--form-control-font-size-*, [length]) * .75);
-            padding-top: calc(--spacing(--value(integer)) * .75);
+            padding-top: calc(--spacing(--value(number)) * .75);
         }        
     }
     
     &.has-icon {
         font-size: calc(--value(--form-control-font-size-*, [length]));
-        font-size: calc(--spacing(--value(integer)));
+        font-size: calc(--spacing(--value(number)));
         
         .form-label {
             padding-left: calc(--value(--form-control-font-size-*, [length]) * 2 + 1px) !important;
-            padding-left: calc(--spacing(--value(integer)) * 2 + 1px) !important;
+            padding-left: calc(--spacing(--value(number)) * 2 + 1px) !important;
         }
 
         .form-control-icon.form-control {
             padding-left: calc(--value(--form-control-font-size-*, [length]) * 2);
-            padding-left: calc(--spacing(--value(integer)) * 2);
+            padding-left: calc(--spacing(--value(number)) * 2);
         }
     }
 }

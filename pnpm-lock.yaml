@@ -85,6 +85,8 @@ importers:
         specifier: ^3.3.4
         version: 3.5.25(typescript@5.9.3)
 
+  packages/alert: {}
+
   packages/autogrow:
     dependencies:
       vue:
@@ -92,8 +94,6 @@ importers:
         version: 3.5.25(typescript@5.9.3)
 
   packages/badge: {}
-
-  packages/alert: {}
 
   packages/breadcrumb: {}
 
@@ -186,11 +186,7 @@ importers:
         specifier: ^3.3.4
         version: 3.5.25(typescript@5.9.3)
 
-  packages/pagination:
-    dependencies:
-      vue:
-        specifier: ^3.3.4
-        version: 3.5.25(typescript@5.9.3)
+  packages/pagination: {}
 
   packages/popover:
     dependencies:

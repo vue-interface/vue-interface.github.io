@@ -8,7 +8,7 @@ import pkg from './package.json';
 
 const fileName = pkg.name.split('/')[1];
 
-const external = [
+const external: string[] = [
     ...(pkg.peerDependencies ? Object.keys(pkg.peerDependencies) : [])
 ];
 

@@ -3,6 +3,6 @@
 
 @utility activity-indicator-* {
     font-size: --value(--activity-indicator-size-*, [length]);
-    font-size: --spacing(--value(integer));
+    font-size: --spacing(--value(number));
     color: --value(--color-*, [color]);
 }

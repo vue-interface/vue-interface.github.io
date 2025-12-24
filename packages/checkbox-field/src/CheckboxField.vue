@@ -26,7 +26,19 @@ const {
     listeners,
 } = useFormControl<InputHTMLAttributes, CheckboxFieldControlSizePrefix, ModelValue|undefined, Value>({ model, props, emit });
 
+const help = useTemplateRef<HTMLElement>('help');
+const label = useTemplateRef<HTMLLabelElement>('label');
 const field = useTemplateRef<HTMLInputElement>('field');
+const wrapper = useTemplateRef<HTMLDivElement>('wrapper');
+
+defineExpose({
+    help,
+    field,
+    label,
+    wrapper,
+    focus: () => field.value?.focus(),
+    blur: () => field.value?.blur(),
+});
 
 onMounted(() => {
     if(!props.checked || !field.value) {
@@ -60,6 +72,7 @@ export type SelectFieldProps<ModelValue, Value> = FormControlProps<
 
 <template>
     <div
+        ref="wrapper"
         class="checkbox-field"
         :class="formGroupClasses">
         <slot
@@ -79,7 +92,7 @@ export type SelectFieldProps<ModelValue, Value> = FormControlProps<
                 :class="labelClass"
                 :for="controlAttributes.id">
                 <slot>
-                    {{ label }}
+                    {{ props.label }}
                 </slot>
             </label>
         </slot>

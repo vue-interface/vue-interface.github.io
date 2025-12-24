@@ -144,23 +144,23 @@
 @utility pagination-* {
     .pagination-link {
         font-size: --value(--pagination-font-size-*, [length]);
-        font-size: --spacing(--value(integer));
+        font-size: --spacing(--value(number));
         padding: calc(--value(--pagination-font-size-*, [length]) * var(--pagination-link-padding-x)) calc(--value(--pagination-font-size-*, [length]) * var(--pagination-link-padding-y));
-        padding: calc(--spacing(--value(integer)) * var(--pagination-link-padding-x)) calc(--spacing(--value(integer)) * var(--pagination-link-padding-y));
+        padding: calc(--spacing(--value(number)) * var(--pagination-link-padding-x)) calc(--spacing(--value(number)) * var(--pagination-link-padding-y));
         border-color: --value(--pagination-background-color-*, --color-*, [color]);
 
         &:first-child {
             border-top-left-radius: calc(--value(--pagination-font-size-*, [length]) / 4);
-            border-top-left-radius: calc(--spacing(--value(integer)) / 4);
+            border-top-left-radius: calc(--spacing(--value(number)) / 4);
             border-bottom-left-radius: calc(--value(--pagination-font-size-*, [length]) / 4);
-            border-bottom-left-radius: calc(--spacing(--value(integer)) / 4);
+            border-bottom-left-radius: calc(--spacing(--value(number)) / 4);
         }
 
         &:last-child {
             border-top-right-radius: calc(--value(--pagination-font-size-*, [length]) / 4);
-            border-top-right-radius: calc(--spacing(--value(integer)) / 4);
+            border-top-right-radius: calc(--spacing(--value(number)) / 4);
             border-bottom-right-radius: calc(--value(--pagination-font-size-*, [length]) / 4);
-            border-bottom-right-radius: calc(--spacing(--value(integer)) / 4);
+            border-bottom-right-radius: calc(--spacing(--value(number)) / 4);
         }  
                 
         &:hover {

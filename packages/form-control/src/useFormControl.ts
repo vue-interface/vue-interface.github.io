@@ -255,7 +255,7 @@ export function useFormControl<
         return !isInvalid.value && !!(props.valid || props.feedback);
     });
 
-    const formGroupClasses = computed<FormGroupClasses>(() => ({
+    const formGroupClasses = computed<FormGroupClasses>(() => Object.assign({
         [String(attrs.class)]: !!attrs.class,
         'has-activity': !!props.activity,
         'has-changed': hasChanged.value,
@@ -265,6 +265,8 @@ export function useFormControl<
         'is-invalid': isInvalid.value,
         'is-dirty': isDirty.value,
         'is-empty': isEmpty.value,
+    }, typeof props.size === 'object' ? props.size : {
+        [props.size ?? '']: !!props.size,
     }));
 
     const controlClasses = computed<FormControlClasses<Size>>(() => Object.assign({        

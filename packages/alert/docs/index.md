@@ -30,6 +30,12 @@ bun i @vue-interface/alert
 ```
 :::
 
+### Tailwind Setup
+
+```css
+@import '@vue-interface/alert/index.css';
+```
+
 ## Basic Usage
 
 To create a alert component, use the `alert` class. Use the `alert-centered` class to center the contents of the alert and `icon-[variant]` to customize the icon.

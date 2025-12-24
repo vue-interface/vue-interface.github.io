@@ -102,7 +102,7 @@
 
 @utility breadcrumb-* {
     font-size: --value(--breadcrumb-font-size-*, [length]);
-    font-size: --spacing(--value(integer));
+    font-size: --spacing(--value(number));
 
     & .breadcrumb-link.active {
         color: --value(--active-color-*, --color-*, [color]);

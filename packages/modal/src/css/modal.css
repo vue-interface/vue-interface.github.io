@@ -299,7 +299,7 @@
 @utility modal-* {
     .modal-container {
         max-width: --value(--modal-size-*, [length], [percentage]);
-        max-width: calc(--spacing(--value(integer)));
+        max-width: calc(--spacing(--value(number)));
     }    
     
     .modal-body {
@@ -343,7 +343,7 @@
 
 @utility modal-w-* {
     --modal-max-width: --value(--modal-size-*, [length], [percentage]);
-    --modal-max-width: calc(--spacing(--value(integer)));
+    --modal-max-width: calc(--spacing(--value(number)));
 
     .modal-container {
         max-width: var(--modal-max-width);
@@ -352,7 +352,7 @@
 
 @utility modal-h-* {
     --modal-max-height: --value(--modal-size-*, [length], [percentage]);
-    --modal-max-height: calc(--spacing(--value(integer)));
+    --modal-max-height: calc(--spacing(--value(number)));
 
     .modal-container {
         height: var(--modal-max-height);

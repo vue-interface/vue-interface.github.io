@@ -30,6 +30,12 @@ bun i @vue-interface/pagination
 ```
 :::
 
+### Tailwind Setup
+
+```css
+@import '@vue-interface/pagination/index.css';
+```
+
 ## Basic Usage
 
 To create a pagination component, use the parent `pagination` class and then add the `pagination-link` class to the links in the pagination. Use the `active` class to indicate the current page and `disabled` class for non-clickable links.

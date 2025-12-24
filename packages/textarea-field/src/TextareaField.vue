@@ -28,7 +28,21 @@ const {
     listeners
 } = useFormControl<InputHTMLAttributes, TextareaFieldControlSizePrefix, ModelValue|undefined, Value>({ model, props, emit });
 
+const activity = useTemplateRef<InstanceType<typeof ActivityIndicator>>('activity');
+const help = useTemplateRef<HTMLElement>('help');
+const label = useTemplateRef<HTMLLabelElement>('label');
 const field = useTemplateRef<HTMLTextAreaElement>('field');
+const wrapper = useTemplateRef<HTMLDivElement>('wrapper');
+
+defineExpose({
+    activity,
+    help,
+    field,
+    label,
+    wrapper,
+    focus: () => field.value?.focus(),
+    blur: () => field.value?.blur(),
+});
 
 watch(model, () => {
     field.value?.dispatchEvent(new Event('resize'));
@@ -50,15 +64,16 @@ export type TextareaFieldProps<ModelValue, Value> = FormControlProps<
 
 <template>
     <div
+        ref="wrapper"
         class="textarea-field"
         :class="formGroupClasses">
         <slot name="label">
             <label
-                v-if="label"
+                v-if="props.label"
                 ref="label"
                 :class="labelClass"
                 :for="controlAttributes.id">
-                {{ label }}
+                {{ props.label }}
             </label>
         </slot>
 
@@ -83,7 +98,7 @@ export type TextareaFieldProps<ModelValue, Value> = FormControlProps<
                 <slot name="activity">
                     <Transition name="textarea-field-fade">
                         <ActivityIndicator
-                            v-if="activity && indicator"
+                            v-if="props.activity && indicator"
                             key="activity"
                             ref="activity"
                             :type="indicator"

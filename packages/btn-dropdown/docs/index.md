@@ -44,6 +44,12 @@ bun i @vue-interface/btn-dropdown
 ```
 :::
 
+### Tailwind Setup
+
+```css
+@import '@vue-interface/btn-dropdown/index.css';
+```
+
 ## Basic Usage
 
 <ClientOnly>
