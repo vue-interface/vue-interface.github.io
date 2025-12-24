@@ -244,7 +244,6 @@ Customize the color of a form-check element with the [Tailwind color palette](ht
     <!-- #endregion customColors -->
 </div>
 
-
 ::: details Show Code
 <<< ./form-check.md#customColors{html}
 :::
