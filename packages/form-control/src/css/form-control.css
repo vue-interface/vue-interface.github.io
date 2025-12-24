@@ -23,6 +23,7 @@
     /* Dark mode */
     --form-control-dark-background-color: var(--form-dark-background-color, oklch(37.1% 0 0));
     --form-control-dark-border-color: var(--form-dark-border-color, oklch(55.6% 0 0));
+    --form-control-dark-color: var(--form-dark-color, oklch(98.5% 0.002 247.839));
 
     --form-control-focus-dark-background-color: var(--form-dark-background-color, oklch(37.1% 0 0));
     
@@ -113,6 +114,7 @@
         padding: calc(var(--form-control-font-size) * .75 / 2) calc(var(--form-control-font-size) * .75);
 
         @variant dark {
+            color: var(--form-control-dark-color);
             background-color: var(--form-control-dark-background-color);
             border-color: var(--form-control-dark-border-color);
         }
@@ -242,6 +244,10 @@
     display: var(--form-control-inner-icon-display);
     align-items: var(--form-control-inner-icon-align-items);
     justify-content: var(--form-control-inner-icon-justify-content);
+
+    @variant dark {
+        color: var(--form-control-dark-color);
+    }
 
     &:has(~ textarea.form-control) {
         top: var(--form-control-inner-icon-textarea-top);

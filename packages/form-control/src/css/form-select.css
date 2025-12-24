@@ -29,7 +29,7 @@
     --form-select-dark-color: var(--form-dark-color, oklch(98.5% 0.002 247.839));
     --form-select-dark-background-color: var(--form-dark-background-color, oklch(37.1% 0 0));
     --form-select-dark-border-color: var(--form-dark-border-color,  oklch(55.6% 0 0));
-    --form-select-dark-background-image: url("data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIGZpbGw9J25vbmUnIHZpZXdCb3g9JzAgMCAyNCAyNCcgc3Ryb2tlLXdpZHRoPScxLjUnIHN0cm9rZT0nI2Q0ZDRkNCc+PHBhdGggc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJyBkPSdNMTkuNSA4LjI1bC03LjUgNy41LTcuNS03LjUnIC8+PC9zdmc+");
+    --form-select-dark-background-image: url("data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIGZpbGw9J25vbmUnIHZpZXdCb3g9JzAgMCAyNCAyNCcgc3Ryb2tlLXdpZHRoPScxLjUnIHN0cm9rZT0nd2hpdGUnPjxwYXRoIHN0cm9rZS1saW5lY2FwPSdyb3VuZCcgc3Ryb2tlLWxpbmVqb2luPSdyb3VuZCcgZD0nTTE5LjUgOC4yNWwtNy41IDcuNS03LjUtNy41JyAvPjwvc3ZnPg==");
 
     /* Focus state */
     --form-select-focus-color: var(--form-focus-color, oklch(37.1% 0 0));
