@@ -1,0 +1,36 @@
+{
+  "name": "@vue-interface/alert",
+  "version": "3.0.0-beta.2",
+  "description": "A TailwindCSS alert utility.",
+  "type": "module",
+  "main": "./index.css",
+  "module": "./index.css",
+  "browserslist": "last 2 versions, > 0.5%, ie >= 11",
+  "scripts": {
+    "dev": "vite",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vue-interface/vue-interface.github.io"
+  },
+  "keywords": [
+    "Alert",
+    "Component",
+    "Tailwind",
+    "Bootstrap"
+  ],
+  "author": "Justin Kimbrell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vue-interface/vue-interface.github.io"
+  },
+  "homepage": "https://vue-interface.github.io/packages/alert",
+  "readme": "README.md",
+  "files": [
+    "src",
+    "index.css",
+    "README.md",
+    "LICENSE"
+  ]
+}

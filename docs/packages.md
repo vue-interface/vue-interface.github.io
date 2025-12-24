@@ -3,6 +3,7 @@
 All packages combine [Vue.js](https://vuejs.org/) and [TailwindCSS v4](https://tailwindcss.com/) utilities to create highly-customized components, directives, and plugins.
 
 - [Activity Indicator](/packages/activity-indicator/)
+- [Alert](/packages/alert/)
 - [Autogrow](/packages/autogrow/)
 - [Badge](/packages/badge/)
 - [Breadcrumb](/packages/breadcrumb/)

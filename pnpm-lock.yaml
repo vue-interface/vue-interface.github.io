@@ -93,6 +93,8 @@ importers:
 
   packages/badge: {}
 
+  packages/alert: {}
+
   packages/breadcrumb: {}
 
   packages/btn: {}
