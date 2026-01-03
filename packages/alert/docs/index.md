@@ -2,13 +2,22 @@
 title: Alert
 ---
 
-<script type="module">
+<script setup>
 import '../demo.css'
+import Alert from '../src/Alert.vue';
+
+import {
+    ExclamationTriangleIcon,
+    ExclamationCircleIcon,
+    InformationCircleIcon,
+    CheckCircleIcon,
+    CircleStackIcon
+} from '@heroicons/vue/24/outline';
 </script>
 
 # Alert
 
-The `alert` utility class provides a flexible and customizable alert component system with customizable color variants and sizes.
+The `Alert` component provides a flexible and customizable alert system with built-in icons, customizable color variants, and sizes.
 
 ### Installation
 
@@ -38,79 +47,125 @@ bun i @vue-interface/alert
 
 ## Basic Usage
 
-To create a alert component, use the `alert` class. Use the `alert-centered` class to center the contents of the alert and `icon-[variant]` to customize the icon.
+The component renders with a default information icon.
 
 <div class="flex flex-col gap-3">
     <!-- #region basicUsage -->
-    <div class="alert">Some Content</div>
-    <div class="alert alert-centered">Some Content</div>
-    <div class="alert">Lorem ipsum dolor sit amet consectetur adipiscing elit.
-        Consectetur adipiscing elit quisque faucibus ex sapien vitae.
-        Ex sapien vitae pellentesque sem placerat in id.
-        Placerat in id cursus mi pretium tellus duis.
-        Pretium tellus duis convallis tempus leo eu aeneanLorem ipsum dolor sit amet consectetur adipiscing
-        elit.</div>
+    <Alert>Some Content</Alert>
+    <Alert class="alert-centered">Some Content</Alert>
+    <Alert>Lorem ipsum dolor sit amet consectetur adipiscing elit. Consectetur adipiscing elit quisque faucibus
+        ex sapien vitae. Ex sapien vitae pellentesque sem placerat in id. Placerat in id cursus mi pretium
+        tellus duis. Pretium tellus duis convallis tempus leo eu aeneanLorem ipsum dolor sit amet consectetur
+        adipiscing elit.
+    </Alert>
     <!-- #endregion basicUsage -->
 </div>
 
-<<< ./index.md#basicUsage{html}
+<<< ./index.md#basicUsage{vue}
 
-## Sizes
+## Custom Icons
 
-Customize the size of a `alert` using a [predetermined size](#predetermined-sizes), [tailwind's numeric sizing classes](#tailwind-sizes), or an [arbitrary](#arbitrary-sizes) CSS length unit.
+The default alert uses the `information-circle-icon` from [heroicon](https://heroicons.com/). To use a custom icon, import it, and use it inside the `template #icon` wrapper. 
 
-### Predetermined Sizes
-
-The size can be customized using predetermined size classes: `xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`. Use the syntax: `alert-[size]`.
+```vue
+import {ExclamationTriangleIcon, ExclamationCircleIcon, InformationCircleIcon, CheckCircleIcon, CircleStackIcon} from '@heroicons/vue/24/outline';
+```
 
 <div class="flex flex-col gap-3">
-    <!-- #region predeterminedSizes-->
-    <div class="alert alert-xs">xs</div>
-    <div class="alert alert-sm">sm</div>
-    <div class="alert alert-md">md</div>
-    <div class="alert alert-lg">lg</div>
-    <div class="alert alert-xl">xl</div>
-    <div class="alert alert-2xl">2xl</div>
-    <div class="alert alert-3xl">3xl</div>
-    <div class="alert alert-4xl">4xl</div>
-    <div class="alert alert-5xl">5xl</div>
-    <!-- #endregion predeterminedSizes-->
+    <!-- #region customIcons -->
+    <Alert>
+        <template #icon>
+            <InformationCircleIcon/>
+        </template>
+        Some Content
+    </Alert>
+    <Alert class="alert-danger">
+        <template #icon>
+            <ExclamationCircleIcon/>
+        </template>
+        Some Content
+    </Alert>
+    <Alert class="alert-success">
+        <template #icon>
+            <CheckCircleIcon/>
+        </template>
+        Some Content
+    </Alert>
+    <Alert class="alert-warning">
+        <template #icon>
+            <ExclamationTriangleIcon/>
+        </template>
+        Some Content
+    </Alert>
+    <Alert>
+        <template #icon>
+            <CircleStackIcon/>
+        </template>
+        Some Content
+    </Alert>
+    <!-- #endregion customIcons -->
 </div>
 
 ::: details Show Code
-<<< ./index.md#predeterminedSizes{html}
+<<< ./index.md#customIcons{vue}
+:::
+
+## Sizes
+
+Customize the size of an `alert` using a [predetermined size](#predetermined-sizes), [tailwind's numeric sizing classes](#tailwind-sizes), or an [arbitrary](#arbitrary-sizes) CSS length unit.
+
+### Predetermined Sizes
+
+The size can be customized using predetermined `size prop` values: `xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`. Use the syntax: `size="[size]"`.
+
+<div class="flex flex-col gap-3">
+    <!-- #region sizeProp -->
+    <Alert size="xs">xs</Alert>
+    <Alert size="sm">sm</Alert>
+    <Alert size="md">md</Alert>
+    <Alert size="lg">lg</Alert>
+    <Alert size="xl">xl</Alert>
+    <Alert size="2xl">2xl</Alert>
+    <Alert size="3xl">3xl</Alert>
+    <Alert size="4xl">4xl</Alert>
+    <Alert size="5xl">5xl</Alert>
+    <!-- #endregion sizeProp -->
+</div>
+
+::: details Show Code
+<<< ./index.md#sizeProp{vue}
 :::
 
 ### Tailwind Sizes
 
-For more granular control over button sizes, use Tailwind's numeric sizing scale classes: `alert-1` - `alert-96`.
+For more granular control over sizes, use Tailwind's numeric sizing scale classes: `alert-1` - `alert-96`.
 
 <div class="flex flex-col gap-2">
     <!-- #region tailwindSizes-->
-    <div class="alert alert-3">alert-3</div>
-    <div class="alert alert-3.5">alert-3.5</div>
-    <div class="alert alert-4">alert-4</div>
-    <div class="alert alert-5">alert-5</div>
+    <Alert class="alert-3">alert-3</Alert>
+    <Alert class="alert-3.5">alert-3.5</Alert>
+    <Alert class="alert-4">alert-4</Alert>
+    <Alert class="alert-5">alert-5</Alert>
     <!-- #endregion tailwindSizes-->
 </div>
 
 ::: details Show Code
-<<< ./index.md#tailwindSizes{html}
+<<< ./index.md#tailwindSizes{vue}
 :::
 
-### Arbitrary sizes
+### Arbitrary Sizes
 
 For precise sizing, specify exact pixel values using the syntax `alert-[Npx]` or any other CSS length units (`rem`, `em`, `mm`, etc.).
 
 <div class="flex flex-col gap-2">
     <!-- #region arbitrarySizes-->
-    <div class="alert alert-[16px]">[16px]</div>
-    <div class="alert alert-[1.5rem]">[1.5rem]</div>
+    <Alert class="alert-[16px]">alert-[16px]</Alert>
+    <Alert class="alert-[1.5rem]">alert-[1.5rem]</Alert>
     <!-- #endregion arbitrarySizes-->
 </div>
 
 ::: details Show Code
-<<< ./index.md#arbitrarySizes{html}
+<<< ./index.md#arbitrarySizes{vue}
 :::
 
 ## Color Variants
@@ -119,71 +174,41 @@ The alert component supports eight standard color variants: `primary`, `secondar
 
 <div class="flex flex-col gap-3">
     <!-- #region variants -->
-    <div class="alert alert-primary">Primary</div>
-    <div class="alert alert-secondary">Secondary</div>
-    <div class="alert alert-success">Success</div>
-    <div class="alert alert-danger">Danger</div>
-    <div class="alert alert-warning">Warning</div>
-    <div class="alert alert-info">Info</div>
-    <div class="alert alert-light">Light</div>
-    <div class="alert alert-dark">Dark</div>
+    <Alert class="alert-primary">Primary</Alert>
+    <Alert class="alert-secondary">Secondary</Alert>
+    <Alert class="alert-success">Success</Alert>
+    <Alert class="alert-danger">Danger</Alert>
+    <Alert class="alert-warning">Warning</Alert>
+    <Alert class="alert-info">Info</Alert>
+    <Alert class="alert-light">Light</Alert>
+    <Alert class="alert-dark">Dark</Alert>
     <!-- #endregion variants -->
 </div>
 
 ::: details Show Code
-<<< ./index.md#variants{html}
-:::
-
-## Custom Colors
-
-Customize the color of the `alert` component with the [Tailwind color palette](https://tailwindcss.com/docs/colors) by using the class: `alert-[color]`.
-
-<div class="flex flex-col gap-3">
-    <!-- #region customColors -->
-    <div class="alert alert-green-500">alert-green-500</div>
-    <div class="alert alert-amber-500">alert-amber-500</div>
-    <div class="alert alert-yellow-500">alert-yellow-500</div>
-    <div class="alert alert-red-500">alert-red-500</div>
-    <!-- #endregion customColors -->
-</div>
-
-::: details Show Code
-<<< ./index.md#customColors{html}
+<<< ./index.md#variants{vue}
 :::
 
 ## Color Shades
 
+You can also use Tailwind color shades by passing them as classes.
+
 <div class="flex flex-col gap-2">
     <!-- #region colorShades -->
-    <div class="alert alert-red-50">alert-red-50</div>
-    <div class="alert alert-red-100">alert-red-100</div>
-    <div class="alert alert-red-200">alert-red-200</div>
-    <div class="alert alert-red-300">alert-red-300 </div>
-    <div class="alert alert-red-400">alert-red-400</div>
-    <div class="alert alert-red-500">alert-red-500</div>
-    <div class="alert alert-red-600">alert-red-600</div>
-    <div class="alert alert-red-700">alert-red-700 </div>
-    <div class="alert alert-red-800">alert-red-800 </div>
-    <div class="alert alert-red-900">alert-red-900 </div>
-    <div class="alert alert-red-950">alert-red-950</div>
+    <Alert class="alert-red-50">alert-red-50</Alert>
+    <Alert class="alert-red-100">alert-red-100</Alert>
+    <Alert class="alert-red-200">alert-red-200</Alert>
+    <Alert class="alert-red-300">alert-red-300 </Alert>
+    <Alert class="alert-red-400">alert-red-400</Alert>
+    <Alert class="alert-red-500">alert-red-500</Alert>
+    <Alert class="alert-red-600">alert-red-600</Alert>
+    <Alert class="alert-red-700">alert-red-700 </Alert>
+    <Alert class="alert-red-800">alert-red-800 </Alert>
+    <Alert class="alert-red-900">alert-red-900 </Alert>
+    <Alert class="alert-red-950">alert-red-950</Alert>
     <!-- #endregion colorShades -->
 </div>
 
 ::: details Show Code
-<<< ./index.md#colorShades{html}
-:::
-
-## Color Shades
-
-<div class="flex flex-col gap-3">
-    <!-- #region iconVariants -->
-    <div class="alert alert-primary icon-info">Some Content</div>
-    <div class="alert alert-danger icon-danger">Some Content</div>
-    <div class="alert alert-success icon-success">Some Content</div>
-    <div class="alert alert-warning icon-warning">Some Content</div>
-    <!-- #endregion iconVariants -->
-</div>
-
-::: details Show Code
-<<< ./index.md#iconVariants{html}
+<<< ./index.md#colorShades{vue}
 :::

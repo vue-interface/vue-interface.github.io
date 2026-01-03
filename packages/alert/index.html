@@ -1,92 +1,144 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Alert</title>
 </head>
+
 <body class="dark:bg-neutral-900 dark:text-white">
     <div id="app" class="container mx-auto mb-6">
         <h1 class="text-4xl mb-6">Alert</h1>
 
         <h2 class="text-2xl mb-3">Basic Usage</h2>
-
-        <div class="flex items-start flex-col gap-3">
-            <div class="alert">Some Content</div>
-            <div class="alert alert-centered">Some Content</div>
-            <div class="alert">Lorem ipsum dolor sit amet consectetur adipiscing elit.
-                Consectetur adipiscing elit quisque faucibus ex sapien vitae.
-                Ex sapien vitae pellentesque sem placerat in id.
-                Placerat in id cursus mi pretium tellus duis.
-                Pretium tellus duis convallis tempus leo eu aeneanLorem ipsum dolor sit amet consectetur adipiscing
-                elit.
-                Consectetur adipiscing elit quisque faucibus ex sapien vitae.
-                Ex sapien vitae pellentesque sem placerat in id.
-                Placerat in id cursus mi pretium tellus duis.
-                Pretium tellus duis convallis tempus leo eu aeneanLorem ipsum dolor sit amet consectetur adipiscing
-                elit.
-                Consectetur adipiscing elit quisque faucibus ex sapien vitae.
-                Ex sapien vitae pellentesque sem placerat in id.
-                Placerat in id cursus mi pretium tellus duis.
-                Pretium tellus duis convallis tempus leo eu aenean</div>
+        
+        <div class="flex flex-col gap-3">
+            <Alert>Some Content</Alert>
+            <Alert class="alert-centered">Some Content</Alert>
+            <Alert>Lorem ipsum dolor sit amet consectetur adipiscing elit. Consectetur adipiscing elit quisque faucibus
+                ex sapien vitae. Ex sapien vitae pellentesque sem placerat in id. Placerat in id cursus mi pretium
+                tellus duis. Pretium tellus duis convallis tempus leo eu aeneanLorem ipsum dolor sit amet consectetur
+                adipiscing elit.
+            </Alert>
         </div>
 
         <h2 class="text-2xl mt-6 mb-3">Sizes</h2>
 
-        <div class="flex flex-col items-start gap-3">
-            <div class="alert alert-xs">xs</div>
-            <div class="alert alert-sm">sm</div>
-            <div class="alert alert-md">md</div>
-            <div class="alert alert-lg">lg</div>
-            <div class="alert alert-xl">xl</div>
-            <div class="alert alert-2xl">2xl</div>
-            <div class="alert alert-3xl">3xl</div>
-            <div class="alert alert-4xl">4xl</div>
-            <div class="alert alert-5xl">5xl</div>
-
-
-            <div class="alert alert-3">3</div>
-            <div class="alert alert-3.5">3.5</div>
-            <div class="alert alert-4">4</div>
-            <div class="alert alert-5">5</div>
-
-            <div class="alert alert-[16px]">[16px]</div>
-            <div class="alert alert-[1.5rem]">[1.5rem]</div>
+        <div class="flex flex-col gap-3">
+            <Alert size="xs">xs</Alert>
+            <Alert size="sm">sm</Alert>
+            <Alert size="md">md</Alert>
+            <Alert size="lg">lg</Alert>
+            <Alert size="xl">xl</Alert>
+            <Alert size="2xl">2xl</Alert>
+            <Alert size="3xl">3xl</Alert>
+            <Alert size="4xl">4xl</Alert>
+            <Alert size="5xl">5xl</Alert>
+            <Alert class="alert-3">alert-3</Alert>
+            <Alert class="alert-3.5">alert-3.5</Alert>
+            <Alert class="alert-4">alert-4</Alert>
+            <Alert class="alert-5">alert-5</Alert>
+            <Alert class="alert-[16px]">alert-[16px]</Alert>
+            <Alert class="alert-[1.5rem]">alert-[1.5rem]</Alert>
         </div>
 
         <h2 class="text-2xl mt-6 mb-3">Color Variants</h2>
 
-        <div class="flex gap-3">
-            <div class="alert alert-primary">Primary</div>
-            <div class="alert alert-secondary">Secondary</div>
-            <div class="alert alert-success">Success</div>
-            <div class="alert alert-danger">Danger</div>
-            <div class="alert alert-warning">Warning</div>
-            <div class="alert alert-info">Info</div>
-            <div class="alert alert-light">Light</div>
-            <div class="alert alert-dark">Dark</div>
+        <div class="flex flex-col gap-3">
+            <Alert class="alert-primary">Primary</Alert>
+            <Alert class="alert-secondary">Secondary</Alert>
+            <Alert class="alert-success">Success</Alert>
+            <Alert class="alert-danger">Danger</Alert>
+            <Alert class="alert-warning">Warning</Alert>
+            <Alert class="alert-info">Info</Alert>
+            <Alert class="alert-light">Light</Alert>
+            <Alert class="alert-dark">Dark</Alert>
+        </div>
+
+        <h2 class="text-2xl mt-6 mb-3">Custom Icons</h2>
+        
+        <div class="flex flex-col gap-3">
+            <Alert>
+                <template #icon>
+                    <information-circle-icon/>
+                </template>
+                Some Content
+            </Alert>
+            <Alert class="alert-danger">
+                <template #icon>
+                    <exclamation-circle-icon/>
+                </template>
+                Some Content
+            </Alert>
+            <Alert class="alert-success">
+                <template #icon>
+                    <check-circle-icon/>
+                </template>
+                Some Content
+            </Alert>
+            <Alert class="alert-warning">
+                <template #icon>
+                    <exclamation-triangle-icon/>
+                </template>
+                Some Content
+            </Alert>
+            <Alert>
+                <template #icon>
+                    <circle-stack-icon/>
+                </template>
+                Some Content
+            </Alert>
         </div>
 
         <h2 class="text-2xl mt-6 mb-3">Custom Colors</h2>
 
-        <div class="flex gap-3">
-            <div class="alert alert-green-500">alert-green-500</div>
-            <div class="alert alert-amber-500">alert-amber-500</div>
-            <div class="alert alert-yellow-500">alert-yellow-500</div>
-            <div class="alert alert-red-500">alert-red-500</div>
+        <div class="flex flex-col gap-3">
+            <Alert class="alert-green-500">alert-green-500</Alert>
+            <Alert class="alert-amber-500">alert-amber-500</Alert>
+            <Alert class="alert-yellow-500">alert-yellow-500</Alert>
+            <Alert class="alert-red-500">alert-red-500</Alert>
         </div>
 
-        <h2 class="text-2xl mt-6 mb-3">Icon Variants</h2>
+        <h2 class="text-2xl mt-6 mb-3">Color Shades</h2>
 
-        <div class="flex gap-3">
-            <div class="alert alert-primary icon-info">Some Content</div>
-            <div class="alert alert-danger icon-danger">Some Content</div>
-            <div class="alert alert-success icon-success">Some Content</div>
-            <div class="alert alert-warning icon-warning">Some Content</div>
+        <div class="flex flex-col gap-2">
+            <Alert class="alert-red-50">alert-red-50</Alert>
+            <Alert class="alert-red-100">alert-red-100</Alert>
+            <Alert class="alert-red-200">alert-red-200</Alert>
+            <Alert class="alert-red-300">alert-red-300 </Alert>
+            <Alert class="alert-red-400">alert-red-400</Alert>
+            <Alert class="alert-red-500">alert-red-500</Alert>
+            <Alert class="alert-red-600">alert-red-600</Alert>
+            <Alert class="alert-red-700">alert-red-700 </Alert>
+            <Alert class="alert-red-800">alert-red-800 </Alert>
+            <Alert class="alert-red-900">alert-red-900 </Alert>
+            <Alert class="alert-red-950">alert-red-950</Alert>
         </div>
     </div>
     <script type="module">
         import './demo.css';
+        import { createApp } from 'vue/dist/vue.esm-bundler.js';
+        import { Alert } from './index.ts';
+        import {
+            ExclamationTriangleIcon,
+            ExclamationCircleIcon,
+            InformationCircleIcon,
+            CheckCircleIcon,
+            CircleStackIcon
+        } from '@heroicons/vue/24/outline';
+
+        const vue = createApp({
+            components: {
+                Alert,
+                ExclamationTriangleIcon,
+                ExclamationCircleIcon,
+                InformationCircleIcon,
+                CheckCircleIcon,
+                CircleStackIcon
+            }
+        });
+        vue.mount('#app')
     </script>
 </body>
 

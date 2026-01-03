@@ -22,11 +22,11 @@ bun i @vue-interface/alert
 
 ## Basic Usage
 
-To create a alert component, use the parent `alert` class. Use the `alert-centered` class for a centered alert.
+To create a alert component, use the `Alert` element. Use the `alert-centered` class for a centered alert.
 
-```html
-<div class="alert">Some Content</div>
-<div class="alert alert-centered">Some Content</div>
+```vue
+<Alert>Some Content</Alert>
+<Alert class="alert-centered">Some Content</Alert>
 ```
 
 For more comprehensive documentation and examples, please visit the [online documentation](https://vue-interface.github.io/packages/alert/).
