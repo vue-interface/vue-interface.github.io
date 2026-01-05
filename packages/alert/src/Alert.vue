@@ -1,31 +1,22 @@
 <script setup lang="ts">
 import { InformationCircleIcon } from '@heroicons/vue/24/outline';
-import { computed } from 'vue';
+import type { ComponentSize } from './sizes';
 
-export type AlertSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl';
+export type AlertSizePrefix = 'alert';
 
-const props = defineProps<{
-    size?: AlertSize
-}>();
+export interface AlertProps {
+    size?: ComponentSize<AlertSizePrefix>;
+}
 
-const classes = computed(() => ({
-    'alert-xs': props.size === 'xs',
-    'alert-sm': props.size === 'sm',
-    'alert-md': props.size === 'md',
-    'alert-lg': props.size === 'lg',
-    'alert-xl': props.size === 'xl',
-    'alert-2xl': props.size === '2xl',
-    'alert-3xl': props.size === '3xl',
-    'alert-4xl': props.size === '4xl',
-    'alert-5xl': props.size === '5xl',
-}));
+withDefaults(defineProps<AlertProps>(), {
+    size: 'alert-md'
+});
 </script>
 
 <template>
     <div 
         class="alert"
-        :class="[`alert-${props.size}`, classes]" 
-        v-bind="$attrs">
+        :class="size">
         <div class="alert-icon">
             <slot name="icon">
                 <InformationCircleIcon />

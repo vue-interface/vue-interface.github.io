@@ -120,15 +120,15 @@ The size can be customized using predetermined `size prop` values: `xs`, `sm`, `
 
 <div class="flex flex-col gap-3">
     <!-- #region sizeProp -->
-    <Alert size="xs">xs</Alert>
-    <Alert size="sm">sm</Alert>
-    <Alert size="md">md</Alert>
-    <Alert size="lg">lg</Alert>
-    <Alert size="xl">xl</Alert>
-    <Alert size="2xl">2xl</Alert>
-    <Alert size="3xl">3xl</Alert>
-    <Alert size="4xl">4xl</Alert>
-    <Alert size="5xl">5xl</Alert>
+    <Alert size="alert-xs">xs</Alert>
+    <Alert size="alert-sm">sm</Alert>
+    <Alert size="alert-md">md</Alert>
+    <Alert size="alert-lg">lg</Alert>
+    <Alert size="alert-xl">xl</Alert>
+    <Alert size="alert-2xl">2xl</Alert>
+    <Alert size="alert-3xl">3xl</Alert>
+    <Alert size="alert-4xl">4xl</Alert>
+    <Alert size="alert-5xl">5xl</Alert>
     <!-- #endregion sizeProp -->
 </div>
 
@@ -142,10 +142,10 @@ For more granular control over sizes, use Tailwind's numeric sizing scale classe
 
 <div class="flex flex-col gap-2">
     <!-- #region tailwindSizes-->
-    <Alert class="alert-3">alert-3</Alert>
-    <Alert class="alert-3.5">alert-3.5</Alert>
-    <Alert class="alert-4">alert-4</Alert>
-    <Alert class="alert-5">alert-5</Alert>
+    <Alert size="alert-3">alert-3</Alert>
+    <Alert size="alert-3.5">alert-3.5</Alert>
+    <Alert size="alert-4">alert-4</Alert>
+    <Alert size="alert-5">alert-5</Alert>
     <!-- #endregion tailwindSizes-->
 </div>
 
@@ -159,8 +159,8 @@ For precise sizing, specify exact pixel values using the syntax `alert-[Npx]` or
 
 <div class="flex flex-col gap-2">
     <!-- #region arbitrarySizes-->
-    <Alert class="alert-[16px]">alert-[16px]</Alert>
-    <Alert class="alert-[1.5rem]">alert-[1.5rem]</Alert>
+    <Alert size="alert-[16px]">alert-[16px]</Alert>
+    <Alert size="alert-[1.5rem]">alert-[1.5rem]</Alert>
     <!-- #endregion arbitrarySizes-->
 </div>
 
