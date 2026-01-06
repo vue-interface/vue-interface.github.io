@@ -1,0 +1,59 @@
+@theme {
+    /* alert variables */
+    --alert-display: flex;
+    --alert-align-items: center;
+    --alert-gap: 0.75rem;
+    --alert-padding: 1;
+    --alert-border-radius: 0.5rem;
+    --alert-border-width: 1px;
+    --alert-border-style: solid;
+    --alert-font-size: --spacing(4);
+
+    --alert-color: var(--alert-primary-text);
+
+    /* Icon variables */
+    --alert-icon-size: calc(var(--alert-font-size) * 1.5);
+}
+
+@utility alert {
+    --alert-background-color: var(--alert-primary, var(--color-blue-600));
+
+    display: var(--alert-display);
+    align-items: var(--alert-align-items);
+    gap: var(--alert-gap);
+    padding: calc(var(--alert-font-size) * var(--alert-padding));
+    font-size: var(--alert-font-size);
+    background-color: var(--alert-background-color);
+    color: var(--alert-color);
+    border-radius: var(--alert-border-radius);
+
+    @variant dark {
+        border-color: var(--alert-dark-border-color);
+    }
+
+    &.alert-centered {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@utility alert-icon {
+    & svg,
+    & > :first-child {
+        width: var(--alert-icon-size);
+        height: var(--alert-icon-size);
+    }
+}
+
+@utility alert-* {
+    --alert-icon-size: calc(--value(--alert-font-size-*, [length]) * 1.5);
+    --alert-icon-size: calc(--spacing(--value(number)) * 1.5);
+    --alert-background-color: --value(--alert-*, --color-*, [color]);
+
+    font-size: --value(--alert-font-size-*, [length]);
+    font-size: --spacing(--value(number));
+    padding: calc(--value(--alert-font-size-*, [length]) * var(--alert-padding));
+    padding: calc(--spacing(--value(number)) * var(--alert-padding)); 
+
+    color: --value(--text-for-*, --alert-*-text);
+}

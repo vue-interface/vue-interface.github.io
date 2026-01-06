@@ -85,7 +85,11 @@ importers:
         specifier: ^3.3.4
         version: 3.5.25(typescript@5.9.3)
 
-  packages/alert: {}
+  packages/alert:
+    dependencies:
+      vue:
+        specifier: ^3.3.4
+        version: 3.5.26(typescript@5.9.3)
 
   packages/autogrow:
     dependencies:
