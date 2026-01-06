@@ -1,6 +1,6 @@
 {
   "name": "@vue-interface/alert",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "A Vue alert component.",
   "type": "module",
   "main": "./dist/alert.umd.cjs",
@@ -16,7 +16,7 @@
     }
   },
   "browserslist": "last 2 versions, > 0.5%, ie >= 11",
- "scripts": {
+  "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
