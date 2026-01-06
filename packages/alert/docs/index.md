@@ -58,6 +58,13 @@ The component renders with a default information icon.
         tellus duis. Pretium tellus duis convallis tempus leo eu aeneanLorem ipsum dolor sit amet consectetur
         adipiscing elit.
     </Alert>
+    <Alert class="inline-flex">
+        Do you want to continue?
+        <template #action>
+            <button class="btn btn-secondary">No</button>
+            <button class="btn btn-blue-900">Yes</button>
+        </template>
+    </Alert>
     <!-- #endregion basicUsage -->
 </div>
 
