@@ -2,13 +2,11 @@
 import { InformationCircleIcon } from '@heroicons/vue/24/outline';
 import type { ComponentSize } from './sizes';
 
-export type AlertSizePrefix = 'alert';
+export type AlertSizePrefix = 'alert'; 
 
-export interface AlertProps {
+withDefaults(defineProps<{
     size?: ComponentSize<AlertSizePrefix>;
-}
-
-withDefaults(defineProps<AlertProps>(), {
+}>(), {
     size: 'alert-md'
 });
 </script>
