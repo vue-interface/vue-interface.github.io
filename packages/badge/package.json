@@ -1,13 +1,24 @@
 {
   "name": "@vue-interface/badge",
   "version": "3.0.0",
-  "description": "A TailwindCSS badge utility.",
+  "description": "A Vue badge utility.",
   "type": "module",
-  "main": "./index.css",
-  "module": "./index.css",
+  "main": "./dist/badge.umd.cjs",
+  "module": "./dist/badge.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "source": "./index.ts",
+      "types": "./dist/index.d.ts",
+      "style": "./index.css",
+      "import": "./dist/badge.js",
+      "require": "./dist/badge.umd.cjs"
+    }
+  },
   "browserslist": "last 2 versions, > 0.5%, ie >= 11",
   "scripts": {
     "dev": "vite",
+    "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
   "repository": {
@@ -17,6 +28,7 @@
   "keywords": [
     "Badge",
     "Component",
+    "Vue",
     "Tailwind",
     "Bootstrap"
   ],
@@ -29,8 +41,13 @@
   "readme": "README.md",
   "files": [
     "src",
+    "dist",
+    "index.ts",
     "index.css",
     "README.md",
     "LICENSE"
-  ]
+  ],
+  "peerDependencies": {
+    "vue": "^3.3.4"
+  }
 }
