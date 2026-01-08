@@ -1,5 +1,11 @@
 # @vue-interface/btn-dropdown
 
+## 4.1.0
+
+### Minor Changes
+
+- f240c60: Exposed show, hide, and toggle functions
+
 ## 4.0.8
 
 ### Patch Changes
