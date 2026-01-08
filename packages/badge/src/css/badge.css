@@ -3,15 +3,29 @@
     --badge-display: inline-flex;
     --badge-align-items: stretch;
     --badge-justify-content: space-between;
+
     --badge-padding-y: .25;
     --badge-padding-x: .350;
+
+    --badge-inner-display: inline-flex;
+    --badge-inner-align-items: center;
+
+    --badge-border-radius: --spacing(1);
+    --badge-font-size: --spacing(4);
     
-
-    --badge-children-display: inline-flex;
-    --badge-children-align-items: center;
-
-    --badge-close-display: inline-flex;
-    --badge-close-icon: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Cpath%20stroke='black'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'%20d='M6%2018L18%206M6%206l12%2012'/%3E%3C/svg%3E");
+    /* Use em units for derivative variables to ensure relative scaling */
+    --badge-padding-top: calc(1em * var(--badge-padding-y));
+    --badge-padding-bottom: calc(1em * var(--badge-padding-y));
+    --badge-padding-left: calc(1em * var(--badge-padding-x));
+    --badge-padding-right: calc(1em * var(--badge-padding-x));
+    --badge-gap: calc(1em * var(--badge-padding-x) / 2);
+    
+    --badge-color: var(--badge-text-default);
+    --badge-background-color: var(--badge-primary);
+    --badge-hover-color: black;
+    --badge-hover-mix-percentage: 90%;
+    --badge-close-hover-color: var(--badge-color);
+    --badge-close-icon-size: 0.75em;
 
     /* badge-outline variables */
     --badge-outline-background-color: transparent;
@@ -19,122 +33,112 @@
 }
 
 @utility badge {
-    --badge-border-radius: --spacing(1);
-    --badge-font-size: --spacing(4);
-    --badge-padding-top: calc(var(--badge-font-size) * var(--badge-padding-y));
-    --badge-padding-bottom: calc(var(--badge-font-size) * var(--badge-padding-y));
-    --badge-padding-left: calc(var(--badge-font-size) * var(--badge-padding-x));
-    --badge-padding-right: calc(var(--badge-font-size) * var(--badge-padding-x));
-    --badge-gap: calc(var(--badge-font-size) * var(--badge-padding-x) / 2);
-    --badge-color: var(--badge-text-default);
-    --badge-background-color: var(--badge-primary);
-    --badge-hover-color: black;
-    --badge-hover-mix-percentage: 90%;
-    --badge-close-hover-color: var(--badge-color);
-    --badge-close-icon-size: calc(var(--badge-font-size) * 0.75);
-
     display: var(--badge-display);
     align-items: var(--badge-align-items);
     justify-content: var(--badge-justify-content);
-    gap: var(--badge-gap);
     font-size: var(--badge-font-size);
-    line-height: var(--badge-font-size);
     color: var(--badge-color);
     background-color: var(--badge-background-color);
     border-radius: var(--badge-border-radius);
     text-decoration: none;
+    overflow: hidden;
+    gap: var(--badge-gap);
 
-    &:not(:has(:nth-child(1))) {
+    &.close-left {
+        .badge-close {
+            order: -1;
+            padding-left: calc(var(--badge-padding-left) / 2.5);
+            padding-right: calc(var(--badge-padding-right) / 2.5);
+        }
+
+        .badge-inner {
+            padding-left: 0;
+            padding-right: var(--badge-padding-right);
+        }
+    }
+
+    .badge-close {
+        padding-left: calc(var(--badge-padding-left) / 3.5);
+        padding-right: calc(var(--badge-padding-right) / 3.5);
         padding-top: var(--badge-padding-top);
         padding-bottom: var(--badge-padding-bottom);
-        padding-left: var(--badge-padding-left);
-        padding-right: var(--badge-padding-right);
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        vertical-align: center;
+        line-height: 1;
+
+        & svg,
+        & > :first-child {
+            display: block;
+            width: var(--badge-close-icon-size);
+            height: var(--badge-close-icon-size);
+        }
+
+        &:hover {
+            background-color: color-mix(in oklch, var(--badge-background-color) 90%, black);
+        }
     }
+}
 
-    &:has(:nth-child(1)) {
-        > * {
-            display: var(--badge-children-display);
-            align-items: var(--badge-children-align-items);
-            padding-top: var(--badge-padding-top);
-            padding-bottom: var(--badge-padding-bottom);
-        }
+@utility badge-inner {
+    display: var(--badge-inner-display);
+    align-items: center;
+    justify-content: start;
+    font-size: inherit;
+    line-height: 1;
+    padding-top: var(--badge-padding-top);
+    padding-bottom: var(--badge-padding-bottom);
+    padding-left: var(--badge-padding-left);
+    padding-right: var(--badge-padding-right);
+    flex-grow: 1;
 
-        > :first-child {
-            padding-left: var(--badge-padding-left);
-            border-top-left-radius: var(--badge-border-radius);
-            border-bottom-left-radius: var(--badge-border-radius);
-        }
+    &:not(:last-child) {
+        padding-right: 0;
+    }
+}
 
-        > :last-child {
-            padding-right: var(--badge-padding-right);
-            border-top-right-radius: var(--badge-border-radius);
-            border-bottom-right-radius: var(--badge-border-radius);
-        }
+@utility badge-outline {
+    background-color: var(--badge-outline-background-color);
+    color: var(--badge-outline-color);
+    border: 1px solid var(--badge-outline-color);
+
+    .badge-close:hover {
+        background-color: color-mix(in oklch, var(--badge-background-color, oklch(54.6% 0.245 262.881)) 10%, white);
         
-        .badge-close {
-            padding-left: calc(var(--badge-padding-left) / 3);
-            padding-right: calc(var(--badge-padding-left) / 3);
-            
-
-            &::before {
-                content: "";
-                display: block;
-                width: var(--badge-close-icon-size);
-                height: var(--badge-close-icon-size);
-                background-color: currentColor;
-                -webkit-mask: var(--badge-close-icon) center / contain no-repeat;
-                mask: var(--badge-close-icon) center / contain no-repeat;
-            }
-
-            &:hover {
-                background-color: color-mix(in oklab, var(--badge-background-color) var(--badge-hover-mix-percentage), var(--badge-hover-color));
-                color: var(--badge-close-hover-color);
-            }
+        @variant dark {
+            background-color: var(--badge-background-color);
+            color: var(--badge-close-hover-color);
         }
     }
-
 }
 
 @utility badge-* {
     --badge-font-size: --value(--badge-font-size-*, [length]);
     --badge-font-size: --spacing(--value(number));
-    --badge-border-radius: calc(var(--badge-font-size) * .25);
-    --badge-background-color: --value(--badge-*, --color-*, [color]);
-    --badge-color: --value(--badge-*-text, --text-for-*);
-    --badge-hover-color: --value(--badge-*-hover-color, --hover-color-for-*);
-}
+        
+    border-radius: calc(var(--badge-font-size) * .25);
+    
+    background-color: --value(--badge-*, --color-*, [color]);
+    color: --value(--badge-*-text, --text-for-*);
 
-@utility badge-outline {
-    --badge-background-color: var(--badge-outline-background-color);
-    --badge-color: var(--badge-outline-color);
-    --badge-border-color: var(--badge-outline-color);
-    --badge-border-style: solid;
-    --badge-border-width: 1px;
-    --badge-hover-color: var(--badge-outline-color);
-    --badge-hover-mix-percentage: 90%;
-    --badge-close-hover-color: var(--badge-outline-color);
-
-    @variant dark {
-        --badge-hover-mix-percentage: 0%;
-        --badge-close-hover-color: var(--color-white, #fff);
+    .badge-close:hover {
+        background-color: color-mix(in oklch, --value(--badge-*, --color-*, [color]) 90%, black);
     }
-
-    border: var(--badge-border-width) var(--badge-border-style) var(--badge-border-color);
 }
 
 @utility badge-outline-* {
-    --badge-background-color: var(--badge-outline-background-color);
-    --badge-color: --value(--badge-*, --color-*, [color]);
-    --badge-border-color: --value(--badge-*, --color-*, [color]);
-    --badge-border-style: solid;
-    --badge-border-width: 1px;
-    --badge-hover-color: --value(--badge-*, --color-*, [color]);
-    --badge-hover-mix-percentage: 85%;
+    background-color: var(--badge-outline-background-color);
+    color: --value(--badge-*, --color-*, [color]);
+    border: 1px solid --value(--badge-*, --color-*, [color]);
 
-    @variant dark {
-        --badge-hover-mix-percentage: 0%;
-    --badge-close-hover-color: --value(--badge-*-text, --text-for-*);
+    .badge-close:hover {
+        background-color: color-mix(in oklch, --value(--badge-*, --color-*, [color]) 10%, white);
+
+        @variant dark {
+            background-color: --value(--badge-*, --color-*, [color]);
+            color: --value(--badge-*-text, --text-for-*);
+        }
     }
-
-    border: var(--badge-border-width) var(--badge-border-style) var(--badge-border-color);
 }

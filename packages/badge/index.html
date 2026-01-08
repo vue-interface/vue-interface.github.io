@@ -1,377 +1,248 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Badge</title>
-    </head>
-    <body class="dark:bg-neutral-900 dark:text-white">
-        <div id="app" class="container mx-auto mb-6">
-            <h1 class="text-4xl mb-6">Badge</h1>
 
-            <h2 class="text-2xl mb-3">Basic Usage</h2>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Badge</title>
+</head>
 
-            <div>
-                <Badge
-                    closeable
-                    @click="() => {console.log('click')}"
-                    @close="() => {console.log('close')}">
-                    Basic Usage with Close
-                </Badge>
+<body class="dark:bg-neutral-900 dark:text-white">
+    <div id="app" class="container mx-auto mb-6">
+        <h1 class="text-4xl mb-6">Badge</h1>
 
+        <h2 class="text-2xl mb-3">Basic Usage</h2>
 
-                <div class="badge">
-                    Basic usage
-                </div>
-                <div class="badge">
-                    <span>With Inner</span>
-                    <span>Elements</span>
-                </div>
-                <div class="badge">
-                    <span>Right Close</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge">
-                    <button class="badge-close"></button>
-                    <span>Left Close</span>
-                </div>
-            </div>
-
-            <h2 class="text-2xl mt-6 mb-3">Outline Badge</h2>
-
-            <div class="flex gap-1">
-                <div class="badge badge-outline">
-                    No Children
-                </div>
-                <div class="badge badge-outline">
-                    <span>With Children</span>
-                </div>
-                <div class="badge badge-outline">
-                    <span>Right Close Button</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-outline">
-                    <button class="badge-close"></button>
-                    <span>Left Close Button</span>
-                </div>
-            </div>
-            
-            <!-- <h2 class="text-2xl mt-6 mb-3">Preset Sizes</h2>
-
-            <div class="flex gap-1 items-center mb-4">
-                <div class="badge badge-xs">
-                    <span>xs</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-sm">
-                    <span>sm</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-md">
-                    <span>md</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-lg">
-                    <span>lg</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-xl">
-                    <span>xl</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-2xl">
-                    <span>2xl</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-3xl">
-                    <span>3xl</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-4xl">
-                    <span>4xl</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-5xl">
-                    <span>5xl</span>
-                    <button class="badge-close"></button>
-                </div>
-            </div>
-
-            <div class="flex gap-1 items-center">
-                <div class="badge badge-xs badge-outline">
-                    <span>xs</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-sm badge-outline">
-                    <span>sm</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-md badge-outline">
-                    <span>md</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-lg badge-outline">
-                    <span>lg</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-xl badge-outline">
-                    <span>xl</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-2xl badge-outline">
-                    <span>2xl</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-3xl badge-outline">
-                    <span>3xl</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-4xl badge-outline">
-                    <span>4xl</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-5xl badge-outline">
-                    <span>5xl</span>
-                    <button class="badge-close"></button>
-                </div>
-            </div>
-
-            <h2 class="text-2xl mt-6 mb-3">Tailwind Sizes</h2>
-
-            <div class="flex gap-1 items-center">
-                <div class="badge badge-4">
-                    <span>4</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-5">
-                    <span>5</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-6">
-                    <span>6</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-7">
-                    <span>7</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-8">
-                    <span>8</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-[38px]">
-                    <span>38px</span>
-                    <button class="badge-close"></button>
-                </div>
-            </div>
-
-            <h2 class="text-2xl mt-6 mb-3">Color Variants</h2>
-
-            <div class="flex items-center gap-1">
-                <div class="badge badge-primary">
-                    <span>Primary</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-secondary">
-                    <span>Secondary</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-success">
-                    <span>Succes</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-danger">
-                    <span>Danger</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-warning">
-                    <span>Warning</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-info">
-                    <span>Info</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-light">
-                    <span>Light</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-dark">
-                    <span>Dark</span>
-                    <button class="badge-close"></button>
-                </div>
-            </div>
-
-            <h2 class="text-2xl mt-6 mb-3">Custom Colors</h2>
-
-            <div class="flex items-center gap-1">
-                <div class="badge badge-green-500">
-                    <span>badge-green-500</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-amber-500">
-                    <span>badge-amber-500</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-yellow-500">
-                    <span>badge-yellow-500</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-red-500">
-                    <span>badge-red-500</span>
-                    <button class="badge-close"></button>
-                </div>
-            </div>
-
-            <h2 class="text-2xl mt-6 mb-3">Color Shades</h2>
-
-            <div class="flex flex-col gap-1">
-                <div class="badge badge-red-50">
-                    <span>badge-red-50</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-red-100">
-                    <span>badge-red-100</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-red-200">
-                    <span>badge-red-200</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-red-300">
-                    <span>badge-red-300</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-red-400">
-                    <span>badge-red-400</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-red-500">
-                    <span>badge-red-500</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-red-600">
-                    <span>badge-red-600</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-red-700">
-                    <span>badge-red-700</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-red-800">
-                    <span>badge-red-800</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-red-900">
-                    <span>badge-red-900</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-red-950">
-                    <span>badge-red-950</span>
-                    <button class="badge-close"></button>
-                </div>
-            </div>
-
-            <h2 class="text-2xl mt-6 mb-3">Outline Color Variants</h2>
-
-            <div class="flex gap-2">
-                <div class="badge badge-outline-primary">
-                    <span>Primary</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-outline-secondary">
-                    <span>Secondary</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-outline-success">
-                    <span>Success</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-outline-danger">
-                    <span>Danger</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-outline-warning">
-                    <span>Warning</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-outline-info">
-                    <span>Info</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-outline-light">
-                    <span>Light</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-outline-dark">
-                    <span>Dark</span>
-                    <button class="badge-close"></button>
-                </div>
-            </div>
-
-            <h2 class="text-2xl mt-6 mb-3">Outline Color Shades</h2>
-
-            <div class="flex flex-col gap-2">
-                <div class="badge badge-outline-red-50">
-                    <span>badge-red-50</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-outline-red-100">
-                    <span>badge-red-100</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-outline-red-200">
-                    <span>badge-red-200</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-outline-red-300">
-                    <span>badge-red-300</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-outline-red-400">
-                    <span>badge-red-400</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-outline-red-500">
-                    <span>badge-red-500</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-outline-red-600">
-                    <span>badge-red-600</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-outline-red-700">
-                    <span>badge-red-700</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-outline-red-800">
-                    <span>badge-red-800</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-outline-red-900">
-                    <span>badge-red-900</span>
-                    <button class="badge-close"></button>
-                </div>
-                <div class="badge badge-outline-red-950">
-                    <span>badge-red-950</span>
-                    <button class="badge-close"></button>
-                </div>
-            </div> -->
+        <div class="flex gap-1">
+            <Badge @click="() => {console.log('click')}" @close="() => {console.log('close')}">
+                Basic Usage
+            </Badge>
+            <Badge closeable>
+                Right Close Button
+            </Badge>
+            <Badge closeable close-left>
+                Left Close Button
+            </Badge>
         </div>
-        <script type="module">
-            import './demo.css';
-            import { createApp } from 'vue/dist/vue.esm-bundler.js';
-            import { Badge } from './index.ts';
-            import {
-                XMarkIcon
-            } from '@heroicons/vue/24/outline';
 
-            const vue = createApp({
-                components: {
-                    Badge,
-                    XMarkIcon
-                }
-            });
-        </script>    
-    </body>
+        <h2 class="text-2xl mt-6 mb-3">Outline Variant</h2>
+
+        <div class="flex gap-1">
+            <Badge class="badge-outline">
+                Basic Usage
+            </Badge>
+            <Badge class="badge-outline" closeable>
+                Right Close Button
+            </Badge>
+            <Badge class="badge-outline" closeable close-left>
+                Left Close Button
+            </Badge>
+        </div>
+
+        <h2 class="text-2xl mt-6 mb-3">Preset Sizes</h2>
+
+        <div class="flex gap-1 items-center mb-4">
+            <Badge size="badge-xs" closeable>xs</Badge>
+            <Badge size="badge-sm" closeable>sm</Badge>
+            <Badge size="badge-md" closeable>md</Badge>
+            <Badge size="badge-lg" closeable>lg</Badge>
+            <Badge size="badge-xl" closeable>xl</Badge>
+            <Badge size="badge-2xl" closeable>2xl</Badge>
+            <Badge size="badge-3xl" closeable>3xl</Badge>
+            <Badge size="badge-4xl" closeable>4xl</Badge>
+            <Badge size="badge-5xl" closeable>5xl</Badge>
+        </div>
+
+        <div class="flex gap-1 items-center">
+            <Badge class="badge-outline" size="badge-xs" closeable>xs</Badge>
+            <Badge class="badge-outline" size="badge-sm" closeable>sm</Badge>
+            <Badge class="badge-outline" size="badge-md" closeable>md</Badge>
+            <Badge class="badge-outline" size="badge-lg" closeable>lg</Badge>
+            <Badge class="badge-outline" size="badge-xl" closeable>xl</Badge>
+            <Badge class="badge-outline" size="badge-2xl" closeable>2xl</Badge>
+            <Badge class="badge-outline" size="badge-3xl" closeable>3xl</Badge>
+            <Badge class="badge-outline" size="badge-4xl" closeable>4xl</Badge>
+            <Badge class="badge-outline" size="badge-5xl" closeable>5xl</Badge>
+        </div>
+
+        <h2 class="text-2xl mt-6 mb-3">Tailwind Sizes</h2>
+
+        <div class="flex gap-1 items-center">
+            <Badge size="badge-3" closeable>3</Badge>
+            <Badge size="badge-3.5" closeable>3.5</Badge>
+            <Badge size="badge-4" closeable>4</Badge>
+            <Badge size="badge-5" closeable>5</Badge>
+            <Badge size="badge-6" closeable>6</Badge>
+            <Badge size="badge-7" closeable>7</Badge>
+            <Badge size="badge-8" closeable>8</Badge>
+            <Badge size="badge-[16px]" closeable>16px</Badge>
+            <Badge size="badge-[1.5rem]" closeable>1.5rem</Badge>
+        </div>
+
+        <h2 class="text-2xl mt-6 mb-3">Color Variants</h2>
+
+        <div class="flex items-center gap-1">
+            <Badge class="badge-primary" closeable>
+                Primary
+            </Badge>
+            <Badge class="badge-secondary" closeable>
+                Secondary
+            </Badge>
+            <Badge class="badge-success" closeable>
+                Success
+            </Badge>
+            <Badge class="badge-danger" closeable>
+                Danger
+            </Badge>
+            <Badge class="badge-warning" closeable>
+                Warning
+            </Badge>
+            <Badge class="badge-info" closeable>
+                Info
+            </Badge>
+            <Badge class="badge-light" closeable>
+                Light
+            </Badge>
+            <Badge class="badge-dark" closeable>
+                Dark
+            </Badge>
+        </div>
+
+        <h2 class="text-2xl mt-6 mb-3">Custom Colors</h2>
+
+        <div class="flex items-center gap-1">
+            <Badge class="badge-green-500" closeable>
+                badge-green-500
+            </Badge>
+            <Badge class="badge-amber-500" closeable>
+                badge-amber-500
+            </Badge>
+            <Badge class="badge-yellow-500" closeable>
+                badge-yellow-500
+            </Badge>
+            <Badge class="badge-red-500" closeable>
+                badge-red-500
+            </Badge>
+        </div>
+
+        <h2 class="text-2xl mt-6 mb-3">Color Shades</h2>
+
+        <div class="flex flex-col gap-1">
+            <Badge class="badge-red-50" closeable>
+                badge-red-50
+            </Badge>
+            <Badge class="badge-red-100" closeable>
+                badge-red-100
+            </Badge>
+            <Badge class="badge-red-200" closeable>
+                badge-red-200
+            </Badge>
+            <Badge class="badge-red-300" closeable>
+                badge-red-300
+            </Badge>
+            <Badge class="badge-red-400" closeable>
+                badge-red-400
+            </Badge>
+            <Badge class="badge-red-500" closeable>
+                badge-red-500
+            </Badge>
+            <Badge class="badge-red-600" closeable>
+                badge-red-600
+            </Badge>
+            <Badge class="badge-red-700" closeable>
+                badge-red-700
+            </Badge>
+            <Badge class="badge-red-800" closeable>
+                badge-red-800
+            </Badge>
+            <Badge class="badge-red-900" closeable>
+                badge-red-900
+            </Badge>
+            <Badge class="badge-red-950" closeable>
+                badge-red-950
+            </Badge>
+        </div>
+
+        <h2 class="text-2xl mt-6 mb-3">Outline Color Variants</h2>
+
+        <div class="flex gap-2">
+            <Badge class="badge-outline-primary" closeable>
+                Primary
+            </Badge>
+            <Badge class="badge-outline-secondary" closeable>
+                Secondary
+            </Badge>
+            <Badge class="badge-outline-success" closeable>
+                Success
+            </Badge>
+            <Badge class="badge-outline-danger" closeable>
+                Danger
+            </Badge>
+            <Badge class="badge-outline-warning" closeable>
+                Warning
+            </Badge>
+            <Badge class="badge-outline-info" closeable>
+                Info
+            </Badge>
+            <Badge class="badge-outline-light" closeable>
+                Light
+            </Badge>
+            <Badge class="badge-outline-dark" closeable>
+                Dark
+            </Badge>
+        </div>
+
+        <h2 class="text-2xl mt-6 mb-3">Outline Color Shades</h2>
+
+        <div class="flex flex-col gap-1">
+            <Badge class="badge-outline-red-50" closeable>
+                badge-red-50
+            </Badge>
+            <Badge class="badge-outline-red-100" closeable>
+                badge-red-100
+            </Badge>
+            <Badge class="badge-outline-red-200" closeable>
+                badge-red-200
+            </Badge>
+            <Badge class="badge-outline-red-300" closeable>
+                badge-red-300
+            </Badge>
+            <Badge class="badge-outline-red-400" closeable>
+                badge-red-400
+            </Badge>
+            <Badge class="badge-outline-red-500" closeable>
+                badge-red-500
+            </Badge>
+            <Badge class="badge-outline-red-600" closeable>
+                badge-red-600
+            </Badge>
+            <Badge class="badge-outline-red-700" closeable>
+                badge-red-700
+            </Badge>
+            <Badge class="badge-outline-red-800" closeable>
+                badge-red-800
+            </Badge>
+            <Badge class="badge-outline-red-900" closeable>
+                badge-red-900
+            </Badge>
+            <Badge class="badge-outline-red-950" closeable>
+                badge-red-950
+            </Badge>
+        </div>
+
+    </div>
+
+    <script type="module">
+        import './demo.css';
+        import { createApp } from 'vue/dist/vue.esm-bundler.js';
+        import { Badge } from './index.ts';
+
+        const vue = createApp({
+            components: {
+                Badge
+            }
+        });
+        vue.mount('#app')
+    </script>
+</body>
 </html>

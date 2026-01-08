@@ -1,13 +1,16 @@
 <script setup lang="ts">
+import { XMarkIcon } from '@heroicons/vue/24/outline';
 import type { ComponentSize } from './sizes';
 
 export type BadgeSizePrefix = 'badge';
 
 withDefaults(defineProps<{
     closeable?: boolean;
+    closeLeft?: boolean;
     size?: ComponentSize<BadgeSizePrefix>;
 }>(), {
-    closeable: true,
+    closeable: false,
+    closeLeft: false,
     size: 'badge-md'
 });
 
@@ -25,7 +28,10 @@ const emit = defineEmits<{
 <template>
     <div 
         class="badge" 
-        :class="size">
+        :class="[
+            size, 
+            { 'close-left': closeLeft }
+            ]">
         <div
             class="badge-inner"
             @click="emit('click', $event)">
@@ -37,7 +43,7 @@ const emit = defineEmits<{
             class="badge-close" 
             @click="emit('close', $event)">
             <slot name="closeIcon">
-                <div class="badge-close-icon" />
+                <XMarkIcon />
             </slot>
         </button>
     </div>
