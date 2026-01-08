@@ -1,5 +1,13 @@
 # @vue-interface/btn-dropdown
 
+## 4.1.2
+
+### Patch Changes
+
+- 7a408dc: Fixed typescript issues
+- Updated dependencies [7a408dc]
+  - @vue-interface/dropdown-menu@3.0.7
+
 ## 4.1.1
 
 ### Patch Changes
