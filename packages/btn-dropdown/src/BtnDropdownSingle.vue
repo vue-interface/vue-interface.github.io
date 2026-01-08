@@ -16,10 +16,19 @@ const {
     classes,
     expanded,
     floatingStyles,
+    show,
+    hide,
+    toggle,
     onBlur,
     onClickToggle,
     onClickItem
 } = useDropdownHandler(props, emit);
+
+defineExpose({
+    show,
+    hide,
+    toggle,
+});
 </script>
 
 <template>
