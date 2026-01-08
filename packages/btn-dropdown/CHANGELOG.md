@@ -1,5 +1,11 @@
 # @vue-interface/btn-dropdown
 
+## 4.1.3
+
+### Patch Changes
+
+- 5c648ba: Added correct types for slots
+
 ## 4.1.2
 
 ### Patch Changes
