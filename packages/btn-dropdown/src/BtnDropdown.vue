@@ -3,7 +3,7 @@ import { useTemplateRef } from 'vue';
 import { type ComponentExposed } from 'vue-component-type-helpers';
 import BtnDropdownSingle from './BtnDropdownSingle.vue';
 import BtnDropdownSplit from './BtnDropdownSplit.vue';
-import { BtnDropdownEvents, BtnDropdownProps } from './useDropdownHandler';
+import { BtnDropdownEvents, BtnDropdownProps, BtnDropdownSlotProps } from './useDropdownHandler';
 
 const props = withDefaults(defineProps<{
     split?: boolean
@@ -21,6 +21,13 @@ defineExpose({
     show: () => el.value?.show(),
     toggle: () => el.value?.toggle(),
 });
+
+defineSlots<{
+    button(props: BtnDropdownSlotProps): any;
+    toggle(props: BtnDropdownSlotProps): any;
+    split(props: BtnDropdownSlotProps): any;
+    default(): any;
+}>();
 </script>
 
 <template>

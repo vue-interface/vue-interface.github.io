@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { DropdownMenu } from '@vue-interface/dropdown-menu';
-import { BtnDropdownEvents, BtnDropdownProps, useDropdownHandler } from './useDropdownHandler';
+import { ComponentPublicInstance } from 'vue';
+import { BtnDropdownEvents, BtnDropdownProps, BtnDropdownSlotProps, useDropdownHandler } from './useDropdownHandler';
 
 const props = withDefaults(defineProps<BtnDropdownProps>(), {
     caret: true,
@@ -29,6 +30,11 @@ defineExpose({
     hide,
     toggle,
 });
+
+defineSlots<{
+    button(props: BtnDropdownSlotProps): any;
+    default(): any;
+}>();
 </script>
 
 <template>
@@ -37,7 +43,12 @@ defineExpose({
         :class="classes">
         <slot
             name="button"
-            v-bind="{ target: (el: HTMLElement) => target = el, expanded, onBlur, onClickToggle }">
+            v-bind="{
+                target: (el: Element | ComponentPublicInstance | null) => target = el,
+                expanded,
+                onBlur,
+                onClickToggle
+            }">
             <button
                 ref="target"
                 type="button"

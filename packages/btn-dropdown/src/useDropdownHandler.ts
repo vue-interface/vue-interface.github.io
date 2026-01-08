@@ -1,7 +1,7 @@
 import { flip, offset, Placement, type Alignment, type Middleware, type OffsetOptions, type Side } from '@floating-ui/dom';
 import { useFloating, UseFloatingReturn } from '@floating-ui/vue';
 import { DropdownMenu } from '@vue-interface/dropdown-menu';
-import { computed, ComputedRef, Ref, ref, watchEffect, type EmitFn, type HTMLAttributes } from 'vue';
+import { ComponentPublicInstance, computed, ComputedRef, Ref, ref, watchEffect, type EmitFn, type HTMLAttributes } from 'vue';
 
 type LiteralUnion<T extends U, U = string> = T | (U & Record<never, never>);
 
@@ -38,8 +38,15 @@ export type BtnDropdownEvents = {
     hide: []
 }
 
+export type BtnDropdownSlotProps = { 
+    target: (el: Element | ComponentPublicInstance | null) => void;
+    expanded: boolean;
+    onBlur: (e: FocusEvent) => void;
+    onClickToggle: (e: MouseEvent) => void;
+};
+
 export type UseDropdownHandler = {
-    target: Ref<HTMLElement|undefined>;
+    target: Ref<Element|ComponentPublicInstance|null>;
     menu: Ref<InstanceType<typeof DropdownMenu>|undefined>;
     alignment: ComputedRef<Alignment>;
     expanded: Ref<boolean>;
@@ -58,7 +65,7 @@ export type UseDropdownHandler = {
 }
 
 export function useDropdownHandler(props: BtnDropdownProps, emit: EmitFn<BtnDropdownEvents>): UseDropdownHandler {
-    const target = ref<HTMLElement>();
+    const target = ref<Element|ComponentPublicInstance|null>(null);
     const menu = ref<InstanceType<typeof DropdownMenu>>();
     const expanded = ref(false);
 
@@ -137,7 +144,9 @@ export function useDropdownHandler(props: BtnDropdownProps, emit: EmitFn<BtnDrop
     function hide() {
         expanded.value = false;
 
-        target.value?.blur();
+        if(target.value instanceof HTMLElement) {
+            target.value?.blur();
+        }
 
         emit('hide');
     }
@@ -164,7 +173,7 @@ export function useDropdownHandler(props: BtnDropdownProps, emit: EmitFn<BtnDrop
     }
         
     function onBlur(e: FocusEvent) {
-        if(!(e.relatedTarget instanceof HTMLElement)) {
+        if(!(e.relatedTarget instanceof HTMLElement) || !(target.value instanceof Element)) {
             hide();
             
             return;
