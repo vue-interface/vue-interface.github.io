@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useTemplateRef } from 'vue';
+import { type ComponentExposed } from 'vue-component-type-helpers';
 import BtnDropdownSingle from './BtnDropdownSingle.vue';
 import BtnDropdownSplit from './BtnDropdownSplit.vue';
 import { BtnDropdownEvents, BtnDropdownProps } from './useDropdownHandler';
@@ -11,10 +13,19 @@ const props = withDefaults(defineProps<{
 });
 
 const emit = defineEmits<BtnDropdownEvents>();
+
+const el = useTemplateRef<ComponentExposed<typeof BtnDropdownSingle | typeof BtnDropdownSplit>>('el');
+
+defineExpose({
+    hide: () => el.value?.hide(),
+    show: () => el.value?.show(),
+    toggle: () => el.value?.toggle(),
+});
 </script>
 
 <template>
     <Component
+        ref="el"
         :is="!split ? BtnDropdownSingle : BtnDropdownSplit"
         v-bind="props"
         @click="(e: MouseEvent) => emit('click', e)"

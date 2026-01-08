@@ -1,10 +1,8 @@
 <script setup lang="ts">
-export type DropdownMenuProps = {
+withDefaults(defineProps<{
     align?: 'left' | 'right',
     show?: boolean
-};
-
-withDefaults(defineProps<DropdownMenuProps>(), {
+}>(), {
     align: 'left'
 });
 </script>
