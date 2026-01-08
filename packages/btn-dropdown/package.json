@@ -55,8 +55,5 @@
     "@vue-interface/btn": "workspace:*",
     "@vue-interface/dropdown-menu": "workspace:*",
     "vue": "^3.3.4"
-  },
-  "dependencies": {
-    "vue-component-type-helpers": "^3.2.2"
   }
 }
