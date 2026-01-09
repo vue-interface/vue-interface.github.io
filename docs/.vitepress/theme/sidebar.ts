@@ -80,6 +80,9 @@ export const sidebar: DefaultTheme.SidebarItem[] = [{
     text: 'Select Field',
     link: '/packages/select-field/'
 }, {
+    text: 'Sizeable',
+    link: '/packages/sizeable/'
+}, {
     text: 'Slide Deck',
     link: '/packages/slide-deck/'
 }, {
