@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { InformationCircleIcon } from '@heroicons/vue/24/outline';
-import type { ComponentSize } from './sizes';
+import { ComponentSize } from '@vue-interface/sizeable';
 
 export type AlertSizePrefix = 'alert'; 
 
