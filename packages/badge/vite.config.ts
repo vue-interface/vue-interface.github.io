@@ -9,7 +9,7 @@ import pkg from './package.json';
 const fileName = pkg.name.split('/')[1];
 
 const external: string[] = [
-    // ...(pkg.peerDependencies ? Object.keys(pkg.peerDependencies) : [])
+    ...(pkg.peerDependencies ? Object.keys(pkg.peerDependencies) : [])
 ];
 
 export default ({ command }: ConfigEnv) => defineConfig({
