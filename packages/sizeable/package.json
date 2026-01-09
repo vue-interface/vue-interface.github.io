@@ -1,0 +1,40 @@
+{
+  "name": "@vue-interface/sizeable",
+  "version": "2.0.0-beta.11",
+  "description": "An abstract package for adding utility types to components.",
+  "type": "module",
+  "main": "./index.d.ts",
+  "module": "./index.d.ts",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "source": "./index.d.ts",
+      "types": "./index.d.ts",
+      "import": "./index.d.ts"
+    }
+  },
+  "browserslist": "last 2 versions, > 0.5%, ie >= 11",
+  "scripts": {
+    "dev": "vite",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vue-interface/vue-interface.github.io"
+  },
+  "keywords": [
+    "Size"
+  ],
+  "author": "Justin Kimbrell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vue-interface/vue-interface.github.io"
+  },
+  "homepage": "https://vue-interface.github.io/packages/sizeable",
+  "readme": "README.md",
+  "files": [
+    "index.d.ts",
+    "README.md",
+    "LICENSE"
+  ]
+}

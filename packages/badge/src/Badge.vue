@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { XMarkIcon } from '@heroicons/vue/24/outline';
-import type { ComponentSize } from './sizes';
+import type { ComponentSize } from '@vue-interface/sizeable';
 
 export type BadgeSizePrefix = 'badge';
 
