@@ -2,13 +2,15 @@
 title: Badge
 ---
 
-<script type="module">
+<script setup>
 import '../demo.css'
+import Badge from '../src/Badge.vue';
+import { TrashIcon } from '@heroicons/vue/24/outline';
 </script>
 
 # Badge
 
-The `badge` utility class provides a flexible and customizable badge component system with customizable color variants and sizes.
+The `Badge` component provides a flexible and customizable way to display status, labels, or other metadata with various color variants and sizes.
 
 ### Installation
 
@@ -38,52 +40,52 @@ bun i @vue-interface/badge
 
 ## Basic Usage
 
-To create a badge component, use the `badge` class. Use the `badge-close` class to add a close button to the badge.
+To create a badge component, use the `<Badge>` component. Use the `closeable` prop to add a close button and add `close-left` to place the close button on the left.
 
 <div class="flex gap-1">
     <!-- #region basicUsage -->
-    <div class="badge">
-        No Children
-    </div>
-    <div class="badge">
-        <span>With Children</span>
-    </div>
-    <div class="badge">
-        <span>Right Close Button</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge">
-        <button class="badge-close"></button>
-        <span>Left Close Button</span>
-    </div>
+    <Badge>Basic Usage</Badge>
+    <Badge closeable @click="() => {console.log('click')}" @close="() => {console.log('close')}">
+        Right Close Button
+    </Badge>
+    <Badge closeable close-left>Left Close Button</Badge>
     <!-- #endregion basicUsage -->
 </div>
 
-<<< ./index.md#basicUsage{html}
+<<< ./index.md#basicUsage{vue}
 
- Use the `badge-outline` class to create an outlined badge.
+Use the `badge-outline` class to create an outlined badge.
 
 <div class="flex gap-1">
-    <!-- #region basicUsageOutline -->
-    <div class="badge badge-outline">
-        No Children
-    </div>
-    <div class="badge badge-outline">
-        <span>With Children</span>
-    </div>
-    <div class="badge badge-outline">
-        <span>Right Close Button</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-outline">
-        <button class="badge-close"></button>
-        <span>Left Close Button</span>
-    </div>
-    <!-- #endregion basicUsageOutline -->
+    <!-- #region outlineVariant -->
+    <Badge class="badge-outline">Basic Usage</Badge>
+    <Badge class="badge-outline" closeable>Right Close Button</Badge>
+    <Badge class="badge-outline" closeable close-left>Left Close Button</Badge>
+    <!-- #endregion outlineVariant -->
+</div>
+
+<<< ./index.md#outlineVariant{vue}
+
+## Custom Close Icon
+
+You can override the default close icon using the `close-icon` slot.
+
+<div class="flex items-center gap-1">
+    <!-- #region customIcon -->
+    <Badge closeable>
+        Default Icon
+    </Badge>
+    <Badge closeable>
+        <template #close-icon>
+            <TrashIcon />
+        </template>
+        Custom Icon
+    </Badge>
+    <!-- #endregion customIcon -->
 </div>
 
 ::: details Show Code
-<<< ./index.md#basicUsageOutline{html}
+<<< ./index.md#customIcon{vue}
 :::
 
 ## Sizes
@@ -92,425 +94,238 @@ Customize the size of a `badge` using a [predetermined size](#predetermined-size
 
 ### Predetermined Sizes
 
-The size can be customized using predetermined size classes: `xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`. Use the syntax: `badge-[size]`.
+The size can be customized using a predetermined `size` prop: `xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`. Use the syntax: `badge-[size]`.
 
-<div class="flex items-center gap-2">
+<div class="flex items-center gap-1 mb-4">
     <!-- #region predeterminedSizes-->
-    <div class="badge badge-xs">
-        <span>xs</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-sm">
-        <span>sm</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-md">
-        <span>md</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-lg">
-        <span>lg</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-xl">
-        <span>xl</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-2xl">
-        <span>2xl</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-3xl">
-        <span>3xl</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-4xl">
-        <span>4xl</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-5xl">
-        <span>5xl</span>
-        <button class="badge-close"></button>
-    </div>
+    <Badge size="badge-xs" closeable>xs</Badge>
+    <Badge size="badge-sm" closeable>sm</Badge>
+    <Badge size="badge-md" closeable>md</Badge>
+    <Badge size="badge-lg" closeable>lg</Badge>
+    <Badge size="badge-xl" closeable>xl</Badge>
+    <Badge size="badge-2xl" closeable>2xl</Badge>
+    <Badge size="badge-3xl" closeable>3xl</Badge>
+    <Badge size="badge-4xl" closeable>4xl</Badge>
+    <Badge size="badge-5xl" closeable>5xl</Badge>
     <!-- #endregion predeterminedSizes-->
 </div>
 
 ::: details Show Code
-<<< ./index.md#predeterminedSizes{html}
+<<< ./index.md#predeterminedSizes{vue}
 :::
 
 ### Tailwind Sizes
 
-For more granular control over button sizes, use Tailwind's numeric sizing scale classes: `badge-1` - `badge-96`.
+For more granular control over `badge` sizes, use Tailwind's numeric sizing scale classes: `badge-1` - `badge-96`.
 
-<div class="flex items-center gap-2">
+<div class="flex items-center gap-1">
     <!-- #region tailwindSizes-->
-    <div class="badge badge-4">
-        <span>badge-4</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-5">
-        <span>badge-5</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-6">
-        <span>badge-6</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-7">
-        <span>badge-7</span>
-        <button class="badge-close"></button>
-    </div>
+    <Badge size="badge-3" closeable>badge-3</Badge>
+    <Badge size="badge-3.5" closeable>badge-3.5</Badge>
+    <Badge size="badge-4" closeable>badge-4</Badge>
+    <Badge size="badge-5" closeable>badge-5</Badge>
+    <Badge size="badge-6" closeable>badge-6</Badge>
     <!-- #endregion tailwindSizes-->
 </div>
 
 ::: details Show Code
-<<< ./index.md#tailwindSizes{html}
+<<< ./index.md#tailwindSizes{vue}
 :::
 
 ### Arbitrary sizes
 
 For precise sizing, specify exact pixel values using the syntax `badge-[Npx]` or any other CSS length units (`rem`, `em`, `mm`, etc.).
 
-<div class="flex items-center gap-2">
+<div class="flex items-center gap-1">
     <!-- #region arbitrarySizes-->
-    <div class="badge badge-[16px]">
-        <span>[16px]</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-[1.5rem]">
-        <span>[1.5rem]</span>
-        <button class="badge-close"></button>
-    </div>
+    <Badge size="badge-[16px]" closeable>[16px]</Badge>
+    <Badge size="badge-[1.5rem]" closeable>[1.5rem]</Badge>
     <!-- #endregion arbitrarySizes-->
 </div>
 
 ::: details Show Code
-<<< ./index.md#arbitrarySizes{html}
+<<< ./index.md#arbitrarySizes{vue}
 :::
 
 ## Color Variants
 
 The badge component supports eight standard color variants: `primary`, `secondary`, `success`, `danger`, `warning`, `info`, `light`, `dark`. Use the syntax: `badge-[variant]`.
 
-<div class="flex items-center gap-2">
+<div class="flex items-center gap-1">
     <!-- #region variants -->
-    <div class="badge badge-primary">
-        <span>Primary</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-secondary">
-        <span>Secondary</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-success">
-        <span>Success</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-danger">
-        <span>Danger</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-warning">
-        <span>Warning</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-info">
-        <span>Info</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-light">
-        <span>Light</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-dark">
-        <span>Dark</span>
-        <button class="badge-close"></button>
-    </div>
+    <Badge class="badge-primary" closeable>Primary</Badge>
+    <Badge class="badge-secondary" closeable>Secondary</Badge>
+    <Badge class="badge-success" closeable>Success</Badge>
+    <Badge class="badge-danger" closeable>Danger</Badge>
+    <Badge class="badge-warning" closeable>Warning</Badge>
+    <Badge class="badge-info" closeable>Info</Badge>
+    <Badge class="badge-light" closeable>Light</Badge>
+    <Badge class="badge-dark" closeable>Dark</Badge>
     <!-- #endregion variants -->
 </div>
 
 ::: details Show Code
-<<< ./index.md#variants{html}
+<<< ./index.md#variants{vue}
 :::
 
 ## Custom Colors
 
 Customize the color of the `badge` component with the [Tailwind color palette](https://tailwindcss.com/docs/colors) by using the class: `badge-[color]`.
 
-<div class="flex items-center gap-2">
+<div class="flex items-center gap-1">
     <!-- #region customColors -->
-    <div class="badge badge-green-500">
-        <span>badge-green-500</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-amber-500">
-        <span>badge-amber-500</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-yellow-500">
-        <span>badge-yellow-500</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-red-500">
-        <span>badge-red-500</span>
-        <button class="badge-close"></button>
-    </div>
+    <Badge class="badge-green-500" closeable>badge-green-500</Badge>
+    <Badge class="badge-amber-500" closeable>badge-amber-500</Badge>
+    <Badge class="badge-yellow-500" closeable>badge-yellow-500</Badge>
+    <Badge class="badge-red-500" closeable>badge-red-500</Badge>
     <!-- #endregion customColors -->
 </div>
 
 ::: details Show Code
-<<< ./index.md#customColors{html}
+<<< ./index.md#customColors{vue}
 :::
 
 ## Color Shades
 
-<div class="flex flex-col gap-2">
+<div class="flex flex-col gap-1">
     <!-- #region colorShades -->
-    <div class="badge badge-red-50">
-        <span>badge-red-50</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-red-100">
-        <span>badge-red-100</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-red-200">
-        <span>badge-red-200</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-red-300">
-        <span>badge-red-300</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-red-400">
-        <span>badge-red-400</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-red-500">
-        <span>badge-red-500</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-red-600">
-        <span>badge-red-600</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-red-700">
-        <span>badge-red-700</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-red-800">
-        <span>badge-red-800</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-red-900">
-        <span>badge-red-900</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-red-950">
-        <span>badge-red-950</span>
-        <button class="badge-close"></button>
-    </div>
+    <Badge class="badge-red-50" closeable>badge-red-50</Badge>
+    <Badge class="badge-red-100" closeable>badge-red-100</Badge>
+    <Badge class="badge-red-200" closeable>badge-red-200</Badge>
+    <Badge class="badge-red-300" closeable>badge-red-300</Badge>
+    <Badge class="badge-red-400" closeable>badge-red-400</Badge>
+    <Badge class="badge-red-500" closeable>badge-red-500</Badge>
+    <Badge class="badge-red-600" closeable>badge-red-600</Badge>
+    <Badge class="badge-red-700" closeable>badge-red-700</Badge>
+    <Badge class="badge-red-800" closeable>badge-red-800</Badge>
+    <Badge class="badge-red-900" closeable>badge-red-900</Badge>
+    <Badge class="badge-red-950" closeable>badge-red-950</Badge>
     <!-- #endregion colorShades -->
 </div>
 
 ::: details Show Code
-<<< ./index.md#colorShades{html}
+<<< ./index.md#colorShades{vue}
 :::
 
 ## Outline Sizes
 
-Customize the size of a `badge-outline` using a [predetermined size](#predetermined-sizes), [tailwind's numeric sizing classes](#tailwind-sizes), or an [arbitrary](#arbitrary-sizes) CSS length unit.
+Customize the size of a `badge-outline` using a [predetermined size](#predetermined-sizes-(outline)), [tailwind's numeric sizing classes](#tailwind-sizes-(outline)), or an [arbitrary](#arbitrary-sizes-(outline)) CSS length unit.
 
-### Predetermined Sizes
+### Predetermined Sizes (Outline)
 
-The size can be customized using predetermined size classes: `xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`. Use the syntax: `badge-outline-[size]`.
+The size can be customized using a predetermined `size` prop: `xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`. Use the syntax: `badge-[size]`.
 
-<div class="flex items-center gap-2">
-    <!-- #region outlinePredeterminedSizes-->
-    <div class="badge badge-outline badge-xs">
-        <span>xs</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-outline badge-sm">
-        <span>sm</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-outline badge-md">
-        <span>md</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-outline badge-lg">
-        <span>lg</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-outline badge-xl">
-        <span>xl</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-outline badge-2xl">
-        <span>2xl</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-outline badge-3xl">
-        <span>3xl</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-outline badge-4xl">
-        <span>4xl</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-outline badge-5xl">
-        <span>5xl</span>
-        <button class="badge-close"></button>
-    </div>
-    <!-- #endregion outlinePredeterminedSizes-->
+<div class="flex gap-2 items-center">
+    <!-- #region outlineSizes -->
+    <Badge class="badge-outline" size="badge-xs" closeable>xs</Badge>
+    <Badge class="badge-outline" size="badge-sm" closeable>sm</Badge>
+    <Badge class="badge-outline" size="badge-md" closeable>md</Badge>
+    <Badge class="badge-outline" size="badge-lg" closeable>lg</Badge>
+    <Badge class="badge-outline" size="badge-xl" closeable>xl</Badge>
+    <Badge class="badge-outline" size="badge-2xl" closeable>2xl</Badge>
+    <Badge class="badge-outline" size="badge-3xl" closeable>3xl</Badge>
+    <Badge class="badge-outline" size="badge-4xl" closeable>4xl</Badge>
+    <Badge class="badge-outline" size="badge-5xl" closeable>5xl</Badge>
+    <!-- #endregion outlineSizes -->
 </div>
 
 ::: details Show Code
-<<< ./index.md#outlinePredeterminedSizes{html}
+<<< ./index.md#outlineSizes{vue}
 :::
 
-### Tailwind Sizes
+### Tailwind Sizes (Outline)
 
-For more granular control over button sizes, use Tailwind's numeric sizing scale classes: `badge-outline-1` - `badge-outline-96`.
+For more granular control over `badge-outline` sizes, use Tailwind's numeric sizing scale classes: `badge-1` - `badge-96`.
 
-<div class="flex items-center gap-2">
+<div class="flex items-center gap-1">
     <!-- #region outlineTailwindSizes-->
-    <div class="badge badge-outline badge-outline-4">
-        <span>badge-4</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-outline badge-outline-5">
-        <span>badge-5</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-outline badge-outline-6">
-        <span>badge-6</span>
-        <button class="badge-close"></button>
-    </div>
-    <!-- #endregion outlineTailwindSizes -->
+    <Badge class="badge-outline" size="badge-3" closeable>badge-3</Badge>
+    <Badge class="badge-outline" size="badge-3.5" closeable>badge-3.5</Badge>
+    <Badge class="badge-outline" size="badge-4" closeable>badge-4</Badge>
+    <Badge class="badge-outline" size="badge-5" closeable>badge-5</Badge>
+    <!-- #endregion outlineTailwindSizes-->
 </div>
 
 ::: details Show Code
-<<< ./index.md#outlineTailwindSizes{html}
+<<< ./index.md#outlineTailwindSizes{vue}
 :::
 
-### Arbitrary sizes
+### Arbitrary sizes (Outline)
 
-For precise sizing, specify exact pixel values using the syntax `badge-outline-[Npx]` or any other CSS length units (`rem`, `em`, `mm`, etc.).
+For precise sizing, specify exact pixel values using the syntax `badge-[Npx]` or any other CSS length units (`rem`, `em`, `mm`, etc.).
 
-<div class="flex items-center gap-2">
+<div class="flex items-center gap-1">
     <!-- #region outlineArbitrarySizes-->
-    <div class="badge badge-outline badge-outline-[16px]">
-        <span>[16px]</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-outline badge-outline-[1.5rem]">
-        <span>[1.5rem]</span>
-        <button class="badge-close"></button>
-    </div>
-    <!-- #endregion outlineArbitrarySizes -->
+    <Badge class="badge-outline" size="badge-[16px]" closeable>[16px]</Badge>
+    <Badge class="badge-outline" size="badge-[1.5rem]" closeable>[1.5rem]</Badge>
+    <!-- #endregion outlineArbitrarySizes-->
 </div>
 
 ::: details Show Code
-<<< ./index.md#outlineArbitrarySizes{html}
+<<< ./index.md#outlineArbitrarySizes{vue}
 :::
 
 ## Outline Color Variants
 
-<div class="flex items-center gap-2">
+<div class="flex gap-2">
     <!-- #region outlineVariants -->
-    <div class="badge badge-outline-primary">
-        <span>Primary</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-outline-secondary">
-        <span>Secondary</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-outline-success">
-        <span>Success</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-outline-danger">
-        <span>Danger</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-outline-warning">
-        <span>Warning</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-outline-info">
-        <span>Info</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-outline-light">
-        <span>Light</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-outline-dark">
-        <span>Dark</span>
-        <button class="badge-close"></button>
-    </div>
+    <Badge class="badge-outline-primary" closeable>Primary</Badge>
+    <Badge class="badge-outline-secondary" closeable>Secondary</Badge>
+    <Badge class="badge-outline-success" closeable>Success</Badge>
+    <Badge class="badge-outline-danger" closeable>Danger</Badge>
+    <Badge class="badge-outline-warning" closeable>Warning</Badge>
+    <Badge class="badge-outline-info" closeable>Info</Badge>
+    <Badge class="badge-outline-light" closeable>Light</Badge>
+    <Badge class="badge-outline-dark" closeable>Dark</Badge>
     <!-- #endregion outlineVariants -->
 </div>
 
 ::: details Show Code
-<<< ./index.md#outlineVariants{html}
+<<< ./index.md#outlineVariants{vue}
 :::
 
 ## Outline Color Shades
 
-<div class="flex flex-col gap-2">
+<div class="flex flex-col gap-1">
     <!-- #region outlineShades -->
-    <div class="badge badge-outline-red-50">
-        <span>badge-red-50</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-outline-red-100">
-        <span>badge-red-100</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-outline-red-200">
-        <span>badge-red-200</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-outline-red-300">
-        <span>badge-red-300</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-outline-red-400">
-        <span>badge-red-400</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-outline-red-500">
-        <span>badge-red-500</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-outline-red-600">
-        <span>badge-red-600</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-outline-red-700">
-        <span>badge-red-700</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-outline-red-800">
-        <span>badge-red-800</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-outline-red-900">
-        <span>badge-red-900</span>
-        <button class="badge-close"></button>
-    </div>
-    <div class="badge badge-outline-red-950">
-        <span>badge-red-950</span>
-        <button class="badge-close"></button>
-    </div>
+    <Badge class="badge-outline-red-50" closeable>badge-red-50</Badge>
+    <Badge class="badge-outline-red-100" closeable>badge-red-100</Badge>
+    <Badge class="badge-outline-red-200" closeable>badge-red-200</Badge>
+    <Badge class="badge-outline-red-300" closeable>badge-red-300</Badge>
+    <Badge class="badge-outline-red-400" closeable>badge-red-400</Badge>
+    <Badge class="badge-outline-red-500" closeable>badge-red-500</Badge>
+    <Badge class="badge-outline-red-600" closeable>badge-red-600</Badge>
+    <Badge class="badge-outline-red-700" closeable>badge-red-700</Badge>
+    <Badge class="badge-outline-red-800" closeable>badge-red-800</Badge>
+    <Badge class="badge-outline-red-900" closeable>badge-red-900</Badge>
+    <Badge class="badge-outline-red-950" closeable>badge-red-950</Badge>
     <!-- #endregion outlineShades -->
 </div>
 
 ::: details Show Code
-<<< ./index.md#outlineShades{html}
+<<< ./index.md#outlineShades{vue}
 :::
+
+## API
+
+### Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `closeable` | `boolean` | `false` | Add close button. |
+| `close-left` | `boolean` | `false` | Left side close button. |
+| `size` | `string` | `'badge-md'` | Badge size |
+
+### Events
+
+| Event | Payload | Description |
+| --- | --- | --- |
+| `@click` | `PointerEvent` | Emitted when the badge content is clicked. |
+| `@close` | `PointerEvent` | Emitted when the close button is clicked. |
+
+### Slots
+
+| Slot | Description |
+| --- | --- |
+| `default` | The main content of the badge. |
+| `close-icon` | Optional slot to override the default close icon. |

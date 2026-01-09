@@ -16,7 +16,7 @@ withDefaults(defineProps<{
 
 defineSlots<{
     default: [];
-    closeIcon: [];
+    'close-icon': [];
 }>();
 
 const emit = defineEmits<{
@@ -42,7 +42,7 @@ const emit = defineEmits<{
             type="button"
             class="badge-close" 
             @click="emit('close', $event)">
-            <slot name="closeIcon">
+            <slot name="close-icon">
                 <XMarkIcon />
             </slot>
         </button>

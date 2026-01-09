@@ -1,31 +1,30 @@
 @theme {
-    /* badge variables */
     --badge-display: inline-flex;
     --badge-align-items: stretch;
     --badge-justify-content: space-between;
-
-    --badge-padding-y: .25;
-    --badge-padding-x: .350;
-
-    --badge-inner-display: inline-flex;
-    --badge-inner-align-items: center;
-
+    --badge-overflow: hidden;
+    --badge-text-decoration: none;
+    --badge-gap: calc(1em * var(--badge-padding-x) / 2);
     --badge-border-radius: --spacing(1);
     --badge-font-size: --spacing(4);
-    
-    /* Use em units for derivative variables to ensure relative scaling */
+    --badge-color: var(--badge-text-default);
+    --badge-background-color: var(--badge-primary);
+    --badge-padding-y: .25;
+    --badge-padding-x: .350;
     --badge-padding-top: calc(1em * var(--badge-padding-y));
     --badge-padding-bottom: calc(1em * var(--badge-padding-y));
     --badge-padding-left: calc(1em * var(--badge-padding-x));
     --badge-padding-right: calc(1em * var(--badge-padding-x));
-    --badge-gap: calc(1em * var(--badge-padding-x) / 2);
     
-    --badge-color: var(--badge-text-default);
-    --badge-background-color: var(--badge-primary);
-    --badge-hover-color: black;
-    --badge-hover-mix-percentage: 90%;
-    --badge-close-hover-color: var(--badge-color);
+    --badge-close-cursor: pointer;
+    --badge-close-align-items: center;
+    --badge-close-justify-content: center;
+    --badge-close-dark-hover-color: var(--badge-color);
     --badge-close-icon-size: 0.75em;
+
+    --badge-inner-display: inline-flex;
+    --badge-inner-align-items: center;
+    --badge-inner-justify-content: start;
 
     /* badge-outline variables */
     --badge-outline-background-color: transparent;
@@ -40,8 +39,8 @@
     color: var(--badge-color);
     background-color: var(--badge-background-color);
     border-radius: var(--badge-border-radius);
-    text-decoration: none;
-    overflow: hidden;
+    text-decoration: var(--badge-text-decoration);
+    overflow: var(--badge-overflow);
     gap: var(--badge-gap);
 
     &.close-left {
@@ -62,16 +61,12 @@
         padding-right: calc(var(--badge-padding-right) / 3.5);
         padding-top: var(--badge-padding-top);
         padding-bottom: var(--badge-padding-bottom);
-        cursor: pointer;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        vertical-align: center;
-        line-height: 1;
+        cursor: var(--badge-close-cursor);
+        align-items: var(--badge-close-align-items);
+        justify-content: var(--badge-close-justify-content);
 
         & svg,
         & > :first-child {
-            display: block;
             width: var(--badge-close-icon-size);
             height: var(--badge-close-icon-size);
         }
@@ -84,10 +79,9 @@
 
 @utility badge-inner {
     display: var(--badge-inner-display);
-    align-items: center;
-    justify-content: start;
-    font-size: inherit;
-    line-height: 1;
+    align-items: var(--badge-inner-align-items);
+    justify-content: var(--badge-inner-justify-content);
+    line-height: var(--badge-font-size);
     padding-top: var(--badge-padding-top);
     padding-bottom: var(--badge-padding-bottom);
     padding-left: var(--badge-padding-left);
@@ -109,7 +103,7 @@
         
         @variant dark {
             background-color: var(--badge-background-color);
-            color: var(--badge-close-hover-color);
+            color: var(--badge-close-dark-hover-color);
         }
     }
 }
@@ -117,6 +111,8 @@
 @utility badge-* {
     --badge-font-size: --value(--badge-font-size-*, [length]);
     --badge-font-size: --spacing(--value(number));
+    --badge-close-icon-size: calc(--value(--badge-font-size-*) * 0.75);
+    --badge-close-icon-size: calc(--spacing(--value(number)) * 0.75);
         
     border-radius: calc(var(--badge-font-size) * .25);
     
