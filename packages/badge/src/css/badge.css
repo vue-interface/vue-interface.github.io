@@ -57,13 +57,15 @@
     }
 
     .badge-close {
+        display: var(--badge-inner-display);
+        line-height: var(--badge-font-size);
+        cursor: var(--badge-close-cursor);
+        justify-content: var(--badge-close-justify-content);
+        align-items: var(--badge-close-align-items);
         padding-left: calc(var(--badge-padding-left) / 3.5);
         padding-right: calc(var(--badge-padding-right) / 3.5);
         padding-top: var(--badge-padding-top);
         padding-bottom: var(--badge-padding-bottom);
-        cursor: var(--badge-close-cursor);
-        align-items: var(--badge-close-align-items);
-        justify-content: var(--badge-close-justify-content);
 
         & svg,
         & > :first-child {
