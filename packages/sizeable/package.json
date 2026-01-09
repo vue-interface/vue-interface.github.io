@@ -1,22 +1,21 @@
 {
   "name": "@vue-interface/sizeable",
   "version": "2.0.0-beta.11",
-  "description": "A mixin that adds the size class to components.",
+  "description": "An abstract package for adding utility types to components.",
   "type": "module",
-  "main": "./dist/sizeable.umd.cjs",
-  "module": "./dist/sizeable.js",
-  "types": "./dist/index.d.ts",
+  "main": "./index.d.ts",
+  "module": "./index.d.ts",
+  "types": "./index.d.ts",
   "exports": {
     ".": {
-      "source": "./index.ts",
-      "types": "./dist/index.d.ts",
-      "import": "./dist/sizeable.js"
+      "source": "./index.d.ts",
+      "types": "./index.d.ts",
+      "import": "./index.d.ts"
     }
   },
   "browserslist": "last 2 versions, > 0.5%, ie >= 11",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
   "repository": {
@@ -24,12 +23,7 @@
     "url": "git+https://github.com/vue-interface/vue-interface.github.io"
   },
   "keywords": [
-    "Form",
-    "Control",
-    "Vue",
-    "Mixin",
-    "Tailwind",
-    "Bootstrap"
+    "Size"
   ],
   "author": "Justin Kimbrell",
   "license": "MIT",
@@ -39,8 +33,7 @@
   "homepage": "https://vue-interface.github.io/packages/sizeable",
   "readme": "README.md",
   "files": [
-    "dist",
-    "index.ts",
+    "index.d.ts",
     "README.md",
     "LICENSE"
   ]
