@@ -1,5 +1,13 @@
 # @vue-interface/alert
 
+## 4.0.0
+
+### Patch Changes
+
+- 67640d5: Updated component to use new size package
+- Updated dependencies [67640d5]
+  - @vue-interface/sizeable@2.0.0
+
 ## 3.1.0
 
 ### Minor Changes
