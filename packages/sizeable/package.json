@@ -39,7 +39,6 @@
   "homepage": "https://vue-interface.github.io/packages/sizeable",
   "readme": "README.md",
   "files": [
-    "src",
     "dist",
     "index.ts",
     "README.md",
