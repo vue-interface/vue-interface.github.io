@@ -136,6 +136,10 @@ importers:
       vue:
         specifier: ^3.3.4
         version: 3.5.25(typescript@5.9.3)
+    devDependencies:
+      vue-component-type-helpers:
+        specifier: ^3.2.2
+        version: 3.2.2
 
   packages/checkbox-field:
     dependencies:
@@ -2764,6 +2768,9 @@ packages:
 
   vscode-uri@3.1.0:
     resolution: {integrity: sha512-/BpdSx+yCQGnCvecbyXdxHDkuk55/G3xwnC0GqY4gmQ3j+A+g8kzzgB4Nk/SINjqn6+waqw3EgbVF2QKExkRxQ==}
+
+  vue-component-type-helpers@3.2.2:
+    resolution: {integrity: sha512-x8C2nx5XlUNM0WirgfTkHjJGO/ABBxlANZDtHw2HclHtQnn+RFPTnbjMJn8jHZW4TlUam0asHcA14lf1C6Jb+A==}
 
   vue-demi@0.14.10:
     resolution: {integrity: sha512-nMZBOwuzabUO0nLgIcc6rycZEebF6eeUfaiQx9+WSk8e29IbLvPU9feI6tqW4kTo3hvoYAJkMh8n8D0fuISphg==}
@@ -5436,6 +5443,8 @@ snapshots:
       - yaml
 
   vscode-uri@3.1.0: {}
+
+  vue-component-type-helpers@3.2.2: {}
 
   vue-demi@0.14.10(vue@3.5.25(typescript@5.9.3)):
     dependencies:

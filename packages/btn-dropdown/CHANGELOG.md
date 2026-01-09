@@ -1,5 +1,31 @@
 # @vue-interface/btn-dropdown
 
+## 4.1.3
+
+### Patch Changes
+
+- 5c648ba: Added correct types for slots
+
+## 4.1.2
+
+### Patch Changes
+
+- 7a408dc: Fixed typescript issues
+- Updated dependencies [7a408dc]
+  - @vue-interface/dropdown-menu@3.0.7
+
+## 4.1.1
+
+### Patch Changes
+
+- 4059aca: Fixed some typescript issues
+
+## 4.1.0
+
+### Minor Changes
+
+- f240c60: Exposed show, hide, and toggle functions
+
 ## 4.0.8
 
 ### Patch Changes

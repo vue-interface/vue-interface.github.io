@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { DropdownMenu } from '@vue-interface/dropdown-menu';
-import { BtnDropdownEvents, BtnDropdownProps, useDropdownHandler } from './useDropdownHandler';
+import { ComponentPublicInstance } from 'vue';
+import { BtnDropdownEvents, BtnDropdownProps, BtnDropdownSlotProps, useDropdownHandler } from './useDropdownHandler';
 
 const props = withDefaults(defineProps<BtnDropdownProps>(), {
     caret: true,
@@ -16,11 +17,29 @@ const {
     classes,
     expanded,
     floatingStyles,
+    show,
+    hide,
+    toggle,
     onBlur,
-    onClick,
     onClickToggle,
     onClickItem
 } = useDropdownHandler(props, emit);
+
+defineExpose({
+    show,
+    hide,
+    toggle,
+});
+
+defineSlots<{
+    button(props: {
+        expanded: BtnDropdownSlotProps['expanded'],
+        onBlur: BtnDropdownSlotProps['onBlur'],
+        onClickToggle: BtnDropdownSlotProps['onClickToggle']
+    }): any;
+    toggle(props: BtnDropdownSlotProps): any;
+    default(): any;
+}>();
 </script>
 
 <template>
@@ -44,7 +63,12 @@ const {
         <div class="btn-group">
             <slot
                 name="toggle"
-                v-bind="{ target: (el: HTMLElement) => target = el, expanded, onBlur, onClickToggle }">
+                v-bind="{
+                    target: (el: Element | ComponentPublicInstance | null) => target = el,
+                    expanded,
+                    onBlur,
+                    onClickToggle
+                }">
                 <button
                     ref="target"
                     type="button"

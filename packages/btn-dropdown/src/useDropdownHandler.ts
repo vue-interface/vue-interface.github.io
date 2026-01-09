@@ -1,7 +1,7 @@
 import { flip, offset, Placement, type Alignment, type Middleware, type OffsetOptions, type Side } from '@floating-ui/dom';
-import { useFloating } from '@floating-ui/vue';
+import { useFloating, UseFloatingReturn } from '@floating-ui/vue';
 import { DropdownMenu } from '@vue-interface/dropdown-menu';
-import { computed, ref, watchEffect, type EmitFn, type HTMLAttributes } from 'vue';
+import { ComponentPublicInstance, computed, ComputedRef, Ref, ref, watchEffect, type EmitFn, type HTMLAttributes } from 'vue';
 
 type LiteralUnion<T extends U, U = string> = T | (U & Record<never, never>);
 
@@ -38,11 +38,36 @@ export type BtnDropdownEvents = {
     hide: []
 }
 
-export function useDropdownHandler(props: BtnDropdownProps, emit: EmitFn<BtnDropdownEvents>) {
-    const target = ref<HTMLElement>();
+export type BtnDropdownSlotProps = { 
+    target: (el: Element | ComponentPublicInstance | null) => void;
+    expanded: boolean;
+    onBlur: (e: FocusEvent) => void;
+    onClickToggle: (e: MouseEvent) => void;
+};
+
+export type UseDropdownHandler = {
+    target: Ref<Element|ComponentPublicInstance|null>;
+    menu: Ref<InstanceType<typeof DropdownMenu>|undefined>;
+    alignment: ComputedRef<Alignment>;
+    expanded: Ref<boolean>;
+    floatingStyles: UseFloatingReturn['floatingStyles'];
+    placement: ComputedRef<Placement>;
+    side: ComputedRef<Side>;
+    classes: ComputedRef<Record<string, boolean|undefined>>;
+    buttonClasses: ComputedRef<Record<string, boolean>>;
+    show: () => void;
+    hide: () => void;
+    toggle: () => void;
+    onBlur: (e: FocusEvent) => void;
+    onClick: (e: MouseEvent) => void;
+    onClickToggle: (e: MouseEvent) => void;
+    onClickItem: (e: PointerEvent) => void;
+}
+
+export function useDropdownHandler(props: BtnDropdownProps, emit: EmitFn<BtnDropdownEvents>): UseDropdownHandler {
+    const target = ref<Element|ComponentPublicInstance|null>(null);
     const menu = ref<InstanceType<typeof DropdownMenu>>();
     const expanded = ref(false);
-
 
     const alignment = computed<Alignment>(() => props.align ?? 'start');
 
@@ -64,7 +89,7 @@ export function useDropdownHandler(props: BtnDropdownProps, emit: EmitFn<BtnDrop
 
     const placement = computed<Placement>(() => `${side.value}-${alignment.value}`);
 
-    const classes = computed(() => ({
+    const classes = computed<Record<string,boolean|undefined>>(() => ({
         'dropdown': props.dropup && props.dropright && props.dropleft,
         'dropup': props.dropup,
         'dropright': props.dropright,
@@ -119,7 +144,9 @@ export function useDropdownHandler(props: BtnDropdownProps, emit: EmitFn<BtnDrop
     function hide() {
         expanded.value = false;
 
-        target.value?.blur();
+        if(target.value instanceof HTMLElement) {
+            target.value?.blur();
+        }
 
         emit('hide');
     }
@@ -146,7 +173,7 @@ export function useDropdownHandler(props: BtnDropdownProps, emit: EmitFn<BtnDrop
     }
         
     function onBlur(e: FocusEvent) {
-        if(!(e.relatedTarget instanceof HTMLElement)) {
+        if(!(e.relatedTarget instanceof HTMLElement) || !(target.value instanceof Element)) {
             hide();
             
             return;

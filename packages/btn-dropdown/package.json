@@ -1,6 +1,6 @@
 {
   "name": "@vue-interface/btn-dropdown",
-  "version": "4.0.8",
+  "version": "4.1.3",
   "description": "A Vue button dropdown component.",
   "type": "module",
   "main": "./dist/btn-dropdown.umd.cjs",
@@ -55,5 +55,8 @@
     "@vue-interface/btn": "workspace:*",
     "@vue-interface/dropdown-menu": "workspace:*",
     "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "vue-component-type-helpers": "^3.2.2"
   }
 }
