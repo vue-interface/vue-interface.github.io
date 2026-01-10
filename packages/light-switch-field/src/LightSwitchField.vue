@@ -6,7 +6,7 @@ import { computed, InputHTMLAttributes, useTemplateRef } from 'vue';
 const props = withDefaults(defineProps<LightSwitchFieldProps<ModelValue, Value>>(), {
     formControlClass: 'form-switch',
     labelClass: 'form-switch-label',
-    size: 'form-switch-md'
+    size: 'form-switch-2xs'
 });
 
 defineOptions({

@@ -103,15 +103,15 @@ Customize the radio button's size using a [predetermined size](#predetermined-si
 The size can be customized using predetermined size classes: `xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`. Use the syntax: `form-check-[size]`.
 
 <!-- #region predeterminedSizes -->
-<RadioField name="size" value="xs" class="form-check-xs">xs</RadioField>
-<RadioField name="size" value="sm" class="form-check-sm">Small</RadioField>
-<RadioField name="size" value="md" class="form-check-md">Medium</RadioField>
-<RadioField name="size" value="lg" class="form-check-lg">Large</RadioField>
-<RadioField name="size" value="xl" class="form-check-xl">xl</RadioField>
-<RadioField name="size" value="2xl" class="form-check-2xl">2xl</RadioField>
-<RadioField name="size" value="3xl" class="form-check-3xl">3xl</RadioField>
-<RadioField name="size" value="4xl" class="form-check-4xl">4xl</RadioField>
-<RadioField name="size" value="5xl" class="form-check-5xl">5xl</RadioField>
+<RadioField name="size" value="xs" size="form-check-xs">xs</RadioField>
+<RadioField name="size" value="sm" size="form-check-sm">Small</RadioField>
+<RadioField name="size" value="md" size="form-check-md">Medium</RadioField>
+<RadioField name="size" value="lg" size="form-check-lg">Large</RadioField>
+<RadioField name="size" value="xl" size="form-check-xl">xl</RadioField>
+<RadioField name="size" value="2xl" size="form-check-2xl">2xl</RadioField>
+<RadioField name="size" value="3xl" size="form-check-3xl">3xl</RadioField>
+<RadioField name="size" value="4xl" size="form-check-4xl">4xl</RadioField>
+<RadioField name="size" value="5xl" size="form-check-5xl">5xl</RadioField>
 <!-- #endregion predeterminedSizes -->
 
 ::: details Show Code
@@ -123,10 +123,10 @@ The size can be customized using predetermined size classes: `xs`, `sm`, `md`, `
 For more granular control over sizes, use Tailwind's numeric sizing scale classes: `form-check-1` - `form-check-96`. 
 
 <!-- #region tailwindSizes -->
-<RadioField name="size" value="4" class="form-check-4">form-check-4</RadioField>
-<RadioField name="size" value="5" class="form-check-5">form-check-5</RadioField>
-<RadioField name="size" value="6" class="form-check-6">form-check-6</RadioField>
-<RadioField name="size" value="7" class="form-check-7">form-check-7</RadioField>
+<RadioField name="size" value="4" size="form-check-4">form-check-4</RadioField>
+<RadioField name="size" value="5" size="form-check-5">form-check-5</RadioField>
+<RadioField name="size" value="6" size="form-check-6">form-check-6</RadioField>
+<RadioField name="size" value="7" size="form-check-7">form-check-7</RadioField>
 <!-- #endregion tailwindSizes -->
 
 ::: details Show Code
@@ -138,8 +138,8 @@ For more granular control over sizes, use Tailwind's numeric sizing scale classe
 For precise sizing, specify exact pixel values using the syntax `form-check-[Npx]` or any other CSS length units (`rem`, `em`, `mm`, etc.).
 
 <!-- #region arbitrarySizes -->
-<RadioField name="size" value="[16px]" class="form-check-[16px]">form-check-[16px]</RadioField>
-<RadioField name="size" value="[1.5rem]" class="form-check-[1.5rem]">form-check-[1.5rem]</RadioField>
+<RadioField name="size" value="[16px]" size="form-check-[16px]">form-check-[16px]</RadioField>
+<RadioField name="size" value="[1.5rem]" size="form-check-[1.5rem]">form-check-[1.5rem]</RadioField>
 <!-- #endregion arbitrarySizes -->
 
 ::: details Show Code
