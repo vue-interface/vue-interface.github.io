@@ -1,5 +1,11 @@
 # @vue-interface/activity-indicator
 
+## 3.0.7
+
+### Patch Changes
+
+- 92c57e2: Modified to use sizeable types, updated icon implementation, updated docs
+
 ## 3.0.6
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @vue-interface/select-field
 
+## 2.0.17
+
+### Patch Changes
+
+- 92c57e2: Modified to use sizeable types, updated icon implementation, updated docs
+- Updated dependencies [92c57e2]
+  - @vue-interface/activity-indicator@3.0.7
+  - @vue-interface/form-control@2.0.17
+
 ## 2.0.16
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@vue-interface/alert",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "A Vue alert component.",
   "type": "module",
   "main": "./dist/alert.umd.cjs",

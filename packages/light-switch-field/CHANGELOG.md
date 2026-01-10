@@ -1,5 +1,13 @@
 # @vue-interface/light-switch-field
 
+## 3.0.19
+
+### Patch Changes
+
+- 92c57e2: Modified to use sizeable types, updated icon implementation, updated docs
+- Updated dependencies [92c57e2]
+  - @vue-interface/form-control@2.0.17
+
 ## 3.0.18
 
 ### Patch Changes
