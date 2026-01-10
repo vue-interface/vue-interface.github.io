@@ -34,7 +34,7 @@ onMounted(() => {
 
 # Button Activity
 
-The `btn-activity` component provides an interactive button with built-in activity indicators for async operations. It extends the standard [button](/packages/btn/) aCombine [activity indicators](/packages/activity-indicator/) with `textarea-field` to show a loading icon.s.
+The `btn-activity` component provides an interactive button with built-in activity indicators for async operations. It extends the standard [button](/packages/btn/) and [activity indicator](/packages/activity-indicator/) to show a loading icon.
 
 ### Installation
 
@@ -77,7 +77,7 @@ bun i @vue-interface/btn-activity
 
 ## Dots
 
-<div class="mb-5 flex gap-2">
+<div class="mb-5 items-start flex gap-2">
     <!-- #region dots -->
     <BtnActivity :indicator="Dots" size="btn-sm" @click="onClick">Click Me!</BtnActivity>
     <BtnActivity :indicator="Dots" size="btn-md" @click="onClick">Click Me!</BtnActivity>
@@ -91,7 +91,7 @@ bun i @vue-interface/btn-activity
 
 ## Spinner
 
-<div class="flex gap-2 mb-5">
+<div class="flex items-start gap-2 mb-5">
   <!-- #region spinner -->
   <BtnActivity :indicator="Spinner" size="btn-sm" @click="onClick">Click Me!</BtnActivity>
   <BtnActivity :indicator="Spinner" size="btn-md" @click="onClick">Click Me!</BtnActivity>
@@ -105,7 +105,7 @@ bun i @vue-interface/btn-activity
 
 ## Pulse
 
-<div class="flex gap-2 mb-5">
+<div class="flex items-start gap-2 mb-5">
   <!-- #region pulse -->
   <BtnActivity :indicator="Pulse" size="btn-sm" @click="onClick">Click Me!</BtnActivity>
   <BtnActivity :indicator="Pulse" size="btn-md" @click="onClick">Click Me!</BtnActivity>
@@ -117,33 +117,33 @@ bun i @vue-interface/btn-activity
 <<< ./index.md#pulse{html}
 :::
 
-## Orientation
+## Placement
 
-Control the position of the activity indicator relative to the button label using the `orientation` prop.
+Control the position of the activity indicator relative to the button label using the `placement` prop.
 
 <div class="flex gap-2 mb-5">
-  <!-- #region orientation -->
-  <BtnActivity :indicator="Spinner" orientation="top" @click="onClick">Orientate Top</BtnActivity>
-  <BtnActivity :indicator="Spinner" orientation="bottom" @click="onClick">Orientate Bottom</BtnActivity>
-  <BtnActivity :indicator="Spinner" orientation="left" @click="onClick">Orientate Left</BtnActivity>
-  <BtnActivity :indicator="Spinner" orientation="right" @click="onClick">Orientate Right</BtnActivity>
-  <!-- #endregion orientation -->
+  <!-- #region placement -->
+  <BtnActivity :indicator="Spinner" placement="top" @click="onClick">Orientate Top</BtnActivity>
+  <BtnActivity :indicator="Spinner" placement="bottom" @click="onClick">Orientate Bottom</BtnActivity>
+  <BtnActivity :indicator="Spinner" placement="left" @click="onClick">Orientate Left</BtnActivity>
+  <BtnActivity :indicator="Spinner" placement="right" @click="onClick">Orientate Right</BtnActivity>
+  <!-- #endregion placement -->
 </div>
 
 ::: details Show Code
-<<< ./index.md#orientation{html}
+<<< ./index.md#placement{html}
 :::
 
 ## Block Activity Buttons
 
-Full-width buttons with different indicator orientations using the `block` prop.
+Full-width buttons with different indicator placements using the `block` prop.
 
-<div class="flex flex-col gap-4">
+<div class="flex flex-col gap-2">
   <!-- #region block -->
-  <BtnActivity :indicator="Spinner" block orientation="top" @click="onClick">Spinner Top</BtnActivity>
-  <BtnActivity :indicator="Spinner" block orientation="bottom" @click="onClick">Spinner Bottom</BtnActivity>
-  <BtnActivity :indicator="Spinner" block orientation="left" @click="onClick">Spinner Left</BtnActivity>
-  <BtnActivity :indicator="Spinner" block orientation="right" @click="onClick">Spinner Right</BtnActivity>
+  <BtnActivity :indicator="Spinner" block placement="top" @click="onClick">Spinner Top</BtnActivity>
+  <BtnActivity :indicator="Spinner" block placement="bottom" @click="onClick">Spinner Bottom</BtnActivity>
+  <BtnActivity :indicator="Spinner" block placement="left" @click="onClick">Spinner Left</BtnActivity>
+  <BtnActivity :indicator="Spinner" block placement="right" @click="onClick">Spinner Right</BtnActivity>
   <!-- #endregion block -->
 </div>
 

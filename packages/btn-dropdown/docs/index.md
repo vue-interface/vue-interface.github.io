@@ -65,11 +65,15 @@ bun i @vue-interface/btn-dropdown
 <!-- #endregion basicUsage-->
 :::
 
+</ClientOnly>
+
 <<< ./index.md#basicUsage{html}
 
 ### Split Button
 
 Create a split `btn-dropdown` component by adding the `split` prop. 
+
+<ClientOnly>
 
 ::: raw
 <!-- #region split-->
@@ -82,6 +86,8 @@ Create a split `btn-dropdown` component by adding the `split` prop.
 <!-- #endregion split-->
 :::
 
+</ClientOnly>
+
 <<< ./index.md#split{html}
 
 ::: tip
@@ -89,6 +95,8 @@ The split dropdown button is a combination of a [button-group](/packages/btn/btn
 :::
 
 ## Custom Buttons 
+
+<ClientOnly>
 
 ::: raw
 <div class="flex items-center gap-2">
@@ -127,6 +135,8 @@ The split dropdown button is a combination of a [button-group](/packages/btn/btn
 </div>
 :::
 
+</ClientOnly>
+
 ::: details Show Code - (+)
 <<< ./index.md#custom1{html}
 :::
@@ -137,8 +147,10 @@ The split dropdown button is a combination of a [button-group](/packages/btn/btn
 
 ## Variants
 
+<ClientOnly>
+
 ::: raw
-<div class="flex flex-wrap gap-2">
+<div class="flex flex-col items-start gap-2">
     <!-- #region variants -->
     <BtnDropdown label="Primary" variant="btn-primary">
         <a href="#">Action</a>
@@ -189,56 +201,60 @@ The split dropdown button is a combination of a [button-group](/packages/btn/btn
 </div>
 :::
 
+</ClientOnly>
+
 ::: details Show Code
 <<< ./index.md#variants{html}
 :::
 
 ## Outline Variants
 
+<ClientOnly>
+
 ::: raw
-<div class="flex flex-wrap gap-2">
+<div class="flex flex-col items-start gap-2">
     <!-- #region outlineVariants -->
-    <BtnDropdown label="Primary" variant="btn-outline-primary" outline>
+    <BtnDropdown label="Primary" variant="btn-outline-primary">
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
     </BtnDropdown>
-    <BtnDropdown label="Secondary" variant="btn-outline-secondary" outline>
+    <BtnDropdown label="Secondary" variant="btn-outline-secondary">
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
     </BtnDropdown>
-    <BtnDropdown label="Success" variant="btn-outline-success" outline>
+    <BtnDropdown label="Success" variant="btn-outline-success">
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
     </BtnDropdown>
-    <BtnDropdown label="Info" variant="btn-outline-info" outline>
+    <BtnDropdown label="Info" variant="btn-outline-info">
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
     </BtnDropdown>
-    <BtnDropdown label="Warning" variant="btn-outline-warning" outline>
+    <BtnDropdown label="Warning" variant="btn-outline-warning">
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
     </BtnDropdown>
-    <BtnDropdown label="Danger" variant="btn-outline-danger" outline>
+    <BtnDropdown label="Danger" variant="btn-outline-danger">
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
     </BtnDropdown>
-    <BtnDropdown label="Dark" variant="btn-outline-dark" outline>
+    <BtnDropdown label="Dark" variant="btn-outline-dark">
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
     </BtnDropdown>
-    <BtnDropdown label="Light" variant="btn-outline-light" outline>
+    <BtnDropdown label="Light" variant="btn-outline-light">
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
     </BtnDropdown>
-    <BtnDropdown label="Muted" variant="btn-outline-muted" outline>
+    <BtnDropdown label="Muted" variant="btn-outline-muted">
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
@@ -247,14 +263,18 @@ The split dropdown button is a combination of a [button-group](/packages/btn/btn
 </div>
 :::
 
+</ClientOnly>
+
 ::: details Show Code
 <<< ./index.md#outlineVariants{html}
 :::
 
 ## Split Button Variants
 
+<ClientOnly>
+
 ::: raw
-<div class="flex flex-wrap gap-2">
+<div class="flex flex-col items-start gap-2">
     <!-- #region splitVariants -->
     <BtnDropdown label="Primary" variant="btn-primary" split>
         <a href="#">Action</a>
@@ -305,51 +325,55 @@ The split dropdown button is a combination of a [button-group](/packages/btn/btn
 </div>
 :::
 
+</ClientOnly>
+
 ::: details Show Code
 <<< ./index.md#splitVariants{html}
 :::
 
 ## Split Outline Variants
 
+<ClientOnly>
+
 ::: raw
-<div class="flex flex-wrap gap-2">
+<div class="flex flex-col items-start gap-2">
     <!-- #region splitOutlineVariants -->
-    <BtnDropdown label="Primary" variant="btn-outline-primary" outline split>
+    <BtnDropdown label="Primary" variant="btn-outline-primary" split>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
     </BtnDropdown>
-    <BtnDropdown label="Secondary" variant="btn-outline-secondary" outline split>
+    <BtnDropdown label="Secondary" variant="btn-outline-secondary" split>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
     </BtnDropdown>
-    <BtnDropdown label="Success" variant="btn-outline-success" outline split>
+    <BtnDropdown label="Success" variant="btn-outline-success" split>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
     </BtnDropdown>
-    <BtnDropdown label="Info" variant="btn-outline-info" outline split>
+    <BtnDropdown label="Info" variant="btn-outline-info" split>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
     </BtnDropdown>
-    <BtnDropdown label="Warning" variant="btn-outline-warning" outline split>
+    <BtnDropdown label="Warning" variant="btn-outline-warning" split>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
     </BtnDropdown>
-    <BtnDropdown label="Danger" variant="btn-outline-danger" outline split>
+    <BtnDropdown label="Danger" variant="btn-outline-danger" split>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
     </BtnDropdown>
-    <BtnDropdown label="Dark" variant="btn-outline-dark" outline split>
+    <BtnDropdown label="Dark" variant="btn-outline-dark" split>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
     </BtnDropdown>
-    <BtnDropdown label="Light" variant="btn-outline-light" outline split>
+    <BtnDropdown label="Light" variant="btn-outline-light" split>
         <a href="#">Action</a>
         <a href="#">Another Action</a>
         <a href="#">Something else here</a>
@@ -363,6 +387,8 @@ The split dropdown button is a combination of a [button-group](/packages/btn/btn
 </div>
 :::
 
+</ClientOnly>
+
 ::: details Show Code
 <<< ./index.md#splitOutlineVariants{html}
 :::
@@ -375,8 +401,10 @@ Customize the size of a `btn-dropdown` component using a [predetermined size](#p
 
 The size can be customized using predetermined size classes: `xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`. Use the syntax: `btn-group-[size]`.
 
+<ClientOnly>
+
 ::: raw
-<div class="flex flex-wrap gap-2">
+<div class="flex flex-col items-start gap-2">
     <!-- #region predetermined-->
     <div>
         <BtnDropdown label="xs" size="btn-group-xs" variant="btn-secondary">
@@ -445,6 +473,8 @@ The size can be customized using predetermined size classes: `xs`, `sm`, `md`, `
 </div>
 :::
 
+</ClientOnly>
+
 ::: details Show Code
 <<< ./index.md#predetermined{html}
 :::
@@ -452,6 +482,8 @@ The size can be customized using predetermined size classes: `xs`, `sm`, `md`, `
 ### Tailwind Sizes
 
 For more granular control over button sizes, use Tailwind's numeric sizing scale classes: `btn-group-1` - `btn-group-96`.
+
+<ClientOnly>
 
 ::: raw
 <div class="flex gap-2">
@@ -481,6 +513,8 @@ For more granular control over button sizes, use Tailwind's numeric sizing scale
 </div>
 :::
 
+</ClientOnly>
+
 ::: details Show Code
 <<< ./index.md#tailwind{html}
 :::
@@ -488,6 +522,8 @@ For more granular control over button sizes, use Tailwind's numeric sizing scale
 ### Arbitrary Sizes
 
 For precise sizing, specify exact pixel values using the syntax `btn-group-[Npx]` or any other CSS length units (`rem`, `em`, `mm`, etc.).
+
+<ClientOnly>
 
 ::: raw
 <div class="flex gap-2">
@@ -510,6 +546,8 @@ For precise sizing, specify exact pixel values using the syntax `btn-group-[Npx]
 </div>
 :::
 
+</ClientOnly>
+
 ::: details Show Code
 <<< ./index.md#arbitrary{html}
 :::
@@ -522,8 +560,10 @@ Customize the size of a split `btn-dropdown` component using a [predetermined si
 
 The size can be customized using predetermined size classes: `xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`. Use the syntax: `btn-group-[size]`.
 
+<ClientOnly>
+
 ::: raw
-<div class="flex flex-wrap gap-2">
+<div class="flex flex-col items-start gap-2">
     <!-- #region splitPredetermined-->
     <div>
         <BtnDropdown label="xs" size="btn-group-xs" variant="btn-secondary" split>
@@ -592,6 +632,8 @@ The size can be customized using predetermined size classes: `xs`, `sm`, `md`, `
 </div>
 :::
 
+</ClientOnly>
+
 ::: details Show Code
 <<< ./index.md#splitPredetermined{html}
 :::
@@ -599,6 +641,8 @@ The size can be customized using predetermined size classes: `xs`, `sm`, `md`, `
 ### Tailwind Sizes
 
 For more granular control over button sizes, use Tailwind's numeric sizing scale classes: `btn-group-1` - `btn-group-96`.
+
+<ClientOnly>
 
 ::: raw
 <div class="flex gap-2">
@@ -628,6 +672,8 @@ For more granular control over button sizes, use Tailwind's numeric sizing scale
 </div>
 :::
 
+</ClientOnly>
+
 ::: details Show Code
 <<< ./index.md#splitTailwind{html}
 :::
@@ -636,6 +682,7 @@ For more granular control over button sizes, use Tailwind's numeric sizing scale
 
 For precise sizing, specify exact pixel values using the syntax `btn-group-[Npx]` or any other CSS length units (`rem`, `em`, `mm`, etc.).
 
+<ClientOnly>
 
 ::: raw
 <div class="flex gap-2">
@@ -658,6 +705,8 @@ For precise sizing, specify exact pixel values using the syntax `btn-group-[Npx]
 </div>
 :::
 
+</ClientOnly>
+
 ::: details Show Code
 <<< ./index.md#splitArbitrary{html}
 :::
@@ -665,6 +714,8 @@ For precise sizing, specify exact pixel values using the syntax `btn-group-[Npx]
 ## Menu Alignment
 
 Customize the alignment of the dropdown menu  relative to the button using the `align` prop. Use `start` value to align the left side of the menu to the button, and the `end` value to align right edge of the menu to the button. 
+
+<ClientOnly>
 
 ::: raw
 <div class="flex gap-2">
@@ -693,6 +744,8 @@ Customize the alignment of the dropdown menu  relative to the button using the `
 </div>
 :::
 
+</ClientOnly>
+
 ::: details Show Code
 <<< ./index.md#menuAlignment{html}
 :::
@@ -702,6 +755,8 @@ Customize the alignment of the dropdown menu  relative to the button using the `
 Specify the direction of the dropdown menu using the [dropup](#dropup), [dropright](#dropright), or [dropleft](#dropleft) props.
 
 ### Dropup
+
+<ClientOnly>
 
 ::: raw
 <div class="flex gap-2">
@@ -720,11 +775,15 @@ Specify the direction of the dropdown menu using the [dropup](#dropup), [droprig
 </div>
 :::
 
+</ClientOnly>
+
 ::: details Show Code
 <<< ./index.md#dropup{html}
 :::
 
 ### Dropright
+
+<ClientOnly>
 
 ::: raw
 <div class="flex gap-2">
@@ -743,11 +802,15 @@ Specify the direction of the dropdown menu using the [dropup](#dropup), [droprig
 </div>
 :::
 
+</ClientOnly>
+
 ::: details Show Code
 <<< ./index.md#dropright{html}
 :::
 
 ### Dropleft
+
+<ClientOnly>
 
 ::: raw
 <div class="flex gap-2">

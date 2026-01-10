@@ -51,6 +51,7 @@
     "LICENSE"
   ],
   "peerDependencies": {
+    "@vue-interface/sizeable": "workspace:*",
     "vue": "^3.3.4"
   }
 }

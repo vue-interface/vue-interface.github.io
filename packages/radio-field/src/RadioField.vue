@@ -5,7 +5,8 @@ import { InputHTMLAttributes, onMounted, useTemplateRef } from 'vue';
 
 const props = withDefaults(defineProps<CheckedFormControlProps<InputHTMLAttributes, RadioFieldControlSizePrefix, ModelValue, Value>>(), {
     formControlClass: 'form-check',
-    labelClass: 'form-check-label'
+    labelClass: 'form-check-label',
+    size: 'form-check-md'
 });
 
 defineOptions({

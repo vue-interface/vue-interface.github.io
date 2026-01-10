@@ -1,4 +1,5 @@
-import { ActivityIndicatorSize } from '@vue-interface/activity-indicator';
+import type { ActivityIndicatorSizePrefix } from '@vue-interface/activity-indicator';
+import { ComponentSize } from '@vue-interface/sizeable';
 import { computed, nextTick, onBeforeMount, ref, useAttrs, useSlots, watch, type Component, type ComputedRef, type EmitFn, type HTMLAttributes, type ModelRef, type Ref, type SetupContext } from 'vue';
 
 export type FormControlEvents = {
@@ -39,7 +40,7 @@ export type FormControlEvents = {
 };
 
 export type FormControlListeners<T> = {
-  [K in keyof T as `on${Capitalize<string & K>}`]: T[K] extends [infer Arg1, infer Arg2]
+    [K in keyof T as `on${Capitalize<string & K>}`]: T[K] extends [infer Arg1, infer Arg2]
     ? (arg1: Arg1, arg2: Arg2) => void
     : T[K] extends [infer Arg1]
     ? (arg1: Arg1) => void
@@ -83,27 +84,10 @@ export type FormControlErrorSlot = (props: {
 
 export type FormControlErrorProp = string | Error;
 export type FormControlErrorPropArray = FormControlErrorProp[];
-export type FormControlErrorPropRecord = Record<string,FormControlErrorProp[]>
+export type FormControlErrorPropRecord = Record<string, FormControlErrorProp[]>
 export type FormControlFeedbackProp = string | string[];
 
-export type PredeterminedSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl';
-
-type Unit = 'px' | 'rem' | 'em' | 'vw' | 'vh' | '%' | 'ch' | 'ex' | 'cm' | 'mm' | 'in' | 'pt' | 'pc';
-type NumericWithUnit = `${number}${Unit}`;
-type CalcExpressionChar = number | '.' | '+' | '-' | '*' | '/' | '(' | ')' | '_'
-type NonEmptyCalcContentString = `${CalcExpressionChar}${string}` | CalcExpressionChar;
-type ValidCalc = `calc(${NonEmptyCalcContentString})`;
-type ValidBracketContent =  NumericWithUnit | ValidCalc;
-
-export type FormControlSizeValue<
-    Prefix extends string,
-    Value extends PredeterminedSize = PredeterminedSize
-> = `${Prefix}-${Value}` | `${Prefix}-${number}` | `${Prefix}-[${ValidBracketContent}]`;
-
-export type FormControlSize<
-    Prefix extends string,
-    Value extends PredeterminedSize = PredeterminedSize
-> = FormControlSizeValue<Prefix,Value> | Partial<Record<FormControlSizeValue<Prefix,Value>,boolean>>;
+export type FormControlSize<Prefix extends string> = ComponentSize<Prefix>;
 
 export type FormControlProps<
     Attributes extends HTMLAttributes,
@@ -120,14 +104,14 @@ export type FormControlProps<
     helpText?: string;
     id?: string;
     indicator?: Component;
-    indicatorSize?: ActivityIndicatorSize;
+    indicatorSize?: ComponentSize<ActivityIndicatorSizePrefix>;
     invalid?: boolean;
     label?: string;
     labelClass?: string;
     modelValue?: ModelValue;
     name?: string;
     plaintext?: boolean;
-    size?: FormControlSize<Size,PredeterminedSize>;
+    size?: FormControlSize<Size>;
     color?: string;
     readonly?: boolean;
     valid?: boolean;
@@ -143,7 +127,7 @@ export type FormGroupClasses = {
     'is-empty': boolean;
     'is-invalid': boolean;
     'is-valid': boolean;
-} & Record<string,boolean>
+} & Record<string, boolean>
 
 export type FormControlAttributes<Prefix extends string, ModelValue> = {
     id: string,
@@ -165,7 +149,7 @@ export type FormControlClasses<Prefix extends string> = {
     'is-empty': boolean;
     size?: FormControlSize<Prefix>
     color?: boolean;
-} & Record<string,boolean>
+} & Record<string, boolean>
 
 export type CheckedFormControlProps<
     Attributes extends HTMLAttributes,
@@ -184,12 +168,12 @@ export type UseFormControlOptions<
     Getter = ModelValue,
     Setter = ModelValue
 > = {
-    model: ModelRef<ModelValue,string,Getter,Setter>;
-    props: FormControlProps<Attributes,Size,ModelValue,Value> | CheckedFormControlProps<Attributes,Size,ModelValue,Value>;
+    model: ModelRef<ModelValue, string, Getter, Setter>;
+    props: FormControlProps<Attributes, Size, ModelValue, Value> | CheckedFormControlProps<Attributes, Size, ModelValue, Value>;
     emit: EmitFn<FormControlEvents>;
 }
 
-export type UseFormControl<Size extends string, ModelValue, Getter, Setter>  = {
+export type UseFormControl<Size extends string, ModelValue, Getter, Setter> = {
     attrs: SetupContext['attrs'];
     controlAttributes: ComputedRef<FormControlAttributes<Size, ModelValue>>
     controlClasses: ComputedRef<FormControlClasses<Size>>
@@ -202,7 +186,7 @@ export type UseFormControl<Size extends string, ModelValue, Getter, Setter>  = {
     isInvalid: Ref<boolean>;
     isValid: Ref<boolean>;
     listeners: FormControlListeners<FormControlEvents>;
-    model: ModelRef<ModelValue,string,Getter,Setter>;
+    model: ModelRef<ModelValue, string, Getter, Setter>;
 }
 
 export function useFormControl<
@@ -212,7 +196,7 @@ export function useFormControl<
     Value,
     Getter = ModelValue,
     Setter = ModelValue,
->(options: UseFormControlOptions<Attributes,Size,ModelValue,Value,Getter,Setter>): UseFormControl<Size,ModelValue,Getter,Setter>;
+>(options: UseFormControlOptions<Attributes, Size, ModelValue, Value, Getter, Setter>): UseFormControl<Size, ModelValue, Getter, Setter>;
 
 export function useFormControl<
     Attributes extends HTMLAttributes,
@@ -221,9 +205,9 @@ export function useFormControl<
     Value,
     Getter = ModelValue,
     Setter = ModelValue,
->({ props, emit, model }: UseFormControlOptions<Attributes,Size,ModelValue,Value,Getter,Setter>): UseFormControl<Size, ModelValue, Getter, Setter> {
+>({ props, emit, model }: UseFormControlOptions<Attributes, Size, ModelValue, Value, Getter, Setter>): UseFormControl<Size, ModelValue, Getter, Setter> {
     const attrs = useAttrs();
-    
+
     const hasChanged = ref(false);
     const hasFocus = ref(false);
     const hasIcon = computed(() => {
@@ -265,11 +249,9 @@ export function useFormControl<
         'is-invalid': isInvalid.value,
         'is-dirty': isDirty.value,
         'is-empty': isEmpty.value,
-    }, typeof props.size === 'object' ? props.size : {
-        [props.size ?? '']: !!props.size,
-    }));
+    }, typeof props.size === 'string' ? { [props.size]: true } : props.size));
 
-    const controlClasses = computed<FormControlClasses<Size>>(() => Object.assign({        
+    const controlClasses = computed<FormControlClasses<Size>>(() => Object.assign({
         [props.formControlClass ?? '']: !!props.formControlClass,
         [props.color ?? '']: !!props.color,
         'form-control-plaintext': !!props.plaintext,
@@ -281,10 +263,8 @@ export function useFormControl<
         'is-invalid': isInvalid.value,
         'is-dirty': isDirty.value,
         'is-empty': isEmpty.value,
-    }, typeof props.size === 'object' ? props.size : {
-        [props.size ?? '']: !!props.size,
-    }));
-    
+    }, typeof props.size === 'string' ? { [props.size]: true } : props.size));
+
     const listeners: FormControlListeners<FormControlEvents> = {
         onBlur: (e: FocusEvent) => {
             hasFocus.value = false;
@@ -302,7 +282,7 @@ export function useFormControl<
             emit('focusout', e);
         },
         onClick: (e: MouseEvent) => {
-            if(props.readonly) {
+            if (props.readonly) {
                 e.preventDefault();
             }
             nextTick(() => {
@@ -398,7 +378,7 @@ export function useFormControl<
         }
     };
 
-    const controlAttributes = computed<FormControlAttributes<Size,ModelValue>>(() => ({
+    const controlAttributes = computed<FormControlAttributes<Size, ModelValue>>(() => ({
         ...attrs,
         id: id.value,
         name: props.name,

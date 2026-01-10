@@ -6,7 +6,8 @@ import { InputHTMLAttributes, onMounted, SelectHTMLAttributes, useSlots, useTemp
 
 const props = withDefaults(defineProps<SelectFieldProps<ModelValue,Value>>(), {
     formControlClass: 'form-select',
-    labelClass: 'form-label'
+    labelClass: 'form-label',
+    size: 'form-select-md'
 });
 
 defineOptions({
