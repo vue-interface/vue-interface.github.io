@@ -1,5 +1,13 @@
 # @vue-interface/btn-activity
 
+## 4.0.9
+
+### Patch Changes
+
+- 92c57e2: Modified to use sizeable types, updated icon implementation, updated docs
+- Updated dependencies [92c57e2]
+  - @vue-interface/activity-indicator@3.0.7
+
 ## 4.0.8
 
 ### Patch Changes

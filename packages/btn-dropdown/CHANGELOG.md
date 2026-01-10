@@ -1,5 +1,11 @@
 # @vue-interface/btn-dropdown
 
+## 4.1.4
+
+### Patch Changes
+
+- 92c57e2: Modified to use sizeable types, updated icon implementation, updated docs
+
 ## 4.1.3
 
 ### Patch Changes

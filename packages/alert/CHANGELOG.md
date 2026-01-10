@@ -1,5 +1,11 @@
 # @vue-interface/alert
 
+## 4.0.1
+
+### Patch Changes
+
+- 92c57e2: Modified to use sizeable types, updated icon implementation, updated docs
+
 ## 4.0.0
 
 ### Patch Changes
