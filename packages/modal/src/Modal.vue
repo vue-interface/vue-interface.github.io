@@ -1,12 +1,9 @@
 <script setup lang="ts">
-import { computed, FunctionalComponent, onMounted, onUnmounted, ref, useAttrs, watch, watchEffect, type Component, type RenderFunction } from 'vue';
-import CheckCircleIcon from '../src/CheckCircleIcon.vue';
-import ExclamationCircleIcon from '../src/ExclamationCircleIcon.vue';
-import ExclamationTriangleIcon from '../src/ExclamationTriangleIcon.vue';
-import InfoCircleIcon from '../src/InfoCircleIcon.vue';
-import XMarkIcon from '../src/XMarkIcon.vue';
+import { computed, onMounted, onUnmounted, ref, useAttrs, watch, watchEffect, type Component, type RenderFunction } from 'vue';
+import { CheckCircleIcon, ExclamationCircleIcon, ExclamationTriangleIcon, InformationCircleIcon, XMarkIcon } from '@heroicons/vue/24/outline';
+import { ComponentSize } from '@vue-interface/sizeable';
 
-export type ModalSize = '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | 'screen';
+export type ModalSizePrefix = 'modal';
 
 export type ModalProps = {
     buttonBlock?: boolean,
@@ -17,12 +14,12 @@ export type ModalProps = {
     closeButton?: boolean;
     content?: string | Component;
     footer?: boolean;
-    icon?: FunctionalComponent | Component | RenderFunction | boolean;
+    icon?: Component | RenderFunction | boolean;
     show?: boolean;
     title?: string | Component;
     trigger?: string | Element | (() => Element);
     type?: 'info' | 'warning' | 'critical' | 'danger' | 'success';
-    size?: ModalSize;
+    size?: ComponentSize<ModalSizePrefix>;
     buttons?: (context: ModalContext) => any;
     colors?: {
         info?: string;
@@ -44,6 +41,7 @@ const props = withDefaults(defineProps<ModalProps>(), {
     icon: undefined,
     content: undefined,
     show: false,
+    size: 'modal-md',
     title: undefined,
     trigger: undefined,
     type: 'info',
@@ -72,15 +70,15 @@ if(typeof document === 'object') {
     });
 }
 
-const icon = computed(() => {
+const icon = computed<Component | RenderFunction | undefined>(() => {
     if(props.icon === undefined || props.icon === true) {
-        return {
-            info: InfoCircleIcon,
+        return ({
+            info: InformationCircleIcon,
             warning: ExclamationTriangleIcon,
             critical: ExclamationCircleIcon,
             danger: ExclamationCircleIcon,
             success: CheckCircleIcon
-        }[props.type];
+        } as Record<string, any>)[props.type];
     }
 
     if(props.icon) {
@@ -200,7 +198,7 @@ const attrs = useAttrs();
             :class="[
                 {[colors[props.type] ?? '']: !attrs.class && colors[type], 
                  show: showing}, 
-                `modal-${props.size}`]"
+                size]"
             v-bind="$attrs"
             aria-labelledby="modal"
             role="dialog"

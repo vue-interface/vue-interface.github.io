@@ -81,6 +81,9 @@ importers:
 
   packages/activity-indicator:
     dependencies:
+      '@vue-interface/sizeable':
+        specifier: workspace:*
+        version: link:../sizeable
       vue:
         specifier: ^3.3.4
         version: 3.5.25(typescript@5.9.3)
@@ -121,6 +124,9 @@ importers:
       '@vue-interface/btn':
         specifier: workspace:*
         version: link:../btn
+      '@vue-interface/sizeable':
+        specifier: workspace:*
+        version: link:../sizeable
       vue:
         specifier: ^3.3.4
         version: 3.5.25(typescript@5.9.3)
@@ -139,6 +145,9 @@ importers:
       '@vue-interface/dropdown-menu':
         specifier: workspace:*
         version: link:../dropdown-menu
+      '@vue-interface/sizeable':
+        specifier: workspace:*
+        version: link:../sizeable
       vue:
         specifier: ^3.3.4
         version: 3.5.25(typescript@5.9.3)
@@ -167,6 +176,9 @@ importers:
       '@vue-interface/activity-indicator':
         specifier: workspace:*
         version: link:../activity-indicator
+      '@vue-interface/sizeable':
+        specifier: workspace:*
+        version: link:../sizeable
       vue:
         specifier: ^3.3.4
         version: 3.5.25(typescript@5.9.3)
@@ -200,6 +212,9 @@ importers:
       '@vue-interface/btn':
         specifier: workspace:*
         version: link:../btn
+      '@vue-interface/sizeable':
+        specifier: workspace:*
+        version: link:../sizeable
       vue:
         specifier: ^3.3.4
         version: 3.5.25(typescript@5.9.3)

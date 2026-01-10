@@ -1,24 +1,26 @@
 <script lang="ts" setup>
-import { ActivityIndicator } from '@vue-interface/activity-indicator';
+import { ActivityIndicator, type ActivityIndicatorSizePrefix } from '@vue-interface/activity-indicator';
 import { ref, watch, watchEffect, type Component, type Ref } from 'vue';
-import { ActivityIndicatorSize } from '../../activity-indicator/src/ActivityIndicator.vue';
+import type { ComponentSize } from '@vue-interface/sizeable';
+
+export type BtnSizePrefix = 'btn';
 
 export type BtnActivityProps = {
     activity?: boolean;
     indicator: Component;
-    indicatorSize?: ActivityIndicatorSize;
+    indicatorSize?: ComponentSize<ActivityIndicatorSizePrefix>;
     label?: string;
-    orientation?: 'top' | 'bottom' | 'left' | 'right';
+    placement?: 'top' | 'bottom' | 'left' | 'right';
     variant?: string;
-    size?: string;
+    size?: ComponentSize<BtnSizePrefix>;
     block?: boolean;  
     disabled?: boolean;
 };
 
 const props = withDefaults(defineProps<BtnActivityProps>(), {
-    indicatorSize: 'xs',
+    indicatorSize: 'activity-indicator-xs',
     label: undefined,
-    orientation: 'right',
+    placement: 'right',
     variant: 'btn-primary',
     size: 'btn-md'
 });
@@ -69,11 +71,11 @@ const context = {
             size,
             {
                 'w-full': block,
-                'gap-1': ['xs', 'sm'].includes(indicatorSize),
-                'gap-2': ['md', 'lg', 'xl'].includes(indicatorSize),
-                'flex-col-reverse': orientation === 'top',
-                'flex-col': orientation === 'bottom',
-                'flex-row-reverse': orientation === 'left',
+                'gap-1': ['activity-indicator-xs', 'activity-indicator-sm'].includes(indicatorSize as string),
+                'gap-2': ['activity-indicator-md', 'activity-indicator-lg', 'activity-indicator-xl'].includes(indicatorSize as string),
+                'flex-col-reverse': placement === 'top',
+                'flex-col': placement === 'bottom',
+                'flex-row-reverse': placement === 'left',
                 'inline-flex items-center justify-center': true,
                 'opacity-50 cursor-not-allowed': disabled,
             }
@@ -92,10 +94,10 @@ const context = {
                 :type="indicator"
                 :size="indicatorSize"
                 :class="{
-                    'pt-1': orientation === 'top',
-                    'pb-1': orientation === 'bottom',
-                    'pr-1': orientation === 'left',
-                    'pl-1': orientation === 'right',
+                    'pt-1': placement === 'top',
+                    'pb-1': placement === 'bottom',
+                    'pr-1': placement === 'left',
+                    'pl-1': placement === 'right',
                 }" />
         </Transition>
     </button>

@@ -1,18 +1,10 @@
 import { flip, offset, Placement, type Alignment, type Middleware, type OffsetOptions, type Side } from '@floating-ui/dom';
 import { useFloating, UseFloatingReturn } from '@floating-ui/vue';
 import { DropdownMenu } from '@vue-interface/dropdown-menu';
+import { ComponentSize } from '@vue-interface/sizeable';
 import { ComponentPublicInstance, computed, ComputedRef, Ref, ref, watchEffect, type EmitFn, type HTMLAttributes } from 'vue';
 
-type LiteralUnion<T extends U, U = string> = T | (U & Record<never, never>);
-
-export type BtnGroupSizes = 'btn-group-xs'
-    | 'btn-group-sm' 
-    | 'btn-group-md'
-    | 'btn-group-lg'
-    | 'btn-group-xl'
-    | 'btn-group-2xl'
-    | 'btn-group-3xl'
-    | 'btn-group-4xl';
+export type BtnGroupSizePrefix = 'btn-group';
 
 export type BtnDropdownProps = {
     align?: Alignment;
@@ -26,7 +18,7 @@ export type BtnDropdownProps = {
     offset?: OffsetOptions,
     middleware?: Middleware[],
     side?: Side;
-    size?: LiteralUnion<BtnGroupSizes>;
+    size?: ComponentSize<BtnGroupSizePrefix>;
     split?: boolean;
     variant?: string;
 }
@@ -38,7 +30,7 @@ export type BtnDropdownEvents = {
     hide: []
 }
 
-export type BtnDropdownSlotProps = { 
+export type BtnDropdownSlotProps = {
     target: (el: Element | ComponentPublicInstance | null) => void;
     expanded: boolean;
     onBlur: (e: FocusEvent) => void;
@@ -46,14 +38,14 @@ export type BtnDropdownSlotProps = {
 };
 
 export type UseDropdownHandler = {
-    target: Ref<Element|ComponentPublicInstance|null>;
-    menu: Ref<InstanceType<typeof DropdownMenu>|undefined>;
+    target: Ref<Element | ComponentPublicInstance | null>;
+    menu: Ref<InstanceType<typeof DropdownMenu> | undefined>;
     alignment: ComputedRef<Alignment>;
     expanded: Ref<boolean>;
     floatingStyles: UseFloatingReturn['floatingStyles'];
     placement: ComputedRef<Placement>;
     side: ComputedRef<Side>;
-    classes: ComputedRef<Record<string, boolean|undefined>>;
+    classes: ComputedRef<Record<string, boolean | undefined>>;
     buttonClasses: ComputedRef<Record<string, boolean>>;
     show: () => void;
     hide: () => void;
@@ -65,22 +57,22 @@ export type UseDropdownHandler = {
 }
 
 export function useDropdownHandler(props: BtnDropdownProps, emit: EmitFn<BtnDropdownEvents>): UseDropdownHandler {
-    const target = ref<Element|ComponentPublicInstance|null>(null);
+    const target = ref<Element | ComponentPublicInstance | null>(null);
     const menu = ref<InstanceType<typeof DropdownMenu>>();
     const expanded = ref(false);
 
     const alignment = computed<Alignment>(() => props.align ?? 'start');
 
     const side = computed<Side>(() => {
-        if(props.dropup) {
+        if (props.dropup) {
             return 'top';
         }
 
-        if(props.dropleft) {
+        if (props.dropleft) {
             return 'left';
         }
 
-        if(props.dropright) {
+        if (props.dropright) {
             return 'right';
         }
 
@@ -89,15 +81,15 @@ export function useDropdownHandler(props: BtnDropdownProps, emit: EmitFn<BtnDrop
 
     const placement = computed<Placement>(() => `${side.value}-${alignment.value}`);
 
-    const classes = computed<Record<string,boolean|undefined>>(() => ({
+    const classes = computed<Record<string, boolean | undefined>>(() => ({
         'dropdown': props.dropup && props.dropright && props.dropleft,
         'dropup': props.dropup,
         'dropright': props.dropright,
         'dropleft': props.dropleft,
         'expanded': expanded.value,
-        [props.size ?? '']: !!props.size,
+        [props.size as string]: !!props.size,
     }));
-    
+
     const buttonClasses = computed(() => {
         const classes = {
             btn: true,
@@ -105,16 +97,16 @@ export function useDropdownHandler(props: BtnDropdownProps, emit: EmitFn<BtnDrop
             'btn-block': !!props.block,
             'no-caret': !props.caret
         };
-        
-        if(typeof props.buttonClass === 'string') {
+
+        if (typeof props.buttonClass === 'string') {
             classes[props.buttonClass] = true;
         }
-        else if(Array.isArray(props.buttonClass)) {
-            for(const value of props.buttonClass) {
+        else if (Array.isArray(props.buttonClass)) {
+            for (const value of props.buttonClass) {
                 classes[value] = true;
             }
         }
-        else if(props.buttonClass) {
+        else if (props.buttonClass) {
             Object.assign(classes, props.buttonClass);
         }
 
@@ -132,7 +124,7 @@ export function useDropdownHandler(props: BtnDropdownProps, emit: EmitFn<BtnDrop
     function show() {
         expanded.value = true;
 
-        if(!target.value || !menu.value) {
+        if (!target.value || !menu.value) {
             return;
         }
 
@@ -144,7 +136,7 @@ export function useDropdownHandler(props: BtnDropdownProps, emit: EmitFn<BtnDrop
     function hide() {
         expanded.value = false;
 
-        if(target.value instanceof HTMLElement) {
+        if (target.value instanceof HTMLElement) {
             target.value?.blur();
         }
 
@@ -152,7 +144,7 @@ export function useDropdownHandler(props: BtnDropdownProps, emit: EmitFn<BtnDrop
     }
 
     function toggle() {
-        if(!expanded.value) {
+        if (!expanded.value) {
             show();
         }
         else {
@@ -163,23 +155,23 @@ export function useDropdownHandler(props: BtnDropdownProps, emit: EmitFn<BtnDrop
     function isFocusable(element: HTMLElement) {
         const nodes = Array.from(menu.value?.$el.querySelectorAll('label, input, select, textarea') ?? []);
 
-        for(const i in nodes) {
-            if(element === nodes[i]) {
+        for (const i in nodes) {
+            if (element === nodes[i]) {
                 return true;
             }
         }
 
         return false;
     }
-        
+
     function onBlur(e: FocusEvent) {
-        if(!(e.relatedTarget instanceof HTMLElement) || !(target.value instanceof Element)) {
+        if (!(e.relatedTarget instanceof HTMLElement) || !(target.value instanceof Element)) {
             hide();
-            
+
             return;
         }
-        
-        if(menu.value && !menu.value?.$el.contains(e.relatedTarget) || !target.value?.contains(e.relatedTarget)) {
+
+        if (menu.value && !menu.value?.$el.contains(e.relatedTarget) || !target.value?.contains(e.relatedTarget)) {
             hide();
         }
     }
@@ -190,28 +182,28 @@ export function useDropdownHandler(props: BtnDropdownProps, emit: EmitFn<BtnDrop
 
     function onClickToggle(e: MouseEvent) {
         e.target?.dispatchEvent(new Event('focus', e));
-            
+
         emit('clickToggle', e);
 
-        if(!e.defaultPrevented) {
+        if (!e.defaultPrevented) {
             toggle();
         }
     }
 
     function onClickItem(e: PointerEvent) {
-        if(!(e.target instanceof HTMLElement)) {
+        if (!(e.target instanceof HTMLElement)) {
             hide();
 
             return;
         }
 
-        if(!isFocusable(e.target) && !e.defaultPrevented) {
+        if (!isFocusable(e.target) && !e.defaultPrevented) {
             hide();
         }
     }
 
     watchEffect(() => {
-        if(expanded.value) {
+        if (expanded.value) {
             window.addEventListener('resize', update);
         }
         else {

@@ -41,6 +41,15 @@ The `useFormControl` function accepts an options object with the following prope
 | `emit` | `EmitFn` | The emit function from the component. |
 | `model` | `ModelRef` | (Optional) A `ModelRef` for the v-model binding. |
 
+## Sizing
+
+The `size` prop on `FormControlProps` now supports the shared sizing pattern from `@vue-interface/sizeable`. This allows for:
+
+- **Predetermined Sizes**: Use full class names like `form-control-sm`, `form-select-lg`, etc.
+- **Tailwind Sizes**: Use Tailwind numeric values like `form-control-4` or `form-control-8`.
+- **Arbitrary Sizes**: Use arbitrary CSS values in brackets like `form-control-[400px]` or `form-control-[2rem]`.
+- **Responsive Sizing**: Pass an object with size classes as keys and booleans as values for responsive class application.
+
 ## Returns
 
 The composable returns an object with the following properties:

@@ -225,7 +225,7 @@ The size can be customized using predetermined size classes: `2xs`, `xs`, `sm`, 
     <Modal
         trigger="#modal-2xs"
         close-button
-        size="2xs"
+        size="modal-2xs"
         button-orientation="vertical"
         title="modal-2xs"
     >
@@ -237,7 +237,7 @@ The size can be customized using predetermined size classes: `2xs`, `xs`, `sm`, 
     <Modal
         trigger="#modal-xs"
         close-button
-        size="xs"
+        size="modal-xs"
         button-orientation="vertical"
         title="modal-xs"
     >   
@@ -249,7 +249,7 @@ The size can be customized using predetermined size classes: `2xs`, `xs`, `sm`, 
     <Modal
         trigger="#modal-sm"
         close-button
-        size="sm"
+        size="modal-sm"
         button-orientation="vertical"
         title="modal-sm"
     >   
@@ -261,7 +261,7 @@ The size can be customized using predetermined size classes: `2xs`, `xs`, `sm`, 
     <Modal
         trigger="#modal-md"
         close-button
-        size="md"
+        size="modal-md"
         button-orientation="vertical"
         title="modal-md"
     >   
@@ -273,7 +273,7 @@ The size can be customized using predetermined size classes: `2xs`, `xs`, `sm`, 
     <Modal
         trigger="#modal-lg"
         close-button
-        size="lg"
+        size="modal-lg"
         button-orientation="vertical"
         title="modal-lg"
     >   
@@ -285,7 +285,7 @@ The size can be customized using predetermined size classes: `2xs`, `xs`, `sm`, 
     <Modal
         trigger="#modal-xl"
         close-button
-        size="xl"
+        size="modal-xl"
         button-orientation="vertical"
         title="modal-xl"
     >   
@@ -297,7 +297,7 @@ The size can be customized using predetermined size classes: `2xs`, `xs`, `sm`, 
     <Modal
         trigger="#modal-2xl"
         close-button
-        size="2xl"
+        size="modal-2xl"
         button-orientation="vertical"
         title="modal-2xl"
     >   
@@ -309,7 +309,7 @@ The size can be customized using predetermined size classes: `2xs`, `xs`, `sm`, 
     <Modal
         trigger="#modal-3xl"
         close-button
-        size="3xl"
+        size="modal-3xl"
         button-orientation="vertical"
         title="modal-3xl"
     >   
@@ -321,7 +321,7 @@ The size can be customized using predetermined size classes: `2xs`, `xs`, `sm`, 
     <Modal
         trigger="#modal-4xl"
         close-button
-        size="4xl"
+        size="modal-4xl"
         button-orientation="vertical"
         title="modal-4xl"
     >   
@@ -333,7 +333,7 @@ The size can be customized using predetermined size classes: `2xs`, `xs`, `sm`, 
     <Modal
         trigger="#modal-5xl"
         close-button
-        size="5xl"
+        size="modal-5xl"
         button-orientation="vertical"
         title="modal-5xl"
     >   
@@ -345,7 +345,7 @@ The size can be customized using predetermined size classes: `2xs`, `xs`, `sm`, 
     <Modal
         trigger="#modal-screen"
         close-button
-        size="screen"
+        size="modal-screen"
         button-orientation="vertical"
         title="Fullscreen Modal"
     >   
@@ -374,7 +374,7 @@ For more granular control over modal sizes, use Tailwind's numeric sizing scale 
     <Modal
       trigger="#modal-125"
       close-button
-      class="modal-125"
+      size="modal-125"
       button-orientation="vertical"
       title="modal-125"
     >
@@ -386,7 +386,7 @@ For more granular control over modal sizes, use Tailwind's numeric sizing scale 
     <Modal
       trigger="#modal-150"
       close-button
-      class="modal-150"
+      size="modal-150"
       button-orientation="vertical"
       title="modal-150"
     >
@@ -398,7 +398,7 @@ For more granular control over modal sizes, use Tailwind's numeric sizing scale 
     <Modal
       trigger="#modal-175"
       close-button
-      class="modal-175"
+      size="modal-175"
       button-orientation="vertical"
       title="modal-175"
     >
@@ -410,7 +410,7 @@ For more granular control over modal sizes, use Tailwind's numeric sizing scale 
     <Modal
       trigger="#modal-200"
       close-button
-      class="modal-200"
+      size="modal-200"
       button-orientation="vertical"
       title="modal-200"
     >
@@ -439,7 +439,7 @@ For precise sizing, specify exact pixel values using the syntax `modal-[Npx]` or
     <Modal
         trigger="#modal-400px"
         close-button
-        class="modal-[400px]"
+        size="modal-[400px]"
         button-orientation="vertical"
         title="modal-[400px]"
     >   
@@ -451,7 +451,7 @@ For precise sizing, specify exact pixel values using the syntax `modal-[Npx]` or
     <Modal
         trigger="#modal-700px"
         close-button
-        class="modal-[700px]"
+        size="modal-[700px]"
         button-orientation="vertical"
         title="modal-[700px]"
     >   
@@ -463,7 +463,7 @@ For precise sizing, specify exact pixel values using the syntax `modal-[Npx]` or
     <Modal
         trigger="#modal-100"
         close-button
-        class="modal-[100%]"
+        size="modal-[100%]"
         button-orientation="vertical"
         title="modal-[100%]"
     >   
@@ -475,7 +475,7 @@ For precise sizing, specify exact pixel values using the syntax `modal-[Npx]` or
     <Modal
         trigger="#modal-w-h"
         close-button
-        class="modal-w-[30vw] modal-h-[100vh]"
+        size="modal-w-[30vw] modal-h-[100vh]"
         button-orientation="vertical"
         title="modal-w-[30vw] modal-h-[100vh]"
     >   
