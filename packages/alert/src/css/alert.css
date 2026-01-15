@@ -15,7 +15,7 @@
     --alert-icon-size: calc(var(--alert-font-size) * 1.5);
 
     /* alert-outline variables */
-    --alert-outline-background-color: color-mix(in oklch, var(--alert-background-color, oklch(54.6% 0.245 262.881)) 20%, white);
+    --alert-outline-background-color: transparent;
     --alert-outline-color:  var(--alert-primary, var(--color-blue-600));
 }
 
@@ -69,7 +69,7 @@
 }
 
 @utility alert-outline-* {
-    background-color: color-mix(in oklch, --value(--alert-*, --color-*, [color]) 20%, white);
+    background-color: var(--alert-outline-background-color);
     color: --value(--alert-*, --color-*, [color]);
     border: 1px solid --value(--alert-*, --color-*, [color]);
 }
