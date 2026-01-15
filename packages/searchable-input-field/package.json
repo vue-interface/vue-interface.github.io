@@ -1,0 +1,57 @@
+{
+  "name": "@vue-interface/searchable-input-field",
+  "version": "3.0.17",
+  "description": "A Vue searchable input field component.",
+  "type": "module",
+  "main": "./dist/searchable-input-field.umd.cjs",
+  "module": "./dist/searchable-input-field.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "source": "./index.ts",
+      "types": "./dist/index.d.ts",
+      "style": "./index.css",
+      "import": "./dist/searchable-input-field.js",
+      "require": "./dist/searchable-input-field.umd.cjs"
+    }
+  },
+  "browserslist": "last 2 versions, > 0.5%, ie >= 11",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vue-interface/vue-interface.github.io"
+  },
+  "keywords": [
+    "Radio",
+    "Field",
+    "Vue",
+    "Component",
+    "Tailwind",
+    "Bootstrap"
+  ],
+  "author": "Justin Kimbrell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vue-interface/vue-interface.github.io"
+  },
+  "homepage": "https://vue-interface.github.io/packages/searchable-input-field",
+  "readme": "README.md",
+  "files": [
+    "src",
+    "dist",
+    "index.css",
+    "README.md",
+    "LICENSE"
+  ],
+  "peerDependencies": {
+    "@vue-interface/activity-indicator": "workspace:*",
+    "@vue-interface/input-field": "workspace:*",
+    "@vue-interface/sizeable": "workspace:*",
+    "fuse.js": "^7.1.0",
+    "vue": "^3.3.4"
+  }
+}
