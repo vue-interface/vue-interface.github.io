@@ -49,6 +49,7 @@ To create a badge component, use the `<Badge>` component. Use the `closeable` pr
         Right Close Button
     </Badge>
     <Badge closeable close-left>Left Close Button</Badge>
+    <Badge closeable class="badge-pill">Pill Badge</Badge>
     <!-- #endregion basicUsage -->
 </div>
 
@@ -61,6 +62,7 @@ Use the `badge-outline` class to create an outlined badge.
     <Badge class="badge-outline">Basic Usage</Badge>
     <Badge class="badge-outline" closeable>Right Close Button</Badge>
     <Badge class="badge-outline" closeable close-left>Left Close Button</Badge>
+    <Badge class="badge-outline badge-pill" closeable >Pill Badge</Badge>
     <!-- #endregion outlineVariant -->
 </div>
 

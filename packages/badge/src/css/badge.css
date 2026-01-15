@@ -110,6 +110,10 @@
     }
 }
 
+@utility badge-pill {
+    border-radius: 100px; 
+}
+
 @utility badge-* {
     --badge-font-size: --value(--badge-font-size-*, [length]);
     --badge-font-size: --spacing(--value(number));
