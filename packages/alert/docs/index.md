@@ -70,6 +70,16 @@ The component renders with a default information icon.
 
 <<< ./index.md#basicUsage{vue}
 
+Use the `alert-outline` class to create an outlined alert.
+
+<div class="flex flex-col gap-1">
+    <!-- #region outlineVariant -->
+    <Alert class="alert-outline">Basic Usage</Alert>
+    <!-- #endregion outlineVariant -->
+</div>
+
+<<< ./index.md#outlineVariant{vue}
+
 ## Custom Icons
 
 The default alert uses the `information-circle-icon` from [heroicon](https://heroicons.com/). To use a custom icon, import it, and use it inside the `template #icon` wrapper. 
@@ -218,4 +228,103 @@ You can also use Tailwind color shades by passing them as classes.
 
 ::: details Show Code
 <<< ./index.md#colorShades{vue}
+:::
+
+## Outline Sizes
+
+Customize the size of a `alert-outline` using a [predetermined size](#predetermined-sizes-(outline)), [tailwind's numeric sizing classes](#tailwind-sizes-(outline)), or an [arbitrary](#arbitrary-sizes-(outline)) CSS length unit.
+
+### Predetermined Sizes (Outline)
+
+The size can be customized using a predetermined `size` prop: `xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`. Use the syntax: `alert-[size]`.
+
+<div class="flex flex-col gap-2">
+    <!-- #region outlineSizes -->
+    <Alert class="alert-outline" size="alert-xs" closeable>xs</Alert>
+    <Alert class="alert-outline" size="alert-sm" closeable>sm</Alert>
+    <Alert class="alert-outline" size="alert-md" closeable>md</Alert>
+    <Alert class="alert-outline" size="alert-lg" closeable>lg</Alert>
+    <Alert class="alert-outline" size="alert-xl" closeable>xl</Alert>
+    <Alert class="alert-outline" size="alert-2xl" closeable>2xl</Alert>
+    <Alert class="alert-outline" size="alert-3xl" closeable>3xl</Alert>
+    <Alert class="alert-outline" size="alert-4xl" closeable>4xl</Alert>
+    <Alert class="alert-outline" size="alert-5xl" closeable>5xl</Alert>
+    <!-- #endregion outlineSizes -->
+</div>
+
+::: details Show Code
+<<< ./index.md#outlineSizes{vue}
+:::
+
+### Tailwind Sizes (Outline)
+
+For more granular control over `alert-outline` sizes, use Tailwind's numeric sizing scale classes: `alert-1` - `alert-96`.
+
+<div class="flex flex-col gap-1">
+    <!-- #region outlineTailwindSizes-->
+    <Alert class="alert-outline" size="alert-3" closeable>alert-3</Alert>
+    <Alert class="alert-outline" size="alert-3.5" closeable>alert-3.5</Alert>
+    <Alert class="alert-outline" size="alert-4" closeable>alert-4</Alert>
+    <Alert class="alert-outline" size="alert-5" closeable>alert-5</Alert>
+    <!-- #endregion outlineTailwindSizes-->
+</div>
+
+::: details Show Code
+<<< ./index.md#outlineTailwindSizes{vue}
+:::
+
+### Arbitrary sizes (Outline)
+
+For precise sizing, specify exact pixel values using the syntax `alert-[Npx]` or any other CSS length units (`rem`, `em`, `mm`, etc.).
+
+<div class="flex flex-col gap-1">
+    <!-- #region outlineArbitrarySizes-->
+    <Alert class="alert-outline" size="alert-[16px]" closeable>[16px]</Alert>
+    <Alert class="alert-outline" size="alert-[1.5rem]" closeable>[1.5rem]</Alert>
+    <!-- #endregion outlineArbitrarySizes-->
+</div>
+
+::: details Show Code
+<<< ./index.md#outlineArbitrarySizes{vue}
+:::
+
+## Outline Color Variants
+
+<div class="flex flex-col gap-2">
+    <!-- #region outlineVariants -->
+    <Alert class="alert-outline-primary" closeable>Primary</Alert>
+    <Alert class="alert-outline-secondary" closeable>Secondary</Alert>
+    <Alert class="alert-outline-success" closeable>Success</Alert>
+    <Alert class="alert-outline-danger" closeable>Danger</Alert>
+    <Alert class="alert-outline-warning" closeable>Warning</Alert>
+    <Alert class="alert-outline-info" closeable>Info</Alert>
+    <Alert class="alert-outline-light" closeable>Light</Alert>
+    <Alert class="alert-outline-dark" closeable>Dark</Alert>
+    <!-- #endregion outlineVariants -->
+</div>
+
+::: details Show Code
+<<< ./index.md#outlineVariants{vue}
+:::
+
+## Outline Color Shades
+
+<div class="flex flex-col gap-1">
+    <!-- #region outlineShades -->
+    <Alert class="alert-outline-red-50" closeable>alert-red-50</Alert>
+    <Alert class="alert-outline-red-100" closeable>alert-red-100</Alert>
+    <Alert class="alert-outline-red-200" closeable>alert-red-200</Alert>
+    <Alert class="alert-outline-red-300" closeable>alert-red-300</Alert>
+    <Alert class="alert-outline-red-400" closeable>alert-red-400</Alert>
+    <Alert class="alert-outline-red-500" closeable>alert-red-500</Alert>
+    <Alert class="alert-outline-red-600" closeable>alert-red-600</Alert>
+    <Alert class="alert-outline-red-700" closeable>alert-red-700</Alert>
+    <Alert class="alert-outline-red-800" closeable>alert-red-800</Alert>
+    <Alert class="alert-outline-red-900" closeable>alert-red-900</Alert>
+    <Alert class="alert-outline-red-950" closeable>alert-red-950</Alert>
+    <!-- #endregion outlineShades -->
+</div>
+
+::: details Show Code
+<<< ./index.md#outlineShades{vue}
 :::
