@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "./index.css";
 
+@source "../activity-indicator/src/**/*.vue";
+
 @variant dark {
     body {
         @apply text-white;

@@ -98,30 +98,7 @@ const {
             v-if="showOptions && filtered.length"
             ref="optionsEl"
             tabindex="-1"
-            class="
-                absolute
-                w-full
-                flex
-                flex-col
-                translate-y-1
-                shadow-lg
-                max-h-72
-                overflow-auto
-                border
-                z-10
-                border-neutral-300
-                dark:border-neutral-600
-                bg-white
-                dark:bg-neutral-900
-                rounded
-                [&>button]:text-left
-                [&>button]:py-2
-                [&>button]:px-4
-                [&>button:not(:last-child)]:border-b
-                [&>button]:border-neutral-300
-                [&>button]:dark:border-neutral-600
-                [&>button:hover]:bg-neutral-200
-                [&>button:hover]:dark:bg-neutral-700"
+            class="searchable-input-field-dropdown"
             @mousedown.prevent.stop>
             <button
                 v-for="(option, i) in filtered"

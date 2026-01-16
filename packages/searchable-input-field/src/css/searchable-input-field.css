@@ -1,2 +1,71 @@
 @import "tailwindcss";
 
+@theme { 
+    --searchable-input-field-display: flex;
+    --searchable-input-field-flex-direction: column;
+    --searchable-input-field-position: absolute;
+    --searchable-input-field-translate: 0.25rem;
+    --searchable-input-field-box-shadow-style: 0 10px 15px -3px, 0 4px 6px -4px;
+    --searchable-input-field-box-shadow-color: rgb(0 0 0 / 0.1), rgb(0 0 0 / 0.1);
+    --searchable-input-field-max-height: 18rem;
+    --searchable-input-field-overflow: auto;
+    --searchable-input-field-border-width: 1px;
+    --searchable-input-field-border-radius: 0.25rem;
+    --searchable-input-field-z-index: 10;
+    --searchable-input-field-font-size: --spacing(4);
+    --searchable-input-field-border-color: var(--color-neutral-300);
+    --searchable-input-field-dark-border-color: var(--color-neutral-600);
+    --searchable-input-field-background-color: var(--color-white);
+    --searchable-input-field-dark-background-color: var(--color-neutral-900);
+
+    --searchable-input-field-input-text-align: left;
+    --searchable-input-field-input-button-padding: 0.5rem 1rem;
+    --searchable-input-field-input-bottom-border-width: 1px;
+    --searchable-input-field-input-hover-background-color: var(--color-neutral-200);
+    --searchable-input-field-input-dark-hover-background-color: var(--color-neutral-700);
+
+}
+
+@utility searchable-input-field-dropdown {
+    display: var(--searchable-input-field-display);
+    flex-direction: var(--searchable-input-field-flex-direction);
+    position: var(--searchable-input-field-position);
+    translate: var(--searchable-input-field-translate);
+    box-shadow: var(--searchable-input-field-box-shadow-style) var(--searchable-input-field-box-shadow-color);
+    max-height: var(--searchable-input-field-max-height);
+    overflow: var(--searchable-input-field-overflow);
+    border-width: var(--searchable-input-field-border-width);
+    border-radius: var(--searchable-input-field-border-radius);
+    z-index: var(--searchable-input-field-z-index);
+    font-size: var(--searchable-input-field-font-size);
+    border-color: var(--searchable-input-field-border-color);
+    background-color: var(--searchable-input-field-background-color);
+    color: var(--color-white);
+
+    @variant dark {
+        border-color: var(--searchable-input-field-dark-border-color);
+        background-color: var(--searchable-input-field-dark-background-color);
+    }
+
+    & > button {
+        text-align: var(--searchable-input-field-input-text-align);
+        padding: var(--searchable-input-field-input-button-padding);
+        border-color: var(--searchable-input-field-border-color);
+
+        &:not(:last-child) {
+            border-bottom-width: var(--searchable-input-field-input-bottom-border-width);
+        }
+
+        &:hover {
+            background-color: var(--searchable-input-field-input-hover-background-color);
+        }
+
+        @variant dark {
+            border-color: var(--searchable-input-field-dark-border-color);
+
+            &:hover {
+                background-color: var(--searchable-input-field-input-dark-hover-background-color);
+            }
+        }
+    }
+}

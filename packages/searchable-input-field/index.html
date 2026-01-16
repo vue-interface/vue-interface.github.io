@@ -9,50 +9,27 @@
 
 <body class="dark:bg-neutral-900 dark:text-white">
     <div id="app" class="container mx-auto mb-6 p-4">
-        <h1 class="text-4xl mb-8 font-bold text-neutral-900 dark:text-neutral-100">searchable-input-field Demo</h1>
+        <h1 class="text-4xl mb-8 font-bold text-neutral-900 dark:text-neutral-100">searchable-input-field</h1>
 
-        <input-field v-model="value" label="Text Field" placeholder="Some placeholder" class="mb-3" @change="onChange"></input-field>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Basic Usage -->
-            <div class="space-y-4 border p-4 rounded bg-white dark:bg-neutral-800 shadow-sm">
-                <h2 class="text-xl font-semibold border-b pb-2">Basic Usage</h2>
-                <searchable-input-field v-model="selected" label="Select a Framework" name="framework"
-                    :options="options" placeholder="Type to search..." @input="onInput" />
-                <div
-                    class="mt-4 p-2 bg-neutral-100 dark:bg-neutral-700 rounded text-sm text-neutral-600 dark:text-neutral-300">
-                    <strong>Selected:</strong> {{ selected || 'None' }}
-                </div>
+        <div class="mb-12">
+            <h2 class="text-2xl mb-4 font-semibold text-neutral-900 dark:text-neutral-100">Basic Usage</h2>
+            <div class="max-w-sm">
+                <SearchableInputField v-model="selected" :options="options" placeholder="Select a framework..."
+                    label="Choose a Framework" @input="onInput" />
             </div>
-
-            <!-- Custom Slot Usage -->
-            <div>
-                <h2 class="text-xl font-semibold border-b pb-2">Custom Slots</h2>
-                <searchable-input-field v-model="selectedCustom" label="Custom Option Slot" :options="options"
-                    placeholder="Search frameworks...">
-                    <template #default="{ option }">
-                        <div class="flex items-center gap-2 py-1">
-                            <span class="w-2 h-2 rounded-full bg-blue-500"></span>
-                            <span class="font-medium text-blue-600 dark:text-blue-400">{{ option }}</span>
-                        </div>
-                    </template>
-                </searchable-input-field>
-                <div
-                    class="mt-4 p-2 bg-neutral-100 dark:bg-neutral-700 rounded text-sm text-neutral-600 dark:text-neutral-300">
-                    <strong>Selected Custom:</strong> {{ selectedCustom || 'None' }}
-                </div>
-            </div>
+            <p class="mt-4 text-neutral-700 dark:text-neutral-300">
+                Selected: <strong>{{ selected || 'None' }}</strong>
+            </p>
         </div>
     </div>
     <script type="module">
-        import './demo.css';
+        import "./demo.css";
         import { createApp, ref } from 'vue/dist/vue.esm-bundler.js';
-        import SearchableInputField from './src/SearchableInputField.vue';
-        import InputField from '@vue-interface/input-field';
+        import { SearchableInputField } from './src/SearchableInputField.vue';
 
-        createApp({
+        const vue = createApp({
             components: {
-                SearchableInputField,
-                InputField
+                SearchableInputField
             },
             setup() {
                 const selected = ref();
@@ -79,7 +56,8 @@
                     onInput
                 };
             }
-        }).mount('#app');
+        });
+        vue.mount('#app')
     </script>
 </body>
 
