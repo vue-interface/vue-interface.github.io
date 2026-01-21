@@ -9,18 +9,16 @@
 
 <body class="dark:bg-neutral-900 dark:text-white">
     <div id="app" class="container mx-auto mb-6 p-4">
-        <h1 class="text-4xl mb-8 font-bold text-neutral-900 dark:text-neutral-100">searchable-input-field</h1>
+        <h1 class="text-4xl mb-4">searchable-input-field</h1>
 
-        <div class="mb-12">
-            <h2 class="text-2xl mb-4 font-semibold text-neutral-900 dark:text-neutral-100">Basic Usage</h2>
-            <div class="max-w-sm">
-                <SearchableInputField v-model="selected" :options="options" placeholder="Select a framework..."
-                    label="Choose a Framework" @input="onInput" />
-            </div>
-            <p class="mt-4 text-neutral-700 dark:text-neutral-300">
-                Selected: <strong>{{ selected || 'None' }}</strong>
-            </p>
-        </div>
+        <searchable-input-field
+            v-model="selected"
+            :options="options"
+            label="Select a framework"
+            placeholder="Type to search..."
+            @input="onInput">
+        </searchable-input-field>
+        
     </div>
     <script type="module">
         import "./demo.css";
