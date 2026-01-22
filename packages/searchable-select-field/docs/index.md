@@ -153,8 +153,10 @@ Validation classes provide error-checking styling. The `invalid-feedback` and `v
     <SearchableSelectField :options="options" label="Empty Array of Errors" :errors="[]"></SearchableSelectField>
     <SearchableSelectField :options="options" invalid label="Single Inline Error" error="This is an inline error." class="invalid-feedback"></SearchableSelectField>
     <SearchableSelectField :options="options" invalid label="Array of Errors" :errors="['First Error', 'Second Error']" class="invalid-feedback"></SearchableSelectField>
+    <SearchableSelectField :options="options" invalid label="Multiple Errors From Object" :errors="['This is an inline error #1.', 'This is an inline error #2.']" class="invalid-feedback"></SearchableSelectField>
     <SearchableSelectField :options="options" valid label="Valid Field" class="valid-feedback"></SearchableSelectField>
     <SearchableSelectField :options="options" valid label="Valid Field with Feedback" feedback="This is some success message." class="valid-feedback"></SearchableSelectField>
+    <SearchableSelectField :options="options" valid label="Valid Field with Array of Feedback" :feedback="['This is some success message.', 'This is some success message.']" class="valid-feedback"></SearchableSelectField>
     <!-- #endregion validation -->
 </div>
 
