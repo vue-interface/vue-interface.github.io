@@ -1,5 +1,5 @@
-import SearchableInputField from './src/SearchableInputField.vue';
+import SearchableSelectField from './src/SearchableSelectField.vue';
 
 export {
-    SearchableInputField
+    SearchableSelectField
 };

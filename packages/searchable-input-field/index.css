@@ -1,4 +1,4 @@
 @import "tailwindcss";
 @import "@vue-interface/form-control/css";
 
-@import "./src/css/searchable-input-field.css";
+@import "./src/css/searchable-select-field.css";

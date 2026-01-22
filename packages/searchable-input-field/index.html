@@ -9,67 +9,67 @@
 
 <body class="dark:bg-neutral-900 dark:text-white">
     <div id="app" class="container mx-auto">
-        <h1 class="text-4xl mb-4">searchable-input-field</h1>
+        <h1 class="text-4xl mb-4">searchable-select-field</h1>
 
         <h2 class="text-2xl mb-3">Basic Usage</h2>
 
         <div class="flex flex-col gap-4 mb-4">
-            <searchable-input-field v-model="selected" :options="options" ></searchable-input-field>
-            <searchable-input-field :options="options" placeholder="Type to search..." label="Placeholder"></searchable-input-field>
-            <searchable-input-field :options="options" label="Disabled" disabled></searchable-input-field>
-            <searchable-input-field :options="options" placeholder="Disabled" label="Disabled (Placeholder)" disabled></searchable-input-field>
+            <searchable-select-field v-model="selected" :options="options" ></searchable-select-field>
+            <searchable-select-field :options="options" placeholder="Type to search..." label="Placeholder"></searchable-select-field>
+            <searchable-select-field :options="options" label="Disabled" disabled></searchable-select-field>
+            <searchable-select-field :options="options" placeholder="Disabled" label="Disabled (Placeholder)" disabled></searchable-select-field>
         </div>
         
         <h2 class="text-2xl mb-3">Sizes</h2>
 
         <div class="flex flex-col gap-4 mb-4">
-            <searchable-input-field :options="options" size="form-control-xs" placeholder="form-control-xs"></searchable-input-field>
-            <searchable-input-field :options="options" size="form-control-sm" placeholder="form-control-sm"></searchable-input-field>
-            <searchable-input-field :options="options" size="form-control-md" placeholder="form-control-md"></searchable-input-field>
-            <searchable-input-field :options="options" size="form-control-lg" placeholder="form-control-lg"></searchable-input-field>
-            <searchable-input-field :options="options" size="form-control-xl" placeholder="form-control-xl"></searchable-input-field>
-            <searchable-input-field :options="options" size="form-control-2xl" placeholder="form-control-2xl"></searchable-input-field>
-            <searchable-input-field :options="options" size="form-control-3xl" placeholder="form-control-3xl"></searchable-input-field>
-            <searchable-input-field :options="options" size="form-control-4xl" placeholder="form-control-4xl"></searchable-input-field>
-            <searchable-input-field :options="options" size="form-control-5xl" placeholder="form-control-5xl"></searchable-input-field>
-            <searchable-input-field :options="options" size="form-control-3" placeholder="form-control-3"></searchable-input-field>
-            <searchable-input-field :options="options" size="form-control-3.5" placeholder="form-control-3.5"></searchable-input-field>
-            <searchable-input-field :options="options" size="form-control-4" placeholder="form-control-4"></searchable-input-field>
-            <searchable-input-field :options="options" size="form-control-5" placeholder="form-control-5"></searchable-input-field>
-            <searchable-input-field :options="options" size="form-control-[16px]" placeholder="form-control-[16px]"></searchable-input-field>
-            <searchable-input-field :options="options" size="form-control-[1.5rem]" placeholder="form-control-[1.5rem]"></searchable-input-field>
+            <searchable-select-field :options="options" size="form-control-xs" placeholder="form-control-xs"></searchable-select-field>
+            <searchable-select-field :options="options" size="form-control-sm" placeholder="form-control-sm"></searchable-select-field>
+            <searchable-select-field :options="options" size="form-control-md" placeholder="form-control-md"></searchable-select-field>
+            <searchable-select-field :options="options" size="form-control-lg" placeholder="form-control-lg"></searchable-select-field>
+            <searchable-select-field :options="options" size="form-control-xl" placeholder="form-control-xl"></searchable-select-field>
+            <searchable-select-field :options="options" size="form-control-2xl" placeholder="form-control-2xl"></searchable-select-field>
+            <searchable-select-field :options="options" size="form-control-3xl" placeholder="form-control-3xl"></searchable-select-field>
+            <searchable-select-field :options="options" size="form-control-4xl" placeholder="form-control-4xl"></searchable-select-field>
+            <searchable-select-field :options="options" size="form-control-5xl" placeholder="form-control-5xl"></searchable-select-field>
+            <searchable-select-field :options="options" size="form-control-3" placeholder="form-control-3"></searchable-select-field>
+            <searchable-select-field :options="options" size="form-control-3.5" placeholder="form-control-3.5"></searchable-select-field>
+            <searchable-select-field :options="options" size="form-control-4" placeholder="form-control-4"></searchable-select-field>
+            <searchable-select-field :options="options" size="form-control-5" placeholder="form-control-5"></searchable-select-field>
+            <searchable-select-field :options="options" size="form-control-[16px]" placeholder="form-control-[16px]"></searchable-select-field>
+            <searchable-select-field :options="options" size="form-control-[1.5rem]" placeholder="form-control-[1.5rem]"></searchable-select-field>
             
         </div>
         
         <h2 class="text-2xl mb-3">Validation</h2>
 
         <div class="flex flex-col gap-4 mb-4">
-            <searchable-input-field v-model="selected" :options="options" label="Empty Array of errors" :errors="[]"></searchable-input-field>
-            <searchable-input-field :options="options" invalid label="Single Inline Error" error="This is an inline error." class="invalid-feedback"></searchable-input-field>
-            <searchable-input-field :options="options" invalid label="Array of Errors" :errors="['First Error', 'Second Error']" class="invalid-feedback"></searchable-input-field>
-            <searchable-input-field :options="options" invalid label="Multiple Errors From Object" :errors="['This is an inline error #1.', 'This is an inline error #2.']" class="invalid-feedback"></searchable-input-field>
-            <searchable-input-field :options="options" valid label="Valid Field" class="valid-feedback"></searchable-input-field>
-            <searchable-input-field :options="options" valid label="Valid Field with Feedback" feedback="This is some success message." class="valid-feedback"></searchable-input-field>
-            <searchable-input-field :options="options" valid label="Valid Field with Array of Feedback" :feedback="['This is some success message.', 'This is some success message.']" class="valid-feedback"></searchable-input-field>
+            <searchable-select-field v-model="selected" :options="options" label="Empty Array of errors" :errors="[]"></searchable-select-field>
+            <searchable-select-field :options="options" invalid label="Single Inline Error" error="This is an inline error." class="invalid-feedback"></searchable-select-field>
+            <searchable-select-field :options="options" invalid label="Array of Errors" :errors="['First Error', 'Second Error']" class="invalid-feedback"></searchable-select-field>
+            <searchable-select-field :options="options" invalid label="Multiple Errors From Object" :errors="['This is an inline error #1.', 'This is an inline error #2.']" class="invalid-feedback"></searchable-select-field>
+            <searchable-select-field :options="options" valid label="Valid Field" class="valid-feedback"></searchable-select-field>
+            <searchable-select-field :options="options" valid label="Valid Field with Feedback" feedback="This is some success message." class="valid-feedback"></searchable-select-field>
+            <searchable-select-field :options="options" valid label="Valid Field with Array of Feedback" :feedback="['This is some success message.', 'This is some success message.']" class="valid-feedback"></searchable-select-field>
         </div>
 
         <h2 class="text-2xl mb-3">Custom Colors</h2>
 
         <div class="flex flex-col gap-4 mb-4">
-            <searchable-input-field :options="options" class="form-control-amber-500" placeholder="form-control-amber-500"></searchable-input-field>
-            <searchable-input-field :options="options" class="form-control-green-500" placeholder="form-control-green-500"></searchable-input-field>
-            <searchable-input-field :options="options" class="form-control-purple-500" placeholder="form-control-purple-500"></searchable-input-field>
-            <searchable-input-field :options="options" class="form-control-neutral-500" placeholder="form-control-neutral-500"></searchable-input-field>
+            <searchable-select-field :options="options" class="form-control-amber-500" placeholder="form-control-amber-500"></searchable-select-field>
+            <searchable-select-field :options="options" class="form-control-green-500" placeholder="form-control-green-500"></searchable-select-field>
+            <searchable-select-field :options="options" class="form-control-purple-500" placeholder="form-control-purple-500"></searchable-select-field>
+            <searchable-select-field :options="options" class="form-control-neutral-500" placeholder="form-control-neutral-500"></searchable-select-field>
         </div>
 
         <h2 class="text-2xl mb-3">Icons</h2>
 
         <div class="flex flex-col gap-4 mb-4">
-            <searchable-input-field :options="options" >
+            <searchable-select-field :options="options" >
                 <template #icon>
                     <calendar-days-icon></calendar-days-icon>
                 </template>
-            </searchable-input-field>
+            </searchable-select-field>
         </div>
 
 
@@ -78,11 +78,11 @@
         import "./demo.css";
         import { createApp, ref } from 'vue/dist/vue.esm-bundler.js';
         import { CalendarDaysIcon } from '@heroicons/vue/24/outline';
-        import { SearchableInputField } from './index';
+        import { SearchableSelectField } from './index';
 
         const vue = createApp({
             components: {
-                SearchableInputField,
+                SearchableSelectField,
                 CalendarDaysIcon
             },
             setup() {
