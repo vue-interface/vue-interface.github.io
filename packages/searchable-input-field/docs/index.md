@@ -22,12 +22,25 @@ const options = [
     'Option 10'
 ];
 
+const options1 = [
+    'JavaScript',
+    'Python',
+    'Java',
+    'TypeScript',
+    'C#',
+    'C++',
+    'PHP',
+    'Go',
+    'Rust',
+    'Swift'
+];
+
 function onChange(newValue) {
     console.log('change', newValue)
 }
 </script>
 
-# Searchable Input Field
+# Searchable Select Field
 
 The `searchable-select-field` component provides a searchable dropdown input with customizable sizes, states, and styling.
 
@@ -63,7 +76,7 @@ The `searchable-select-field` requires an `options` prop array.
 
 <div class="flex flex-col gap-4">
     <!-- #region basicUsage -->
-    <SearchableSelectField v-model="selected" :options="options"></SearchableSelectField>
+    <SearchableSelectField v-model="selected" :options="options1"></SearchableSelectField>
     <SearchableSelectField :options="options" label="With Label" placeholder="Placeholder"></SearchableSelectField>
     <SearchableSelectField :options="options" label="Disabled" disabled></SearchableSelectField>
     <!-- #endregion basicUsage -->

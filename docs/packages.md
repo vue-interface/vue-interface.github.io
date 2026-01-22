@@ -25,7 +25,7 @@ All packages combine [Vue.js](https://vuejs.org/) and [TailwindCSS v4](https://t
 - [Pagination](/packages/pagination/)
 - [Popover](/packages/popover/)
 - [Radio Field](/packages/radio-field/)
-- [Searchable Input Field](/packages/searchable-input-field/)
+- [Searchable Select Field](/packages/searchable-select-field/)
 - [Select Field](/packages/select-field/)
 - [Sizeable](/packages/sizeable/)
 - [Slide Deck](/packages/slide-deck/)
