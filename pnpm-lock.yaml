@@ -244,6 +244,9 @@ importers:
       '@vue-interface/activity-indicator':
         specifier: workspace:*
         version: link:../activity-indicator
+      '@vue-interface/form-control':
+        specifier: workspace:*
+        version: link:../form-control
       '@vue-interface/input-field':
         specifier: workspace:*
         version: link:../input-field

@@ -77,6 +77,9 @@ export const sidebar: DefaultTheme.SidebarItem[] = [{
     text: 'Radio Field',
     link: '/packages/radio-field/'
 }, {
+    text: 'Searchable Input Field',
+    link: '/packages/searchable-input-field/'
+}, {
     text: 'Select Field',
     link: '/packages/select-field/'
 }, {
