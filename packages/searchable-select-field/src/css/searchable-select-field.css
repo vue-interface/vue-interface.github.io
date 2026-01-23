@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@theme { 
+    --searchable-input-field-display: flex;
+    --searchable-input-field-flex-direction: column;
+    --searchable-input-field-position: absolute;
+    --searchable-input-field-box-shadow-style: 0 10px 15px -3px, 0 4px 6px -4px;
+    --searchable-input-field-box-shadow-color: rgb(0 0 0 / 0.1), rgb(0 0 0 / 0.1);
+    --searchable-input-field-max-height: 18rem;
+    --searchable-input-field-overflow: auto;
+    --searchable-input-field-border-width: 1px;
+    --searchable-input-field-border-radius: 0.25rem;
+    --searchable-input-field-z-index: 10;
+    --searchable-input-field-font-size: --spacing(4);
+    --searchable-input-field-border-color: var(--color-neutral-300);
+    --searchable-input-field-dark-border-color: var(--color-neutral-600);
+    --searchable-input-field-background-color: var(--color-white);
+    --searchable-input-field-dark-background-color: var(--color-neutral-900);
+
+    --searchable-input-field-input-text-align: left;
+    --searchable-input-field-input-button-padding: 0.5em 1em;
+    --searchable-input-field-input-bottom-border-width: 1px;
+    --searchable-input-field-input-hover-background-color: var(--color-neutral-200);
+    --searchable-input-field-input-dark-hover-background-color: var(--color-neutral-700);
+
+    /* Clear button */
+    --searchable-input-field-clear-button-display: flex;
+    --searchable-input-field-clear-button-cursor: pointer;
+    --searchable-input-field-clear-button-color: var(--color-black);
+    --searchable-input-field-clear-button-hover-color: var(--color-neutral-600);
+    --searchable-input-field-clear-button-dark-color: var(--color-white);
+    --searchable-input-field-clear-button-dark-hover-color: var(--color-neutral-400);
+}
+
+@utility searchable-select-field-dropdown {
+    display: var(--searchable-input-field-display);
+    flex-direction: var(--searchable-input-field-flex-direction);
+    position: var(--searchable-input-field-position);
+    box-shadow: var(--searchable-input-field-box-shadow-style) var(--searchable-input-field-box-shadow-color);
+    max-height: var(--searchable-input-field-max-height);
+    overflow: var(--searchable-input-field-overflow);
+    border-width: var(--searchable-input-field-border-width);
+    border-radius: var(--searchable-input-field-border-radius);
+    z-index: var(--searchable-input-field-z-index);
+    border-color: var(--searchable-input-field-border-color);
+    background-color: var(--searchable-input-field-background-color);
+    color: var(--color-black);
+    width: 100%;
+    margin-top: 0.25rem;
+
+
+    @variant dark {
+        border-color: var(--searchable-input-field-dark-border-color);
+        background-color: var(--searchable-input-field-dark-background-color);
+        color: var(--color-white);
+    }
+
+    & > button {
+        text-align: var(--searchable-input-field-input-text-align);
+        padding: var(--searchable-input-field-input-button-padding);
+        border-color: var(--searchable-input-field-border-color);
+
+        &:not(:last-child) {
+            border-bottom-width: var(--searchable-input-field-input-bottom-border-width);
+        }
+
+        &:hover {
+            background-color: var(--searchable-input-field-input-hover-background-color);
+        }
+
+        @variant dark {
+            border-color: var(--searchable-input-field-dark-border-color);
+
+            &:hover {
+                background-color: var(--searchable-input-field-input-dark-hover-background-color);
+            }
+        }
+    }
+}
+
+@utility searchable-select-field-input {
+    position: relative;
+    
+    & .form-control-inner {
+        position: relative;
+    }
+
+    & .form-control-activity-indicator {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(-1rem, -50%);
+    }
+
+    &.has-clear-button .form-control.is-valid,
+    &.has-clear-button .form-control.is-invalid {
+        background-image: none !important;
+    }
+}
+
+@utility btn-clearable {
+    display: var(--searchable-input-field-clear-button-display);
+    cursor: var(--searchable-input-field-clear-button-cursor);
+    color: var(--searchable-input-field-clear-button-color);
+
+    &:hover {
+        color: var(--searchable-input-field-clear-button-hover-color);
+    }
+
+    @variant dark {
+        color: var(--searchable-input-field-clear-button-dark-color);
+
+        &:hover {
+            color: var(--searchable-input-field-clear-button-dark-hover-color);
+        }
+    }
+}

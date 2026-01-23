@@ -1,0 +1,59 @@
+{
+  "name": "@vue-interface/searchable-select-field",
+  "version": "1.0.0",
+  "description": "A Vue searchable select field component.",
+  "type": "module",
+  "main": "./dist/searchable-select-field.umd.cjs",
+  "module": "./dist/searchable-select-field.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "source": "./index.ts",
+      "types": "./dist/index.d.ts",
+      "style": "./index.css",
+      "import": "./dist/searchable-select-field.js",
+      "require": "./dist/searchable-select-field.umd.cjs"
+    }
+  },
+  "browserslist": "last 2 versions, > 0.5%, ie >= 11",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vue-interface/vue-interface.github.io"
+  },
+  "keywords": [
+    "Searchable",
+    "Select",
+    "Input",
+    "Field",
+    "Vue",
+    "Component",
+    "Tailwind"
+  ],
+  "author": "Justin Kimbrell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vue-interface/vue-interface.github.io"
+  },
+  "homepage": "https://vue-interface.github.io/packages/searchable-select-field",
+  "readme": "README.md",
+  "files": [
+    "src",
+    "dist",
+    "index.css",
+    "README.md",
+    "LICENSE"
+  ],
+  "peerDependencies": {
+    "@vue-interface/activity-indicator": "workspace:*",
+    "@vue-interface/form-control": "workspace:*",
+    "@vue-interface/input-field": "workspace:*",
+    "@vue-interface/sizeable": "workspace:*",
+    "fuse.js": "^7.1.0",
+    "vue": "^3.3.4"
+  }
+}

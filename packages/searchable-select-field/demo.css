@@ -1,0 +1,13 @@
+@import "tailwindcss";
+@import "./index.css";
+
+@source "../input-field/src/*.vue";
+@source "../activity-indicator/src/**/*.vue";
+
+@variant dark {
+    body {
+        @apply text-white;
+    }
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
