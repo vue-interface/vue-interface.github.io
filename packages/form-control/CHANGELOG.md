@@ -1,5 +1,11 @@
 # @vue-interface/form-control
 
+## 2.0.18
+
+### Patch Changes
+
+- 342dd69: New searchable-select-field components
+
 ## 2.0.17
 
 ### Patch Changes
