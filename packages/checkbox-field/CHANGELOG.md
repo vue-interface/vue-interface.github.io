@@ -1,5 +1,12 @@
 # @vue-interface/checkbox-field
 
+## 3.0.18
+
+### Patch Changes
+
+- Updated dependencies [342dd69]
+  - @vue-interface/form-control@2.0.18
+
 ## 3.0.17
 
 ### Patch Changes
