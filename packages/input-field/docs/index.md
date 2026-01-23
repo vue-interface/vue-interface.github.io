@@ -256,6 +256,21 @@ Validation classes provides error-checking styling for the input-field component
 <<< ./index.md#validation{html}
 :::
 
+## Custom Colors
+
+Customize the color of a input-field component with the [Tailwind color palette](https://tailwindcss.com/docs/colors) by using the `color` prop: `form-control-[color]`.
+
+<!-- #region customColor -->
+<input-field label="form-control-amber-500" color="form-control-amber-500" class="mb-3"></input-field>
+<input-field label="form-control-green-500" color="form-control-green-500" class="mb-3"></input-field>
+<input-field label="form-control-purple-500" color="form-control-purple-500" class="mb-3"></input-field>
+<input-field label="form-control-neutral-500" color="form-control-neutral-500" class="mb-3"></input-field>
+<!-- #endregion customColor -->
+
+::: details Show Code
+<<< ./index.md#customColor{html}
+:::
+
 ## Animated
 
 The `input-field` animated component combines the tailwind `form-control-animated` classes to provide a custom animated component. Customize the size of animated input-field/icon combinations using the same [sizing prop values](#sizes) described above. 

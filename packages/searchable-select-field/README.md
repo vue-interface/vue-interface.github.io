@@ -23,9 +23,12 @@ bun i @vue-interface/searchable-select-field
 ## Basic Usage
 
 ```vue
-<SearchableSelectField v-model="selected" :options="options"></SearchableSelectField>
-<SearchableSelectField :options="options" label="With Label" placeholder="Placeholder"></SearchableSelectField>
+<SearchableSelectField v-model="selected" :options="languages"></SearchableSelectField>
+<SearchableSelectField :options="options" placeholder="Type to search..." label="Placeholder"></SearchableSelectField>
+<SearchableSelectField :options="options" label="Descriptive Text Field" help-text="Some helpful text goes here."></SearchableSelectField>
+<SearchableSelectField :options="options" label="Readonly" placeholder="Type something here..." readonly></SearchableSelectField>
 <SearchableSelectField :options="options" label="Disabled" disabled></SearchableSelectField>
+<SearchableSelectField :options="options" placeholder="Disabled" label="Disabled (Placeholder)" disabled></SearchableSelectField>
 ```
 
 ```ts

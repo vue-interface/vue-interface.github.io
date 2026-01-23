@@ -214,14 +214,19 @@ export function useFormControl<
         return !!useSlots().icon;
     });
 
-    const isDirty = ref(false);
-    const isEmpty = ref(false);
+    const isDirty = computed(() => {
+        if (Array.isArray(model.value)) {
+            return !!model.value.length;
+        }
 
-    const unwatch = watch(model, () => {
-        hasChanged.value = true;
-        isDirty.value = true;
-        unwatch();
+        return model.value !== null && model.value !== undefined && model.value !== '';
     });
+
+    const isEmpty = computed(() => !isDirty.value);
+
+    watch(model, () => {
+        hasChanged.value = true;
+    }, { once: true });
 
     const id = computed<string>(() => {
         return props.id ?? Math.random().toString(36).slice(2);
@@ -388,7 +393,9 @@ export function useFormControl<
     }));
 
     onBeforeMount(() => {
-        isDirty.value = model.value !== null && model.value !== undefined;
+        if (isDirty.value) {
+            hasChanged.value = true;
+        }
     });
 
     return {

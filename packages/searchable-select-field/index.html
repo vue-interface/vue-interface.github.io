@@ -14,8 +14,10 @@
         <h2 class="text-2xl mb-3">Basic Usage</h2>
 
         <div class="flex flex-col gap-4 mb-4">
-            <searchable-select-field v-model="selected" :options="options" ></searchable-select-field>
+            <searchable-select-field v-model="selected" :options="languages"></searchable-select-field>
             <searchable-select-field :options="options" placeholder="Type to search..." label="Placeholder"></searchable-select-field>
+            <searchable-select-field :options="options" label="Descriptive Text Field" help-text="Some helpful text goes here."></searchable-select-field>
+            <searchable-select-field :options="options" label="Readonly" placeholder="Type something here..." readonly></searchable-select-field>
             <searchable-select-field :options="options" label="Disabled" disabled></searchable-select-field>
             <searchable-select-field :options="options" placeholder="Disabled" label="Disabled (Placeholder)" disabled></searchable-select-field>
         </div>
@@ -56,24 +58,106 @@
         <h2 class="text-2xl mb-3">Custom Colors</h2>
 
         <div class="flex flex-col gap-4 mb-4">
-            <searchable-select-field :options="options" class="form-control-amber-500" placeholder="form-control-amber-500"></searchable-select-field>
-            <searchable-select-field :options="options" class="form-control-green-500" placeholder="form-control-green-500"></searchable-select-field>
-            <searchable-select-field :options="options" class="form-control-purple-500" placeholder="form-control-purple-500"></searchable-select-field>
-            <searchable-select-field :options="options" class="form-control-neutral-500" placeholder="form-control-neutral-500"></searchable-select-field>
+            <searchable-select-field :options="options" color="form-control-amber-500" placeholder="form-control-amber-500"></searchable-select-field>
+            <searchable-select-field :options="options" color="form-control-green-500" placeholder="form-control-green-500"></searchable-select-field>
+            <searchable-select-field :options="options" color="form-control-purple-500" placeholder="form-control-purple-500"></searchable-select-field>
+            <searchable-select-field :options="options" color="form-control-neutral-500" placeholder="form-control-neutral-500"></searchable-select-field>
         </div>
 
         <h2 class="text-2xl mb-3">Icons</h2>
 
         <div class="flex flex-col gap-4 mb-4">
-            <searchable-select-field :options="options" >
+            <searchable-select-field :options="options" size="form-control-xs" placeholder="xs">
+                <template #icon>
+                    <calendar-days-icon></calendar-days-icon>
+                </template>
+            </searchable-select-field>
+            <searchable-select-field :options="options" size="form-control-sm" placeholder="sm">
+                <template #icon>
+                    <calendar-days-icon></calendar-days-icon>
+                </template>
+            </searchable-select-field>
+            <searchable-select-field :options="options" size="form-control-md" placeholder="md">
+                <template #icon>
+                    <calendar-days-icon></calendar-days-icon>
+                </template>
+            </searchable-select-field>
+            <searchable-select-field :options="options" size="form-control-lg" placeholder="lg">
+                <template #icon>
+                    <calendar-days-icon></calendar-days-icon>
+                </template>
+            </searchable-select-field>
+            <searchable-select-field :options="options" size="form-control-xl" placeholder="xl">
+                <template #icon>
+                    <calendar-days-icon></calendar-days-icon>
+                </template>
+            </searchable-select-field>
+            <searchable-select-field :options="options" size="form-control-2xl" placeholder="2xl">
+                <template #icon>
+                    <calendar-days-icon></calendar-days-icon>
+                </template>
+            </searchable-select-field>
+            <searchable-select-field :options="options" size="form-control-3xl" placeholder="3xl">
+                <template #icon>
+                    <calendar-days-icon></calendar-days-icon>
+                </template>
+            </searchable-select-field>
+            <searchable-select-field :options="options" size="form-control-4xl" placeholder="4xl">
+                <template #icon>
+                    <calendar-days-icon></calendar-days-icon>
+                </template>
+            </searchable-select-field>
+            <searchable-select-field :options="options" size="form-control-5xl" placeholder="5xl">
+                <template #icon>
+                    <calendar-days-icon></calendar-days-icon>
+                </template>
+            </searchable-select-field>
+
+            <searchable-select-field :options="options" size="form-control-3" placeholder="form-control-3">
+                <template #icon>
+                    <calendar-days-icon></calendar-days-icon>
+                </template>
+            </searchable-select-field>
+            <searchable-select-field :options="options" size="form-control-3.5" placeholder="form-control-3.5">
+                <template #icon>
+                    <calendar-days-icon></calendar-days-icon>
+                </template>
+            </searchable-select-field>
+            <searchable-select-field :options="options" size="form-control-4" placeholder="form-control-4">
+                <template #icon>
+                    <calendar-days-icon></calendar-days-icon>
+                </template>
+            </searchable-select-field>
+            <searchable-select-field :options="options" size="form-control-5" placeholder="form-control-5">
+                <template #icon>
+                    <calendar-days-icon></calendar-days-icon>
+                </template>
+            </searchable-select-field>
+
+            
+            <searchable-select-field :options="options" size="form-control-[16px]" placeholder="form-control-[16px]">
+                <template #icon>
+                    <calendar-days-icon></calendar-days-icon>
+                </template>
+            </searchable-select-field>
+            <searchable-select-field :options="options" size="form-control-[1.5rem]" placeholder="form-control-[1.5rem]">
                 <template #icon>
                     <calendar-days-icon></calendar-days-icon>
                 </template>
             </searchable-select-field>
         </div>
 
+        <h2 class="text-2xl mb-3">Animated</h2>
 
-        
+        <div class="flex flex-col gap-4 mb-4">
+            <searchable-select-field :options="options" label="Animated" placeholder="Some placeholder" class="form-control-animated-md"></searchable-select-field>
+            <searchable-select-field :options="options" label="Animated with Icon" placeholder="Some placeholder" size="form-control-md" class="form-control-animated-md">
+                <template #icon>
+                    <calendar-days-icon></calendar-days-icon>
+                </template>
+            </searchable-select-field>
+        </div>
+
     <script type="module">
         import "./demo.css";
         import { createApp, ref } from 'vue/dist/vue.esm-bundler.js';
@@ -87,7 +171,7 @@
             },
             setup() {
                 const selected = ref();
-                const options = ref([
+                const options = [
                     'Option 1',
                     'Option 2',
                     'Option 3',
@@ -98,16 +182,23 @@
                     'Option 8',
                     'Option 9',
                     'Option 10'
-                ]);
-
-                const onInput = (e) => {
-                    console.log('Input event:', e.target.value);
-                };
-
+                ];
+                const languages = [
+                    'JavaScript',
+                    'Python',
+                    'Java',
+                    'TypeScript',
+                    'C#',
+                    'C++',
+                    'PHP',
+                    'Go',
+                    'Rust',
+                    'Swift'
+                ];
                 return {
                     selected,
                     options,
-                    onInput
+                    languages
                 };
             }
         });

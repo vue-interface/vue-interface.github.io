@@ -239,7 +239,7 @@ importers:
         specifier: ^3.3.4
         version: 3.5.25(typescript@5.9.3)
 
-  packages/searchable-input-field:
+  packages/searchable-select-field:
     dependencies:
       '@vue-interface/activity-indicator':
         specifier: workspace:*

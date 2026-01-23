@@ -6,7 +6,7 @@ import type { ComponentSize } from '@vue-interface/sizeable';
 import Fuse, { IFuseOptions } from 'fuse.js';
 import { computed, nextTick, ref, useTemplateRef, watch, watchEffect } from 'vue';
 
-export type SearchableInputFieldSizePrefix = 'form-control';
+export type SearchableSelectFieldSizePrefix = 'form-control';
 
 const props = withDefaults(defineProps<{
     name?: string;
@@ -21,7 +21,7 @@ const props = withDefaults(defineProps<{
     clearable?: boolean;
     valid?: boolean;
     invalid?: boolean;
-    size?: ComponentSize<SearchableInputFieldSizePrefix>;
+    size?: ComponentSize<SearchableSelectFieldSizePrefix>;
 }>(), {
     name: undefined,
     label: undefined,
@@ -38,8 +38,8 @@ const props = withDefaults(defineProps<{
 });
 
 const model = defineModel<T>();
+const isInteractive = computed(() => !props.disabled && !props.readonly);
 
-// Should this be a plain watch?
 watchEffect(() => {
     if(props.value !== undefined) {
         model.value = props.value;
@@ -51,7 +51,6 @@ const showOptions = ref(false);
 const active = ref<number>();
 const buttons = useTemplateRef<HTMLButtonElement[]>('buttons');
 const optionsEl = useTemplateRef<HTMLDivElement>('optionsEl');
-const field = useTemplateRef<{ focus: () => void } | null>('field');
 
 const keys = computed(() => {
     return typeof props.options === 'object' && props.options?.[0]
@@ -68,6 +67,7 @@ function createFuse() {
         keys: keys.value
     });
 }
+
 const filtered = computed<T[]>(() => {
     if(!input.value) {
         return props.options ?? [];
@@ -108,7 +108,7 @@ watch([input, active], ([input, active]) => {
             inline: 'nearest'
         });
     }
-    else if(active) {
+    else if(active !== undefined) {
         buttons.value?.[active]?.scrollIntoView({
             block: 'nearest',
             inline: 'nearest'
@@ -117,16 +117,12 @@ watch([input, active], ([input, active]) => {
 });
 
 watch(optionsEl, (value) => {
-    if(!value) {
+    if(!value || active.value === undefined) {
         return;
     }
 
     nextTick(() => {
-        if(!active.value) {
-            return;
-        }
-        
-        scrollIntoView(buttons.value?.[active.value]);
+        scrollIntoView(buttons.value?.[active.value as number]);
     });
 });
 
@@ -140,6 +136,8 @@ function select(option?: T) {
 }
 
 function onInput(e: Event) {
+    if (!isInteractive.value) return;
+
     showOptions.value = true;
     active.value = undefined;
     input.value = (e.target as HTMLInputElement)?.value;
@@ -148,16 +146,16 @@ function onInput(e: Event) {
         model.value = undefined;
     }
 
-
     if(props.allowCustom) {
         model.value = input.value as T;
     }
 }
 
 function onKeypressEnter() {
+    if (!isInteractive.value) return;
+
     if(!showOptions.value) {
         showOptions.value = true;
-        
         return;
     }
 
@@ -176,6 +174,8 @@ function onKeypressEnter() {
 }
 
 function onKeydownUp() {
+    if (!isInteractive.value) return;
+    
     showOptions.value = true;
 
     if(!active.value) {
@@ -187,6 +187,8 @@ function onKeydownUp() {
 }
 
 function onKeydownDown() {
+    if (!isInteractive.value) return;
+
     showOptions.value = true;
 
     if(active.value === undefined || active.value === filtered.value.length - 1) {
@@ -203,17 +205,19 @@ function onBlur() {
 }
 
 function onClickOption(option: T) {
+    if (!isInteractive.value) return;
     select(option);
 }
 
 function clear() {
+    if (!isInteractive.value) return;
     input.value = undefined;
     model.value = undefined;
-    field.value?.focus();
+    /* field.value?.focus(); */
 }
 
 const canClear = computed(() => {
-    return props.clearable && (!!input.value || !!model.value) && !props.disabled && !props.readonly;
+    return props.clearable && (!!input.value || !!model.value) && isInteractive.value;
 });
 </script>
 
@@ -221,7 +225,7 @@ const canClear = computed(() => {
     <div class="relative [&_.form-control]:pr-8">
         <InputField
             ref="field"
-            class="searchable-input-field-input"
+            class="searchable-select-field-input"
             :class="{ 'has-clear-button': canClear }"
             :size="size"
             v-bind="$attrs"
@@ -232,17 +236,17 @@ const canClear = computed(() => {
             :readonly="readonly"
             :valid="valid"
             :invalid="invalid"
-            @click="showOptions = true"
-            @focus="showOptions = true"
+            @click="isInteractive && (showOptions = true)"
+            @focus="isInteractive && (showOptions = true)"
             @blur="onBlur"
             @keypress.enter.prevent="onKeypressEnter"
             @keydown.up.prevent="onKeydownUp"
             @keydown.down.prevent="onKeydownDown"
             @keyup.escape="showOptions = false"
             @input="onInput">
-            <!-- <template #icon>
+            <template #icon v-if="$slots.icon">
                 <slot name="icon" />
-            </template> -->
+            </template>
             <template #activity>
                 <slot
                     name="activity"
@@ -251,13 +255,13 @@ const canClear = computed(() => {
                         v-if="!disabled && !options"
                         :type="Pulse"
                         size="activity-indicator-sm" />
-                        <button
-                            v-else-if="canClear"
-                            type="button"
-                            class="btn-clearable"
-                            @click.stop="clear">
-                            <XMarkIcon class="size-[1.25em]" />
-                        </button>
+                    <button
+                        v-else-if="canClear"
+                        type="button"
+                        class="btn-clearable"
+                        @click.stop="clear">
+                        <XMarkIcon class="size-[1.25em]" />
+                    </button>
                     <ChevronDownIcon 
                         v-else-if="!invalid && !valid"
                         class="size-[1.25em]" />
@@ -268,7 +272,7 @@ const canClear = computed(() => {
             v-if="showOptions && filtered.length"
             ref="optionsEl"
             tabindex="-1"
-            class="searchable-input-field-dropdown"
+            class="searchable-select-field-dropdown"
             :class="size"
             @mousedown.prevent.stop>
             <button

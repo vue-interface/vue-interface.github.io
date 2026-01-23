@@ -32,7 +32,7 @@
     --searchable-input-field-clear-button-dark-hover-color: var(--color-neutral-400);
 }
 
-@utility searchable-input-field-dropdown {
+@utility searchable-select-field-dropdown {
     display: var(--searchable-input-field-display);
     flex-direction: var(--searchable-input-field-flex-direction);
     position: var(--searchable-input-field-position);
@@ -78,7 +78,7 @@
     }
 }
 
-@utility searchable-input-field-input {
+@utility searchable-select-field-input {
     position: relative;
     
     & .form-control-inner {

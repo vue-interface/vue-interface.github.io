@@ -6,6 +6,7 @@ title: Searchable Select Field
 import '../demo.css'
 import { ref } from 'vue'
 import SearchableSelectField from '../src/SearchableSelectField.vue';
+import { CalendarDaysIcon } from '@heroicons/vue/24/outline';
 
 const value = ref()
 const selected = ref()
@@ -22,7 +23,7 @@ const options = [
     'Option 10'
 ];
 
-const options1 = [
+const languages = [
     'JavaScript',
     'Python',
     'Java',
@@ -76,14 +77,26 @@ The `searchable-select-field` requires an `options` prop array.
 
 <div class="flex flex-col gap-4">
     <!-- #region basicUsage -->
-    <SearchableSelectField v-model="selected" :options="options1"></SearchableSelectField>
-    <SearchableSelectField :options="options" label="With Label" placeholder="Placeholder"></SearchableSelectField>
-    <SearchableSelectField :options="options" label="Disabled" disabled></SearchableSelectField>
+    <SearchableSelectField v-model="selected" :options="languages"></SearchableSelectField>
     <!-- #endregion basicUsage -->
 </div>
 
+<<< ./index.md#basicUsage{vue}
+
+## Variations and States
+
+<div class="flex flex-col gap-4">
+    <!-- #region variations -->
+    <SearchableSelectField :options="options" placeholder="Type to search..." label="Placeholder"></SearchableSelectField>
+    <SearchableSelectField :options="options" label="Descriptive Text Field" help-text="Some helpful text goes here."></SearchableSelectField>
+    <SearchableSelectField :options="options" label="Readonly" placeholder="Type something here..." readonly></SearchableSelectField>
+    <SearchableSelectField :options="options" label="Disabled" disabled></SearchableSelectField>
+    <SearchableSelectField :options="options" placeholder="Disabled" label="Disabled (Placeholder)" disabled></SearchableSelectField>
+    <!-- #endregion variations -->
+</div>
+
 ::: details Show Code
-<<< ./index.md#basicUsage{html}
+<<< ./index.md#variations{vue}
 :::
 
 ## Sizes
@@ -101,15 +114,15 @@ The size can be customized using predetermined `size prop` values: `xs`, `sm`, `
     <SearchableSelectField :options="options" label="md" size="form-control-md"></SearchableSelectField>
     <SearchableSelectField :options="options" label="lg" size="form-control-lg"></SearchableSelectField>
     <SearchableSelectField :options="options" label="xl" size="form-control-xl"></SearchableSelectField>
-    <SearchableSelectField :options="options" label="xl" size="form-control-2xl"></SearchableSelectField>
-    <SearchableSelectField :options="options" label="xl" size="form-control-3xl"></SearchableSelectField>
-    <SearchableSelectField :options="options" label="xl" size="form-control-4xl"></SearchableSelectField>
-    <SearchableSelectField :options="options" label="xl" size="form-control-5xl"></SearchableSelectField>
+    <SearchableSelectField :options="options" label="2xl" size="form-control-2xl"></SearchableSelectField>
+    <SearchableSelectField :options="options" label="3xl" size="form-control-3xl"></SearchableSelectField>
+    <SearchableSelectField :options="options" label="4xl" size="form-control-4xl"></SearchableSelectField>
+    <SearchableSelectField :options="options" label="5xl" size="form-control-5xl"></SearchableSelectField>
     <!-- #endregion predeterminedSizes -->
 </div>
 
 ::: details Show Code
-<<< ./index.md#predeterminedSizes{html}
+<<< ./index.md#predeterminedSizes{vue}
 :::
 
 ### Tailwind Sizes
@@ -126,7 +139,7 @@ For more granular control over sizes, use Tailwind's numeric sizing scale classe
 </div>
 
 ::: details Show Code
-<<< ./index.md#tailwindSizes{html}
+<<< ./index.md#tailwindSizes{vue}
 :::
 
 ### Arbitrary Sizes
@@ -141,7 +154,96 @@ For precise sizing, specify exact pixel values using the syntax `form-control-[N
 </div>
 
 ::: details Show Code
-<<< ./index.md#arbitrarySizes{html}
+<<< ./index.md#arbitrarySizes{vue}
+:::
+
+## Icons
+
+The following `searchable-select-field` components combine the an input field with a [heroicon](https://heroicons.com/). Customize the size of searchable-select-field/icon combinations using the same [sizing prop values](#sizes) described above. 
+
+```ts
+import { CalendarDaysIcon } from '@heroicons/vue/24/outline';
+```
+
+<div class="flex flex-col gap-4">
+    <!-- #region basicIcons -->
+    <SearchableSelectField :options="options">
+        <template #icon>
+            <CalendarDaysIcon />
+        </template>
+    </SearchableSelectField>
+    <!-- #endregion basicIcons -->
+</div>
+
+<<< ./index.md#basicIcons{vue}
+
+<div class="flex flex-col gap-4">
+    <!-- #region iconSizes -->
+    <SearchableSelectField :options="options" size="form-control-xs" placeholder="XS Icon">
+        <template #icon>
+            <CalendarDaysIcon />
+        </template>
+    </SearchableSelectField>
+    <SearchableSelectField :options="options" size="form-control-sm" placeholder="SM Icon">
+        <template #icon>
+            <CalendarDaysIcon />
+        </template>
+    </SearchableSelectField>
+    <SearchableSelectField :options="options" size="form-control-lg" placeholder="Large Icon">
+        <template #icon>
+            <CalendarDaysIcon />
+        </template>
+    </SearchableSelectField>
+    <SearchableSelectField :options="options" size="form-control-xl" placeholder="XL Icon">
+        <template #icon>
+            <CalendarDaysIcon />
+        </template>
+    </SearchableSelectField>
+    <SearchableSelectField :options="options" size="form-control-2xl" placeholder="2xl Icon">
+        <template #icon>
+            <CalendarDaysIcon />
+        </template>
+    </SearchableSelectField>
+    <SearchableSelectField :options="options" size="form-control-3xl" placeholder="3xl Icon">
+        <template #icon>
+            <CalendarDaysIcon />
+        </template>
+    </SearchableSelectField>
+    <SearchableSelectField :options="options" size="form-control-4xl" placeholder="4xl Icon">
+        <template #icon>
+            <CalendarDaysIcon />
+        </template>
+    </SearchableSelectField>
+    <SearchableSelectField :options="options" size="form-control-5xl" placeholder="5xl Icon">
+        <template #icon>
+            <CalendarDaysIcon />
+        </template>
+    </SearchableSelectField>
+    <SearchableSelectField :options="options" size="form-control-4" placeholder="form-control-4">
+        <template #icon>
+            <CalendarDaysIcon />
+        </template>
+    </SearchableSelectField>
+    <SearchableSelectField :options="options" size="form-control-4.5" placeholder="form-control-4.5">
+        <template #icon>
+            <CalendarDaysIcon />
+        </template>
+    </SearchableSelectField>
+    <SearchableSelectField :options="options" size="form-control-[16px]" placeholder="form-control-[16px]">
+        <template #icon>
+            <CalendarDaysIcon />
+        </template>
+    </SearchableSelectField>
+    <SearchableSelectField :options="options" size="form-control-[1.5rem]" placeholder="form-control-[1.5rem]">
+        <template #icon>
+            <CalendarDaysIcon />
+        </template>
+    </SearchableSelectField>
+    <!-- #endregion iconSizes -->
+</div>
+
+::: details Show Code
+<<< ./index.md#iconSizes{vue}
 :::
 
 ## Validation
@@ -161,22 +263,99 @@ Validation classes provide error-checking styling. The `invalid-feedback` and `v
 </div>
 
 ::: details Show Code
-<<< ./index.md#validation{html}
+<<< ./index.md#validation{vue}
 :::
 
 ## Custom Colors
 
-You can apply custom colors using the `form-control-*` utility classes (e.g., `form-control-amber-500`). This colors the border and focus ring.
+Customize the color of a searchable-select-field component with the [Tailwind color palette](https://tailwindcss.com/docs/colors) by using the `color` prop: `form-control-[color]`.
 
 <div class="flex flex-col gap-3">
     <!-- #region customColors -->
-    <SearchableSelectField :options="options" class="form-control-amber-500" placeholder="form-control-amber-500"></SearchableSelectField>
-    <SearchableSelectField :options="options" class="form-control-green-500" placeholder="form-control-green-500"></SearchableSelectField>
-    <SearchableSelectField :options="options" class="form-control-purple-500" placeholder="form-control-purple-500"></SearchableSelectField>
-    <SearchableSelectField :options="options" class="form-control-neutral-500" placeholder="form-control-neutral-500"></SearchableSelectField>
+    <SearchableSelectField :options="options" color="form-control-amber-500" placeholder="form-control-amber-500"></SearchableSelectField>
+    <SearchableSelectField :options="options" color="form-control-green-500" placeholder="form-control-green-500"></SearchableSelectField>
+    <SearchableSelectField :options="options" color="form-control-purple-500" placeholder="form-control-purple-500"></SearchableSelectField>
+    <SearchableSelectField :options="options" color="form-control-neutral-500" placeholder="form-control-neutral-500"></SearchableSelectField>
     <!-- #endregion customColors -->
 </div>
 
 ::: details Show Code
-<<< ./index.md#customColors{html}
+<<< ./index.md#customColors{vue}
+:::
+
+## Animated
+
+The `searchable-select-field` animated component combines the tailwind `form-control-animated` classes to provide a custom animated component. Customize the size of animated searchable-select-field/icon combinations using the same [sizing prop values](#sizes) described above. 
+
+<div class="flex flex-col gap-3">
+    <!-- #region animated -->
+    <SearchableSelectField 
+        :options="options" 
+        label="Animated" 
+        placeholder="Some placeholder" 
+        size="form-control-sm" 
+        class="form-control-animated-sm">
+    </SearchableSelectField>
+    <SearchableSelectField 
+        :options="options" 
+        label="Animated" 
+        placeholder="Some placeholder" 
+        size="form-control-md" 
+        class="form-control-animated-md">
+    </SearchableSelectField>
+    <SearchableSelectField 
+        :options="options" 
+        label="Animated" 
+        placeholder="Some placeholder" 
+        size="form-control-lg" 
+        class="form-control-animated-lg">
+    </SearchableSelectField>
+    <!-- #endregion animated -->
+</div>
+
+::: details Show Code
+<<< ./index.md#animated{html}
+:::
+
+### With Icons
+
+Add an [icon](#icons) to the animated searchable-select-fields using the steps described above.
+
+<div class="flex flex-col gap-3">
+    <!-- #region animatedIcons -->
+    <SearchableSelectField 
+        :options="options" 
+        label="Animated with Icon" 
+        placeholder="Some placeholder" 
+        size="form-control-sm" 
+        class="form-control-animated-sm">
+        <template #icon>
+            <CalendarDaysIcon />
+        </template>
+    </SearchableSelectField>
+    <SearchableSelectField 
+        :options="options" 
+        label="Animated with Icon" 
+        placeholder="Some placeholder" 
+        size="form-control-md" 
+        class="form-control-animated-md">
+        <template #icon>
+            <CalendarDaysIcon />
+        </template>
+    </SearchableSelectField>
+    <SearchableSelectField 
+        :options="options" 
+        label="Animated with Icon" 
+        placeholder="Some placeholder" 
+        size="form-control-lg" 
+        class="form-control-animated-lg">
+        <template #icon>
+            <CalendarDaysIcon />
+        </template>
+    </SearchableSelectField>
+    <!-- #endregion animatedIcons -->
+</div>
+
+::: details Show Code
+<<< ./index.md#animatedIcons{html}
 :::
