@@ -213,7 +213,6 @@ function clear() {
     if (!isInteractive.value) return;
     input.value = undefined;
     model.value = undefined;
-    /* field.value?.focus(); */
 }
 
 const canClear = computed(() => {
@@ -258,7 +257,7 @@ const canClear = computed(() => {
                     <button
                         v-else-if="canClear"
                         type="button"
-                        class="btn-clearable"
+                        class="searchable-select-field-clear-button"
                         @click.stop="clear">
                         <XMarkIcon class="size-[1.25em]" />
                     </button>
