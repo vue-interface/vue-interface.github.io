@@ -90,6 +90,9 @@ importers:
 
   packages/alert:
     dependencies:
+      '@heroicons/vue':
+        specifier: 2.2.0
+        version: 2.2.0(vue@3.5.26(typescript@5.9.3))
       '@vue-interface/sizeable':
         specifier: workspace:*
         version: link:../sizeable
@@ -105,6 +108,9 @@ importers:
 
   packages/badge:
     dependencies:
+      '@heroicons/vue':
+        specifier: 2.2.0
+        version: 2.2.0(vue@3.5.26(typescript@5.9.3))
       '@vue-interface/sizeable':
         specifier: workspace:*
         version: link:../sizeable
@@ -206,6 +212,9 @@ importers:
 
   packages/modal:
     dependencies:
+      '@heroicons/vue':
+        specifier: 2.2.0
+        version: 2.2.0(vue@3.5.25(typescript@5.9.3))
       '@vue-interface/activity-indicator':
         specifier: workspace:*
         version: link:../activity-indicator
@@ -241,6 +250,9 @@ importers:
 
   packages/searchable-select-field:
     dependencies:
+      '@heroicons/vue':
+        specifier: 2.2.0
+        version: 2.2.0(vue@3.5.26(typescript@5.9.3))
       '@vue-interface/activity-indicator':
         specifier: workspace:*
         version: link:../activity-indicator
@@ -3493,6 +3505,10 @@ snapshots:
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
+
+  '@heroicons/vue@2.2.0(vue@3.5.25(typescript@5.9.3))':
+    dependencies:
+      vue: 3.5.25(typescript@5.9.3)
 
   '@heroicons/vue@2.2.0(vue@3.5.26(typescript@5.9.3))':
     dependencies:

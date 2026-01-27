@@ -53,6 +53,7 @@
     "@vue-interface/form-control": "workspace:*",
     "@vue-interface/input-field": "workspace:*",
     "@vue-interface/sizeable": "workspace:*",
+    "@heroicons/vue": "2.2.0",
     "fuse.js": "^7.1.0",
     "vue": "^3.3.4"
   }
