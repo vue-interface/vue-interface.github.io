@@ -1,10 +1,12 @@
 <script setup lang="ts" generic="T">
 import { ChevronDownIcon, XMarkIcon } from '@heroicons/vue/24/outline';
+import type { FormControlEvents, FormControlSlots } from '@vue-interface/form-control';
+import { useFormControl } from '@vue-interface/form-control';
 import { ActivityIndicator, Pulse } from '@vue-interface/activity-indicator';
 import { InputField } from '@vue-interface/input-field';
 import type { ComponentSize } from '@vue-interface/sizeable';
 import Fuse, { IFuseOptions } from 'fuse.js';
-import { computed, nextTick, ref, useTemplateRef, watch, watchEffect } from 'vue';
+import { InputHTMLAttributes, computed, nextTick, ref, useTemplateRef, watch, watchEffect } from 'vue';
 
 export type SearchableSelectFieldSizePrefix = 'form-control';
 
@@ -39,6 +41,18 @@ const props = withDefaults(defineProps<{
 
 const model = defineModel<T>();
 const isInteractive = computed(() => !props.disabled && !props.readonly);
+
+defineSlots<FormControlSlots<SearchableSelectFieldSizePrefix,T> & {
+    default(props: { option: T; display?: (option: T) => string }): any;
+}>();
+
+const emit = defineEmits<FormControlEvents>();
+
+const {
+    controlAttributes,
+    formGroupClasses,
+    listeners
+} = useFormControl<InputHTMLAttributes, SearchableSelectFieldSizePrefix, T|undefined, T>({ model, props, emit });
 
 watchEffect(() => {
     if(props.value !== undefined) {
@@ -225,9 +239,9 @@ const canClear = computed(() => {
         <InputField
             ref="field"
             class="searchable-select-field-input"
-            :class="{ 'has-clear-button': canClear }"
+            :class="{ 'has-clear-button': canClear, formGroupClasses }"
             :size="size"
-            v-bind="$attrs"
+            v-bind="{ ...$attrs, controlAttributes, listeners }"
             :name="name"
             :label="label"
             :model-value="input ?? (model && props?.display ? props?.display?.(model) : model)"
