@@ -34,7 +34,7 @@
     "vite-plugin-dts": "^4.5.4",
     "vitepress": "2.0.0-alpha.12",
     "vue": "^3.3.4",
-    "vue-tsc": "^3.2.1"
+    "vue-tsc": "^3.2.4"
   },
   "packageManager": "pnpm@9.0.0",
   "engines": {
