@@ -49,6 +49,7 @@
   ],
   "peerDependencies": {
     "@vue-interface/sizeable": "workspace:*",
+    "@heroicons/vue": "2.2.0",
     "vue": "^3.3.4"
   }
 }
