@@ -11,6 +11,7 @@ const props = withDefaults(defineProps<SearchableSelectFieldProps<T,Value>>(), {
     formControlClass: 'form-control',
     labelClass: 'form-label',
     size: 'form-control-md',
+    clearable: true,
     options: () => []
 });
 
@@ -239,6 +240,10 @@ export type SearchableSelectFieldProps<ModelValue, Value> = FormControlProps<
             :model-value="input ?? (model && props?.display ? props?.display?.(model) : model)"
             :disabled="disabled"
             :readonly="readonly"
+            :color="color"
+            :error="error"
+            :errors="errors"
+            :feedback="feedback"
             :valid="valid"
             :invalid="invalid"
             @click="isInteractive && (showOptions = true)"
