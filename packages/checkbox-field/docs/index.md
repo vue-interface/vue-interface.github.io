@@ -161,15 +161,15 @@ Customize the checkbox's size using a [predetermined size](#predetermined-sizes)
 The size can be customized using predetermined size classes: `xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`. Use the syntax: `form-check-[size]`.
 
 <!-- #region predeterminedSizes -->
-<CheckboxField name="size[]" class="form-check-xs" placeholder="Extra Small">xs</CheckboxField>
-<CheckboxField name="size[]" class="form-check-sm" placeholder="Small">Small</CheckboxField>
-<CheckboxField name="size[]" class="form-check-md" placeholder="Medium">Medium</CheckboxField>
-<CheckboxField name="size[]" class="form-check-lg" placeholder="Large">Large</CheckboxField>
-<CheckboxField name="size[]" class="form-check-xl" placeholder="Extra Large">XL</CheckboxField>
-<CheckboxField name="size[]" class="form-check-2xl" placeholder="2xl">2xl</CheckboxField>
-<CheckboxField name="size[]" class="form-check-3xl" placeholder="3xl">3xl</CheckboxField>
-<CheckboxField name="size[]" class="form-check-4xl" placeholder="4xl">4xl</CheckboxField>
-<CheckboxField name="size[]" class="form-check-5xl" placeholder="5xl">5xl</CheckboxField>
+<CheckboxField name="size[]" size="form-check-xs" placeholder="Extra Small">xs</CheckboxField>
+<CheckboxField name="size[]" size="form-check-sm" placeholder="Small">Small</CheckboxField>
+<CheckboxField name="size[]" size="form-check-md" placeholder="Medium">Medium</CheckboxField>
+<CheckboxField name="size[]" size="form-check-lg" placeholder="Large">Large</CheckboxField>
+<CheckboxField name="size[]" size="form-check-xl" placeholder="Extra Large">XL</CheckboxField>
+<CheckboxField name="size[]" size="form-check-2xl" placeholder="2xl">2xl</CheckboxField>
+<CheckboxField name="size[]" size="form-check-3xl" placeholder="3xl">3xl</CheckboxField>
+<CheckboxField name="size[]" size="form-check-4xl" placeholder="4xl">4xl</CheckboxField>
+<CheckboxField name="size[]" size="form-check-5xl" placeholder="5xl">5xl</CheckboxField>
 <!-- #endregion predeterminedSizes -->
 
 ::: details Show Code
@@ -181,9 +181,9 @@ The size can be customized using predetermined size classes: `xs`, `sm`, `md`, `
 For more granular control over sizes, use Tailwind's numeric sizing scale classes: `form-check-1` - `form-check-96`. 
 
 <!-- #region tailwindSizes -->
-<CheckboxField name="size[]" class="form-check-4" placeholder="form-check-4">form-check-4</CheckboxField>
-<CheckboxField name="size[]" class="form-check-5" placeholder="form-check-5">form-check-5</CheckboxField>
-<CheckboxField name="size[]" class="form-check-6" placeholder="form-check-6">form-check-6</CheckboxField>
+<CheckboxField name="size[]" size="form-check-4" placeholder="form-check-4">form-check-4</CheckboxField>
+<CheckboxField name="size[]" size="form-check-5" placeholder="form-check-5">form-check-5</CheckboxField>
+<CheckboxField name="size[]" size="form-check-6" placeholder="form-check-6">form-check-6</CheckboxField>
 <!-- #endregion tailwindSizes -->
 
 ::: details Show Code
@@ -195,8 +195,8 @@ For more granular control over sizes, use Tailwind's numeric sizing scale classe
 For precise sizing, specify exact pixel values using the syntax `form-check-[Npx]` or any other CSS length units (`rem`, `em`, `mm`, etc.).
 
 <!-- #region arbitrarySizes -->
-<CheckboxField name="size[]" class="form-check-[16px]" placeholder="form-check-[16px]">form-check-[16px]</CheckboxField>
-<CheckboxField name="size[]" class="form-check-[1.5rem]" placeholder="form-check-[1.5rem]">form-check-[1.5rem]</CheckboxField>
+<CheckboxField name="size[]" size="form-check-[16px]" placeholder="form-check-[16px]">form-check-[16px]</CheckboxField>
+<CheckboxField name="size[]" size="form-check-[1.5rem]" placeholder="form-check-[1.5rem]">form-check-[1.5rem]</CheckboxField>
 <!-- #endregion arbitrarySizes -->
 
 ::: details Show Code
