@@ -1,117 +1,129 @@
 @import "tailwindcss";
 
 @theme { 
-    --searchable-input-field-display: flex;
-    --searchable-input-field-flex-direction: column;
-    --searchable-input-field-position: absolute;
-    --searchable-input-field-box-shadow-style: 0 10px 15px -3px, 0 4px 6px -4px;
-    --searchable-input-field-box-shadow-color: rgb(0 0 0 / 0.1), rgb(0 0 0 / 0.1);
-    --searchable-input-field-max-height: 18rem;
-    --searchable-input-field-overflow: auto;
-    --searchable-input-field-border-width: 1px;
-    --searchable-input-field-border-radius: 0.25rem;
-    --searchable-input-field-z-index: 10;
-    --searchable-input-field-font-size: --spacing(4);
-    --searchable-input-field-border-color: var(--color-neutral-300);
-    --searchable-input-field-dark-border-color: var(--color-neutral-600);
-    --searchable-input-field-background-color: var(--color-white);
-    --searchable-input-field-dark-background-color: var(--color-neutral-900);
+    /* Searchable Select Field Dropdown */
+    --searchable-select-field-dropdown-display: flex;
+    --searchable-select-field-dropdown-flex-direction: column;
+    --searchable-select-field-dropdown-position: absolute;
+    --searchable-select-field-dropdown-z-index: 10;
+    --searchable-select-field-dropdown-width: 100%;
+    --searchable-select-field-dropdown-max-height: 18rem;
+    --searchable-select-field-dropdown-margin-top: 0.25rem;
+    --searchable-select-field-dropdown-overflow: auto;
+    --searchable-select-field-dropdown-border-width: 1px;
+    --searchable-select-field-dropdown-border-radius: 0.25rem;
+    --searchable-select-field-dropdown-border-color: var(--color-neutral-300, oklch(87% 0 0));
+    --searchable-select-field-dropdown-background-color: var(--color-white, #fff);
+    --searchable-select-field-dropdown-color: var(--color-black, #000);
+    --searchable-select-field-dropdown-box-shadow-style: 0 10px 15px -3px, 0 4px 6px -4px;
+    --searchable-select-field-dropdown-box-shadow-color: rgb(0 0 0 / 0.1), rgb(0 0 0 / 0.1);
 
-    --searchable-input-field-input-text-align: left;
-    --searchable-input-field-input-button-padding: 0.5em 1em;
-    --searchable-input-field-input-bottom-border-width: 1px;
-    --searchable-input-field-input-hover-background-color: var(--color-neutral-200);
-    --searchable-input-field-input-dark-hover-background-color: var(--color-neutral-700);
+    --searchable-select-field-dropdown-dark-border-color: var(--color-neutral-600, oklch(43.9% 0 0));
+    --searchable-select-field-dropdown-dark-background-color: var(--color-neutral-900, oklch(20.5% 0 0));
+    --searchable-select-field-dropdown-dark-color: var(--color-white, #fff);
 
-    /* Clear button */
-    --searchable-input-field-clear-button-display: flex;
-    --searchable-input-field-clear-button-cursor: pointer;
-    --searchable-input-field-clear-button-color: var(--color-black);
-    --searchable-input-field-clear-button-hover-color: var(--color-neutral-600);
-    --searchable-input-field-clear-button-dark-color: var(--color-white);
-    --searchable-input-field-clear-button-dark-hover-color: var(--color-neutral-400);
+    --searchable-select-field-dropdown-text-align: left;
+    --searchable-select-field-dropdown-padding: 0.5em 1em;
+    --searchable-select-field-dropdown-border-bottom-width: 1px;
+    --searchable-select-field-dropdown-hover-background-color: var(--color-neutral-200, oklch(92.2% 0 0));
+    --searchable-select-field-dropdown-dark-hover-background-color: var(--color-neutral-700, oklch(37.1% 0 0));
+
+    /* Searchable Select Field Input */
+    --searchable-select-field-input-position: relative;
+    --searchable-select-field-input-activity-indicator-position: absolute;
+    --searchable-select-field-input-activity-indicator-top: 50%;
+    --searchable-select-field-input-activity-indicator-right: 0;
+    --searchable-select-field-input-activity-indicator-transform: translate(-1rem, -50%);
+
+    /* Searchable Select-field Clear Button */
+    --searchable-select-field-clear-button-display: flex;
+    --searchable-select-field-clear-button-cursor: pointer;
+    --searchable-select-field-clear-button-color: var(--color-black, #000);
+    --searchable-select-field-clear-button-hover-color: var(--color-neutral-600, oklch(43.9% 0 0));
+
+    --searchable-select-field-clear-button-dark-color: var(--color-white, #fff);
+    --searchable-select-field-clear-button-dark-hover-color: var(--color-neutral-400, oklch(70.8% 0 0));
 }
 
 @utility searchable-select-field-dropdown {
-    display: var(--searchable-input-field-display);
-    flex-direction: var(--searchable-input-field-flex-direction);
-    position: var(--searchable-input-field-position);
-    box-shadow: var(--searchable-input-field-box-shadow-style) var(--searchable-input-field-box-shadow-color);
-    max-height: var(--searchable-input-field-max-height);
-    overflow: var(--searchable-input-field-overflow);
-    border-width: var(--searchable-input-field-border-width);
-    border-radius: var(--searchable-input-field-border-radius);
-    z-index: var(--searchable-input-field-z-index);
-    border-color: var(--searchable-input-field-border-color);
-    background-color: var(--searchable-input-field-background-color);
-    color: var(--color-black);
-    width: 100%;
-    margin-top: 0.25rem;
-
+    display: var(--searchable-select-field-dropdown-display);
+    flex-direction: var(--searchable-select-field-dropdown-flex-direction);
+    position: var(--searchable-select-field-dropdown-position);
+    z-index: var(--searchable-select-field-dropdown-z-index);
+    width: var(--searchable-select-field-dropdown-width);
+    max-height: var(--searchable-select-field-dropdown-max-height);
+    margin-top: var(--searchable-select-field-dropdown-margin-top);
+    overflow: var(--searchable-select-field-dropdown-overflow);
+    border-width: var(--searchable-select-field-dropdown-border-width);
+    border-radius: var(--searchable-select-field-dropdown-border-radius);
+    border-color: var(--searchable-select-field-dropdown-border-color);
+    background-color: var(--searchable-select-field-dropdown-background-color);
+    color: var(--searchable-select-field-dropdown-color);
+    box-shadow: var(--searchable-select-field-dropdown-box-shadow-style) var(--searchable-select-field-dropdown-box-shadow-color);
 
     @variant dark {
-        border-color: var(--searchable-input-field-dark-border-color);
-        background-color: var(--searchable-input-field-dark-background-color);
-        color: var(--color-white);
+        border-color: var(--searchable-select-field-dropdown-dark-border-color);
+        background-color: var(--searchable-select-field-dropdown-dark-background-color);
+        color: var(--searchable-select-field-dropdown-dark-color);
     }
 
     & > button {
-        text-align: var(--searchable-input-field-input-text-align);
-        padding: var(--searchable-input-field-input-button-padding);
-        border-color: var(--searchable-input-field-border-color);
+        text-align: var(--searchable-select-field-dropdown-text-align);
+        padding: var(--searchable-select-field-dropdown-padding);
+        border-color: var(--searchable-select-field-dropdown-border-color);
 
         &:not(:last-child) {
-            border-bottom-width: var(--searchable-input-field-input-bottom-border-width);
+            border-bottom-width: var(--searchable-select-field-dropdown-border-bottom-width);
         }
 
         &:hover {
-            background-color: var(--searchable-input-field-input-hover-background-color);
+            background-color: var(--searchable-select-field-dropdown-hover-background-color);
         }
 
         @variant dark {
-            border-color: var(--searchable-input-field-dark-border-color);
+            border-color: var(--searchable-select-field-dropdown-dark-border-color);
 
             &:hover {
-                background-color: var(--searchable-input-field-input-dark-hover-background-color);
+                background-color: var(--searchable-select-field-dropdown-dark-hover-background-color);
             }
         }
     }
 }
 
 @utility searchable-select-field-input {
-    position: relative;
+    position: var(--searchable-select-field-input-position);
     
     & .form-control-inner {
-        position: relative;
+        position: var(--searchable-select-field-input-position);
     }
 
     & .form-control-activity-indicator {
-        position: absolute;
-        top: 50%;
-        right: 0;
-        transform: translate(-1rem, -50%);
+        position: var(--searchable-select-field-input-activity-indicator-position);
+        top: var(--searchable-select-field-input-activity-indicator-top);
+        right: var(--searchable-select-field-input-activity-indicator-right);
+        transform: var(--searchable-select-field-input-activity-indicator-transform);
     }
 
     &.has-clear-button .form-control.is-valid,
     &.has-clear-button .form-control.is-invalid {
-        background-image: none !important;
+        background-image: none;
     }
 }
 
-@utility btn-clearable {
-    display: var(--searchable-input-field-clear-button-display);
-    cursor: var(--searchable-input-field-clear-button-cursor);
-    color: var(--searchable-input-field-clear-button-color);
+@utility searchable-select-field-clear-button {
+    display: var(--searchable-select-field-clear-button-display);
+    cursor: var(--searchable-select-field-clear-button-cursor);
+    color: var(--searchable-select-field-clear-button-color);
 
     &:hover {
-        color: var(--searchable-input-field-clear-button-hover-color);
+        color: var(--searchable-select-field-clear-button-hover-color);
     }
 
     @variant dark {
-        color: var(--searchable-input-field-clear-button-dark-color);
+        color: var(--searchable-select-field-clear-button-dark-color);
 
         &:hover {
-            color: var(--searchable-input-field-clear-button-dark-hover-color);
+            color: var(--searchable-select-field-clear-button-dark-hover-color);
         }
     }
 }
