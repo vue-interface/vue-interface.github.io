@@ -52,6 +52,7 @@
     "@vue-interface/sizeable": "workspace:*",
     "@vue-interface/activity-indicator": "workspace:*",
     "@vue-interface/btn": "workspace:*",
+    "@heroicons/vue": "2.2.0",
     "vue": "^3.3.4"
   }
 }

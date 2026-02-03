@@ -1,44 +1,34 @@
-<script setup lang="ts" generic="T">
+<script setup lang="ts" generic="T, Value">
 import { ChevronDownIcon, XMarkIcon } from '@heroicons/vue/24/outline';
 import { ActivityIndicator, Pulse } from '@vue-interface/activity-indicator';
+import type { FormControlEvents, FormControlProps, FormControlSlots } from '@vue-interface/form-control';
+import { useFormControl } from '@vue-interface/form-control';
 import { InputField } from '@vue-interface/input-field';
-import type { ComponentSize } from '@vue-interface/sizeable';
 import Fuse, { IFuseOptions } from 'fuse.js';
-import { computed, nextTick, ref, useTemplateRef, watch, watchEffect } from 'vue';
+import { InputHTMLAttributes, computed, nextTick, ref, useTemplateRef, watch, watchEffect } from 'vue';
 
-export type SearchableSelectFieldSizePrefix = 'form-control';
-
-const props = withDefaults(defineProps<{
-    name?: string;
-    label?: string;
-    value?: T;
-    options?: T[];
-    fuseOptions?: IFuseOptions<T>;
-    display?: (option: T) => string;
-    disabled?: boolean,
-    readonly?: boolean;
-    allowCustom?: boolean;
-    clearable?: boolean;
-    valid?: boolean;
-    invalid?: boolean;
-    size?: ComponentSize<SearchableSelectFieldSizePrefix>;
-}>(), {
-    name: undefined,
-    label: undefined,
-    value: undefined,
-    options: () => [],
-    fuseOptions: undefined,
-    display: undefined,
-    disabled: false,
-    readonly: false,
+const props = withDefaults(defineProps<SearchableSelectFieldProps<T,Value>>(), {
+    formControlClass: 'form-control',
+    labelClass: 'form-label',
+    size: 'form-control-md',
     clearable: true,
-    valid: undefined,
-    invalid: undefined,
-    size: 'form-control-md'
+    options: () => []
 });
 
 const model = defineModel<T>();
 const isInteractive = computed(() => !props.disabled && !props.readonly);
+
+defineSlots<FormControlSlots<SearchableSelectFieldSizePrefix,T> & {
+    default(props: { option: T; display?: (option: T) => string }): any;
+}>();
+
+const emit = defineEmits<FormControlEvents>();
+
+const {
+    controlAttributes,
+    formGroupClasses,
+    listeners
+} = useFormControl<InputHTMLAttributes, SearchableSelectFieldSizePrefix, T|undefined, T>({ model, props, emit });
 
 watchEffect(() => {
     if(props.value !== undefined) {
@@ -213,27 +203,47 @@ function clear() {
     if (!isInteractive.value) return;
     input.value = undefined;
     model.value = undefined;
-    /* field.value?.focus(); */
 }
 
 const canClear = computed(() => {
     return props.clearable && (!!input.value || !!model.value) && isInteractive.value;
 });
 </script>
+<script lang="ts">
+export type SearchableSelectFieldSizePrefix = 'form-control';
+
+export type SearchableSelectFieldProps<ModelValue, Value> = FormControlProps<
+    InputHTMLAttributes, 
+    SearchableSelectFieldSizePrefix, 
+    ModelValue, 
+    Value
+> & {
+    options?: ModelValue[];
+    fuseOptions?: IFuseOptions<ModelValue>;
+    display?: (option: ModelValue) => string;
+    allowCustom?: boolean;
+    clearable?: boolean;
+};
+</script>
+
 
 <template>
     <div class="relative [&_.form-control]:pr-8">
         <InputField
             ref="field"
             class="searchable-select-field-input"
-            :class="{ 'has-clear-button': canClear }"
+            :class="{ 'has-clear-button': canClear, formGroupClasses }"
             :size="size"
-            v-bind="$attrs"
+            v-bind="{ ...$attrs, controlAttributes, listeners }"
             :name="name"
             :label="label"
             :model-value="input ?? (model && props?.display ? props?.display?.(model) : model)"
             :disabled="disabled"
             :readonly="readonly"
+            :color="color"
+            :error="error"
+            :errors="errors"
+            :feedback="feedback"
             :valid="valid"
             :invalid="invalid"
             @click="isInteractive && (showOptions = true)"
@@ -258,7 +268,7 @@ const canClear = computed(() => {
                     <button
                         v-else-if="canClear"
                         type="button"
-                        class="btn-clearable"
+                        class="searchable-select-field-clear-button"
                         @click.stop="clear">
                         <XMarkIcon class="size-[1.25em]" />
                     </button>
