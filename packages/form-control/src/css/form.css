@@ -9,7 +9,7 @@
     --form-font-size: 1rem;
     --form-background-color: var(--color-white, #fff);
     --form-background-repeat: no-repeat;
-    --form-background-position: right 0.375rem center;
+    --form-background-position: right 0.9rem center;
     --form-border-width: 1px;
     --form-border-style: solid;
     --form-border-color-control-select: var(--color-neutral-300, oklch(87% 0 0)); /* form-control & form-select */

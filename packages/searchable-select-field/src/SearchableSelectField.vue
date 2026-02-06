@@ -37,6 +37,7 @@ watchEffect(() => {
 });
 
 const input = ref<string>();
+const field = useTemplateRef<any>('field');
 const showOptions = ref(false);
 const active = ref<number>();
 const buttons = useTemplateRef<HTMLButtonElement[]>('buttons');
@@ -205,6 +206,18 @@ function clear() {
     model.value = undefined;
 }
 
+function toggle() {
+    if (!isInteractive.value) return;
+    
+    if(showOptions.value ) {
+        showOptions.value = false;
+    }
+    else {
+        showOptions.value = true;
+        field.value?.$el?.querySelector('input')?.focus();
+    }
+}
+
 const canClear = computed(() => {
     return props.clearable && (!!input.value || !!model.value) && isInteractive.value;
 });
@@ -272,9 +285,12 @@ export type SearchableSelectFieldProps<ModelValue, Value> = FormControlProps<
                         @click.stop="clear">
                         <XMarkIcon class="size-[1.25em]" />
                     </button>
-                    <ChevronDownIcon 
+                    <button
                         v-else-if="!invalid && !valid"
-                        class="size-[1.25em]" />
+                        type="button"
+                        @click.stop="toggle">
+                        <ChevronDownIcon class="size-[1em]" />
+                    </button>
                 </slot>
             </template>
         </InputField>
