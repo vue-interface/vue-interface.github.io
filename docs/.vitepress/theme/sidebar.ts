@@ -28,9 +28,6 @@ export const sidebar: DefaultTheme.SidebarItem[] = [{
     text: 'Button Group',
     link: '/packages/btn/btn-group'
 }, {
-    text: 'Checkbox Field',
-    link: '/packages/checkbox-field/'
-}, {
     text: 'Dropdown Menu',
     link: '/packages/dropdown-menu/'
 }, {
@@ -59,11 +56,38 @@ export const sidebar: DefaultTheme.SidebarItem[] = [{
         }
     ]
 }, {
-    text: 'Input Field',
-    link: '/packages/input-field/'
-}, {
-    text: 'Light Switch Field',
-    link: '/packages/light-switch-field/'
+    text: 'Form Fields',
+    link: '/packages/input-field/',
+    items: [
+        {
+            text: 'Input Field',
+            link: '/packages/input-field/'
+        },
+        {   
+            text: 'Select Field',
+            link: '/packages/select-field/'
+        },
+        {
+            text: 'Searchable Select Field',
+            link: '/packages/searchable-select-field/'
+        },
+        {
+            text: 'Textarea Field',
+            link: '/packages/textarea-field/'
+        },
+        {
+            text: 'Checkbox Field',
+            link: '/packages/checkbox-field/'
+        },
+        {
+            text: 'Radio Field',
+            link: '/packages/radio-field/'
+        },
+        {
+            text: 'Light Switch Field',
+            link: '/packages/light-switch-field/'
+        }
+    ]
 }, {
     text: 'Modal',
     link: '/packages/modal/'
@@ -73,15 +97,6 @@ export const sidebar: DefaultTheme.SidebarItem[] = [{
 }, {
     text: 'Popover',
     link: '/packages/popover/'
-}, {
-    text: 'Radio Field',
-    link: '/packages/radio-field/'
-}, {
-    text: 'Searchable Select Field',
-    link: '/packages/searchable-select-field/'
-}, {
-    text: 'Select Field',
-    link: '/packages/select-field/'
 }, {
     text: 'Sizeable',
     link: '/packages/sizeable/'
@@ -101,9 +116,6 @@ export const sidebar: DefaultTheme.SidebarItem[] = [{
             link: '/packages/slide-panel/use-slide-panels'
         }
     ]
-}, {
-    text: 'Textarea Field',
-    link: '/packages/textarea-field/'
 }, {
     text: 'Tooltip',
     link: '/packages/tooltip/'
