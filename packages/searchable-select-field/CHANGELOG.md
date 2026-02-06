@@ -1,5 +1,11 @@
 # @vue-interface/searchable-select-field
 
+## 1.0.1
+
+### Patch Changes
+
+- d60ba53: Made ChevronDownIcon a button
+
 ## 2.0.0
 
 ### Major Changes
