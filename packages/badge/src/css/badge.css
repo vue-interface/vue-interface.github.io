@@ -4,7 +4,7 @@
     --badge-justify-content: space-between;
     --badge-overflow: hidden;
     --badge-text-decoration: none;
-    --badge-text-trasnform: capitalize;
+    --badge-text-transform: capitalize;
     --badge-gap: calc(1em * var(--badge-padding-x) / 2);
     --badge-border-radius: --spacing(1);
     --badge-font-size: --spacing(4);
