@@ -1,5 +1,11 @@
 # @vue-interface/badge
 
+## 3.1.2
+
+### Patch Changes
+
+- 3aa281d: fix syntax error
+
 ## 3.1.1
 
 ### Patch Changes
