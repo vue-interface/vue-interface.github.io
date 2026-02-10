@@ -1,5 +1,11 @@
 # @vue-interface/badge
 
+## 3.1.1
+
+### Patch Changes
+
+- 8f3924b: added capitalization to badge text
+
 ## 3.1.0
 
 ### Minor Changes
