@@ -4,6 +4,7 @@
     --badge-justify-content: space-between;
     --badge-overflow: hidden;
     --badge-text-decoration: none;
+    --badge-text-transform: capitalize;
     --badge-gap: calc(1em * var(--badge-padding-x) / 2);
     --badge-border-radius: --spacing(1);
     --badge-font-size: --spacing(4);
@@ -40,6 +41,7 @@
     background-color: var(--badge-background-color);
     border-radius: var(--badge-border-radius);
     text-decoration: var(--badge-text-decoration);
+    text-transform: var(--badge-text-transform);
     overflow: var(--badge-overflow);
     gap: var(--badge-gap);
 
