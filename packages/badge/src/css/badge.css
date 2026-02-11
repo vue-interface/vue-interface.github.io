@@ -4,7 +4,6 @@
     --badge-justify-content: space-between;
     --badge-overflow: hidden;
     --badge-text-decoration: none;
-    --badge-text-transform: capitalize;
     --badge-gap: calc(1em * var(--badge-padding-x) / 2);
     --badge-border-radius: --spacing(1);
     --badge-font-size: --spacing(4);
@@ -21,7 +20,8 @@
     --badge-close-align-items: center;
     --badge-close-justify-content: center;
     --badge-close-dark-hover-color: var(--badge-color);
-    --badge-close-icon-size: 0.75em;
+    --badge-close-icon-width: 1em;
+    --badge-close-icon-height: 1em;
 
     --badge-inner-display: inline-flex;
     --badge-inner-align-items: center;
@@ -41,7 +41,6 @@
     background-color: var(--badge-background-color);
     border-radius: var(--badge-border-radius);
     text-decoration: var(--badge-text-decoration);
-    text-transform: var(--badge-text-transform);
     overflow: var(--badge-overflow);
     gap: var(--badge-gap);
 
@@ -71,8 +70,8 @@
 
         & svg,
         & > :first-child {
-            width: var(--badge-close-icon-size);
-            height: var(--badge-close-icon-size);
+            width: var(--badge-close-icon-width);
+            height: var(--badge-close-icon-height);
         }
 
         &:hover {
