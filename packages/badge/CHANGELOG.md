@@ -1,5 +1,11 @@
 # @vue-interface/badge
 
+## 3.1.3
+
+### Patch Changes
+
+- 5daec16: reverted previous change and fixed close icon size
+
 ## 3.1.2
 
 ### Patch Changes
