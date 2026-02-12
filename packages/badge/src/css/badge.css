@@ -20,7 +20,8 @@
     --badge-close-align-items: center;
     --badge-close-justify-content: center;
     --badge-close-dark-hover-color: var(--badge-color);
-    --badge-close-icon-size: 0.75em;
+    --badge-close-icon-width: 1em;
+    --badge-close-icon-height: 1em;
 
     --badge-inner-display: inline-flex;
     --badge-inner-align-items: center;
@@ -69,8 +70,8 @@
 
         & svg,
         & > :first-child {
-            width: var(--badge-close-icon-size);
-            height: var(--badge-close-icon-size);
+            width: var(--badge-close-icon-width);
+            height: var(--badge-close-icon-height);
         }
 
         &:hover {
