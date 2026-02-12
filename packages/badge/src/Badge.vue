@@ -3,11 +3,12 @@ import { XMarkIcon } from '@heroicons/vue/24/outline';
 import type { ComponentSize } from '@vue-interface/sizeable';
 
 export type BadgeSizePrefix = 'badge';
+export type BadgeSize = ComponentSize<BadgeSizePrefix>;
 
 withDefaults(defineProps<{
     closeable?: boolean;
     closeLeft?: boolean;
-    size?: ComponentSize<BadgeSizePrefix>;
+    size?: BadgeSize;
 }>(), {
     closeable: false,
     closeLeft: false,
