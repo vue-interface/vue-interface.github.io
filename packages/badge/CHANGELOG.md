@@ -1,5 +1,12 @@
 # @vue-interface/badge
 
+## 3.1.4
+
+### Patch Changes
+
+- 91cd541: Added type alias for size prop
+- 7f1623e: Added types to package exports
+
 ## 3.1.3
 
 ### Patch Changes
