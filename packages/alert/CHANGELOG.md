@@ -1,5 +1,11 @@
 # @vue-interface/alert
 
+## 4.0.2
+
+### Patch Changes
+
+- 4d7cd81: Modified alert-outline styles to match desired usage
+
 ## 4.0.1
 
 ### Patch Changes
