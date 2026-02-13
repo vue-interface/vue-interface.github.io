@@ -1,5 +1,11 @@
 # @vue-interface/activity-indicator
 
+## 3.0.8
+
+### Patch Changes
+
+- d598393: added type alias to size prop
+
 ## 3.0.7
 
 ### Patch Changes

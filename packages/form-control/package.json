@@ -1,6 +1,6 @@
 {
   "name": "@vue-interface/form-control",
-  "version": "2.0.18",
+  "version": "2.0.19",
   "description": "An abstract form control Vue mixin.",
   "type": "module",
   "main": "./dist/form-control.umd.cjs",
