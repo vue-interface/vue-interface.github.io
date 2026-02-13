@@ -4,6 +4,7 @@ import { CheckCircleIcon, ExclamationCircleIcon, ExclamationTriangleIcon, Inform
 import { ComponentSize } from '@vue-interface/sizeable';
 
 export type ModalSizePrefix = 'modal';
+export type ModalSize = ComponentSize<ModalSizePrefix>;
 
 export type ModalProps = {
     buttonBlock?: boolean,
@@ -19,7 +20,7 @@ export type ModalProps = {
     title?: string | Component;
     trigger?: string | Element | (() => Element);
     type?: 'info' | 'warning' | 'critical' | 'danger' | 'success';
-    size?: ComponentSize<ModalSizePrefix>;
+    size?: ModalSize;
     buttons?: (context: ModalContext) => any;
     colors?: {
         info?: string;

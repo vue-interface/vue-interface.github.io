@@ -2,10 +2,11 @@
 import { type Component } from 'vue';
 import { ComponentSize } from '@vue-interface/sizeable';
 
-export type ActivityIndicatorSizePrefix = 'activity-indicator'; 
+export type ActivityIndicatorSizePrefix = 'activity-indicator';
+export type ActivityIndicatorSize = ComponentSize<ActivityIndicatorSizePrefix>;
 
 withDefaults(defineProps<{
-    size?: ComponentSize<ActivityIndicatorSizePrefix>;
+    size?: ActivityIndicatorSize;
     type: Component;
 }>(), {
     size: 'activity-indicator-md'

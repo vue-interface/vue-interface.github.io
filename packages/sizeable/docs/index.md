@@ -40,10 +40,11 @@ import type { ComponentSize } from '@vue-interface/sizeable';
 
 // 1. Define your component's size prefix
 export type BadgeSizePrefix = 'badge';
+export type BadgeSize = ComponentSize<BadgeSizePrefix>
 
 // 2. Use ComponentSize with your prefix in defineProps
 withDefaults(defineProps<{
-    size?: ComponentSize<BadgeSizePrefix>;
+    size?: BadgeSize;
 }>(), {
     // 3. Set a default value (optional)
     size: 'badge-md'
