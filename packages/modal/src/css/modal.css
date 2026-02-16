@@ -92,12 +92,15 @@
     
     /* Modal Title */
     --modal-title-font-weight: 600;
+    --modal-title-padding-x: 0.25rem;
 
     /* Modal Body */
     --modal-body-max-height: calc(var(--modal-container-max-width) / 2);
     --modal-body-height: 100%;
     --modal-body-overflow-y: auto;
     --modal-body-margin-top: 0.5rem;
+    --modal-body-padding-x: 0.25rem;
+    --modal-body-padding-bottom: 0.25rem;
 
     /* Modal Footer */
     --modal-footer-width: 100%;
@@ -254,10 +257,15 @@
 
             >.modal-title {
                 font-weight: var(--modal-title-font-weight);
+                padding-left: var(--modal-title-padding-x);
+                padding-right: var(--modal-title-padding-x);
             }
 
             >.modal-body {
                 margin-top: var(--modal-body-margin-top);
+                padding-left: var(--modal-body-padding-x);
+                padding-right: var(--modal-body-padding-x);
+                padding-bottom: var(--modal-body-padding-bottom);
                 height: var(--modal-body-height);
                 max-height: var(--modal-body-max-height);
                 overflow-y: var(--modal-body-overflow-y);

@@ -234,7 +234,7 @@ const attrs = useAttrs();
                                 type="button"
                                 class="modal-close-button"
                                 @click="close()">
-                                <XMarkIcon />
+                                <XMarkIcon class="size-[1.25em]" />
                             </button>
                         </template>
                     </slot>
