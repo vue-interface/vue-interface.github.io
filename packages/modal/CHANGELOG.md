@@ -1,5 +1,11 @@
 # @vue-interface/modal
 
+## 4.0.0
+
+### Major Changes
+
+- 4b069b7: Added preventDefault event and fixed overflow bugs
+
 ## 3.0.13
 
 ### Patch Changes
