@@ -127,6 +127,8 @@ export type FormGroupClasses = {
     'is-empty': boolean;
     'is-invalid': boolean;
     'is-valid': boolean;
+    'invalid-feedback': boolean;
+    'valid-feedback': boolean;
 } & Record<string, boolean>
 
 export type FormControlAttributes<Prefix extends string, ModelValue> = {
@@ -254,6 +256,8 @@ export function useFormControl<
         'is-invalid': isInvalid.value,
         'is-dirty': isDirty.value,
         'is-empty': isEmpty.value,
+        'invalid-feedback': isInvalid.value,
+        'valid-feedback': isValid.value,
     }, typeof props.size === 'string' ? { [props.size]: true } : props.size));
 
     const controlClasses = computed<FormControlClasses<Size>>(() => Object.assign({
