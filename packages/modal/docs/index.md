@@ -65,7 +65,7 @@ bun i @vue-interface/modal
 <<< ../index.html#close{js}
 
 ::: tip 
-Remove the `close-button` boolean prop to remove the "x" close button in the top right corner.
+Remove the `close-button` prop to remove the "x" close button in the top right corner.
 :::
 
 ## Types

@@ -4,15 +4,17 @@ import { ref, watch, watchEffect, type Component, type Ref } from 'vue';
 import type { ComponentSize } from '@vue-interface/sizeable';
 
 export type BtnSizePrefix = 'btn';
+export type IndicatorSize = ComponentSize<ActivityIndicatorSizePrefix>;
+export type BtnSize = ComponentSize<BtnSizePrefix>;
 
 export type BtnActivityProps = {
     activity?: boolean;
     indicator: Component;
-    indicatorSize?: ComponentSize<ActivityIndicatorSizePrefix>;
+    indicatorSize?: IndicatorSize;
     label?: string;
     placement?: 'top' | 'bottom' | 'left' | 'right';
     variant?: string;
-    size?: ComponentSize<BtnSizePrefix>;
+    size?: BtnSize;
     block?: boolean;  
     disabled?: boolean;
 };

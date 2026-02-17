@@ -1,6 +1,6 @@
 {
   "name": "@vue-interface/modal",
-  "version": "3.0.12",
+  "version": "4.0.0",
   "description": "A Vue modal component.",
   "type": "module",
   "main": "./dist/modal.umd.cjs",

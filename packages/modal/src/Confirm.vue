@@ -32,17 +32,20 @@ const modalProps = computed(() => {
 });
 
 const emit = defineEmits<{
-    confirm: [button: HTMLButtonElement, context: ModalContext]
+    confirm: [event: MouseEvent, button: HTMLButtonElement, context: ModalContext]
 }>();
 
 const modal = useTemplateRef<InstanceType<typeof Modal>>('modal');
 const cancelButton = useTemplateRef<HTMLButtonElement>('cancelButton');
 const confirmButton = useTemplateRef<HTMLButtonElement>('confirmButton');
 
-function handleConfirm(context: ModalContext) {
+function handleConfirm(event: MouseEvent, context: ModalContext) {
     if (confirmButton.value) {
-        emit('confirm', confirmButton.value, context);
-        context.close();
+        emit('confirm', event, confirmButton.value, context);
+
+        if (!event.defaultPrevented) {
+            context.close();
+        }
     }
 }
 
@@ -84,7 +87,7 @@ defineExpose({
                     'btn-danger': type === 'critical' || type === 'danger',
                     'btn-success': type === 'success',
                 }"
-                @click="handleConfirm(context)">
+                @click="handleConfirm($event, context)">
                 {{ confirmLabel }}
             </button>
         </template>

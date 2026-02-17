@@ -1,5 +1,19 @@
 # @vue-interface/modal
 
+## 4.0.0
+
+### Major Changes
+
+- 4b069b7: Added preventDefault event and fixed overflow bugs
+
+## 3.0.13
+
+### Patch Changes
+
+- d598393: added type alias to size prop
+- Updated dependencies [d598393]
+  - @vue-interface/activity-indicator@3.0.8
+
 ## 3.0.12
 
 ### Patch Changes

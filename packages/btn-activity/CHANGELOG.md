@@ -1,5 +1,13 @@
 # @vue-interface/btn-activity
 
+## 4.0.10
+
+### Patch Changes
+
+- d598393: added type alias to size prop
+- Updated dependencies [d598393]
+  - @vue-interface/activity-indicator@3.0.8
+
 ## 4.0.9
 
 ### Patch Changes
