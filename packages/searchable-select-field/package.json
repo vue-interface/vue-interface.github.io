@@ -1,6 +1,6 @@
 {
   "name": "@vue-interface/searchable-select-field",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A Vue searchable select field component.",
   "type": "module",
   "main": "./dist/searchable-select-field.umd.cjs",
