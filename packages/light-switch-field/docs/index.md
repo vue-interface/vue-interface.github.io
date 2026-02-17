@@ -162,16 +162,18 @@ Customize the color of a `light-switch-field` component with the [Tailwind color
 
 Validation classes provides error-checking styling for the `light-switch-field` component. The `invalid-feedback` and `valid-feedback` classes provide the styling for invalid and valid elements, respectively. 
 
+<div class="flex flex-col gap-2">
 <!-- #region validation -->
-<LightSwitchField label="Empty Array of Errors" :errors="[]" class="mb-3"></LightSwitchField>
-<LightSwitchField label="Single Inline Error" error="This is an inline error." class="mb-3" invalid></LightSwitchField>
-<LightSwitchField label="Array of Errors" :errors="['First Error', 'Second Error']" class="mb-3" invalid></LightSwitchField>
-<LightSwitchField name="test" label="Multiple Errors From Object" :errors="{'test': ['This is an inline error #1.', 'This is an inline error #2.']}" class="mb-3" invalid></LightSwitchField>
+<LightSwitchField label="Empty Array of Errors" :errors="[]"></LightSwitchField>
+<LightSwitchField label="Single Inline Error" error="This is an inline error." invalid></LightSwitchField>
+<LightSwitchField label="Array of Errors" :errors="['First Error', 'Second Error']" invalid></LightSwitchField>
+<LightSwitchField name="test" label="Multiple Errors From Object" :errors="{'test': ['This is an inline error #1.', 'This is an inline error #2.']}" invalid></LightSwitchField>
 
 <LightSwitchField label="Valid Field" valid class="mb-3 valid-feedback"></LightSwitchField>
-<LightSwitchField label="Valid Field with Feedback" valid feedback="This is some success message." class="mb-3" valid></LightSwitchField>
-<LightSwitchField label="Valid Field with Array of Feedback" valid :feedback="['This is some success message.', 'This is some success message.']" class="mb-3"></LightSwitchField>
+<LightSwitchField label="Valid Field with Feedback" valid feedback="This is some success message."></LightSwitchField>
+<LightSwitchField label="Valid Field with Array of Feedback" valid :feedback="['This is some success message.', 'This is some success message.']"></LightSwitchField>
 <!-- #endregion validation -->
+</div>
 
 ::: details Show Code
 <<< ./index.md#validation{html}
