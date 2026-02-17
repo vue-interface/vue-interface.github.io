@@ -93,6 +93,7 @@
     /* Modal Title */
     --modal-title-font-weight: 600;
     --modal-title-padding-x: 0.25rem;
+    --modal-title-font-size: var(--modal-font-size-md, --spacing(4));
 
     /* Modal Body */
     --modal-body-max-height: calc(var(--modal-container-max-width) / 2);
@@ -101,6 +102,7 @@
     --modal-body-margin-top: 0.5rem;
     --modal-body-padding-x: 0.25rem;
     --modal-body-padding-bottom: 0.25rem;
+    --modal-body-font-size: var(--modal-font-size-md, --spacing(4));
 
     /* Modal Footer */
     --modal-footer-width: 100%;
@@ -243,11 +245,11 @@
         
             /* get rid of these? dont seem to affect anything */
             /* Add these properties to fix the overflow issue */
-            width: 100%;
+            /* width: 100%;
             max-width: 100%;
             word-wrap: break-word;
             overflow-wrap: break-word;
-            min-width: 0; /* Important for flex items to shrink */
+            min-width: 0;  *//* Important for flex items to shrink */
         
             @media (min-width: 640px) { 
                 height: var(--modal-header-text-resize-height);
@@ -259,6 +261,7 @@
                 font-weight: var(--modal-title-font-weight);
                 padding-left: var(--modal-title-padding-x);
                 padding-right: var(--modal-title-padding-x);
+                font-size: var(--modal-title-font-size);
             }
 
             >.modal-body {
@@ -269,6 +272,7 @@
                 height: var(--modal-body-height);
                 max-height: var(--modal-body-max-height);
                 overflow-y: var(--modal-body-overflow-y);
+                font-size: var(--modal-body-font-size);
             }
         }
     }
@@ -364,6 +368,28 @@
 
     .modal-container {
         height: var(--modal-max-height);
+    }
+}
+
+@utility modal-header-text-* {
+    .modal-header {
+        .modal-header-text {
+            .modal-title {
+                font-size: --value(--modal-font-size-*, [length], [percentage]);
+                font-size: calc(--spacing(--value(number)));
+            }
+        }
+    }
+}
+
+@utility modal-body-text-* {
+    .modal-header {
+        .modal-header-text {
+            .modal-body {
+                font-size: --value(--modal-font-size-*, [length], [percentage]);
+                font-size: calc(--spacing(--value(number)));
+            }
+        }
     }
 }
 

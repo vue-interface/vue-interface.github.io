@@ -4,7 +4,11 @@ import { CheckCircleIcon, ExclamationCircleIcon, ExclamationTriangleIcon, Inform
 import { ComponentSize } from '@vue-interface/sizeable';
 
 export type ModalSizePrefix = 'modal';
+export type ModalHeaderTextSizePrefix = 'modal-header-text';
+export type ModalBodyTextSizePrefix = 'modal-body-text';
 export type ModalSize = ComponentSize<ModalSizePrefix>;
+export type ModalHeaderTextSize = ComponentSize<ModalHeaderTextSizePrefix>;
+export type ModalBodyTextSize = ComponentSize<ModalBodyTextSizePrefix>;
 
 export type ModalProps = {
     buttonBlock?: boolean,
@@ -21,6 +25,8 @@ export type ModalProps = {
     trigger?: string | Element | (() => Element);
     type?: 'info' | 'warning' | 'critical' | 'danger' | 'success';
     size?: ModalSize;
+    headerSize?: ModalHeaderTextSize;
+    bodySize?: ModalBodyTextSize;
     buttons?: (context: ModalContext) => any;
     colors?: {
         info?: string;
@@ -199,7 +205,7 @@ const attrs = useAttrs();
             :class="[
                 {[colors[props.type] ?? '']: !attrs.class && colors[type], 
                  show: showing}, 
-                size]"
+                size, headerSize, bodySize]"
             v-bind="$attrs"
             aria-labelledby="modal"
             role="dialog"

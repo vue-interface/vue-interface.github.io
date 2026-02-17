@@ -9,4 +9,15 @@
     --modal-size-3xl: --spacing(225);  /* 900px */
     --modal-size-4xl: --spacing(250);  /* 1000px */
     --modal-size-5xl: --spacing(275);  /* 1100px */
+
+    --modal-font-size-2xs: --spacing(1);
+    --modal-font-size-xs: --spacing(2);
+    --modal-font-size-sm: --spacing(3);
+    --modal-font-size-md: --spacing(4);
+    --modal-font-size-lg: --spacing(5);
+    --modal-font-size-xl: --spacing(6);
+    --modal-font-size-2xl: --spacing(7);
+    --modal-font-size-3xl: --spacing(8);
+    --modal-font-size-4xl: --spacing(9);
+    --modal-font-size-5xl: --spacing(10);
 }
