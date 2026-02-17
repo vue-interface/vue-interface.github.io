@@ -1,5 +1,11 @@
 # @vue-interface/form-control
 
+## 2.0.20
+
+### Patch Changes
+
+- dc65e84: Fixed issue with valid/invalid not coloring the form label
+
 ## 2.0.19
 
 ### Patch Changes

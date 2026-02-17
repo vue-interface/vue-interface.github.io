@@ -1,5 +1,13 @@
 # @vue-interface/searchable-select-field
 
+## 1.0.3
+
+### Patch Changes
+
+- Updated dependencies [dc65e84]
+  - @vue-interface/form-control@2.0.20
+  - @vue-interface/input-field@2.0.21
+
 ## 1.0.2
 
 ### Patch Changes

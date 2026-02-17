@@ -1,5 +1,12 @@
 # @vue-interface/select-field
 
+## 2.0.20
+
+### Patch Changes
+
+- Updated dependencies [dc65e84]
+  - @vue-interface/form-control@2.0.20
+
 ## 2.0.19
 
 ### Patch Changes
