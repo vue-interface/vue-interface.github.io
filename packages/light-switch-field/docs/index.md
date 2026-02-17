@@ -164,13 +164,13 @@ Validation classes provides error-checking styling for the `light-switch-field` 
 
 <!-- #region validation -->
 <LightSwitchField label="Empty Array of Errors" :errors="[]" class="mb-3"></LightSwitchField>
-<LightSwitchField label="Single Inline Error" error="This is an inline error." class="mb-3 invalid-feedback"></LightSwitchField>
-<LightSwitchField label="Array of Errors" :errors="['First Error', 'Second Error']" class="mb-3 invalid-feedback"></LightSwitchField>
-<LightSwitchField name="test" label="Multiple Errors From Object" :errors="{'test': ['This is an inline error #1.', 'This is an inline error #2.']}" class="mb-3 invalid-feedback"></LightSwitchField>
+<LightSwitchField label="Single Inline Error" error="This is an inline error." class="mb-3" invalid></LightSwitchField>
+<LightSwitchField label="Array of Errors" :errors="['First Error', 'Second Error']" class="mb-3" invalid></LightSwitchField>
+<LightSwitchField name="test" label="Multiple Errors From Object" :errors="{'test': ['This is an inline error #1.', 'This is an inline error #2.']}" class="mb-3" invalid></LightSwitchField>
 
 <LightSwitchField label="Valid Field" valid class="mb-3 valid-feedback"></LightSwitchField>
-<LightSwitchField label="Valid Field with Feedback" valid feedback="This is some success message." class="mb-3 valid-feedback"></LightSwitchField>
-<LightSwitchField label="Valid Field with Array of Feedback" valid :feedback="['This is some success message.', 'This is some success message.']" class="mb-3 valid-feedback"></LightSwitchField>
+<LightSwitchField label="Valid Field with Feedback" valid feedback="This is some success message." class="mb-3" valid></LightSwitchField>
+<LightSwitchField label="Valid Field with Array of Feedback" valid :feedback="['This is some success message.', 'This is some success message.']" class="mb-3"></LightSwitchField>
 <!-- #endregion validation -->
 
 ::: details Show Code

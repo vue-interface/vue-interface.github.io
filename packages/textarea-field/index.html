@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>TextareaField</title>
+        <title>textarea-field</title>
     </head>
     <body class="dark:bg-neutral-900 dark:text-white">
         <form id="app" class="container mx-auto">
@@ -111,13 +111,13 @@
             <h2 class="text-2xl mt-6 mb-3">Validation</h2>
 
             <textarea-field label="Empty Array of Errors" :errors="[]" class="mb-3"></textarea-field>
-            <textarea-field label="Single Inline Error" error="This is an inline error." class="mb-3 invalid-feedback"></textarea-field>
-            <textarea-field label="Array of Errors" :errors="['First Error', 'Second Error']" class="mb-3 invalid-feedback"></textarea-field>
-            <textarea-field name="test" label="Multiple Errors From Object" :errors="{'test': ['This is an inline error #1.', 'This is an inline error #2.']}" class="mb-3 invalid-feedback"></textarea-field>
-    
-            <textarea-field label="Valid Field" valid class="mb-3 valid-feedback"></textarea-field>
-            <textarea-field label="Valid Field with Feedback" valid feedback="This is some success message." class="mb-3 valid-feedback"></textarea-field>
-            <textarea-field label="Valid Field with Array of Feedback" valid :feedback="['This is some success message.', 'This is some success message.']" class="mb-3 valid-feedback"></textarea-field>
+            <textarea-field label="Single Inline Error" error="This is an inline error." class="mb-3" invalid></textarea-field>
+            <textarea-field label="Array of Errors" :errors="['First Error', 'Second Error']" class="mb-3" invalid></textarea-field>
+            <textarea-field name="test" label="Multiple Errors From Object" :errors="{'test': ['This is an inline error #1.', 'This is an inline error #2.']}" class="mb-3" invalid></textarea-field>
+                    
+            <textarea-field label="Valid Field" valid class="mb-3"></textarea-field>
+            <textarea-field label="Valid Field with Feedback" valid feedback="This is some success message." class="mb-3"></textarea-field>
+            <textarea-field label="Valid Field with Array of Feedback" valid :feedback="['This is some success message.', 'This is some success message.']" class="mb-3"></textarea-field>
             
             <h2 class="text-2xl mt-6 mb-3">Animated Labels</h2>
 

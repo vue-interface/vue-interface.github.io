@@ -387,42 +387,42 @@ Validation classes provides error-checking styling for the select-field componen
     <option value="3">Option 3</option>
 </SelectField>
 
-<SelectField label="Single Inline Error" error="This is an inline error." class="mb-3 invalid-feedback">
+<SelectField label="Single Inline Error" error="This is an inline error." class="mb-3" invalid>
     <option value=""></option>
     <option value="1">Option 1</option>
     <option value="2">Option 2</option>
     <option value="3">Option 3</option>
 </SelectField>
 
-<SelectField label="Array of Errors" :errors="['First Error', 'Second Error']" class="mb-3 invalid-feedback">
+<SelectField label="Array of Errors" :errors="['First Error', 'Second Error']" class="mb-3" invalid>
     <option value=""></option>
     <option value="1">Option 1</option>
     <option value="2">Option 2</option>
     <option value="3">Option 3</option>
 </SelectField>
 
-<SelectField name="test" label="Multiple Errors From Object" :errors="{'test': ['This is an inline error #1.', 'This is an inline error #2.']}" class="mb-3 invalid-feedback">
+<SelectField name="test" label="Multiple Errors From Object" :errors="{'test': ['This is an inline error #1.', 'This is an inline error #2.']}" class="mb-3" invalid>
     <option value=""></option>
     <option value="1">Option 1</option>
     <option value="2">Option 2</option>
     <option value="3">Option 3</option>
 </SelectField>
 
-<SelectField label="Valid Field" valid class="mb-3 valid-feedback">
+<SelectField label="Valid Field" valid class="mb-3">
     <option value=""></option>
     <option value="1">Option 1</option>
     <option value="2">Option 2</option>
     <option value="3">Option 3</option>
 </SelectField>
 
-<SelectField label="Valid Field with Feedback" valid feedback="This is some success message." class="mb-3 valid-feedback">
+<SelectField label="Valid Field with Feedback" valid feedback="This is some success message." class="mb-3">
     <option value=""></option>
     <option value="1">Option 1</option>
     <option value="2">Option 2</option>
     <option value="3">Option 3</option>
 </SelectField>
 
-<SelectField label="Valid Field with Array of Feedback" valid :feedback="['This is some success message.', 'This is some success message.']" class="mb-3 valid-feedback">
+<SelectField label="Valid Field with Array of Feedback" valid :feedback="['This is some success message.', 'This is some success message.']" class="mb-3">
     <option value=""></option>
     <option value="1">Option 1</option>
     <option value="2">Option 2</option>

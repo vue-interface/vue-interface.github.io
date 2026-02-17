@@ -261,13 +261,13 @@ Validation classes provides error-checking styling for the textarea-field compon
 
 <!-- #region validation -->
 <TextareaField label="Empty Array of Errors" :errors="[]" class="mb-3"></TextareaField>
-<TextareaField label="Single Inline Error" error="This is an inline error." class="mb-3 invalid-feedback"></TextareaField>
-<TextareaField label="Array of Errors" :errors="['First Error', 'Second Error']" class="mb-3 invalid-feedback"></TextareaField>
-<TextareaField name="test" label="Multiple Errors From Object" :errors="{'test': ['This is an inline error #1.', 'This is an inline error #2.']}" class="mb-3 invalid-feedback"></TextareaField>
+<TextareaField label="Single Inline Error" error="This is an inline error." class="mb-3" invalid></TextareaField>
+<TextareaField label="Array of Errors" :errors="['First Error', 'Second Error']" class="mb-3" invalid></TextareaField>
+<TextareaField name="test" label="Multiple Errors From Object" :errors="{'test': ['This is an inline error #1.', 'This is an inline error #2.']}" class="mb-3" invalid></TextareaField>
 
-<TextareaField label="Valid Field" valid class="mb-3 valid-feedback"></TextareaField>
-<TextareaField label="Valid Field with Feedback" valid feedback="This is some success message." class="mb-3 valid-feedback"></TextareaField>
-<TextareaField label="Valid Field with Array of Feedback" valid :feedback="['This is some success message.', 'This is some success message.']" class="mb-3 valid-feedback"></TextareaField>
+<TextareaField label="Valid Field" valid class="mb-3"></TextareaField>
+<TextareaField label="Valid Field with Feedback" valid feedback="This is some success message." class="mb-3"></TextareaField>
+<TextareaField label="Valid Field with Array of Feedback" valid :feedback="['This is some success message.', 'This is some success message.']" class="mb-3"></TextareaField>
 <!-- #endregion validation -->
 
 ::: details Show Code

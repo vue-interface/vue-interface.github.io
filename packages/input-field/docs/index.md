@@ -238,18 +238,16 @@ Combine [activity indicators](/packages/activity-indicator/) with `input-fields`
 
 ## Validation
 
-Validation classes provides error-checking styling for the input-field component. The `invalid-feedback` and `valid-feedback` classes provide the styling for invalid and valid elements, respectively. 
-
 <!-- #region validation -->
 <InputField label="Empty Array of Errors" :errors="[]" class="mb-3"></InputField>
 
-<InputField label="Single Inline Error" error="This is an inline error." class="mb-3 invalid-feedback"></InputField>
-<InputField label="Array of Errors" :errors="['First Error', 'Second Error']" class="mb-3 invalid-feedback"></InputField>
-<InputField name="test" label="Multiple Errors From Object" :errors="{'test': ['This is an inline error #1.', 'This is an inline error #2.']}" class="mb-3 invalid-feedback"></InputField>
+<InputField label="Single Inline Error" error="This is an inline error." class="mb-3" invalid></InputField>
+<InputField label="Array of Errors" :errors="['First Error', 'Second Error']" class="mb-3" invalid></InputField>
+<InputField name="test" label="Multiple Errors From Object" :errors="{'test': ['This is an inline error #1.', 'This is an inline error #2.']}" class="mb-3" invalid></InputField>
         
-<InputField label="Valid Field" valid class="mb-3 valid-feedback"></InputField>
-<InputField label="Valid Field with Feedback" valid feedback="This is some success message." class="mb-3 valid-feedback"></InputField>
-<InputField label="Valid Field with Array of Feedback" valid :feedback="['This is some success message.', 'This is some success message.']" class="mb-3 valid-feedback"></InputField>
+<InputField label="Valid Field" valid class="mb-3"></InputField>
+<InputField label="Valid Field with Feedback" valid feedback="This is some success message." class="mb-3"></InputField>
+<InputField label="Valid Field with Array of Feedback" valid :feedback="['This is some success message.', 'This is some success message.']" class="mb-3"></InputField>
 <!-- #endregion validation -->
 
 ::: details Show Code

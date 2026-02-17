@@ -205,43 +205,41 @@ For precise sizing, specify exact pixel values using the syntax `form-check-[Npx
 
 ## Validation
 
+<div class="flex flex-col gap-3">
 <!-- #region validation -->
 <CheckboxField 
     label="Empty Array of Errors" 
-    :errors="[]" 
-    class="mb-3">
+    :errors="[]">
 </CheckboxField>
 
 <CheckboxField 
     label="Single Inline Error" 
-    class="mb-3 invalid-feedback" 
-    error="This is an inline error.">
+    error="This is an inline error."
+    invalid>
 </CheckboxField>
 <CheckboxField 
-    name="multiple" 
-    class="mb-3 invalid-feedback" 
+    name="multiple"
     label="Multiple Errors From Object" 
-    :errors="{'multiple': ['This is an inline error #1.', 'This is an inline error #2.']}">
+    :errors="{'multiple': ['This is an inline error #1.', 'This is an inline error #2.']}"
+    invalid>
 </CheckboxField>
         
 <CheckboxField 
     label="Valid Field" 
-    valid 
-    class="mb-3 valid-feedback">
+    valid>
 </CheckboxField>
 <CheckboxField 
     label="Valid Field with Feedback" 
     valid 
-    feedback="This is some success message." 
-    class="mb-3 valid-feedback">
+    feedback="This is some success message.">
 </CheckboxField>            
 <CheckboxField 
     label="Valid Field with Array of Feedback" 
     valid 
-    :feedback="['This is some success message.', 'This is some success message.']" 
-    class="mb-3 valid-feedback">
+    :feedback="['This is some success message.', 'This is some success message.']">
 </CheckboxField>
 <!-- #endregion validation -->
+</div>
 
 ::: details Show Code
 <<< ./index.md#validation{html}

@@ -47,12 +47,12 @@
 
         <div class="flex flex-col gap-4 mb-4">
             <searchable-select-field v-model="selected" :options="options" label="Empty Array of errors" :errors="[]"></searchable-select-field>
-            <searchable-select-field :options="options" invalid label="Single Inline Error" error="This is an inline error." class="invalid-feedback"></searchable-select-field>
-            <searchable-select-field :options="options" invalid label="Array of Errors" :errors="['First Error', 'Second Error']" class="invalid-feedback"></searchable-select-field>
-            <searchable-select-field :options="options" invalid label="Multiple Errors From Object" :errors="['This is an inline error #1.', 'This is an inline error #2.']" class="invalid-feedback"></searchable-select-field>
-            <searchable-select-field :options="options" valid label="Valid Field" class="valid-feedback"></searchable-select-field>
-            <searchable-select-field :options="options" valid label="Valid Field with Feedback" feedback="This is some success message." class="valid-feedback"></searchable-select-field>
-            <searchable-select-field :options="options" valid label="Valid Field with Array of Feedback" :feedback="['This is some success message.', 'This is some success message.']" class="valid-feedback"></searchable-select-field>
+            <searchable-select-field :options="options" invalid label="Single Inline Error" error="This is an inline error."></searchable-select-field>
+            <searchable-select-field :options="options" invalid label="Array of Errors" :errors="['First Error', 'Second Error']"></searchable-select-field>
+            <searchable-select-field :options="options" invalid label="Multiple Errors From Object" :errors="['This is an inline error #1.', 'This is an inline error #2.']"></searchable-select-field>
+            <searchable-select-field :options="options" valid label="Valid Field"></searchable-select-field>
+            <searchable-select-field :options="options" valid label="Valid Field with Feedback" feedback="This is some success message."></searchable-select-field>
+            <searchable-select-field :options="options" valid label="Valid Field with Array of Feedback" :feedback="['This is some success message.', 'This is some success message.']"></searchable-select-field>
         </div>
 
         <h2 class="text-2xl mb-3">Custom Colors</h2>

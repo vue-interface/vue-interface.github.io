@@ -1,5 +1,5 @@
 ---
-title: Input Field
+title: Radio Field
 ---
 
 <script setup>
@@ -150,12 +150,12 @@ For precise sizing, specify exact pixel values using the syntax `form-check-[Npx
 
 <!-- #region validation -->
 <RadioField label="Empty Array of Errors" value="true" :errors="[]" class="mb-3"></RadioField>
-<RadioField label="Single Inline Error" value="true" class="mb-3 invalid-feedback" error="This is an inline error."></RadioField>
-<RadioField name="multiple" value="true" class="mb-3 invalid-feedback" label="Multiple Errors From Object" :errors="{'multiple': ['This is an inline error #1.', 'This is an inline error #2.']}"></RadioField>
+<RadioField label="Single Inline Error" value="true" class="mb-3" valid error="This is an inline error."></RadioField>
+<RadioField name="multiple" value="true" class="mb-3" invalid label="Multiple Errors From Object" :errors="{'multiple': ['This is an inline error #1.', 'This is an inline error #2.']}"></RadioField>
     
-<RadioField label="Valid Field" value="true" valid class="mb-3 valid-feedback"></RadioField>
-<RadioField label="Valid Field with Feedback" value="true" valid feedback="This is some success message." class="mb-3 valid-feedback"></RadioField>
-<RadioField label="Valid Field with Array of Feedback" value="true" valid :feedback="['This is some success message.', 'This is some success message.']" class="mb-3 valid-feedback"></RadioField>
+<RadioField label="Valid Field" value="true" valid class="mb-3"></RadioField>
+<RadioField label="Valid Field with Feedback" value="true" valid feedback="This is some success message." class="mb-3"></RadioField>
+<RadioField label="Valid Field with Array of Feedback" value="true" valid :feedback="['This is some success message.', 'This is some success message.']" class="mb-3"></RadioField>
 <!-- #endregion validation -->
 
 ::: details Show Code

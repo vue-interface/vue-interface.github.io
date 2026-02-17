@@ -71,13 +71,13 @@
             <h2 class="text-2xl mt-6 mb-3">Validation</h2>
 
             <light-switch-field label="Empty Array of Errors" :errors="[]" class="mb-3"></light-switch-field>
-            <light-switch-field label="Single Inline Error" error="This is an inline error." class="mb-3 invalid-feedback"></light-switch-field>
-            <light-switch-field label="Array of Errors" :errors="['First Error', 'Second Error']" class="mb-3 invalid-feedback"></light-switch-field>
-            <light-switch-field name="test" label="Multiple Errors From Object" :errors="{'test': ['This is an inline error #1.', 'This is an inline error #2.']}" class="mb-3 invalid-feedback"></light-switch-field>
+            <light-switch-field label="Single Inline Error" error="This is an inline error." class="mb-3" invalid></light-switch-field>
+            <light-switch-field label="Array of Errors" :errors="['First Error', 'Second Error']" class="mb-3" invalid></light-switch-field>
+            <light-switch-field name="test" label="Multiple Errors From Object" :errors="{'test': ['This is an inline error #1.', 'This is an inline error #2.']}" class="mb-3" invalid></light-switch-field>
 
-            <light-switch-field label="Valid Field" valid class="mb-3 valid-feedback"></light-switch-field>
-            <light-switch-field label="Valid Field with Feedback" valid feedback="This is some success message." class="mb-3 valid-feedback"></light-switch-field>
-            <light-switch-field label="Valid Field with Array of Feedback" valid :feedback="['This is some success message.', 'This is some success message.']" class="mb-3 valid-feedback"></light-switch-field>
+            <light-switch-field label="Valid Field" valid class="mb-3"></light-switch-field>
+            <light-switch-field label="Valid Field with Feedback" valid feedback="This is some success message." class="mb-3"></light-switch-field>
+            <light-switch-field label="Valid Field with Array of Feedback" valid :feedback="['This is some success message.', 'This is some success message.']" class="mb-3"></light-switch-field>
 
         </form>
 
