@@ -65,12 +65,12 @@
         <h3 class="text-3xl mb-3">Validation</h3>
 
         <radio-field label="Empty Array of Errors" value="true" :errors="[]" class="mb-3"></radio-field>
-        <radio-field label="Single Inline Error" value="true" class="mb-3 invalid-feedback" error="This is an inline error."></radio-field>
-        <radio-field name="multiple" value="true" class="mb-3 invalid-feedback" label="Multiple Errors From Object" :errors="{'multiple': ['This is an inline error #1.', 'This is an inline error #2.']}"></radio-field>
+        <radio-field label="Single Inline Error" value="true" class="mb-3" invalid error="This is an inline error."></radio-field>
+        <radio-field name="multiple" value="true" class="mb-3" invalid label="Multiple Errors From Object" :errors="{'multiple': ['This is an inline error #1.', 'This is an inline error #2.']}"></radio-field>
     
         <radio-field label="Valid Field" value="true" valid class="mb-3 valid-feedback"></radio-field>
-        <radio-field label="Valid Field with Feedback" value="true" valid feedback="This is some success message." class="mb-3 valid-feedback"></radio-field>
-        <radio-field label="Valid Field with Array of Feedback" value="true" valid :feedback="['This is some success message.', 'This is some success message.']" class="mb-3 valid-feedback"></radio-field>
+        <radio-field label="Valid Field with Feedback" value="true" valid feedback="This is some success message." class="mb-3"></radio-field>
+        <radio-field label="Valid Field with Array of Feedback" value="true" valid :feedback="['This is some success message.', 'This is some success message.']" class="mb-3"></radio-field>
     </form>
 
     <script type="module">
