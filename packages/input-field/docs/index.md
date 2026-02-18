@@ -53,6 +53,18 @@ bun i @vue-interface/input-field
 @import '@vue-interface/input-field/index.css';
 ```
 
+## Basic Usage
+
+<!-- #region basicUsage -->
+<InputField label="Input Field" placeholder="Placeholder" clearable></InputField>
+<!-- #endregion basicUsage -->
+
+<<< ./index.md#basicUsage{html}
+
+::: info 
+The `clearable` prop adds an "X" on the right side of the input-field to clear the input.
+:::
+
 ## Variations and States
 
 <!-- #region variations -->

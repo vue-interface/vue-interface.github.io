@@ -26,7 +26,7 @@
     --form-control-dark-color: var(--form-dark-color, oklch(98.5% 0.002 247.839));
 
     --form-control-focus-dark-background-color: var(--form-dark-background-color, oklch(37.1% 0 0));
-    
+
     /* Focus state */
     --form-control-focus-color: var(--form-focus-color, oklch(37.1% 0 0));
     --form-control-focus-background-color: var(--form-focus-background-color, #fff);
@@ -52,7 +52,7 @@
 
     /* Form-control-inner */
     --form-control-inner-position: relative;
-    
+
     --form-control-inner-icon-position: absolute;
     --form-control-inner-icon-top: 50%;
     --form-control-inner-icon-left: 0.5em;
@@ -84,7 +84,7 @@
     --form-control-plaintext-width: var(--form-plaintext-width, 100%);
     --form-control-plaintext-margin: var(--form-plaintext-margin, 0);
     --form-control-plaintext-padding-left: var(--form-plaintext-padding-left, 0em);
-    --form-control-plaintext-padding-right: var(--form-plaintext-padding-right, 0em);    
+    --form-control-plaintext-padding-right: var(--form-plaintext-padding-right, 0em);
     --form-control-plaintext-color: var(--form-plaintext-color, inherit);
     --form-control-plaintext-border: var(--form-plaintext-border, none);
     --form-control-plaintext-line-height: var(--form-plaintext-line-height, 1.5);
@@ -93,6 +93,14 @@
     --form-control-plaintext-outline: var(--form-plaintext-outline, none);
     --form-control-plaintext-cursor: var(--form-plaintext-cursor, default);
     --form-control-plaintext-appearance: var(--form-plaintext-appearance, none);
+
+    /* Close Button */
+    --input-field-close-button-display: flex;
+    --input-field-close-button-cursor: pointer;
+    --input-field-close-button-color: var(--color-black, #000);
+    --input-field-close-button-hover-color: var(--color-neutral-600, oklch(43.9% 0 0));
+    --input-field-close-button-dark-color: var(--color-white, #fff);
+    --input-field-close-button-dark-hover-color: var(--color-neutral-400, oklch(70.8% 0 0));
 }
 
 @utility form-control {
@@ -198,7 +206,7 @@
 
     font-size: --value(--form-control-font-size-*, [length]);
     font-size: --spacing(--value(number));
-    
+
     &:where(input, textarea, select) {
         padding: calc(--value(--form-control-font-size-*, [length]) * .75 / 2) calc(--value(--form-control-font-size-*, [length]) * .75);
         padding: calc(--spacing(--value(number)) * .75 / 2) calc(--spacing(--value(number)) * .75);
@@ -206,7 +214,7 @@
         border-radius: calc(--spacing(--value(number)) / 4);
         background-color: color-mix(in oklch, --value(--color-*, [color]) 10%, transparent);
         border-color: --value(--color-*, [color]);
-        
+
         &:focus {
             background-color: color-mix(in oklch, --value(--color-*, [color]) 10%, transparent);
             border-color: --value(--color-*, [color]);
@@ -218,7 +226,7 @@
         }
     }
 
-    &.has-icon { 
+    &.has-icon {
         &:where(input, textarea, select) {
             padding: 0rem;
         }
@@ -287,7 +295,7 @@
     width: var(--form-control-plaintext-width);
     margin: var(--form-control-plaintext-margin);
     padding-left: var(--form-control-plaintext-padding-left);
-    padding-right: var(--form-control-plaintext-padding-right);    
+    padding-right: var(--form-control-plaintext-padding-right);
     color: var(--form-control-plaintext-color);
     border: var(--form-control-plaintext-border);
     line-height: var(--form-control-plaintext-line-height);
@@ -298,3 +306,27 @@
     appearance: var(--form-control-plaintext-appearance);
 }
 
+@utility input-field {
+    &.has-clear-button .is-valid,
+    &.has-clear-button .is-invalid {
+        background-image: none;
+    }
+}
+
+@utility input-field-close-button {
+    display: var(--input-field-close-button-display);
+    cursor: var(--input-field-close-button-cursor);
+    color: var(--input-field-close-button-color);
+
+    &:hover {
+        color: var(--input-field-close-button-hover-color);
+    }
+
+    @variant dark {
+        color: var(--input-field-close-button-dark-color);
+
+        &:hover {
+            color: var(--input-field-close-button-dark-hover-color);
+        }
+    }
+}
