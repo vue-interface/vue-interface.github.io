@@ -1,13 +1,15 @@
 <script setup lang="ts" generic="ModelValue, Value">
+import { XMarkIcon } from '@heroicons/vue/24/outline';
 import { ActivityIndicator } from '@vue-interface/activity-indicator';
 import type { FormControlEvents, FormControlProps, FormControlSlots } from '@vue-interface/form-control';
 import { FormControlErrors, FormControlFeedback, useFormControl } from '@vue-interface/form-control';
-import { InputHTMLAttributes, useTemplateRef } from 'vue';
+import { InputHTMLAttributes, computed, useTemplateRef } from 'vue';
 
 const props = withDefaults(defineProps<InputFieldProps<ModelValue,Value>>(), {
     formControlClass: 'form-control',
     labelClass: 'form-label',
-    size: 'form-control-md'
+    size: 'form-control-md',
+    clearable: false
 });
 
 defineOptions({
@@ -23,8 +25,20 @@ const emit = defineEmits<FormControlEvents>();
 const {
     controlAttributes,
     formGroupClasses,
+    isDirty,
     listeners
 } = useFormControl<InputHTMLAttributes, InputFieldControlSizePrefix, ModelValue|undefined, Value>({ model, props, emit });
+
+const isInteractive = computed(() => !props.disabled && !props.readonly);
+
+const canClear = computed(() => {
+    return props.clearable && isDirty.value && isInteractive.value;
+});
+
+function clear() {
+    if (!isInteractive.value) return;
+    model.value = undefined;
+}
 
 const activity = useTemplateRef<InstanceType<typeof ActivityIndicator>>('activity');
 const help = useTemplateRef<HTMLElement>('help');
@@ -51,14 +65,16 @@ export type InputFieldProps<ModelValue, Value> = FormControlProps<
     InputFieldControlSizePrefix, 
     ModelValue, 
     Value
->;
+> & {
+    clearable?: boolean;
+}
 </script>
 
 <template>
     <div
         ref="wrapper"
         class="input-field"
-        :class="formGroupClasses">
+        :class="[formGroupClasses, { 'has-clear-button': canClear }]">
         <slot name="label">
             <label
                 v-if="props.label"
@@ -86,8 +102,15 @@ export type InputFieldProps<ModelValue, Value> = FormControlProps<
             </slot>
             
             <div class="form-control-activity-indicator">
-                <slot name="activity">
-                    <Transition name="input-field-fade">
+                <slot name="activity" v-bind="{ canClear, clear, isDirty, isInteractive }">
+                    <button
+                        v-if="canClear"
+                        type="button"
+                        class="input-field-close-button"
+                        @click.stop="clear">
+                        <XMarkIcon class="size-[1.25em]" />
+                    </button>
+                    <Transition name="input-field-fade" v-else>
                         <ActivityIndicator
                             v-if="props.activity && indicator"
                             key="activity"

@@ -1,5 +1,16 @@
 # @vue-interface/input-field
 
+## 3.0.0
+
+### Major Changes
+
+- 76e3c99: Added clearable prop to InputField
+
+### Patch Changes
+
+- Updated dependencies [76e3c99]
+  - @vue-interface/form-control@2.0.21
+
 ## 2.0.21
 
 ### Patch Changes
