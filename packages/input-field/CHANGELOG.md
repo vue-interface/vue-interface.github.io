@@ -1,5 +1,11 @@
 # @vue-interface/input-field
 
+## 3.0.2
+
+### Patch Changes
+
+- 4d01598: Added types to package exports
+
 ## 3.0.1
 
 ### Patch Changes

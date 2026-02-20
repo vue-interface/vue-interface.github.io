@@ -1,5 +1,13 @@
 # @vue-interface/btn-dropdown
 
+## 4.1.5
+
+### Patch Changes
+
+- 4d01598: Added types to package exports
+- Updated dependencies [4d01598]
+  - @vue-interface/dropdown-menu@3.0.8
+
 ## 4.1.4
 
 ### Patch Changes

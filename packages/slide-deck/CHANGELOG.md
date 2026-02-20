@@ -1,5 +1,11 @@
 # @vue-interface/slide-deck
 
+## 3.0.8
+
+### Patch Changes
+
+- 4d01598: Added types to package exports
+
 ## 3.0.7
 
 ### Patch Changes

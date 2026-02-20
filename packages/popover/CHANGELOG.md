@@ -1,5 +1,11 @@
 # @vue-interface/popover
 
+## 1.0.6
+
+### Patch Changes
+
+- 4d01598: Added types to package exports
+
 ## 1.0.5
 
 ### Patch Changes
