@@ -3,6 +3,8 @@ import DropdownItem from './src/DropdownItem.vue';
 import DropdownItemText from './src/DropdownItemText.vue';
 import DropdownMenu from './src/DropdownMenu.vue';
 
+export * from './src/DropdownMenu.vue';
+
 export {
     DropdownHeader,
     DropdownItem,
