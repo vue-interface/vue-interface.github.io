@@ -1,5 +1,11 @@
 # @vue-interface/checkbox-field
 
+## 3.0.22
+
+### Patch Changes
+
+- 4d01598: Added types to package exports
+
 ## 3.0.21
 
 ### Patch Changes

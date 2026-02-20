@@ -1,5 +1,11 @@
 # @vue-interface/textarea-field
 
+## 2.0.22
+
+### Patch Changes
+
+- 4d01598: Added types to package exports
+
 ## 2.0.21
 
 ### Patch Changes
