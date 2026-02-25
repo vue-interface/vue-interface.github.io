@@ -3,7 +3,7 @@ import { XMarkIcon } from '@heroicons/vue/24/outline';
 import { ActivityIndicator } from '@vue-interface/activity-indicator';
 import type { FormControlEvents, FormControlProps, FormControlSlots } from '@vue-interface/form-control';
 import { FormControlErrors, FormControlFeedback, useFormControl } from '@vue-interface/form-control';
-import { InputHTMLAttributes, computed, useTemplateRef } from 'vue';
+import { InputHTMLAttributes, computed, useTemplateRef, ref } from 'vue';
 
 const props = withDefaults(defineProps<InputFieldProps<ModelValue,Value>>(), {
     formControlClass: 'form-control',
@@ -16,6 +16,7 @@ defineOptions({
     inheritAttrs: false
 });
 
+const input = ref<string>();
 const model = defineModel<ModelValue>();
 
 defineSlots<FormControlSlots<InputFieldControlSizePrefix,ModelValue>>();
@@ -25,14 +26,13 @@ const emit = defineEmits<FormControlEvents>();
 const {
     controlAttributes,
     formGroupClasses,
-    isDirty,
     listeners
 } = useFormControl<InputHTMLAttributes, InputFieldControlSizePrefix, ModelValue|undefined, Value>({ model, props, emit });
 
 const isInteractive = computed(() => !props.disabled && !props.readonly);
 
 const canClear = computed(() => {
-    return props.clearable && isDirty.value && isInteractive.value;
+    return props.clearable && (!!input.value || !!model.value) && isInteractive.value;
 });
 
 function clear() {
@@ -102,7 +102,7 @@ export type InputFieldProps<ModelValue, Value> = FormControlProps<
             </slot>
             
             <div class="form-control-activity-indicator">
-                <slot name="activity" v-bind="{ canClear, clear, isDirty, isInteractive }">
+                <slot name="activity" v-bind="{ canClear, clear, isInteractive }">
                     <button
                         v-if="canClear"
                         type="button"

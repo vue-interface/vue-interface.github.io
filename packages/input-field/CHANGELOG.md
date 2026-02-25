@@ -1,5 +1,11 @@
 # @vue-interface/input-field
 
+## 3.0.1
+
+### Patch Changes
+
+- 58ce36f: fix implementation of close button in InputField
+
 ## 3.0.0
 
 ### Major Changes
