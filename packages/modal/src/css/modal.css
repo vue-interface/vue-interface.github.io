@@ -36,7 +36,7 @@
     --modal-container-flex-direction: column;
     --modal-container-z-index: 2;
     --modal-container-width: 100%;
-    --modal-container-max-width: var(--modal-size-md);
+    --modal-container-max-width: 100vw;
     --modal-container-max-height: 100vh;
     --modal-container-align-items: center;
     --modal-container-justify-content: center;
@@ -96,7 +96,7 @@
     --modal-title-font-size: var(--modal-font-size-md, --spacing(4));
 
     /* Modal Body */
-    --modal-body-max-height: calc(var(--modal-container-max-width) / 2);
+    --modal-body-max-height: 100vh;
     --modal-body-height: 100%;
     --modal-body-overflow-y: auto;
     --modal-body-margin-top: 0.5rem;
@@ -243,14 +243,6 @@
             text-align: var(--modal-header-text-text-align);
             flex: var(--modal-header-text-flex);
         
-            /* get rid of these? dont seem to affect anything */
-            /* Add these properties to fix the overflow issue */
-            /* width: 100%;
-            max-width: 100%;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-            min-width: 0;  *//* Important for flex items to shrink */
-        
             @media (min-width: 640px) { 
                 height: var(--modal-header-text-resize-height);
                 margin-top: var(--modal-header-text-resize-margin-top);
@@ -354,20 +346,20 @@
 }
 
 @utility modal-w-* {
-    --modal-max-width: --value(--modal-size-*, [length], [percentage]);
-    --modal-max-width: calc(--spacing(--value(number)));
-
     .modal-container {
-        max-width: var(--modal-max-width);
+        max-width: --value(--modal-size-*, [length], [percentage]);
+        max-width: calc(--spacing(--value(number)));
     }
 }
 
-@utility modal-h-* {
-    --modal-max-height: --value(--modal-size-*, [length], [percentage]);
-    --modal-max-height: calc(--spacing(--value(number)));
-
-    .modal-container {
-        height: var(--modal-max-height);
+@utility modal-max-h-* {
+    .modal-header {
+        .modal-header-text {
+            .modal-body {
+                max-height: --value(--modal-size-*, [length], [percentage]);
+                max-height: calc(--spacing(--value(number)));
+            }
+        }
     }
 }
 
@@ -377,6 +369,7 @@
             .modal-title {
                 font-size: --value(--modal-font-size-*, [length], [percentage]);
                 font-size: calc(--spacing(--value(number)));
+                color: --value(--color-*, [color]);
             }
         }
     }
@@ -388,6 +381,38 @@
             .modal-body {
                 font-size: --value(--modal-font-size-*, [length], [percentage]);
                 font-size: calc(--spacing(--value(number)));
+                color: --value(--color-*, [color]);
+            }
+        }
+    }
+}
+
+@utility modal-footer-btn-* {
+    .modal-footer {
+        button.btn:last-child:not([class*='btn-']) {
+            padding: calc(--value(--btn-font-size-*, [length]) * 1.5 / 4) calc(--value(--btn-font-size-*, [length]) * 1.5 / 2);
+            padding: calc(--spacing(--value(number)) * .75 / 2) calc(--spacing(--value(number)) * .75);
+            font-size: --value(--btn-font-size-*, [length]);
+            font-size: --spacing(--value(number));
+            border-radius: calc(--value(--btn-font-size-*, [length]) / 4);
+            border-radius: calc(--spacing(--value(number)) / 4);
+            
+            background-color: --value(--btn-*, --color-*, [color]);
+            border-color: --value(--btn-*, --color-*, [color]);
+            color: --value(--text-for-*, --btn-*-text);
+
+            &:hover {
+                background-color: color-mix(in oklch, --value(--btn-*, --color-*) 90%, black);
+                border-color: color-mix(in oklch, --value(--btn-*, --color-*) 90%, black);
+            }   
+
+            &:focus {
+                box-shadow: 0 0 0 .2rem --alpha(--value(--btn-*, --color-*) / 50%);
+            }
+
+            &:active {
+                background-color: color-mix(in oklch, --value(--btn-*, --color-*) 95%, black);
+                border-color: color-mix(in oklch, --value(--btn-*, --color-*) 95%, black);
             }
         }
     }
