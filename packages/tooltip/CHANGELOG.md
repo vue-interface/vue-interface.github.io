@@ -1,5 +1,11 @@
 # @vue-interface/tooltip
 
+## 2.0.9
+
+### Patch Changes
+
+- 4d01598: Added types to package exports
+
 ## 2.0.8
 
 ### Patch Changes

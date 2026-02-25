@@ -1,5 +1,11 @@
 # @vue-interface/btn-activity
 
+## 4.0.11
+
+### Patch Changes
+
+- 4d01598: Added types to package exports
+
 ## 4.0.10
 
 ### Patch Changes

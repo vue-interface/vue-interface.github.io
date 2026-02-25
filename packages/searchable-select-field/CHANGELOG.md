@@ -1,5 +1,13 @@
 # @vue-interface/searchable-select-field
 
+## 2.0.2
+
+### Patch Changes
+
+- 4d01598: Added types to package exports
+- Updated dependencies [4d01598]
+  - @vue-interface/input-field@3.0.2
+
 ## 2.0.1
 
 ### Patch Changes

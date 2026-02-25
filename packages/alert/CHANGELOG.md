@@ -1,5 +1,11 @@
 # @vue-interface/alert
 
+## 4.0.3
+
+### Patch Changes
+
+- 4d01598: Added types to package exports
+
 ## 4.0.2
 
 ### Patch Changes

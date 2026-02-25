@@ -1,6 +1,6 @@
 {
   "name": "@vue-interface/popover",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A Vue popover component.",
   "type": "module",
   "main": "./dist/popover.umd.cjs",
