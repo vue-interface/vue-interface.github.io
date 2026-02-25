@@ -1,5 +1,11 @@
 # @vue-interface/modal
 
+## 4.1.0
+
+### Minor Changes
+
+- 9d56eca: Added size props and more customizability
+
 ## 4.0.0
 
 ### Major Changes
