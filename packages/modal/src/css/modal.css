@@ -36,7 +36,7 @@
     --modal-container-flex-direction: column;
     --modal-container-z-index: 2;
     --modal-container-width: 100%;
-    --modal-container-max-width: var(--modal-size-md);
+    --modal-container-max-width: 100vw;
     --modal-container-max-height: 100vh;
     --modal-container-align-items: center;
     --modal-container-justify-content: center;
@@ -93,14 +93,16 @@
     /* Modal Title */
     --modal-title-font-weight: 600;
     --modal-title-padding-x: 0.25rem;
+    --modal-title-font-size: var(--modal-font-size-md, --spacing(4));
 
     /* Modal Body */
-    --modal-body-max-height: calc(var(--modal-container-max-width) / 2);
+    --modal-body-max-height: 100vh;
     --modal-body-height: 100%;
     --modal-body-overflow-y: auto;
     --modal-body-margin-top: 0.5rem;
     --modal-body-padding-x: 0.25rem;
     --modal-body-padding-bottom: 0.25rem;
+    --modal-body-font-size: var(--modal-font-size-md, --spacing(4));
 
     /* Modal Footer */
     --modal-footer-width: 100%;
@@ -241,14 +243,6 @@
             text-align: var(--modal-header-text-text-align);
             flex: var(--modal-header-text-flex);
         
-            /* get rid of these? dont seem to affect anything */
-            /* Add these properties to fix the overflow issue */
-            width: 100%;
-            max-width: 100%;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-            min-width: 0; /* Important for flex items to shrink */
-        
             @media (min-width: 640px) { 
                 height: var(--modal-header-text-resize-height);
                 margin-top: var(--modal-header-text-resize-margin-top);
@@ -259,6 +253,7 @@
                 font-weight: var(--modal-title-font-weight);
                 padding-left: var(--modal-title-padding-x);
                 padding-right: var(--modal-title-padding-x);
+                font-size: var(--modal-title-font-size);
             }
 
             >.modal-body {
@@ -269,6 +264,7 @@
                 height: var(--modal-body-height);
                 max-height: var(--modal-body-max-height);
                 overflow-y: var(--modal-body-overflow-y);
+                font-size: var(--modal-body-font-size);
             }
         }
     }
@@ -350,20 +346,75 @@
 }
 
 @utility modal-w-* {
-    --modal-max-width: --value(--modal-size-*, [length], [percentage]);
-    --modal-max-width: calc(--spacing(--value(number)));
-
     .modal-container {
-        max-width: var(--modal-max-width);
+        max-width: --value(--modal-size-*, [length], [percentage]);
+        max-width: calc(--spacing(--value(number)));
     }
 }
 
-@utility modal-h-* {
-    --modal-max-height: --value(--modal-size-*, [length], [percentage]);
-    --modal-max-height: calc(--spacing(--value(number)));
+@utility modal-max-h-* {
+    .modal-header {
+        .modal-header-text {
+            .modal-body {
+                max-height: --value(--modal-size-*, [length], [percentage]);
+                max-height: calc(--spacing(--value(number)));
+            }
+        }
+    }
+}
 
-    .modal-container {
-        height: var(--modal-max-height);
+@utility modal-header-text-* {
+    .modal-header {
+        .modal-header-text {
+            .modal-title {
+                font-size: --value(--modal-font-size-*, [length], [percentage]);
+                font-size: calc(--spacing(--value(number)));
+                color: --value(--color-*, [color]);
+            }
+        }
+    }
+}
+
+@utility modal-body-text-* {
+    .modal-header {
+        .modal-header-text {
+            .modal-body {
+                font-size: --value(--modal-font-size-*, [length], [percentage]);
+                font-size: calc(--spacing(--value(number)));
+                color: --value(--color-*, [color]);
+            }
+        }
+    }
+}
+
+@utility modal-footer-btn-* {
+    .modal-footer {
+        button.btn:last-child:not([class*='btn-']) {
+            padding: calc(--value(--btn-font-size-*, [length]) * 1.5 / 4) calc(--value(--btn-font-size-*, [length]) * 1.5 / 2);
+            padding: calc(--spacing(--value(number)) * .75 / 2) calc(--spacing(--value(number)) * .75);
+            font-size: --value(--btn-font-size-*, [length]);
+            font-size: --spacing(--value(number));
+            border-radius: calc(--value(--btn-font-size-*, [length]) / 4);
+            border-radius: calc(--spacing(--value(number)) / 4);
+            
+            background-color: --value(--btn-*, --color-*, [color]);
+            border-color: --value(--btn-*, --color-*, [color]);
+            color: --value(--text-for-*, --btn-*-text);
+
+            &:hover {
+                background-color: color-mix(in oklch, --value(--btn-*, --color-*) 90%, black);
+                border-color: color-mix(in oklch, --value(--btn-*, --color-*) 90%, black);
+            }   
+
+            &:focus {
+                box-shadow: 0 0 0 .2rem --alpha(--value(--btn-*, --color-*) / 50%);
+            }
+
+            &:active {
+                background-color: color-mix(in oklch, --value(--btn-*, --color-*) 95%, black);
+                border-color: color-mix(in oklch, --value(--btn-*, --color-*) 95%, black);
+            }
+        }
     }
 }
 

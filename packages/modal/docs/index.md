@@ -45,8 +45,8 @@ bun i @vue-interface/modal
 ## Basic Usage
 
 <div>
-    <!-- #region basicUsage -->
     <button id="basic-modal" class="btn btn-primary">Basic Modal</button>
+    <!-- #region basicUsage -->
     <Modal
         trigger="#basic-modal"
         close-button
@@ -73,10 +73,10 @@ Remove the `close-button` prop to remove the "x" close button in the top right c
 There are three modal types: `modal`, `confirm`, and `alert`.
 
 <div class="flex gap-2 mb-3">
-    <!-- #region types -->
     <button id="default-modal" class="btn btn-primary">Modal</button>
     <button id="confirm" class="btn btn-primary">Confirm</button>
     <button id="alert" class="btn btn-primary">Alert</button>
+    <!-- #region types -->
     <Modal
         trigger="#default-modal"
         close-button
@@ -115,11 +115,11 @@ There are three modal types: `modal`, `confirm`, and `alert`.
 There are four variants of modals: `Info`, `Warning`, `Critical`, and `Success`. Each type has a unique color, [heroicon](https://heroicons.com/), and button layout. Set the `type prop` value to the desired variant using the syntax: `type="[variant]"`.
 
 <div class="flex gap-2 mb-3">
-    <!-- #region variants -->
     <button id="info" class="btn btn-primary">Info</button>
     <button id="warning" class="btn btn-warning">Warning</button>
     <button id="critical" class="btn btn-danger">Critical</button>
     <button id="success" class="btn btn-success">Success</button>
+    <!-- #region variants -->
     <Modal
         trigger="#info"
         close-button
@@ -171,9 +171,9 @@ There are four variants of modals: `Info`, `Warning`, `Critical`, and `Success`.
 Centered modals come in two variations: centerd single action or centered double action. The `action` keyword specifies the number and layout of the modal buttons. Add `class="modal-center"` to the list of attributes to create the custom centered modal.
 
 <div class="flex gap-2 mb-3">
-    <!-- #region centered -->
     <button id="centeredSingle" class="btn btn-primary">Centered Single Action</button>
     <button id="centeredDouble" class="btn btn-primary">Centered Double Action</button>
+    <!-- #region centered -->
     <Modal
         trigger="#centeredSingle"
         close-button
@@ -210,7 +210,6 @@ Customize the size of modal dialogs using a [predetermined size](#predetermined-
 The size can be customized using predetermined size classes: `2xs`, `xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`, `screen`. Specify the size using the `size` prop syntax: `size="[size]"`.
 
 <div class="flex flex-wrap gap-2 mb-3">
-    <!-- #region predeterminedSizes -->
     <button id="modal-2xs" class="btn btn-primary">modal-2xs</button>
     <button id="modal-xs" class="btn btn-primary">modal-xs</button>
     <button id="modal-sm" class="btn btn-primary">modal-sm</button>
@@ -222,6 +221,7 @@ The size can be customized using predetermined size classes: `2xs`, `xs`, `sm`, 
     <button id="modal-4xl" class="btn btn-primary">modal-4xl</button>
     <button id="modal-5xl" class="btn btn-primary">modal-5xl</button>
     <button id="modal-screen" class="btn btn-primary">Fullscreen</button>
+    <!-- #region predeterminedSizes -->
     <Modal
         trigger="#modal-2xs"
         close-button
@@ -366,11 +366,11 @@ The size can be customized using predetermined size classes: `2xs`, `xs`, `sm`, 
 For more granular control over modal sizes, use Tailwind's numeric sizing scale classes: `modal-50` - `modal-375`.
 
 <div class="flex flex-wrap gap-2 mb-3">
-    <!-- #region TWSizes -->
     <button id="modal-125" class="btn btn-primary">modal-125</button>
     <button id="modal-150" class="btn btn-primary">modal-150</button>
     <button id="modal-175" class="btn btn-primary">modal-175</button>
     <button id="modal-200" class="btn btn-primary">modal-200</button>
+    <!-- #region TWSizes -->
     <Modal
       trigger="#modal-125"
       close-button
@@ -431,11 +431,11 @@ For more granular control over modal sizes, use Tailwind's numeric sizing scale 
 For precise sizing, specify exact pixel values using the syntax `modal-[Npx]` or any other CSS length units (`rem`, `em`, `%`, `vw`, `vh`, etc.). You can also use `modal-w-[value]` and `modal-h-[value]` for width and height respectively.
 
 <div class="flex flex-wrap gap-2 mb-3">
-    <!-- #region arbitrarySizes -->
     <button id="modal-400px" class="btn btn-primary">modal-[400px]</button>
     <button id="modal-700px" class="btn btn-primary">modal-[700px]</button>
     <button id="modal-100" class="btn btn-primary">modal-[100%]</button>
-    <button id="modal-w-h" class="btn btn-primary">modal-w-[30vw] modal-h-[100vh]</button>
+    <button id="modal-w-h" class="btn btn-primary">modal-w-[50vw] modal-max-h-[20vh]</button>
+    <!-- #region arbitrarySizes -->
     <Modal
         trigger="#modal-400px"
         close-button
@@ -475,11 +475,11 @@ For precise sizing, specify exact pixel values using the syntax `modal-[Npx]` or
     <Modal
         trigger="#modal-w-h"
         close-button
-        size="modal-w-[30vw] modal-h-[100vh]"
+        size="modal-w-[50vw] modal-max-h-[20vh]"
         button-orientation="vertical"
-        title="modal-w-[30vw] modal-h-[100vh]"
+        title="modal-w-[50vw] modal-max-h-[20vh]"
     >   
-        Some Content
+        Lorem ipsum dolor sit amet consectetur adipiscing elit. Ex sapien vitae pellentesque sem placerat in id. Pretium tellus duis convallis tempus leo eu aenean. Urna tempor pulvinar vivamus fringilla lacus nec metus. Iaculis massa nisl malesuada lacinia integer nunc posuere. Semper vel class aptent penatibus. Dis parturient montes nascetur ridiculus mus donec rhoncus. Nulla molestie mattis scelerisque maximus eget fermentum odio. Purus est efficitur laoreet mauris pharetra vestibulum fusce dictum. Nisi sodales consequat magna ante condimentum neque at. Etiam interdum tortor ligula congue sollicitudin erat viverra. Aenim euismod quam justo lectus commodo augue. Mollis nullam volutpat porttitor ullamcorper rutrum gravida cras. Ornare sagittis vehicula praesent dui felis venenatis ultrices. 
         <template #buttons="{ close }">
           <button class="btn" @click="close">Close</button>
         </template>
@@ -504,7 +504,6 @@ These color variants come from the [button](/packages/btn/#color-variants) compo
 :::
 
 <div class="flex flex-wrap gap-2 mb-3">
-    <!-- #region predeterminedColors -->
     <button id="modal-primary" class="btn btn-primary">Primary</button>
     <button id="modal-secondary" class="btn btn-secondary">Secondary</button>
     <button id="modal-success" class="btn btn-success">Success</button>
@@ -513,6 +512,7 @@ These color variants come from the [button](/packages/btn/#color-variants) compo
     <button id="modal-info" class="btn btn-info">Info</button>
     <button id="modal-light" class="btn btn-light">Light</button>
     <button id="modal-dark" class="btn btn-dark">Dark</button>
+    <!-- #region predeterminedColors -->
     <Modal
         trigger="#modal-primary"
         close-button
@@ -621,7 +621,6 @@ These color variants come from the [button](/packages/btn/#color-variants) compo
 Apply icon-only color styling with the syntax: `modal-icon-[color]`. Available colors: `primary`, `secondary`, `success`, `danger`, `warning`, `info`, `light`, `dark`.
 
 <div class="flex flex-wrap gap-2 mb-3">
-    <!-- #region iconOnlyColors -->
     <button id="modal-icon-primary" class="btn btn-primary">Primary</button>
     <button id="modal-icon-secondary" class="btn btn-secondary">Secondary</button>
     <button id="modal-icon-success" class="btn btn-success">Success</button>
@@ -630,6 +629,7 @@ Apply icon-only color styling with the syntax: `modal-icon-[color]`. Available c
     <button id="modal-icon-info" class="btn btn-info">Info</button>
     <button id="modal-icon-light" class="btn btn-light">Light</button>
     <button id="modal-icon-dark" class="btn btn-dark">Dark</button>
+    <!-- #region iconOnlyColors -->
     <Modal
         trigger="#modal-icon-primary"
         close-button
@@ -738,11 +738,11 @@ Apply icon-only color styling with the syntax: `modal-icon-[color]`. Available c
 Customize the color of a modal element with the [Tailwind color palette](https://tailwindcss.com/docs/colors) by using the class: `modal-[color]`.
 
 <div class="flex flex-wrap gap-2 mb-3">
-    <!-- #region customColors -->
     <button id="modal-green-500" class="btn btn-green-500">modal-green-500</button>
     <button id="modal-amber-500" class="btn btn-amber-500">modal-amber-500</button>
     <button id="modal-yellow-500" class="btn btn-yellow-500">modal-yellow-500</button>
     <button id="modal-red-500" class="btn btn-red-500">modal-red-500</button>
+    <!-- #region customColors -->
     <Modal
         trigger="#modal-green-500"
         close-button
@@ -796,4 +796,39 @@ Customize the color of a modal element with the [Tailwind color palette](https:/
 
 ::: details Show Code
 <<< ./index.md#customColors{html}
+:::
+
+## Customization
+
+The appearance and layout of the modal can be further customized using the following utility classes:
+
+| <div class="whitespace-nowrap min-w-70">Class</div> | Description |
+| :--- | :--- |
+| `modal-max-h-[value]` | Sets maximum height allowable before overflowing. Supports [predetermined](#predetermined-sizes), [tailwind](#tailwind-sizes), or [arbitrary](#arbitrary-sizes) sizes. |
+| `modal-header-text-[size]` | Set header text size via the `header-size` prop (predetermined, Tailwind, or arbitrary). |
+| `modal-header-text-[color/value]` | Customize header text appearance (color or other utility classes). |
+| `modal-body-text-[size]` | Set body text size via the `body-size` prop (predetermined, Tailwind, or arbitrary). |
+| `modal-body-text-[color/value]` | Customize body text appearance (color or other utility classes). |
+| `modal-footer-btn-[size/color]` | Modify size or color of footer buttons. |
+
+<div class="flex flex-wrap gap-2 mb-3">
+    <button id="customized" class="btn btn-primary">Customized Modal</button>
+    <!-- #region customizedModal -->
+    <Modal
+        trigger="#customized"
+        close-button
+        button-orientation="vertical"
+        title="Some Title"
+        class="modal-header-text-blue-400 modal-body-text-blue-400 modal-footer-btn-green-400 modal-footer-btn-sm"
+    >
+        Some Content
+        <template #buttons="{close}">
+            <button class="btn" @click="close">Close</button>
+        </template>
+    </Modal>
+    <!-- #endregion customizedModal -->
+</div>
+
+::: details Show Code
+<<< ./index.md#customizedModal{html}
 :::
