@@ -111,7 +111,7 @@
     line-height: var(--form-control-line-height);
     font-size: var(--form-control-font-size);
 
-    &:where(input, textarea, select) {
+    /* &:where(input, textarea, select) { */
         background-color: var(--form-control-background-color);
         border-width: var(--form-control-border-width);
         border-style: var(--form-control-border-style);
@@ -198,7 +198,7 @@
                 background-color: var(--valid-background-color);
             }
         }
-    }
+    /* } */
 }
 
 @utility form-control-* {

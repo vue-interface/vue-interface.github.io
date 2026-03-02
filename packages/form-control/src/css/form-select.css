@@ -93,7 +93,7 @@
     line-height: var(--form-select-line-height);
     font-size: var(--form-control-font-size);
 
-    &:where(select) {
+    /* &:where(select) { */
         padding: var(--form-select-padding-y) var(--form-select-padding-right) var(--form-select-padding-y) var(--form-select-padding-x);
         color: var(--form-select-color);
         vertical-align: var(--form-select-vertical-align);
@@ -201,7 +201,7 @@
                 background-color: var(--valid-background-color);
             }
         }
-    }
+    /* } */
 }
 
 @utility form-select-* {
