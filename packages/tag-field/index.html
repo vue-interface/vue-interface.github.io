@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>TagField</title>
+</head>
+
+<body class="dark:bg-neutral-900 dark:text-white">
+    <div id="app" class="container mx-auto">
+        <h1 class="text-4xl mb-4">tag-field</h1>
+
+        <h2 class="text-2xl mb-3">Basic Usage</h2>
+
+        <div class="flex flex-col gap-4 mb-4">
+            
+        </div>
+        
+        <h2 class="text-2xl mb-3">Sizes</h2>
+
+        
+
+    <script type="module">
+        import "./demo.css";
+        import { createApp, ref } from 'vue/dist/vue.esm-bundler.js';
+        import { CalendarDaysIcon } from '@heroicons/vue/24/outline';
+        import { TagField } from './index';
+
+        const vue = createApp({
+            components: {
+                TagField,
+                CalendarDaysIcon
+            },
+            setup() {
+                const selected = ref();
+                return {
+                    selected
+                };
+            }
+        });
+        vue.mount('#app')
+    </script>
+</body>
+
+</html>
