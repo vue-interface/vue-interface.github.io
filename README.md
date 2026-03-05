@@ -76,4 +76,4 @@ The Changesets CLI then generates a markdown file in the .changeset/ directory w
 
 ## License
 
-MIT License. See [LICENSE](https://github.com/vue-interface/vue-interface-new/blob/jsx/LICENSE) for more information.
+MIT License. See [LICENSE](https://github.com/vue-interface/vue-interface-new/blob/main/LICENSE) for more information.
