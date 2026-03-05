@@ -1,5 +1,11 @@
 # @vue-interface/form-control
 
+## 2.0.22
+
+### Patch Changes
+
+- 20f9025: Allow form-control classes in divs
+
 ## 2.0.21
 
 ### Patch Changes
