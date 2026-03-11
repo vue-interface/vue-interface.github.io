@@ -14,11 +14,16 @@
         <h2 class="text-2xl mb-3">Basic Usage</h2>
 
         <div class="flex flex-col gap-4 mb-4">
+            <tag-field v-model="selected" :options="languages"></tag-field>
             
         </div>
         
         <h2 class="text-2xl mb-3">Sizes</h2>
 
+        <div class="flex flex-col gap-4 mb-4">
+            <tag-field :options="languages" size="form-control-xs" placeholder="form-control-xs"></tag-field>
+            
+        </div>
         
 
     <script type="module">
@@ -34,8 +39,34 @@
             },
             setup() {
                 const selected = ref();
+                const options = [
+                    'Option 1',
+                    'Option 2',
+                    'Option 3',
+                    'Option 4',
+                    'Option 5',
+                    'Option 6',
+                    'Option 7',
+                    'Option 8',
+                    'Option 9',
+                    'Option 10'
+                ];
+                const languages = [
+                    'javaScript',
+                    'Python',
+                    'Java',
+                    'TypeScript',
+                    'C#',
+                    'C++',
+                    'PHP',
+                    'Go',
+                    'Rust',
+                    'Swift'
+                ];
                 return {
-                    selected
+                    selected,
+                    options,
+                    languages
                 };
             }
         });

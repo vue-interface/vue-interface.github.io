@@ -2,106 +2,106 @@
 
 @theme { 
     /* Searchable Select Field Dropdown */
-    --searchable-select-field-dropdown-display: flex;
-    --searchable-select-field-dropdown-flex-direction: column;
-    --searchable-select-field-dropdown-position: absolute;
-    --searchable-select-field-dropdown-z-index: 10;
-    --searchable-select-field-dropdown-width: 100%;
-    --searchable-select-field-dropdown-max-height: 18rem;
-    --searchable-select-field-dropdown-margin-top: 0.25rem;
-    --searchable-select-field-dropdown-overflow: auto;
-    --searchable-select-field-dropdown-border-width: 1px;
-    --searchable-select-field-dropdown-border-radius: 0.25rem;
-    --searchable-select-field-dropdown-border-color: var(--color-neutral-300, oklch(87% 0 0));
-    --searchable-select-field-dropdown-background-color: var(--color-white, #fff);
-    --searchable-select-field-dropdown-color: var(--color-black, #000);
-    --searchable-select-field-dropdown-box-shadow-style: 0 10px 15px -3px, 0 4px 6px -4px;
-    --searchable-select-field-dropdown-box-shadow-color: rgb(0 0 0 / 0.1), rgb(0 0 0 / 0.1);
+    --tag-field-dropdown-display: flex;
+    --tag-field-dropdown-flex-direction: column;
+    --tag-field-dropdown-position: absolute;
+    --tag-field-dropdown-z-index: 10;
+    --tag-field-dropdown-width: 100%;
+    --tag-field-dropdown-max-height: 18rem;
+    --tag-field-dropdown-margin-top: 0.25rem;
+    --tag-field-dropdown-overflow: auto;
+    --tag-field-dropdown-border-width: 1px;
+    --tag-field-dropdown-border-radius: 0.25rem;
+    --tag-field-dropdown-border-color: var(--color-neutral-300, oklch(87% 0 0));
+    --tag-field-dropdown-background-color: var(--color-white, #fff);
+    --tag-field-dropdown-color: var(--color-black, #000);
+    --tag-field-dropdown-box-shadow-style: 0 10px 15px -3px, 0 4px 6px -4px;
+    --tag-field-dropdown-box-shadow-color: rgb(0 0 0 / 0.1), rgb(0 0 0 / 0.1);
 
-    --searchable-select-field-dropdown-dark-border-color: var(--color-neutral-600, oklch(43.9% 0 0));
-    --searchable-select-field-dropdown-dark-background-color: var(--color-neutral-900, oklch(20.5% 0 0));
-    --searchable-select-field-dropdown-dark-color: var(--color-white, #fff);
+    --tag-field-dropdown-dark-border-color: var(--color-neutral-600, oklch(43.9% 0 0));
+    --tag-field-dropdown-dark-background-color: var(--color-neutral-900, oklch(20.5% 0 0));
+    --tag-field-dropdown-dark-color: var(--color-white, #fff);
 
-    --searchable-select-field-dropdown-text-align: left;
-    --searchable-select-field-dropdown-padding: 0.5em 1em;
-    --searchable-select-field-dropdown-border-bottom-width: 1px;
-    --searchable-select-field-dropdown-hover-background-color: var(--color-neutral-200, oklch(92.2% 0 0));
-    --searchable-select-field-dropdown-dark-hover-background-color: var(--color-neutral-700, oklch(37.1% 0 0));
+    --tag-field-dropdown-text-align: left;
+    --tag-field-dropdown-padding: 0.5em 1em;
+    --tag-field-dropdown-border-bottom-width: 1px;
+    --tag-field-dropdown-hover-background-color: var(--color-neutral-200, oklch(92.2% 0 0));
+    --tag-field-dropdown-dark-hover-background-color: var(--color-neutral-700, oklch(37.1% 0 0));
 
     /* Searchable Select Field Input */
-    --searchable-select-field-input-position: relative;
-    --searchable-select-field-input-activity-indicator-position: absolute;
-    --searchable-select-field-input-activity-indicator-top: 50%;
-    --searchable-select-field-input-activity-indicator-right: 0;
-    --searchable-select-field-input-activity-indicator-transform: translate(-1rem, -50%);
+    --tag-field-input-position: relative;
+    --tag-field-input-activity-indicator-position: absolute;
+    --tag-field-input-activity-indicator-top: 50%;
+    --tag-field-input-activity-indicator-right: 0;
+    --tag-field-input-activity-indicator-transform: translate(-1rem, -50%);
 
     /* Searchable Select-field Clear Button */
-    --searchable-select-field-clear-button-display: flex;
-    --searchable-select-field-clear-button-cursor: pointer;
-    --searchable-select-field-clear-button-color: var(--color-black, #000);
-    --searchable-select-field-clear-button-hover-color: var(--color-neutral-600, oklch(43.9% 0 0));
+    --tag-field-clear-button-display: flex;
+    --tag-field-clear-button-cursor: pointer;
+    --tag-field-clear-button-color: var(--color-black, #000);
+    --tag-field-clear-button-hover-color: var(--color-neutral-600, oklch(43.9% 0 0));
 
-    --searchable-select-field-clear-button-dark-color: var(--color-white, #fff);
-    --searchable-select-field-clear-button-dark-hover-color: var(--color-neutral-400, oklch(70.8% 0 0));
+    --tag-field-clear-button-dark-color: var(--color-white, #fff);
+    --tag-field-clear-button-dark-hover-color: var(--color-neutral-400, oklch(70.8% 0 0));
 }
 
-@utility searchable-select-field-dropdown {
-    display: var(--searchable-select-field-dropdown-display);
-    flex-direction: var(--searchable-select-field-dropdown-flex-direction);
-    position: var(--searchable-select-field-dropdown-position);
-    z-index: var(--searchable-select-field-dropdown-z-index);
-    width: var(--searchable-select-field-dropdown-width);
-    max-height: var(--searchable-select-field-dropdown-max-height);
-    margin-top: var(--searchable-select-field-dropdown-margin-top);
-    overflow: var(--searchable-select-field-dropdown-overflow);
-    border-width: var(--searchable-select-field-dropdown-border-width);
-    border-radius: var(--searchable-select-field-dropdown-border-radius);
-    border-color: var(--searchable-select-field-dropdown-border-color);
-    background-color: var(--searchable-select-field-dropdown-background-color);
-    color: var(--searchable-select-field-dropdown-color);
-    box-shadow: var(--searchable-select-field-dropdown-box-shadow-style) var(--searchable-select-field-dropdown-box-shadow-color);
+@utility tag-field-dropdown {
+    display: var(--tag-field-dropdown-display);
+    flex-direction: var(--tag-field-dropdown-flex-direction);
+    position: var(--tag-field-dropdown-position);
+    z-index: var(--tag-field-dropdown-z-index);
+    width: var(--tag-field-dropdown-width);
+    max-height: var(--tag-field-dropdown-max-height);
+    margin-top: var(--tag-field-dropdown-margin-top);
+    overflow: var(--tag-field-dropdown-overflow);
+    border-width: var(--tag-field-dropdown-border-width);
+    border-radius: var(--tag-field-dropdown-border-radius);
+    border-color: var(--tag-field-dropdown-border-color);
+    background-color: var(--tag-field-dropdown-background-color);
+    color: var(--tag-field-dropdown-color);
+    box-shadow: var(--tag-field-dropdown-box-shadow-style) var(--tag-field-dropdown-box-shadow-color);
 
     @variant dark {
-        border-color: var(--searchable-select-field-dropdown-dark-border-color);
-        background-color: var(--searchable-select-field-dropdown-dark-background-color);
-        color: var(--searchable-select-field-dropdown-dark-color);
+        border-color: var(--tag-field-dropdown-dark-border-color);
+        background-color: var(--tag-field-dropdown-dark-background-color);
+        color: var(--tag-field-dropdown-dark-color);
     }
 
     & > button {
-        text-align: var(--searchable-select-field-dropdown-text-align);
-        padding: var(--searchable-select-field-dropdown-padding);
-        border-color: var(--searchable-select-field-dropdown-border-color);
+        text-align: var(--tag-field-dropdown-text-align);
+        padding: var(--tag-field-dropdown-padding);
+        border-color: var(--tag-field-dropdown-border-color);
 
         &:not(:last-child) {
-            border-bottom-width: var(--searchable-select-field-dropdown-border-bottom-width);
+            border-bottom-width: var(--tag-field-dropdown-border-bottom-width);
         }
 
         &:hover {
-            background-color: var(--searchable-select-field-dropdown-hover-background-color);
+            background-color: var(--tag-field-dropdown-hover-background-color);
         }
 
         @variant dark {
-            border-color: var(--searchable-select-field-dropdown-dark-border-color);
+            border-color: var(--tag-field-dropdown-dark-border-color);
 
             &:hover {
-                background-color: var(--searchable-select-field-dropdown-dark-hover-background-color);
+                background-color: var(--tag-field-dropdown-dark-hover-background-color);
             }
         }
     }
 }
 
-@utility searchable-select-field-input {
-    position: var(--searchable-select-field-input-position);
+@utility tag-field-input {
+    position: var(--tag-field-input-position);
     
     & .form-control-inner {
-        position: var(--searchable-select-field-input-position);
+        position: var(--tag-field-input-position);
     }
 
     & .form-control-activity-indicator {
-        position: var(--searchable-select-field-input-activity-indicator-position);
-        top: var(--searchable-select-field-input-activity-indicator-top);
-        right: var(--searchable-select-field-input-activity-indicator-right);
-        transform: var(--searchable-select-field-input-activity-indicator-transform);
+        position: var(--tag-field-input-activity-indicator-position);
+        top: var(--tag-field-input-activity-indicator-top);
+        right: var(--tag-field-input-activity-indicator-right);
+        transform: var(--tag-field-input-activity-indicator-transform);
     }
 
     &.has-clear-button .form-control.is-valid,
@@ -110,20 +110,20 @@
     }
 }
 
-@utility searchable-select-field-clear-button {
-    display: var(--searchable-select-field-clear-button-display);
-    cursor: var(--searchable-select-field-clear-button-cursor);
-    color: var(--searchable-select-field-clear-button-color);
+@utility tag-field-clear-button {
+    display: var(--tag-field-clear-button-display);
+    cursor: var(--tag-field-clear-button-cursor);
+    color: var(--tag-field-clear-button-color);
 
     &:hover {
-        color: var(--searchable-select-field-clear-button-hover-color);
+        color: var(--tag-field-clear-button-hover-color);
     }
 
     @variant dark {
-        color: var(--searchable-select-field-clear-button-dark-color);
+        color: var(--tag-field-clear-button-dark-color);
 
         &:hover {
-            color: var(--searchable-select-field-clear-button-dark-hover-color);
+            color: var(--tag-field-clear-button-dark-hover-color);
         }
     }
 }

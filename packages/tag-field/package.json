@@ -48,12 +48,17 @@
     "LICENSE"
   ],
   "peerDependencies": {
-    "@vue-interface/activity-indicator": "workspace:*",
-    "@vue-interface/form-control": "workspace:*",
-    "@vue-interface/sizeable": "workspace:*",
     "@heroicons/vue": "2.2.0",
+    "@vue-interface/activity-indicator": "workspace:*",
+    "@vue-interface/badge": "workspace:*",
+    "@vue-interface/form-control": "workspace:*",
+    "@vue-interface/input-field": "workspace:*",
+    "@vue-interface/sizeable": "workspace:*",
     "fuse.js": "^7.1.0",
     "lodash-es": "^4.17.23",
     "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.12"
   }
 }

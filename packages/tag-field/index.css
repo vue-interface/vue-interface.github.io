@@ -1,4 +1,5 @@
 @import "tailwindcss";
 @import "@vue-interface/form-control/css";
+@import "@vue-interface/badge/css";
 
 @import "./src/css/tag-field.css";
