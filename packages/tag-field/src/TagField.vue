@@ -14,17 +14,19 @@ export type TagFieldProps<ModelValue, Value> = FormControlProps<
     allowCustom?: boolean;
     addTagLabel?: string;
     id?: string;
+    clearable?: boolean;
 };
 </script>
 
 
 <script setup lang="ts" generic="T, Value">
-import { PlusIcon, XMarkIcon } from '@heroicons/vue/24/outline';
+import { PlusIcon, XMarkIcon, ChevronDownIcon } from '@heroicons/vue/24/outline';
 import Fuse, { IFuseOptions } from 'fuse.js';
+import { ActivityIndicator, Pulse } from '@vue-interface/activity-indicator';
 import type { FormControlEvents, FormControlProps, FormControlSlots } from '@vue-interface/form-control';
 import { useFormControl } from '@vue-interface/form-control';
 import { InputField } from '@vue-interface/input-field';
-import { Badge, BadgeSizePrefix } from '@vue-interface/badge';
+import { Badge } from '@vue-interface/badge';
 import { isEqual } from 'lodash-es';
 import { InputHTMLAttributes, computed, onBeforeMount, onBeforeUnmount, Ref, ref, useTemplateRef, watch } from 'vue';
 
@@ -34,7 +36,8 @@ const props = withDefaults(defineProps<TagFieldProps<T,Value>>(), {
     size: 'form-control-md',
     allowCustom: true,
     addTagLabel: 'Add Tag',
-    options: () => [] as any,
+    clearable: true,
+    options: () => []
 });
 
 const model = defineModel<T[]>();
@@ -49,7 +52,7 @@ const {
     controlAttributes,
     formGroupClasses,
     listeners
-} = useFormControl<InputHTMLAttributes, TagFieldSizePrefix, T[]|undefined, Value[]|undefined>({ model, props, emit });
+} = useFormControl<InputHTMLAttributes, TagFieldSizePrefix, T[]|undefined, T>({ model, props, emit });
 
 const wrapperEl = useTemplateRef('wrapperEl');
 const inputEl = useTemplateRef('inputEl');
@@ -61,6 +64,12 @@ const hasFocus = ref(false);
 const focusIndex = ref<number>();
 const options = ref(props.options) as Ref<T[]>;
 
+const isInteractive = computed(() => !props.disabled && !props.readonly);
+
+const canClear = computed(() => {
+    return props.clearable && (!!input.value || !!model.value?.length) && isInteractive.value;
+});
+
 const keys = computed(() => {
     return typeof props.options === 'object' && props.options?.[0]
         ? Object.keys(props.options?.[0])
@@ -68,10 +77,6 @@ const keys = computed(() => {
 });
 
 const fuse: Fuse<T> = createFuse(props.options);
-
-const badgeSize = computed<BadgeSizePrefix | undefined>(() => {
-    return props.size ? String(props.size).replace('form-control', 'badge') as BadgeSizePrefix : undefined;
-});
 
 const showOptions = computed(() => {
     return hasFocus.value && (filtered.value.length || props.allowCustom && input.value);
@@ -368,6 +373,24 @@ function onClickAddTag() {
     }
 }
 
+function clear() {
+    if (!isInteractive.value) return;
+    input.value = undefined;
+    model.value = [];
+}
+
+function toggle() {
+    if (!isInteractive.value) return;
+    
+    if(hasFocus.value) {
+        hasFocus.value = false;
+    }
+    else {
+        hasFocus.value = true;
+        inputEl.value?.focus();
+    }
+}
+
 function onClickOutsideWrapper(e: MouseEvent) {
     if(!e.target) {
         return;
@@ -399,17 +422,16 @@ onBeforeMount(() => {
 
 onBeforeUnmount(() => {
     document.removeEventListener('click', onClickOutsideWrapper);
-    document.addEventListener('keydown', onDocumentKeydown);
+    document.removeEventListener('keydown', onDocumentKeydown);
 });
 </script>
 
 <template>
-    <div class="relative [&_.form-control]:pr-8">
+    <div ref="wrapperEl" class="relative [&_.form-control]:pr-8">
         <InputField
-            :id="id"
-            ref="inputEl"
+            ref="field"
             class="tag-field-input"
-            :class="{ formGroupClasses }"
+            :class="{ 'has-clear-button': canClear, ...formGroupClasses }"
             v-bind="{ ...$attrs, controlAttributes, listeners }"
             :name="name"
             :label="label"
@@ -421,46 +443,64 @@ onBeforeUnmount(() => {
             :feedback="feedback"
             :valid="valid"
             :invalid="invalid"
-            :size="size"
-            @click.self="inputEl?.focus()">
-            <template #control="{ controlAttributes: innerControlAttributes, listeners: innerListeners }">
-                <div class="flex flex-wrap gap-1 items-center h-auto py-[.15rem] cursor-text flex-1"
-                    :class="[
-                        innerControlAttributes.class,
-                        {
-                            'form-control': true
-                        }
-                    ]"
-                    @click.self="inputEl?.focus()">
+            :size="size">
+            <template #icon v-if="$slots.icon">
+                <slot name="icon" />
+            </template>
+            <template #activity>
+                <slot
+                    name="activity"
+                    v-bind="{ disabled, options, invalid, valid }">
+                    <ActivityIndicator
+                        v-if="!disabled && !options"
+                        :type="Pulse"
+                        size="activity-indicator-sm" />
+                    <button
+                        v-else-if="canClear"
+                        type="button"
+                        class="tag-field-clear-button"
+                        @click.stop="clear">
+                        <XMarkIcon class="size-[1.25em]" />
+                    </button>
+                    <button
+                        v-else-if="!invalid && !valid"
+                        type="button"
+                        @click.stop="toggle">
+                        <ChevronDownIcon class="size-[1em]" />
+                    </button>
+                </slot>
+            </template>
+            <template #control="{ controlAttributes, listeners }">
+                <div class="flex flex-wrap gap-2 mr-2 flex-1">
                     <Badge
                         v-for="(tag, i) in model"
                         ref="tagEl"
                         :key="`tag-${i}`"
                         tabindex="-1"
-                        :size="badgeSize"
-                        class="badge-primary dark:badge-neutral-500"
+                        size="badge-[1em]"
+                        class="badge-neutral-100 dark:badge-neutral-500"
                         :class="{
-                            'bg-blue-200! text-blue-900! border-blue-300! dark:bg-blue-600! dark:text-blue-100! dark:border-blue-500!': isTagActive(tag),
+                            'badge-blue-200! dark:badge-blue-600!': isTagActive(tag),
                         }"
                         closeable
                         @mousedown.prevent
+                        @close="removeTag(tag)"
                         @focus="toggleActiveTag(tag)"
                         @blur="deactivateTag(tag)"
                         @click.exact.meta="toggleActiveTag(tag, true)"
                         @click.exact="toggleActiveTag(tag)"
                         @click.exact.shift="toggleActiveTagRange(tag)">
                         {{ display?.(tag) ?? tag }}
-                        
                         <template #close-icon>
-                            <XMarkIcon class="size-[1.25em]" @mousedown.prevent @mouseup.stop="removeTag(tag)" />
+                            <XMarkIcon class="size-[1.25em]" @mousedown.prevent />
                         </template>
                     </Badge>
-
+                
                     <input
-                        :id="id"
                         ref="inputEl"
+                        v-bind="{ ...controlAttributes, ...listeners }"
                         v-model="input"
-                        class="bg-transparent outline-none flex-1"
+                        class="bg-transparent outline-none flex-1 min-w-0"
                         @keydown.exact.delete="onBackspace"
                         @keydown.exact.meta.a="selectAllTags"
                         @keydown.exact.enter="onKeydownEnter"
@@ -478,9 +518,11 @@ onBeforeUnmount(() => {
             </template>
         </InputField>
         <div
-            v-if="showOptions"
+            v-if="showOptions && filtered.length"
             tabindex="-1"
-            class="tag-field-dropdown">
+            class="tag-field-dropdown"
+            :class="size"
+            @mousedown.prevent.stop>
             <button
                 v-for="(option, i) in filtered"
                 :key="`option-${JSON.stringify(option)}`"
@@ -504,5 +546,16 @@ onBeforeUnmount(() => {
                 <PlusIcon class="size-4" /> {{ addTagLabel }}
             </button>
         </div>
+
+        <slot
+            name="help"
+            v-bind="{ helpText }">
+            <small
+                v-if="helpText"
+                ref="help"
+                class="form-help">
+                {{ helpText }}
+            </small>
+        </slot>
     </div>
 </template>

@@ -26,6 +26,7 @@ All packages combine [Vue.js](https://vuejs.org/) and [TailwindCSS v4](https://t
   - [Checkbox Field](/packages/checkbox-field/)
   - [Radio Field](/packages/radio-field/)
   - [Light Switch Field](/packages/light-switch-field/)
+  - [Tag Field](/packages/tag-field/)
 - [Modal](/packages/modal/)
 - [Pagination](/packages/pagination/)
 - [Popover](/packages/popover/)

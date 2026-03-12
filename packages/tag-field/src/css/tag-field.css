@@ -6,7 +6,7 @@
     --tag-field-dropdown-flex-direction: column;
     --tag-field-dropdown-position: absolute;
     --tag-field-dropdown-z-index: 10;
-    --tag-field-dropdown-width: 100%;
+    --tag-field-dropdown-width: 99%;
     --tag-field-dropdown-max-height: 18rem;
     --tag-field-dropdown-margin-top: 0.25rem;
     --tag-field-dropdown-overflow: auto;
@@ -32,7 +32,7 @@
     --tag-field-input-position: relative;
     --tag-field-input-activity-indicator-position: absolute;
     --tag-field-input-activity-indicator-top: 50%;
-    --tag-field-input-activity-indicator-right: 0;
+    --tag-field-input-activity-indicator-right: 0.75em;
     --tag-field-input-activity-indicator-transform: translate(-1rem, -50%);
 
     /* Searchable Select-field Clear Button */
