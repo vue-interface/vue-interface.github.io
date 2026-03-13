@@ -463,7 +463,7 @@ onBeforeUnmount(() => {
                             size="badge-[.95em]"
                             class="badge-neutral-100 dark:badge-neutral-500"
                             :class="{
-                                'badge-blue-600!': isTagActive(tag),
+                                'badge-blue-100! dark:badge-blue-600!': isTagActive(tag),
                             }"
                             :closeable="isInteractive"
                             @mousedown.prevent

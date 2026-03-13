@@ -1,8 +1,6 @@
 @import "tailwindcss";
 @import "./index.css";
 
-@source "../badge/src/*.vue";
-@source "../input-field/src/*.vue";
 @source "../activity-indicator/src/**/*.vue";
 
 @variant dark {
