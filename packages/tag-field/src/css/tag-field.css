@@ -15,8 +15,7 @@
     --tag-field-dropdown-border-color: var(--color-neutral-300, oklch(87% 0 0));
     --tag-field-dropdown-background-color: var(--color-white, #fff);
     --tag-field-dropdown-color: var(--color-black, #000);
-    --tag-field-dropdown-box-shadow-style: 0 10px 15px -3px, 0 4px 6px -4px;
-    --tag-field-dropdown-box-shadow-color: rgb(0 0 0 / 0.1), rgb(0 0 0 / 0.1);
+    --tag-field-dropdown-box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 
     --tag-field-dropdown-dark-border-color: var(--color-neutral-600, oklch(43.9% 0 0));
     --tag-field-dropdown-dark-background-color: var(--color-neutral-900, oklch(20.5% 0 0));
@@ -54,12 +53,13 @@
     max-height: var(--tag-field-dropdown-max-height);
     margin-top: var(--tag-field-dropdown-margin-top);
     overflow: var(--tag-field-dropdown-overflow);
+    font-size: 1rem;
     border-width: var(--tag-field-dropdown-border-width);
     border-radius: var(--tag-field-dropdown-border-radius);
     border-color: var(--tag-field-dropdown-border-color);
     background-color: var(--tag-field-dropdown-background-color);
     color: var(--tag-field-dropdown-color);
-    box-shadow: var(--tag-field-dropdown-box-shadow-style) var(--tag-field-dropdown-box-shadow-color);
+    box-shadow: var(--tag-field-dropdown-box-shadow);
 
     @variant dark {
         border-color: var(--tag-field-dropdown-dark-border-color);
