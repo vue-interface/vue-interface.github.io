@@ -3,7 +3,7 @@ import { XMarkIcon } from '@heroicons/vue/24/outline';
 import { ActivityIndicator } from '@vue-interface/activity-indicator';
 import type { FormControlEvents, FormControlProps, FormControlSlots } from '@vue-interface/form-control';
 import { FormControlErrors, FormControlFeedback, useFormControl } from '@vue-interface/form-control';
-import { InputHTMLAttributes, computed, useTemplateRef, ref } from 'vue';
+import { type HTMLAttributes, computed, useTemplateRef, ref } from 'vue';
 
 const props = withDefaults(defineProps<InputFieldProps<ModelValue,Value>>(), {
     formControlClass: 'form-control',
@@ -27,7 +27,7 @@ const {
     controlAttributes,
     formGroupClasses,
     listeners
-} = useFormControl<InputHTMLAttributes, InputFieldControlSizePrefix, ModelValue|undefined, Value>({ model, props, emit });
+} = useFormControl<HTMLAttributes, InputFieldControlSizePrefix, ModelValue|undefined, Value>({ model, props, emit });
 
 const isInteractive = computed(() => !props.disabled && !props.readonly);
 
@@ -61,9 +61,9 @@ defineExpose({
 export type InputFieldControlSizePrefix = 'form-control';
 
 export type InputFieldProps<ModelValue, Value> = FormControlProps<
-    InputHTMLAttributes, 
-    InputFieldControlSizePrefix, 
-    ModelValue, 
+    HTMLAttributes,
+    InputFieldControlSizePrefix,
+    ModelValue,
     Value
 > & {
     clearable?: boolean;
