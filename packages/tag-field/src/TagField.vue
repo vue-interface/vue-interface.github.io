@@ -1,49 +1,54 @@
-<script lang="ts">
+<script setup lang="ts" generic="T, Value">
+import { PlusIcon, XMarkIcon } from '@heroicons/vue/24/outline';
+import { ActivityIndicator } from '@vue-interface/activity-indicator';
+import { Badge } from '@vue-interface/badge';
+import type { FormControlEvents, FormControlProps, FormControlSlots } from '@vue-interface/form-control';
+import { FormControlErrors, FormControlFeedback, useFormControl } from '@vue-interface/form-control';
+import type { IFuseOptions } from 'fuse.js';
+import Fuse from 'fuse.js';
+import { isEqual } from 'lodash-es';
+import { type HTMLAttributes, computed, onBeforeMount, onBeforeUnmount, ref, toRaw, unref, useTemplateRef, watch, type Ref } from 'vue';
+
 export type TagFieldSizePrefix = 'form-control';
 
-export type TagFieldProps<ModelValue, Value> = FormControlProps<
-    InputHTMLAttributes, 
-    TagFieldSizePrefix, 
-    ModelValue[], 
+export type TagFieldProps<T, Value> = FormControlProps<
+    HTMLAttributes,
+    TagFieldSizePrefix,
+    T[],
     Value[]
 > & {
-    options?: ModelValue[];
-    fuseOptions?: IFuseOptions<ModelValue>;
-    display?: (option: ModelValue) => string;
-    format?: (value: string) => ModelValue;
+    options?: T[];
+    fuseOptions?: IFuseOptions<T>;
+    display?: (option: T) => string;
+    format?: (value: string) => T;
     allowCustom?: boolean;
     addTagLabel?: string;
-    id?: string;
+    noResultsText?: string;
+    showNoResults?: boolean;
     clearable?: boolean;
 };
-</script>
 
-
-<script setup lang="ts" generic="T, Value">
-import { PlusIcon, XMarkIcon, ChevronDownIcon } from '@heroicons/vue/24/outline';
-import Fuse, { IFuseOptions } from 'fuse.js';
-import { ActivityIndicator, Pulse } from '@vue-interface/activity-indicator';
-import type { FormControlEvents, FormControlProps, FormControlSlots } from '@vue-interface/form-control';
-import { useFormControl } from '@vue-interface/form-control';
-import { InputField } from '@vue-interface/input-field';
-import { Badge } from '@vue-interface/badge';
-import { isEqual } from 'lodash-es';
-import { InputHTMLAttributes, computed, onBeforeMount, onBeforeUnmount, Ref, ref, useTemplateRef, watch } from 'vue';
-
-const props = withDefaults(defineProps<TagFieldProps<T,Value>>(), {
+const props = withDefaults(defineProps<TagFieldProps<T, Value>>(), {
     formControlClass: 'form-control',
     labelClass: 'form-label',
     size: 'form-control-md',
-    allowCustom: true,
+    allowCustom: false,
     addTagLabel: 'Add Tag',
-    clearable: true,
-    options: () => []
+    noResultsText: 'No results found',
+    showNoResults: true,
+    clearable: false,
+    options: () => [],
+});
+
+defineOptions({
+    inheritAttrs: false
 });
 
 const model = defineModel<T[]>();
 
 defineSlots<FormControlSlots<TagFieldSizePrefix, T[]> & {
     default(props: { option: T; display?: (option: T) => string }): any;
+    'no-results'(props: { input: string | undefined }): any;
 }>();
 
 const emit = defineEmits<FormControlEvents>();
@@ -52,7 +57,7 @@ const {
     controlAttributes,
     formGroupClasses,
     listeners
-} = useFormControl<InputHTMLAttributes, TagFieldSizePrefix, T[]|undefined, T>({ model, props, emit });
+} = useFormControl<HTMLAttributes, TagFieldSizePrefix, T[]|undefined, Value[]>({ model, props, emit });
 
 const wrapperEl = useTemplateRef('wrapperEl');
 const inputEl = useTemplateRef('inputEl');
@@ -79,12 +84,12 @@ const keys = computed(() => {
 const fuse: Fuse<T> = createFuse(props.options);
 
 const showOptions = computed(() => {
-    return hasFocus.value && (filtered.value.length || props.allowCustom && input.value);
+    return isInteractive.value && hasFocus.value && (filtered.value.length || input.value);
 });
 
 const selectedIndexes = computed(() => {
     return selected.value.map(tag => {
-        return (model.value ?? []).findIndex((item: T) => isEqual(item, tag));
+        return (model.value ?? []).findIndex(item => isEqual(item, tag));
     });
 });
 
@@ -109,7 +114,9 @@ function createFuse(items: T[]) {
 
 const filtered = computed<T[]>(() => {
     const items = options.value.filter(option => {
-        return !(model.value ?? []).find((item: T) => isEqual(item, option));
+        return !(model.value ?? []).find(item => {
+            return isEqual(item, toRaw(unref(option)));
+        });
     });
 
     if(!input.value) {
@@ -117,11 +124,13 @@ const filtered = computed<T[]>(() => {
     }
 
     fuse.setCollection(items as T[]);
-    
+
     return fuse.search(input.value).map(({ item }) => item);
 });
 
 function addCustomTag(value: string) {
+    if(!isInteractive.value) return;
+
     const tag = props.format?.(value) ?? value as T;
 
     if(!options.value.find(option => isEqual(option, tag))) {
@@ -134,18 +143,21 @@ function addCustomTag(value: string) {
 }
 
 function addTag(tag: T) {
+    if(!isInteractive.value) return;
+
     model.value = [...(model.value ?? []), tag];
     input.value = undefined;
     focusIndex.value = undefined;
 }
 
 function removeTag(tag: T) {
+    if(!isInteractive.value) return;
+
     const value = [...(model.value ?? [])];
 
     value.splice(value.indexOf(tag), 1);
 
     deactivateTag(tag);
-    
 
     model.value = value;
 }
@@ -164,26 +176,27 @@ function toggleActiveTag(tag: T, multiple = false) {
 }
 
 function toggleActiveTagRange(tag: T) {
-    const index = model.value?.indexOf(tag);
+    const items = model.value ?? [];
+    const index = items.indexOf(tag);
     const lastSelectedIndex = selectedIndexes.value[selectedIndexes.value.length - 1];
     const fn = !isTagActive(tag) ? activateTag : deactivateTag;
 
-    if(lastSelectedIndex === undefined || index === undefined || index === -1) {
+    if(lastSelectedIndex === undefined) {
         toggleActiveTag(tag);
 
         return;
     }
 
     let range: T[] = [];
-    
+
     if(index > lastSelectedIndex) {
-        range = model.value?.slice(lastSelectedIndex, index + 1) ?? [];
+        range = items.slice(lastSelectedIndex, index + 1);
     }
     else if(index < lastSelectedIndex) {
-        range = model.value?.slice(index, lastSelectedIndex + 1) ?? [];
+        range = items.slice(index, lastSelectedIndex + 1);
     }
 
-    for(const tag of range ?? []) {
+    for(const tag of range) {
         fn(tag);
     }
 }
@@ -192,7 +205,7 @@ function selectAllTags() {
     if(input.value) {
         return;
     }
-    
+
     selected.value = [...(model.value ?? [])];
 }
 
@@ -231,20 +244,18 @@ function activateTag(tag: T) {
     if(!isTagActive(tag)) {
         selected.value.push(tag);
     }
-
-    // inputEl.value?.focus();
 }
 
 function deactivateTag(tag: T) {
     if(isTagActive(tag)) {
         selected.value.splice(selected.value.indexOf(tag), 1);
     }
-    
+
     blurTags();
 }
 
 function removeActiveTags() {
-    model.value = model.value?.filter(tag => {
+    model.value = (model.value ?? []).filter(tag => {
         return !isTagActive(tag);
     });
 
@@ -312,7 +323,7 @@ function onKeydownLeft(multiple: boolean = false) {
     if(!model.value?.length || input.value) {
         return;
     }
-    
+
     const nextIndex = Math.min(...selectedIndexes.value, model.value.length) - 1;
 
     if(model.value[nextIndex]) {
@@ -327,7 +338,7 @@ function onKeydownRight(multiple: boolean = false) {
     if(!model.value?.length || input.value) {
         return;
     }
-    
+
     const nextIndex = Math.max(...selectedIndexes.value, -1) + 1;
 
     if(model.value[nextIndex]) {
@@ -353,18 +364,14 @@ function onBlur() {
     }
 
     hasFocus.value = false;
-    
+
     deactivateTags();
-    
-    // emit('blur', undefined);
 }
 
 function onFocus() {
     hasFocus.value = true;
 
     deactivateTags();
-    
-    // emit('focus', undefined);
 }
 
 function onClickAddTag() {
@@ -377,18 +384,6 @@ function clear() {
     if (!isInteractive.value) return;
     input.value = undefined;
     model.value = [];
-}
-
-function toggle() {
-    if (!isInteractive.value) return;
-    
-    if(hasFocus.value) {
-        hasFocus.value = false;
-    }
-    else {
-        hasFocus.value = true;
-        inputEl.value?.focus();
-    }
 }
 
 function onClickOutsideWrapper(e: MouseEvent) {
@@ -415,6 +410,7 @@ function onDocumentKeydown(e: KeyboardEvent) {
         }
     }
 }
+
 onBeforeMount(() => {
     document.addEventListener('click', onClickOutsideWrapper);
     document.addEventListener('keydown', onDocumentKeydown);
@@ -427,101 +423,108 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-    <div ref="wrapperEl" class="relative [&_.form-control]:pr-8">
-        <InputField
-            ref="field"
-            class="tag-field-input"
-            :class="{ 'has-clear-button': canClear, ...formGroupClasses }"
-            v-bind="{ ...$attrs, controlAttributes, listeners }"
-            :name="name"
-            :label="label"
-            :disabled="disabled"
-            :readonly="readonly"
-            :color="color"
-            :error="error"
-            :errors="errors"
-            :feedback="feedback"
-            :valid="valid"
-            :invalid="invalid"
-            :size="size">
-            <template #icon v-if="$slots.icon">
-                <slot name="icon" />
-            </template>
-            <template #activity>
-                <slot
-                    name="activity"
-                    v-bind="{ disabled, options, invalid, valid }">
-                    <ActivityIndicator
-                        v-if="!disabled && !options"
-                        :type="Pulse"
-                        size="activity-indicator-sm" />
+    <div
+        ref="wrapperEl"
+        class="tag-field"
+        :class="[formGroupClasses, { 'has-clear-button': canClear }]">
+        <slot name="label">
+            <label
+                v-if="label"
+                :class="labelClass"
+                :for="controlAttributes.id">
+                {{ label }}
+            </label>
+        </slot>
+
+        <div class="form-control-inner">
+            <slot
+                name="control"
+                v-bind="{ controlAttributes, listeners }">
+                <div
+                    v-if="$slots.icon"
+                    class="form-control-inner-icon"
+                    @click="inputEl?.focus()">
+                    <slot name="icon" />
+                </div>
+                <div
+                    v-bind="controlAttributes"
+                    class="form-control flex"
+                    @click.self="inputEl?.focus()">
+                    <div class="flex flex-wrap gap-2 mr-2 flex-1">
+                        <Badge
+                            v-for="(tag, i) in model"
+                            ref="tagEl"
+                            :key="`tag-${i}`"
+                            tabindex="-1"
+                            size="badge-[.95em]"
+                            class="badge-neutral-100 dark:badge-neutral-500"
+                            :class="{
+                                'badge-blue-600!': isTagActive(tag),
+                            }"
+                            :closeable="isInteractive"
+                            @mousedown.prevent
+                            @close="removeTag(tag)"
+                            @focus="toggleActiveTag(tag)"
+                            @blur="deactivateTag(tag)"
+                            @click.exact.meta="toggleActiveTag(tag, true)"
+                            @click.exact="toggleActiveTag(tag)"
+                            @click.exact.shift="toggleActiveTagRange(tag)">
+                            <slot :option="tag" :display="display">
+                                {{ display?.(tag) ?? tag }}
+                            </slot>
+                            <template #close-icon>
+                                <XMarkIcon class="size-[1.25em]" @mousedown.prevent />
+                            </template>
+                        </Badge>
+
+                        <input
+                            ref="inputEl"
+                            v-model="input"
+                            :placeholder="model?.length ? undefined : ($attrs.placeholder as string)"
+                            :disabled="props.disabled"
+                            :readonly="props.readonly"
+                            class="bg-transparent outline-none flex-1 min-w-0"
+                            @keydown.exact.delete="onBackspace"
+                            @keydown.exact.meta.a="selectAllTags"
+                            @keydown.exact.enter="onKeydownEnter"
+                            @keydown.exact.space="onKeydownSpace"
+                            @keydown.exact.arrow-up="onKeydownUp"
+                            @keydown.exact.arrow-down="onKeydownDown"
+                            @keydown.exact.arrow-left="onKeydownLeft()"
+                            @keydown.exact.shift.arrow-left="onKeydownLeft(true)"
+                            @keydown.exact.arrow-right="onKeydownRight()"
+                            @keydown.exact.shift.arrow-right="onKeydownRight(true)"
+                            @keydown.esc="onEscape"
+                            @blur="onBlur"
+                            @focus="onFocus">
+                    </div>
+                </div>
+            </slot>
+
+            <div class="form-control-activity-indicator">
+                <slot name="activity" v-bind="{ canClear, clear, isInteractive }">
                     <button
-                        v-else-if="canClear"
+                        v-if="canClear"
                         type="button"
                         class="tag-field-clear-button"
                         @click.stop="clear">
                         <XMarkIcon class="size-[1.25em]" />
                     </button>
-                    <button
-                        v-else-if="!invalid && !valid"
-                        type="button"
-                        @click.stop="toggle">
-                        <ChevronDownIcon class="size-[1em]" />
-                    </button>
+                    <Transition name="tag-field-fade" v-else>
+                        <ActivityIndicator
+                            v-if="props.activity && props.indicator"
+                            key="activity"
+                            :type="props.indicator"
+                            :size="props.indicatorSize" />
+                    </Transition>
                 </slot>
-            </template>
-            <template #control="{ controlAttributes, listeners }">
-                <div class="flex flex-wrap gap-2 mr-2 flex-1">
-                    <Badge
-                        v-for="(tag, i) in model"
-                        ref="tagEl"
-                        :key="`tag-${i}`"
-                        tabindex="-1"
-                        size="badge-[1em]"
-                        class="badge-neutral-100 dark:badge-neutral-500"
-                        :class="{
-                            'badge-blue-200! dark:badge-blue-600!': isTagActive(tag),
-                        }"
-                        closeable
-                        @mousedown.prevent
-                        @close="removeTag(tag)"
-                        @focus="toggleActiveTag(tag)"
-                        @blur="deactivateTag(tag)"
-                        @click.exact.meta="toggleActiveTag(tag, true)"
-                        @click.exact="toggleActiveTag(tag)"
-                        @click.exact.shift="toggleActiveTagRange(tag)">
-                        {{ display?.(tag) ?? tag }}
-                        <template #close-icon>
-                            <XMarkIcon class="size-[1.25em]" @mousedown.prevent />
-                        </template>
-                    </Badge>
-                
-                    <input
-                        ref="inputEl"
-                        v-bind="{ ...controlAttributes, ...listeners }"
-                        v-model="input"
-                        class="bg-transparent outline-none flex-1 min-w-0"
-                        @keydown.exact.delete="onBackspace"
-                        @keydown.exact.meta.a="selectAllTags"
-                        @keydown.exact.enter="onKeydownEnter"
-                        @keydown.exact.space="onKeydownSpace"
-                        @keydown.exact.arrow-up="onKeydownUp"
-                        @keydown.exact.arrow-down="onKeydownDown"
-                        @keydown.exact.arrow-left="onKeydownLeft()"
-                        @keydown.exact.shift.arrow-left="onKeydownLeft(true)"
-                        @keydown.exact.arrow-right="onKeydownRight()"
-                        @keydown.exact.shift.arrow-right="onKeydownRight(true)"
-                        @keydown.esc="onEscape"
-                        @blur="onBlur"
-                        @focus="onFocus">
-                </div>
-            </template>
-        </InputField>
+            </div>
+        </div>
+
         <div
-            v-if="showOptions && filtered.length"
+            v-if="showOptions"
             tabindex="-1"
             class="tag-field-dropdown"
-            :class="size"
             @mousedown.prevent.stop>
             <button
                 v-for="(option, i) in filtered"
@@ -529,7 +532,7 @@ onBeforeUnmount(() => {
                 type="button"
                 tabindex="-1"
                 :class="{
-                    ['bg-neutral-200 dark:bg-neutral-700']: focusIndex === i
+                    ['bg-neutral-100 dark:bg-neutral-800']: focusIndex === i
                 }"
                 @mousedown.prevent
                 @mouseup="addTag(option)">
@@ -539,20 +542,58 @@ onBeforeUnmount(() => {
             </button>
             <button
                 v-if="allowCustom && input"
-                class="flex items-center"
+                class="flex items-center gap-1"
                 type="button"
                 @mousedown.prevent
                 @mouseup="onClickAddTag">
                 <PlusIcon class="size-4" /> {{ addTagLabel }}
             </button>
+            <div
+                v-if="showNoResults && !filtered.length && !allowCustom"
+                class="py-2 px-4 text-neutral-400 dark:text-neutral-500">
+                <slot name="no-results" :input="input">
+                    {{ noResultsText }}
+                </slot>
+            </div>
         </div>
+
+        <slot
+            name="errors"
+            v-bind="{ error, errors, id: controlAttributes.id, name }">
+            <FormControlErrors
+                v-if="!!(error || errors)"
+                :id="controlAttributes.id"
+                v-slot="{ error: err }"
+                :name="name"
+                :error="error"
+                :errors="errors">
+                <div
+                    invalid
+                    class="invalid-feedback">
+                    {{ err }}
+                </div>
+            </FormControlErrors>
+        </slot>
+
+        <slot
+            name="feedback"
+            v-bind="{ feedback }">
+            <FormControlFeedback
+                v-slot="{ feedback: fb }"
+                :feedback="feedback">
+                <div
+                    valid
+                    class="valid-feedback">
+                    {{ fb }}
+                </div>
+            </FormControlFeedback>
+        </slot>
 
         <slot
             name="help"
             v-bind="{ helpText }">
             <small
                 v-if="helpText"
-                ref="help"
                 class="form-help">
                 {{ helpText }}
             </small>

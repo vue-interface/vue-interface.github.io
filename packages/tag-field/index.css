@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "@vue-interface/activity-indicator/css";
 @import "@vue-interface/form-control/css";
 @import "@vue-interface/badge/css";
 

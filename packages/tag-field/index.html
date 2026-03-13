@@ -20,8 +20,16 @@
             <tag-field :options="options" label="Readonly" placeholder="Type something here..." readonly></tag-field>
             <tag-field :options="options" label="Disabled" disabled></tag-field>
             <tag-field :options="options" placeholder="Disabled" label="Disabled (Placeholder)" disabled></tag-field>
+            <tag-field :options="options" label="Clearable" placeholder="Clearable" clearable></tag-field>
         </div>
-        
+
+        <h2 class="text-2xl mb-3">Custom Tags</h2>
+
+        <div class="flex flex-col gap-4 mb-4">
+            <tag-field allow-custom :options="languages" label="Allow Custom (with options)" placeholder="Type and press enter..."></tag-field>
+            <tag-field allow-custom label="Allow Custom (no options)" placeholder="Type anything and press enter..."></tag-field>
+        </div>
+
         <h2 class="text-2xl mb-3">Sizes</h2>
 
         <div class="flex flex-col gap-4 mb-4">
@@ -147,21 +155,23 @@
             </tag-field>
         </div>
 
-        <h2 class="text-2xl mb-3">Animated</h2>
+        <h2 class="text-2xl mb-3">Activity Indicator</h2>
 
         <div class="flex flex-col gap-4 mb-4">
-            <tag-field :options="options" label="Animated" placeholder="Some placeholder" class="form-control-animated-md"></tag-field>
-            <tag-field :options="options" label="Animated with Icon" placeholder="Some placeholder" size="form-control-md" class="form-control-animated-md">
-                <template #icon>
-                    <calendar-days-icon></calendar-days-icon>
-                </template>
-            </tag-field>
+            <tag-field :options="options" label="Small" size="form-control-sm" :indicator="Dots()" indicator-size="activity-indicator-sm" :activity="showActivity"></tag-field>
+            <tag-field :options="options" label="Medium" size="form-control-md" :indicator="Pulse()" indicator-size="activity-indicator-sm" :activity="showActivity"></tag-field>
+            <tag-field :options="options" label="Large" size="form-control-lg" :indicator="Spinner()" indicator-size="activity-indicator-sm" :activity="showActivity"></tag-field>
+
+            <button type="button" class="underline text-blue-600" @click="showActivity = !showActivity">
+                <span v-if="!showActivity">Show</span><span v-else>Hide</span> Activity
+            </button>
         </div>
-        
+    </div>
 
     <script type="module">
         import "./demo.css";
         import { createApp, ref } from 'vue/dist/vue.esm-bundler.js';
+        import { Dots, Pulse, Spinner } from '@vue-interface/activity-indicator';
         import { CalendarDaysIcon } from '@heroicons/vue/24/outline';
         import { TagField } from './index';
 
@@ -172,6 +182,7 @@
             },
             setup() {
                 const selected = ref();
+                const showActivity = ref(false);
                 const options = [
                     'Option 1',
                     'Option 2',
@@ -198,8 +209,12 @@
                 ];
                 return {
                     selected,
+                    showActivity,
                     options,
-                    languages
+                    languages,
+                    Dots: () => Dots,
+                    Pulse: () => Pulse,
+                    Spinner: () => Spinner
                 };
             }
         });

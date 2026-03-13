@@ -52,7 +52,6 @@
     "@vue-interface/activity-indicator": "workspace:*",
     "@vue-interface/badge": "workspace:*",
     "@vue-interface/form-control": "workspace:*",
-    "@vue-interface/input-field": "workspace:*",
     "@vue-interface/sizeable": "workspace:*",
     "fuse.js": "^7.1.0",
     "lodash-es": "^4.17.23",
