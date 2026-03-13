@@ -358,7 +358,7 @@ function onEscape() {
     }
 }
 
-function onBlur() {
+function onBlur(e: FocusEvent) {
     if(props.allowCustom && input.value) {
         addCustomTag(input.value);
     }
@@ -366,12 +366,16 @@ function onBlur() {
     hasFocus.value = false;
 
     deactivateTags();
+
+    listeners.onBlur(e);
 }
 
-function onFocus() {
+function onFocus(e: FocusEvent) {
     hasFocus.value = true;
 
     deactivateTags();
+
+    listeners.onFocus(e);
 }
 
 function onClickAddTag() {
