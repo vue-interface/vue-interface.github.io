@@ -88,10 +88,30 @@ bun i @vue-interface/tag-field
 
 ## Custom Tags
 
+The `tag-field` can be further customized using the following utility classes and props:
+
+| <div class="whitespace-nowrap min-w-35">Class</div> | Description |
+| :--- | :--- |
+| `allow-custom` | Allows custom tags to be added|
+| `badge-size` | Customize tag size using any [badge-[size]](/packages/badge/docs/index.md#sizes) class |
+| `badge-class` | Customize the tag color using any [badge-[variant/color]](/packages/badge/docs/index.md#color-variants) class |
+| `active-badge-color` | Customize the active tag color using any [badge-[variant/color]](/packages/badge/docs/index.md#color-variants) class |
+| `:badge-closeable` | Set to `:badge-closeable="false"` to remove the close button |
+| `:badge-close-left` |  Set to `:badge-close-left="true"` to move the close button to the left side of the tag |
+
 <div class="flex flex-col gap-4">
     <!-- #region customTags -->
     <TagField allow-custom :options="languages" label="Allow Custom (with options)" placeholder="Type and press enter..."></TagField>
     <TagField allow-custom label="Allow Custom (no options)" placeholder="Type anything and press enter..."></TagField>
+    <TagField 
+        :options="options" 
+        badge-size="badge-xl" 
+        badge-class="badge-danger dark:badge-indigo-400" 
+        active-badge-color="badge-yellow-500 dark:badge-primary" 
+        :badge-close-left="true" 
+        label="Customized Tag" 
+        placeholder="Customized Tag">
+    </TagField>
     <!-- #endregion customTags -->
 </div>
 
@@ -183,10 +203,10 @@ Customize the color of a `tag-field` component with the [Tailwind color palette]
 
 <div class="flex flex-col gap-3">
     <!-- #region customColors -->
-    <TagField :options="options" class="tag-field-amber-500" placeholder="tag-field-amber-500"></TagField>
-    <TagField :options="options" class="tag-field-green-500" placeholder="tag-field-green-500"></TagField>
-    <TagField :options="options" class="tag-field-purple-500" placeholder="tag-field-purple-500"></TagField>
-    <TagField :options="options" class="tag-field-neutral-500" placeholder="tag-field-neutral-500"></TagField>
+    <TagField :options="options" class="form-control-amber-500" placeholder="form-control-amber-500"></TagField>
+    <TagField :options="options" class="form-control-green-500" placeholder="form-control-green-500"></TagField>
+    <TagField :options="options" class="form-control-purple-500" placeholder="form-control-purple-500"></TagField>
+    <TagField :options="options" class="form-control-neutral-500" placeholder="form-control-neutral-500"></TagField>
     <!-- #endregion customColors -->
 </div>
 

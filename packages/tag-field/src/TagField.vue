@@ -1,7 +1,7 @@
 <script setup lang="ts" generic="T, Value">
 import { PlusIcon, XMarkIcon } from '@heroicons/vue/24/outline';
 import { ActivityIndicator } from '@vue-interface/activity-indicator';
-import { Badge } from '@vue-interface/badge';
+import { Badge, type BadgeSize } from '@vue-interface/badge';
 import type { FormControlEvents, FormControlProps, FormControlSlots } from '@vue-interface/form-control';
 import { FormControlErrors, FormControlFeedback, useFormControl } from '@vue-interface/form-control';
 import type { IFuseOptions } from 'fuse.js';
@@ -26,6 +26,11 @@ export type TagFieldProps<T, Value> = FormControlProps<
     noResultsText?: string;
     showNoResults?: boolean;
     clearable?: boolean;
+    badgeClass?: string | string[] | Record<string, boolean>;
+    activeBadgeColor?: string | string[] | Record<string, boolean>;
+    badgeSize?: BadgeSize;
+    badgeCloseable?: boolean;
+    badgeCloseLeft?: boolean;
 };
 
 const props = withDefaults(defineProps<TagFieldProps<T, Value>>(), {
@@ -38,6 +43,11 @@ const props = withDefaults(defineProps<TagFieldProps<T, Value>>(), {
     showNoResults: true,
     clearable: false,
     options: () => [],
+    badgeClass: 'badge-neutral-100 dark:badge-neutral-500',
+    activeBadgeClass: 'badge-blue-100! dark:badge-blue-600!',
+    badgeSize: 'badge-[.95em]',
+    badgeCloseable: true,
+    badgeCloseLeft: false,
 });
 
 defineOptions({
@@ -453,6 +463,7 @@ onBeforeUnmount(() => {
                 <div
                     v-bind="controlAttributes"
                     class="form-control flex"
+                    :class="$attrs.class"
                     @click.self="inputEl?.focus()">
                     <div class="flex flex-wrap gap-2 mr-2 flex-1">
                         <Badge
@@ -460,12 +471,13 @@ onBeforeUnmount(() => {
                             ref="tagEl"
                             :key="`tag-${i}`"
                             tabindex="-1"
-                            size="badge-[.95em]"
-                            class="badge-neutral-100 dark:badge-neutral-500"
-                            :class="{
-                                'badge-blue-100! dark:badge-blue-600!': isTagActive(tag),
-                            }"
-                            :closeable="isInteractive"
+                            :size="badgeSize"
+                            :class="[
+                                badgeClass,
+                                isTagActive(tag) ? activeBadgeColor : undefined
+                            ]"
+                            :closeable="isInteractive && badgeCloseable"
+                            :close-left="badgeCloseLeft"
                             @mousedown.prevent
                             @close="removeTag(tag)"
                             @focus="toggleActiveTag(tag)"
@@ -563,18 +575,18 @@ onBeforeUnmount(() => {
 
         <slot
             name="errors"
-            v-bind="{ error, errors, id: controlAttributes.id, name }">
+            v-bind="{ error, errors, id: $attrs.id, name: $attrs.name }">
             <FormControlErrors
                 v-if="!!(error || errors)"
-                :id="controlAttributes.id"
-                v-slot="{ error: err }"
+                :id="id"
+                v-slot="{ error }"
                 :name="name"
                 :error="error"
                 :errors="errors">
                 <div
                     invalid
                     class="invalid-feedback">
-                    {{ err }}
+                    {{ error }}
                 </div>
             </FormControlErrors>
         </slot>
@@ -583,12 +595,12 @@ onBeforeUnmount(() => {
             name="feedback"
             v-bind="{ feedback }">
             <FormControlFeedback
-                v-slot="{ feedback: fb }"
+                v-slot="{ feedback }"
                 :feedback="feedback">
                 <div
                     valid
                     class="valid-feedback">
-                    {{ fb }}
+                    {{ feedback }}
                 </div>
             </FormControlFeedback>
         </slot>

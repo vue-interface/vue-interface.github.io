@@ -131,7 +131,8 @@
             padding-left: calc(var(--form-control-font-size) * 2);
         }
 
-        &:focus {
+        &:focus,
+        &:focus-within {
             color: var(--form-control-focus-color);
             background-color: var(--form-control-focus-background-color);
             border-color: var(--form-control-focus-border-color);
@@ -174,7 +175,8 @@
             background-size: var(--form-control-background-size);
 
             &:focus,
-            &.focus {
+            &.focus,
+            &:focus-within {
                 box-shadow: var(--invalid-box-shadow);
                 border-color: var(--invalid-color);
                 background-color: var(--invalid-background-color);
@@ -192,7 +194,8 @@
             background-size: var(--form-control-background-size);
 
             &:focus,
-            &.focus {
+            &.focus,
+            &:focus-within {
                 box-shadow: var(--valid-box-shadow);
                 border-color: var(--valid-color);
                 background-color: var(--valid-background-color);
@@ -204,6 +207,16 @@
 @utility form-control-* {
     --form-control-focus-box-shadow-color: color-mix(in oklch, --value(--color-*, [color]) 50%, transparent);
 
+    background-color: color-mix(in oklch, --value(--color-*, [color]) 10%, transparent);
+    border-color: --value(--color-*, [color]);
+
+    &:focus,
+    &.focus,
+    &:focus-within {
+        background-color: color-mix(in oklch, --value(--color-*, [color]) 10%, transparent);
+        border-color: --value(--color-*, [color]);
+    }
+    
     font-size: --value(--form-control-font-size-*, [length]);
     font-size: --spacing(--value(number));
 
@@ -212,13 +225,7 @@
         padding: calc(--spacing(--value(number)) * .75 / 2) calc(--spacing(--value(number)) * .75);
         border-radius: calc(--value(--form-control-font-size-*, [length]) / 4);
         border-radius: calc(--spacing(--value(number)) / 4);
-        background-color: color-mix(in oklch, --value(--color-*, [color]) 10%, transparent);
-        border-color: --value(--color-*, [color]);
 
-        &:focus {
-            background-color: color-mix(in oklch, --value(--color-*, [color]) 10%, transparent);
-            border-color: --value(--color-*, [color]);
-        }
 
         &.form-control-icon {
             padding-left: calc(--value(--form-control-font-size-*, [length]) * 2);
