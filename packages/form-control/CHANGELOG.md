@@ -1,5 +1,11 @@
 # @vue-interface/form-control
 
+## 2.0.23
+
+### Patch Changes
+
+- 8e8e7f3: Fix plaintext and focus issues
+
 ## 2.0.22
 
 ### Patch Changes

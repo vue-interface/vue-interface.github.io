@@ -1,5 +1,12 @@
 # @vue-interface/input-field
 
+## 3.0.4
+
+### Patch Changes
+
+- Updated dependencies [8e8e7f3]
+  - @vue-interface/form-control@2.0.23
+
 ## 3.0.3
 
 ### Patch Changes
