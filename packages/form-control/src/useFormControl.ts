@@ -305,6 +305,9 @@ export function useFormControl<
             emit('contextmenu', e);
         },
         onMousedown: (e: MouseEvent) => {
+            if (props.readonly) {
+                e.preventDefault();
+            }
             emit('mousedown', e);
         },
         onMouseup: (e: MouseEvent) => {
@@ -335,6 +338,9 @@ export function useFormControl<
             emit('beforeinput', e);
         },
         onKeydown: (e: KeyboardEvent) => {
+            if (props.readonly) {
+                e.preventDefault();
+            }
             emit('keydown', e);
         },
         onKeyup: (e: KeyboardEvent) => {

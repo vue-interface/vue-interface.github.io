@@ -1,20 +1,19 @@
 {
-  "name": "@vue-interface/badge",
-  "version": "3.1.4",
-  "description": "A Vue badge utility.",
+  "name": "@vue-interface/tag-field",
+  "version": "1.0.0",
+  "description": "A Vue tag field component.",
   "type": "module",
-  "main": "./dist/badge.umd.cjs",
-  "module": "./dist/badge.js",
+  "main": "./dist/tag-field.umd.cjs",
+  "module": "./dist/tag-field.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "source": "./index.ts",
       "types": "./dist/index.d.ts",
       "style": "./index.css",
-      "import": "./dist/badge.js",
-      "require": "./dist/badge.umd.cjs"
-    },
-    "./css": "./index.css"
+      "import": "./dist/tag-field.js",
+      "require": "./dist/tag-field.umd.cjs"
+    }
   },
   "browserslist": "last 2 versions, > 0.5%, ie >= 11",
   "scripts": {
@@ -27,30 +26,38 @@
     "url": "git+https://github.com/vue-interface/vue-interface.github.io"
   },
   "keywords": [
-    "Badge",
-    "Component",
+    "Tag",
+    "Input",
+    "Field",
     "Vue",
-    "Tailwind",
-    "Bootstrap"
+    "Component",
+    "Tailwind"
   ],
   "author": "Justin Kimbrell",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/vue-interface/vue-interface.github.io"
   },
-  "homepage": "https://vue-interface.github.io/packages/badge",
+  "homepage": "https://vue-interface.github.io/packages/tag-field",
   "readme": "README.md",
   "files": [
     "src",
     "dist",
-    "index.ts",
     "index.css",
     "README.md",
     "LICENSE"
   ],
   "peerDependencies": {
-    "@vue-interface/sizeable": "workspace:*",
     "@heroicons/vue": "2.2.0",
+    "@vue-interface/activity-indicator": "workspace:*",
+    "@vue-interface/badge": "workspace:*",
+    "@vue-interface/form-control": "workspace:*",
+    "@vue-interface/sizeable": "workspace:*",
+    "fuse.js": "^7.1.0",
+    "lodash-es": "^4.17.23",
     "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.12"
   }
 }

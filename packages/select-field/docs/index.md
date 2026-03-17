@@ -94,6 +94,34 @@ bun i @vue-interface/select-field
 <<< ./index.md#variations{html}
 :::
 
+## Plaintext
+
+Display a select field as plain text, removing the standard form styling.
+
+<!-- #region plaintext -->
+<SelectField label="Plaintext Field" model-value="2" plaintext class="mb-3">
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+</SelectField>
+
+<SelectField label="Plaintext Readonly" model-value="3" plaintext readonly class="mb-3">
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+</SelectField>
+
+<SelectField label="Plaintext Disabled" model-value="3" plaintext disabled class="mb-3">
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+</SelectField>
+<!-- #endregion plaintext -->
+
+::: details Show Code
+<<< ./index.md#plaintext{html}
+:::
+
 ## Sizes
 
 Customize the `select-field` size using a [predetermined size](#predetermined-sizes), [tailwind's numeric sizing classes](#tailwind-sizes), or an [arbitrary](#arbitrary-sizes) CSS length unit.

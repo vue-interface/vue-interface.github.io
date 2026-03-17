@@ -1,9 +1,9 @@
 <script setup lang="ts" generic="ModelValue, Value">
 import type { CheckedFormControlProps, FormControlEvents, FormControlProps, FormControlSlots } from '@vue-interface/form-control';
 import { FormControlErrors, FormControlFeedback, useFormControl } from '@vue-interface/form-control';
-import { InputHTMLAttributes, onMounted, useTemplateRef } from 'vue';
+import { type HTMLAttributes, onMounted, useTemplateRef } from 'vue';
 
-const props = withDefaults(defineProps<CheckedFormControlProps<InputHTMLAttributes, CheckboxFieldControlSizePrefix, ModelValue, Value>>(), {
+const props = withDefaults(defineProps<CheckedFormControlProps<HTMLAttributes, CheckboxFieldControlSizePrefix, ModelValue, Value>>(), {
     formControlClass: 'form-check',
     labelClass: 'form-check-label',
     size: 'form-check-md'
@@ -25,7 +25,7 @@ const {
     controlAttributes,
     formGroupClasses,
     listeners,
-} = useFormControl<InputHTMLAttributes, CheckboxFieldControlSizePrefix, ModelValue|undefined, Value>({ model, props, emit });
+} = useFormControl<HTMLAttributes, CheckboxFieldControlSizePrefix, ModelValue|undefined, Value>({ model, props, emit });
 
 const help = useTemplateRef<HTMLElement>('help');
 const label = useTemplateRef<HTMLLabelElement>('label');
@@ -64,7 +64,7 @@ onMounted(() => {
 export type CheckboxFieldControlSizePrefix = 'form-check';
 
 export type SelectFieldProps<ModelValue, Value> = FormControlProps<
-    InputHTMLAttributes, 
+    HTMLAttributes, 
     CheckboxFieldControlSizePrefix , 
     ModelValue, 
     Value

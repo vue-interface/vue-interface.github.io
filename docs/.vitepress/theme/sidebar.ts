@@ -86,6 +86,10 @@ export const sidebar: DefaultTheme.SidebarItem[] = [{
         {
             text: 'Light Switch Field',
             link: '/packages/light-switch-field/'
+        },
+        {
+            text: 'Tag Field',
+            link: '/packages/tag-field/'
         }
     ]
 }, {

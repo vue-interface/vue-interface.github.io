@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+@theme { 
+    /* Searchable Select Field Dropdown */
+    --tag-field-dropdown-display: flex;
+    --tag-field-dropdown-flex-direction: column;
+    --tag-field-dropdown-position: absolute;
+    --tag-field-dropdown-z-index: 10;
+    --tag-field-dropdown-width: 100%;
+    --tag-field-dropdown-max-height: 18rem;
+    --tag-field-dropdown-margin-top: 0.25rem;
+    --tag-field-dropdown-overflow: auto;
+    --tag-field-dropdown-border-width: 1px;
+    --tag-field-dropdown-border-radius: 0.25rem;
+    --tag-field-dropdown-border-color: var(--color-neutral-300, oklch(87% 0 0));
+    --tag-field-dropdown-background-color: var(--color-white, #fff);
+    --tag-field-dropdown-color: var(--color-black, #000);
+    --tag-field-dropdown-box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+    --tag-field-dropdown-dark-border-color: var(--color-neutral-600, oklch(43.9% 0 0));
+    --tag-field-dropdown-dark-background-color: var(--color-neutral-900, oklch(20.5% 0 0));
+    --tag-field-dropdown-dark-color: var(--color-white, #fff);
+
+    --tag-field-dropdown-text-align: left;
+    --tag-field-dropdown-padding: 0.5em 1em;
+    --tag-field-dropdown-border-bottom-width: 1px;
+    --tag-field-dropdown-hover-background-color: var(--color-neutral-100, oklch(96.1% 0 0));
+    --tag-field-dropdown-dark-hover-background-color: var(--color-neutral-800, oklch(26.9% 0 0));
+
+    /* Searchable Select Field Input */
+    --tag-field-input-position: relative;
+    --tag-field-input-activity-indicator-position: absolute;
+    --tag-field-input-activity-indicator-top: 50%;
+    --tag-field-input-activity-indicator-right: 0.75em;
+    --tag-field-input-activity-indicator-transform: translateY(-50%);
+
+    /* Searchable Select-field Clear Button */
+    --tag-field-clear-button-display: flex;
+    --tag-field-clear-button-cursor: pointer;
+    --tag-field-clear-button-color: var(--color-black, #000);
+    --tag-field-clear-button-hover-color: var(--color-neutral-600, oklch(43.9% 0 0));
+
+    --tag-field-clear-button-dark-color: var(--color-white, #fff);
+    --tag-field-clear-button-dark-hover-color: var(--color-neutral-400, oklch(70.8% 0 0));
+}
+
+@utility tag-field-dropdown {
+    display: var(--tag-field-dropdown-display);
+    flex-direction: var(--tag-field-dropdown-flex-direction);
+    position: var(--tag-field-dropdown-position);
+    z-index: var(--tag-field-dropdown-z-index);
+    width: var(--tag-field-dropdown-width);
+    max-height: var(--tag-field-dropdown-max-height);
+    margin-top: var(--tag-field-dropdown-margin-top);
+    overflow: var(--tag-field-dropdown-overflow);
+    font-size: 1rem;
+    border-width: var(--tag-field-dropdown-border-width);
+    border-radius: var(--tag-field-dropdown-border-radius);
+    border-color: var(--tag-field-dropdown-border-color);
+    background-color: var(--tag-field-dropdown-background-color);
+    color: var(--tag-field-dropdown-color);
+    box-shadow: var(--tag-field-dropdown-box-shadow);
+
+    @variant dark {
+        border-color: var(--tag-field-dropdown-dark-border-color);
+        background-color: var(--tag-field-dropdown-dark-background-color);
+        color: var(--tag-field-dropdown-dark-color);
+    }
+
+    & > button {
+        text-align: var(--tag-field-dropdown-text-align);
+        padding: var(--tag-field-dropdown-padding);
+        border-color: var(--tag-field-dropdown-border-color);
+
+        &:not(:last-child) {
+            border-bottom-width: var(--tag-field-dropdown-border-bottom-width);
+        }
+
+        &:hover {
+            background-color: var(--tag-field-dropdown-hover-background-color);
+        }
+
+        @variant dark {
+            border-color: var(--tag-field-dropdown-dark-border-color);
+
+            &:hover {
+                background-color: var(--tag-field-dropdown-dark-hover-background-color);
+            }
+        }
+    }
+}
+
+@utility tag-field {
+    position: var(--tag-field-input-position);
+
+    & .form-control-inner {
+        position: var(--tag-field-input-position);
+    }
+
+    & .form-control-activity-indicator {
+        position: var(--tag-field-input-activity-indicator-position);
+        top: var(--tag-field-input-activity-indicator-top);
+        right: var(--tag-field-input-activity-indicator-right);
+        transform: var(--tag-field-input-activity-indicator-transform);
+    }
+
+    &.has-clear-button .form-control.is-valid,
+    &.has-clear-button .form-control.is-invalid {
+        background-image: none;
+    }
+}
+
+@utility tag-field-clear-button {
+    display: var(--tag-field-clear-button-display);
+    cursor: var(--tag-field-clear-button-cursor);
+    color: var(--tag-field-clear-button-color);
+
+    &:hover {
+        color: var(--tag-field-clear-button-hover-color);
+    }
+
+    @variant dark {
+        color: var(--tag-field-clear-button-dark-color);
+
+        &:hover {
+            color: var(--tag-field-clear-button-dark-hover-color);
+        }
+    }
+}
