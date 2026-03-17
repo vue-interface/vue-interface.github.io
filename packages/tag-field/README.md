@@ -1,4 +1,4 @@
-# Searchable Select Field
+# Tag Field
 
 The `tag-field` component provides flexible and customizable searchable input field with tags that have customizable sizes, states, and colors.
 
