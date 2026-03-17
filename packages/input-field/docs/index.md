@@ -72,7 +72,6 @@ The `clearable` prop adds an "X" on the right side of the input-field to clear t
 <InputField type="password" label="Password Field" class="mb-3"></InputField>
 <InputField label="Descriptive Text Field" help-text="Some helpful text goes here." class="mb-3"></InputField>
 <InputField type="email" label="Email Field" placeholder="you@example.com" class="mb-3"></InputField>
-<InputField label="Plain Text" placeholder="Type something here..." class="mb-3" plaintext></InputField>
 <InputField label="Readonly" placeholder="Type something here..." class="mb-3" readonly></InputField>
 <InputField label="Readonly (Disabled)" placeholder="Type something here..." class="mb-3" readonly disabled></InputField>
 <InputField label="Disabled" placeholder="Type something here..." class="mb-3" disabled></InputField>
@@ -80,6 +79,20 @@ The `clearable` prop adds an "X" on the right side of the input-field to clear t
 
 ::: details Show Code
 <<< ./index.md#variations{html}
+:::
+
+## Plaintext
+
+Display an input field as plain text, removing the standard form styling.
+
+<!-- #region plaintext -->
+<InputField label="Plaintext Field" model-value="Some value" plaintext class="mb-3"></InputField>
+<InputField label="Plaintext Readonly" model-value="Some value" plaintext readonly class="mb-3"></InputField>
+<InputField label="Plaintext Disabled" model-value="Some value" plaintext disabled class="mb-3"></InputField>
+<!-- #endregion plaintext -->
+
+::: details Show Code
+<<< ./index.md#plaintext{html}
 :::
 
 ## Sizes

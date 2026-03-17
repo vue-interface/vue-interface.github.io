@@ -55,7 +55,6 @@ bun i @vue-interface/textarea-field
 <TextareaField v-model="value" label="Text Field" placeholder="Some placeholder" class="mb-3"></TextareaField>
 <TextareaField label="Inner Text" class="mb-3" value="Some Inner Text Here"></TextareaField>
 <TextareaField label="Descriptive Text Field" help-text="Some helpful text goes here." class="mb-3"></TextareaField>
-<TextareaField label="Plain Text" placeholder="Type something here..." class="mb-3" plaintext></TextareaField>
 <TextareaField label="Readonly" placeholder="Type something here..." class="mb-3" readonly></TextareaField>
 <TextareaField label="Readonly (Disabled)" placeholder="Type something here..." class="mb-3" readonly disabled></TextareaField>
 <TextareaField label="Disabled" placeholder="Type something here..." class="mb-3" disabled></TextareaField>
@@ -63,6 +62,20 @@ bun i @vue-interface/textarea-field
 
 ::: details Show Code
 <<< ./index.md#variations{html}
+:::
+
+## Plaintext
+
+Display a textarea field as plain text, removing the standard form styling.
+
+<!-- #region plaintext -->
+<TextareaField label="Plaintext Field" model-value="Some value" plaintext class="mb-3"></TextareaField>
+<TextareaField label="Plaintext Readonly" model-value="Some value" plaintext readonly class="mb-3"></TextareaField>
+<TextareaField label="Plaintext Disabled" model-value="Some value" plaintext disabled class="mb-3"></TextareaField>
+<!-- #endregion plaintext -->
+
+::: details Show Code
+<<< ./index.md#plaintext{html}
 :::
 
 ## Sizes
@@ -289,105 +302,3 @@ Customize the color of a textarea-field component with the [Tailwind color palet
 <<< ./index.md#customColors{html}
 :::
 
-## Animated
-
-The `textarea-field` animated component combines the tailwind `form-control-animated` classes to provide a custom animated component. Customize the size of animated textarea-field combinations using the same [sizing prop values](#sizes) described above.
-
-<!-- #region animated -->
-<TextareaField label="Text Field" placeholder="Some placeholder" size="form-control-sm" class="mb-3 form-control-animated-sm"></TextareaField>
-<TextareaField label="Text Field" placeholder="Some placeholder" size="form-control-md" class="mb-3 form-control-animated-md"></TextareaField>
-<TextareaField label="Text Field" placeholder="Some placeholder" size="form-control-lg" class="mb-3 form-control-animated-lg"></TextareaField>
-<!-- #endregion animated -->
-
-::: details Show Code
-<<< ./index.md#animated{html}
-:::
-
-### With Icons
-
-Add an [icon](#icons) to the animated textarea-fields using the steps described above.
-
-<!-- #region animatedIcons -->
-<TextareaField label="Extra Small Icon" placeholder="Some placeholder" size="form-control-xs" class="mb-3 form-control-animated-xs">
-    <template #icon>
-        <CalendarDaysIcon />
-    </template>
-</TextareaField>
-
-<TextareaField label="Small Icon" placeholder="Some placeholder" size="form-control-sm" class="mb-3 form-control-animated-sm">
-    <template #icon>
-        <CalendarDaysIcon />
-    </template>
-</TextareaField>
-
-<TextareaField label="Medium Icon" placeholder="Some placeholder" size="form-control-md" class="mb-3 form-control-animated-md">
-    <template #icon>
-        <CalendarDaysIcon />
-    </template>
-</TextareaField>
-
-<TextareaField label="Large Icon" placeholder="Some placeholder" size="form-control-lg" class="mb-3 form-control-animated-lg">
-    <template #icon>
-        <CalendarDaysIcon />
-    </template>
-</TextareaField>
-
-<TextareaField label="Extra Large" placeholder="Some placeholder" size="form-control-xl" class="mb-3 form-control-animated-xl">
-    <template #icon>
-        <CalendarDaysIcon />
-    </template>
-</TextareaField>
-
-<TextareaField label="2xl Large" placeholder="Some placeholder" size="form-control-2xl" class="mb-3 form-control-animated-2xl">
-    <template #icon>
-        <CalendarDaysIcon />
-    </template>
-</TextareaField>
-
-<TextareaField label="3xl Large" placeholder="Some placeholder" size="form-control-3xl" class="mb-3 form-control-animated-3xl">
-    <template #icon>
-        <CalendarDaysIcon />
-    </template>
-</TextareaField>
-
-<TextareaField label="4xl Large" placeholder="Some placeholder" size="form-control-4xl" class="mb-3 form-control-animated-4xl">
-    <template #icon>
-        <CalendarDaysIcon />
-    </template>
-</TextareaField>
-
-<TextareaField label="5xl Large" placeholder="Some placeholder" size="form-control-5xl" class="mb-3 form-control-animated-5xl">
-    <template #icon>
-        <CalendarDaysIcon />
-    </template>
-</TextareaField>
-
-<TextareaField label="Icon-4" placeholder="Some placeholder" size="form-control-4" class="mb-3 form-control-animated-4">
-    <template #icon>
-        <CalendarDaysIcon />
-    </template>
-</TextareaField>
-
-<TextareaField label="Icon-5" placeholder="Some placeholder" size="form-control-5" class="mb-3 form-control-animated-5">
-    <template #icon>
-        <CalendarDaysIcon />
-    </template>
-</TextareaField>
-
-<TextareaField label="Icon-[16px]" placeholder="Some placeholder" size="form-control-[16px]" class="mb-3 form-control-animated-[16px]">
-    <template #icon>
-        <CalendarDaysIcon />
-    </template>
-</TextareaField>
-
-<TextareaField label="Icon-[1.5rem]" placeholder="Some placeholder" size="form-control-[1.5rem]" class="mb-3 form-control-animated-[1.5rem]">
-    <template #icon>
-        <CalendarDaysIcon />
-    </template>
-</TextareaField>
-
-<!-- #endregion animatedIcons -->
-
-::: details Show Code
-<<< ./index.md#animatedIcons{html}
-:::

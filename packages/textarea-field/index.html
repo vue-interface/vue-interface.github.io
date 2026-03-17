@@ -18,10 +18,15 @@
             <textarea-field v-model="value" label="Text Field" placeholder="Some placeholder" class="mb-3"></textarea-field>
             <textarea-field label="Inner Text" class="mb-3" value="Some Inner Text Here"></textarea-field>
             <textarea-field label="Descriptive Text Field" help-text="Some helpful text goes here." class="mb-3"></textarea-field>
-            <textarea-field label="Plain Text" placeholder="Type something here..." class="mb-3" plaintext></textarea-field>
             <textarea-field label="Readonly" placeholder="Type something here..." class="mb-3" readonly></textarea-field>
             <textarea-field label="Readonly (Disabled)" placeholder="Type something here..." class="mb-3" readonly disabled></textarea-field>
             <textarea-field label="Disabled" placeholder="Type something here..." class="mb-3" disabled></textarea-field>
+
+            <h2 class="text-2xl mt-6 mb-3">Plaintext</h2>
+
+            <textarea-field label="Plaintext Field" model-value="Some value" plaintext class="mb-3"></textarea-field>
+            <textarea-field label="Plaintext Readonly" model-value="Some value" plaintext readonly class="mb-3"></textarea-field>
+            <textarea-field label="Plaintext Disabled" model-value="Some value" plaintext disabled class="mb-3"></textarea-field>
 
             <h2 class="text-2xl mt-6 mb-3">Sizes</h2>
 
@@ -33,61 +38,61 @@
 
             <textarea-field label="Small Icon" size="form-control-sm" class="mb-3">
                 <template #icon>
-                    <calendar-days-icon />                      
+                    <calendar-days-icon></calendar-days-icon>                      
                 </template>
             </textarea-field>
 
             <textarea-field label="Medium Icon" size="form-control-md" class="mb-3">
                 <template #icon>
-                    <calendar-days-icon />                      
+                    <calendar-days-icon></calendar-days-icon>                      
                 </template>
             </textarea-field>
 
             <textarea-field label="Large Icon" size="form-control-lg" class="mb-3">
                 <template #icon>
-                    <calendar-days-icon />                      
+                    <calendar-days-icon></calendar-days-icon>                      
                 </template>
             </textarea-field>
 
             <textarea-field label="XL Icon" size="form-control-xl" class="mb-3">
                 <template #icon>
-                    <calendar-days-icon />                      
+                    <calendar-days-icon></calendar-days-icon>                      
                 </template>
             </textarea-field>
 
             <textarea-field label="2xl Icon" size="form-control-2xl" class="mb-3">
                 <template #icon>
-                    <calendar-days-icon />                      
+                    <calendar-days-icon></calendar-days-icon>                      
                 </template>
             </textarea-field>
 
             <textarea-field label="Icon-4" size="form-control-4" class="mb-3">
                 <template #icon>
-                    <calendar-days-icon />                      
+                    <calendar-days-icon></calendar-days-icon>                      
                 </template>
             </textarea-field>
 
             <textarea-field label="Icon-5" size="form-control-5" class="mb-3">
                 <template #icon>
-                    <calendar-days-icon />                      
+                    <calendar-days-icon></calendar-days-icon>                      
                 </template>
             </textarea-field>
 
             <textarea-field label="Icon-6" size="form-control-6" class="mb-3">
                 <template #icon>
-                    <calendar-days-icon />                      
+                    <calendar-days-icon></calendar-days-icon>                      
                 </template>
             </textarea-field>
 
             <textarea-field label="Icon-[16px]" size="form-control-[16px]" class="mb-3">
                 <template #icon>
-                    <calendar-days-icon />                      
+                    <calendar-days-icon></calendar-days-icon>                      
                 </template>
             </textarea-field>
 
             <textarea-field label="Icon-[21px]" size="form-control-[21px]" class="mb-3">
                 <template #icon>
-                    <calendar-days-icon />                      
+                    <calendar-days-icon></calendar-days-icon>                      
                 </template>
             </textarea-field>
 
@@ -119,71 +124,6 @@
             <textarea-field label="Valid Field with Feedback" valid feedback="This is some success message." class="mb-3"></textarea-field>
             <textarea-field label="Valid Field with Array of Feedback" valid :feedback="['This is some success message.', 'This is some success message.']" class="mb-3"></textarea-field>
             
-            <h2 class="text-2xl mt-6 mb-3">Animated Labels</h2>
-
-            <textarea-field label="Text Field" placeholder="Some placeholder" size="form-control-sm" class="mb-3 form-control-animated-sm"></textarea-field>
-            <textarea-field label="Text Field" placeholder="Some placeholder" size="form-control-md" class="mb-3 form-control-animated-md"></textarea-field>
-            <textarea-field label="Text Field" placeholder="Some placeholder" size="form-control-lg" class="mb-3 form-control-animated-lg"></textarea-field>
-
-            <textarea-field label="Small Icon" placeholder="Some placeholder" size="form-control-sm" class="mb-3 form-control-animated-sm">
-                <template #icon>
-                    <calendar-days-icon />                      
-                </template>
-            </textarea-field>
-
-            <textarea-field label="Medium Icon" placeholder="Some placeholder" size="form-control-md" class="mb-3 form-control-animated-md">
-                <template #icon>
-                    <calendar-days-icon />                      
-                </template>
-            </textarea-field>
-
-            <textarea-field label="Large Icon" placeholder="Some placeholder" size="form-control-lg" class="mb-3 form-control-animated-lg">
-                <template #icon>
-                    <calendar-days-icon />                      
-                </template>
-            </textarea-field>
-
-            <textarea-field label="XL Icon" placeholder="Some placeholder" size="form-control-xl" class="mb-3 form-control-animated-xl">
-                <template #icon>
-                    <calendar-days-icon />                      
-                </template>
-            </textarea-field>
-
-            <textarea-field label="2xl Icon" placeholder="Some placeholder" size="form-control-2xl" class="mb-3 form-control-animated-2xl">
-                <template #icon>
-                    <calendar-days-icon />                      
-                </template>
-            </textarea-field>
-
-            <textarea-field label="Icon-4" placeholder="Some placeholder" size="form-control-4" class="mb-3 form-control-animated-4">
-                <template #icon>
-                    <calendar-days-icon />                      
-                </template>
-            </textarea-field>
-
-            <textarea-field label="Icon-5" placeholder="Some placeholder" size="form-control-5" class="mb-3 form-control-animated-5">
-                <template #icon>
-                    <calendar-days-icon />                      
-                </template>
-            </textarea-field>
-
-            <textarea-field label="Icon-6" placeholder="Some placeholder" size="form-control-6" class="mb-3 form-control-animated-6">
-                <template #icon>
-                    <calendar-days-icon />                      
-                </template>
-            </textarea-field>
-
-            <textarea-field label="Icon-[16px]" placeholder="Some placeholder" size="form-control-[16px]" class="mb-3 form-control-animated-[16px]">
-                <template #icon>
-                    <calendar-days-icon />                      
-                </template>
-            </textarea-field>
-
-            <textarea-field label="Icon-[21px]" placeholder="Some placeholder" size="form-control-[21px]" class="mb-3 form-control-animated-[21px]">
-                <template #icon>
-                    <calendar-days-icon />                      
-                </template>
-            </textarea-field>
         </form>
 
         <script type="module">
