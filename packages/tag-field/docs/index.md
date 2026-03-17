@@ -86,6 +86,22 @@ bun i @vue-interface/tag-field
 <<< ./index.md#basicUsage{vue}
 :::
 
+## Plaintext
+
+Display a `tag-field` as plain text, removing the standard form styling.
+
+<div class="flex flex-col gap-4">
+    <!-- #region plaintext -->
+    <TagField :options="options" placeholder="Click to search..." :model-value="['Tag']" label="Plaintext" plaintext></TagField>
+    <TagField :options="options" label="Plaintext Readonly" :model-value="['Tag']" plaintext readonly></TagField>
+    <TagField :options="options" label="Plaintext Disabled" :model-value="['Tag']" plaintext disabled></TagField>
+    <!-- #endregion plaintext -->
+</div>
+
+::: details Show Code
+<<< ./index.md#plaintext{vue}
+:::
+
 ## Custom Tags
 
 The `tag-field` can be further customized using the following utility classes and props:

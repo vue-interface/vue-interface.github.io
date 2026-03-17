@@ -25,6 +25,14 @@
 
         <h2 class="text-2xl mb-3">Custom Tags</h2>
 
+        <div class="flex flex-col gap-4">
+            <tag-field :options="options" placeholder="Click to search..." :model-value="['Tag']" label="Plaintext" plaintext></tag-field>
+            <tag-field :options="options" label="Plaintext Readonly" :model-value="['Tag']" plaintext readonly></tag-field>
+            <tag-field :options="options" label="Plaintext Disabled" :model-value="['Tag']" plaintext disabled></tag-field>
+        </div>
+
+        <h2 class="text-2xl mb-3">Custom Tags</h2>
+
         <div class="flex flex-col gap-4 mb-4">
             <tag-field allow-custom :options="languages" label="Allow Custom (with options)" placeholder="Type and press enter..."></tag-field>
             <tag-field allow-custom label="Allow Custom (no options)" placeholder="Type anything and press enter..."></tag-field>

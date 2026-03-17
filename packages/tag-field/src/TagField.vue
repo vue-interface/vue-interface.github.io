@@ -1,4 +1,4 @@
-<script setup lang="ts" generic="T, Value">
+<script setup lang="ts" generic="ModelValue, Value">
 import { PlusIcon, XMarkIcon } from '@heroicons/vue/24/outline';
 import { ActivityIndicator } from '@vue-interface/activity-indicator';
 import { Badge, type BadgeSize } from '@vue-interface/badge';
@@ -11,16 +11,16 @@ import { type HTMLAttributes, computed, onBeforeMount, onBeforeUnmount, ref, toR
 
 export type TagFieldSizePrefix = 'form-control';
 
-export type TagFieldProps<T, Value> = FormControlProps<
+export type TagFieldProps<ModelValue, Value> = FormControlProps<
     HTMLAttributes,
     TagFieldSizePrefix,
-    T[],
+    ModelValue[],
     Value[]
 > & {
-    options?: T[];
-    fuseOptions?: IFuseOptions<T>;
-    display?: (option: T) => string;
-    format?: (value: string) => T;
+    options?: ModelValue[];
+    fuseOptions?: IFuseOptions<ModelValue>;
+    display?: (option: ModelValue) => string;
+    format?: (value: string) => ModelValue;
     allowCustom?: boolean;
     addTagLabel?: string;
     noResultsText?: string;
@@ -33,7 +33,7 @@ export type TagFieldProps<T, Value> = FormControlProps<
     badgeCloseLeft?: boolean;
 };
 
-const props = withDefaults(defineProps<TagFieldProps<T, Value>>(), {
+const props = withDefaults(defineProps<TagFieldProps<ModelValue, Value>>(), {
     formControlClass: 'form-control',
     labelClass: 'form-label',
     size: 'form-control-md',
@@ -44,7 +44,7 @@ const props = withDefaults(defineProps<TagFieldProps<T, Value>>(), {
     clearable: false,
     options: () => [],
     badgeClass: 'badge-neutral-100 dark:badge-neutral-500',
-    activeBadgeClass: 'badge-blue-100! dark:badge-blue-600!',
+    activeBadgeColor: 'badge-blue-100! dark:badge-blue-600!',
     badgeSize: 'badge-[.95em]',
     badgeCloseable: true,
     badgeCloseLeft: false,
@@ -54,10 +54,10 @@ defineOptions({
     inheritAttrs: false
 });
 
-const model = defineModel<T[]>();
+const model = defineModel<ModelValue[]>();
 
-defineSlots<FormControlSlots<TagFieldSizePrefix, T[]> & {
-    default(props: { option: T; display?: (option: T) => string }): any;
+defineSlots<FormControlSlots<TagFieldSizePrefix, ModelValue[]> & {
+    default(props: { option: ModelValue; display?: (option: ModelValue) => string }): any;
     'no-results'(props: { input: string | undefined }): any;
 }>();
 
@@ -67,17 +67,17 @@ const {
     controlAttributes,
     formGroupClasses,
     listeners
-} = useFormControl<HTMLAttributes, TagFieldSizePrefix, T[]|undefined, Value[]>({ model, props, emit });
+} = useFormControl<HTMLAttributes, TagFieldSizePrefix, ModelValue[]|undefined, Value[]>({ model, props, emit });
 
 const wrapperEl = useTemplateRef('wrapperEl');
 const inputEl = useTemplateRef('inputEl');
 const tagEl = useTemplateRef('tagEl');
 
 const input = ref<string>();
-const selected = ref<T[]>([]) as Ref<T[]>;
+const selected = ref<ModelValue[]>([]) as Ref<ModelValue[]>;
 const hasFocus = ref(false);
 const focusIndex = ref<number>();
-const options = ref(props.options) as Ref<T[]>;
+const options = ref(props.options) as Ref<ModelValue[]>;
 
 const isInteractive = computed(() => !props.disabled && !props.readonly);
 
@@ -91,7 +91,7 @@ const keys = computed(() => {
         : [];
 });
 
-const fuse: Fuse<T> = createFuse(props.options);
+const fuse: Fuse<ModelValue> = createFuse(props.options);
 
 const showOptions = computed(() => {
     return isInteractive.value && hasFocus.value && (filtered.value.length || input.value);
@@ -114,7 +114,7 @@ watch(input, () => {
     deactivateTags();
 });
 
-function createFuse(items: T[]) {
+function createFuse(items: ModelValue[]) {
     return new Fuse(items, props.fuseOptions ?? {
         includeScore: true,
         threshold: .45,
@@ -122,7 +122,7 @@ function createFuse(items: T[]) {
     });
 }
 
-const filtered = computed<T[]>(() => {
+const filtered = computed<ModelValue[]>(() => {
     const items = options.value.filter(option => {
         return !(model.value ?? []).find(item => {
             return isEqual(item, toRaw(unref(option)));
@@ -133,7 +133,7 @@ const filtered = computed<T[]>(() => {
         return items;
     }
 
-    fuse.setCollection(items as T[]);
+    fuse.setCollection(items as ModelValue[]);
 
     return fuse.search(input.value).map(({ item }) => item);
 });
@@ -141,7 +141,7 @@ const filtered = computed<T[]>(() => {
 function addCustomTag(value: string) {
     if(!isInteractive.value) return;
 
-    const tag = props.format?.(value) ?? value as T;
+    const tag = props.format?.(value) ?? value as ModelValue;
 
     if(!options.value.find(option => isEqual(option, tag))) {
         options.value.push(tag);
@@ -152,7 +152,7 @@ function addCustomTag(value: string) {
     }
 }
 
-function addTag(tag: T) {
+function addTag(tag: ModelValue) {
     if(!isInteractive.value) return;
 
     model.value = [...(model.value ?? []), tag];
@@ -160,7 +160,7 @@ function addTag(tag: T) {
     focusIndex.value = undefined;
 }
 
-function removeTag(tag: T) {
+function removeTag(tag: ModelValue) {
     if(!isInteractive.value) return;
 
     const value = [...(model.value ?? [])];
@@ -172,7 +172,9 @@ function removeTag(tag: T) {
     model.value = value;
 }
 
-function toggleActiveTag(tag: T, multiple = false) {
+function toggleActiveTag(tag: ModelValue, multiple = false) {
+    if(!isInteractive.value) return;
+
     if(!multiple) {
         deactivateTags(tag);
     }
@@ -185,7 +187,9 @@ function toggleActiveTag(tag: T, multiple = false) {
     }
 }
 
-function toggleActiveTagRange(tag: T) {
+function toggleActiveTagRange(tag: ModelValue) {
+    if(!isInteractive.value) return;
+
     const items = model.value ?? [];
     const index = items.indexOf(tag);
     const lastSelectedIndex = selectedIndexes.value[selectedIndexes.value.length - 1];
@@ -197,7 +201,7 @@ function toggleActiveTagRange(tag: T) {
         return;
     }
 
-    let range: T[] = [];
+    let range: ModelValue[] = [];
 
     if(index > lastSelectedIndex) {
         range = items.slice(lastSelectedIndex, index + 1);
@@ -219,7 +223,7 @@ function selectAllTags() {
     selected.value = [...(model.value ?? [])];
 }
 
-function deactivateTags(omit?: T) {
+function deactivateTags(omit?: ModelValue) {
     if(!omit) {
         selected.value = [];
     }
@@ -246,17 +250,17 @@ function blurTags() {
     }
 }
 
-function isTagActive(tag: T) {
+function isTagActive(tag: ModelValue) {
     return !!selected.value.find(item => isEqual(item, tag));
 }
 
-function activateTag(tag: T) {
+function activateTag(tag: ModelValue) {
     if(!isTagActive(tag)) {
         selected.value.push(tag);
     }
 }
 
-function deactivateTag(tag: T) {
+function deactivateTag(tag: ModelValue) {
     if(isTagActive(tag)) {
         selected.value.splice(selected.value.indexOf(tag), 1);
     }
@@ -474,9 +478,10 @@ onBeforeUnmount(() => {
                             :size="badgeSize"
                             :class="[
                                 badgeClass,
+                                { 'pointer-events-none': !isInteractive },
                                 isTagActive(tag) ? activeBadgeColor : undefined
                             ]"
-                            :closeable="isInteractive && badgeCloseable"
+                            :closeable="badgeCloseable"
                             :close-left="badgeCloseLeft"
                             @mousedown.prevent
                             @close="removeTag(tag)"
@@ -541,6 +546,7 @@ onBeforeUnmount(() => {
             v-if="showOptions"
             tabindex="-1"
             class="tag-field-dropdown"
+            :class="size"
             @mousedown.prevent.stop>
             <button
                 v-for="(option, i) in filtered"
