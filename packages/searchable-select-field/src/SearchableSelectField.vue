@@ -1,13 +1,13 @@
-<script setup lang="ts" generic="T, Value">
+<script setup lang="ts" generic="ModelValue, Value extends ModelValue">
 import { ChevronDownIcon, XMarkIcon } from '@heroicons/vue/24/outline';
 import { ActivityIndicator, Pulse } from '@vue-interface/activity-indicator';
 import type { FormControlEvents, FormControlProps, FormControlSlots } from '@vue-interface/form-control';
 import { useFormControl } from '@vue-interface/form-control';
 import { InputField } from '@vue-interface/input-field';
 import Fuse, { IFuseOptions } from 'fuse.js';
-import { InputHTMLAttributes, computed, nextTick, ref, useTemplateRef, watch, watchEffect } from 'vue';
+import { type HTMLAttributes, computed, nextTick, ref, useTemplateRef, watch, watchEffect } from 'vue';
 
-const props = withDefaults(defineProps<SearchableSelectFieldProps<T,Value>>(), {
+const props = withDefaults(defineProps<SearchableSelectFieldProps<ModelValue,Value>>(), {
     formControlClass: 'form-control',
     labelClass: 'form-label',
     size: 'form-control-md',
@@ -15,11 +15,11 @@ const props = withDefaults(defineProps<SearchableSelectFieldProps<T,Value>>(), {
     options: () => []
 });
 
-const model = defineModel<T>();
+const model = defineModel<ModelValue>();
 const isInteractive = computed(() => !props.disabled && !props.readonly);
 
-defineSlots<FormControlSlots<SearchableSelectFieldSizePrefix,T> & {
-    default(props: { option: T; display?: (option: T) => string }): any;
+defineSlots<FormControlSlots<SearchableSelectFieldSizePrefix,ModelValue> & {
+    default(props: { option: ModelValue; display?: (option: ModelValue) => string }): any;
 }>();
 
 const emit = defineEmits<FormControlEvents>();
@@ -28,7 +28,7 @@ const {
     controlAttributes,
     formGroupClasses,
     listeners
-} = useFormControl<InputHTMLAttributes, SearchableSelectFieldSizePrefix, T|undefined, T>({ model, props, emit });
+} = useFormControl<HTMLAttributes, SearchableSelectFieldSizePrefix, ModelValue|undefined, ModelValue>({ model, props, emit });
 
 watchEffect(() => {
     if(props.value !== undefined) {
@@ -49,7 +49,7 @@ const keys = computed(() => {
         : ['$'];
 });
 
-let fuse: Fuse<T> = createFuse();
+let fuse: Fuse<ModelValue> = createFuse();
 
 function createFuse() {
     return new Fuse(props.options ?? [], props.fuseOptions ?? {
@@ -59,7 +59,7 @@ function createFuse() {
     });
 }
 
-const filtered = computed<T[]>(() => {
+const filtered = computed<ModelValue[]>(() => {
     if(!input.value) {
         return props.options ?? [];
     }
@@ -117,7 +117,7 @@ watch(optionsEl, (value) => {
     });
 });
 
-function select(option?: T) {
+function select(option?: ModelValue) {
     model.value = option;
     active.value = option && props.options.includes(option)
         ? props.options.indexOf(option)
@@ -138,7 +138,7 @@ function onInput(e: Event) {
     }
 
     if(props.allowCustom) {
-        model.value = input.value as T;
+        model.value = input.value as ModelValue;
     }
 }
 
@@ -151,7 +151,7 @@ function onKeypressEnter() {
     }
 
     if(props.allowCustom && active.value === undefined) {
-        select(input.value as T ?? model.value);
+        select(input.value as ModelValue ?? model.value);
     }
     else if(active.value === undefined) {
         select(filtered.value[0]);
@@ -195,7 +195,7 @@ function onBlur() {
     input.value = undefined;
 }
 
-function onClickOption(option: T) {
+function onClickOption(option: ModelValue) {
     if (!isInteractive.value) return;
     select(option);
 }
@@ -226,7 +226,7 @@ const canClear = computed(() => {
 export type SearchableSelectFieldSizePrefix = 'form-control';
 
 export type SearchableSelectFieldProps<ModelValue, Value> = FormControlProps<
-    InputHTMLAttributes, 
+    HTMLAttributes, 
     SearchableSelectFieldSizePrefix, 
     ModelValue, 
     Value

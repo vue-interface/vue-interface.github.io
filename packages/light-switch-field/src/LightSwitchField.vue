@@ -1,7 +1,7 @@
 <script setup lang="ts" generic="Value, ModelValue = boolean">
 import type { CheckedFormControlProps, FormControlSlots } from '@vue-interface/form-control';
 import { FormControlErrors, FormControlEvents, FormControlFeedback, useFormControl } from '@vue-interface/form-control';
-import { computed, InputHTMLAttributes, useTemplateRef } from 'vue';
+import { computed, type HTMLAttributes, useTemplateRef } from 'vue';
 
 const props = withDefaults(defineProps<LightSwitchFieldProps<ModelValue, Value>>(), {
     formControlClass: 'form-switch',
@@ -38,7 +38,7 @@ const {
     formGroupClasses,
     listeners,
 } = useFormControl<
-    InputHTMLAttributes,
+    HTMLAttributes,
     LightSwitchFieldControlSizePrefix,
     ModelValue,
     Value,
@@ -64,7 +64,7 @@ defineExpose({
 export type LightSwitchFieldControlSizePrefix = 'form-switch';
 
 export type LightSwitchFieldProps<ModelValue, Value = undefined> = CheckedFormControlProps<
-    InputHTMLAttributes,
+    HTMLAttributes,
     LightSwitchFieldControlSizePrefix,
     ModelValue,
     Value

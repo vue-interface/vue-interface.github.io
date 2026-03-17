@@ -2,7 +2,7 @@
 import { ActivityIndicator } from '@vue-interface/activity-indicator';
 import type { FormControlEvents, FormControlProps, FormControlSlots } from '@vue-interface/form-control';
 import { FormControlErrors, FormControlFeedback, useFormControl } from '@vue-interface/form-control';
-import { InputHTMLAttributes, onMounted, SelectHTMLAttributes, useSlots, useTemplateRef } from 'vue';
+import { type HTMLAttributes, onMounted, SelectHTMLAttributes, useSlots, useTemplateRef } from 'vue';
 
 const props = withDefaults(defineProps<SelectFieldProps<ModelValue,Value>>(), {
     formControlClass: 'form-select',
@@ -26,7 +26,7 @@ const {
     controlAttributes,
     formGroupClasses,
     listeners,
-} = useFormControl<InputHTMLAttributes, SelectFieldControlSizePrefix, ModelValue|undefined, Value>({ model, props, emit });
+} = useFormControl<HTMLAttributes, SelectFieldControlSizePrefix, ModelValue|undefined, Value>({ model, props, emit });
 
 const activity = useTemplateRef<InstanceType<typeof ActivityIndicator>>('activity');
 const help = useTemplateRef<HTMLElement>('help');
