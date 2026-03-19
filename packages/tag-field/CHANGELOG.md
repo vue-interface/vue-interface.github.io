@@ -1,5 +1,12 @@
 # @vue-interface/tag-field
 
+## 1.0.2
+
+### Patch Changes
+
+- Updated dependencies [569148e]
+  - @vue-interface/badge@3.1.5
+
 ## 1.0.1
 
 ### Patch Changes
