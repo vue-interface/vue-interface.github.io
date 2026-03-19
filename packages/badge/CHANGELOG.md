@@ -1,5 +1,11 @@
 # @vue-interface/badge
 
+## 3.1.5
+
+### Patch Changes
+
+- 569148e: Add CSS export to badge
+
 ## 3.1.4
 
 ### Patch Changes
