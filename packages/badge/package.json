@@ -14,7 +14,7 @@
       "import": "./dist/badge.js",
       "require": "./dist/badge.umd.cjs"
     },
-    "./css": "./index.css"
+    "./css": "./index.css" 
   },
   "browserslist": "last 2 versions, > 0.5%, ie >= 11",
   "scripts": {
