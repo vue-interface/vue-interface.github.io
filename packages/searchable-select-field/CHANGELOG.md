@@ -1,5 +1,11 @@
 # @vue-interface/searchable-select-field
 
+## 2.0.5
+
+### Patch Changes
+
+- e416cd0: Fixed issue with attribute binding
+
 ## 2.0.4
 
 ### Patch Changes
