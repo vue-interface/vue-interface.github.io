@@ -25,7 +25,6 @@ defineSlots<FormControlSlots<SearchableSelectFieldSizePrefix,ModelValue> & {
 const emit = defineEmits<FormControlEvents>();
 
 const {
-    controlAttributes,
     formGroupClasses,
     listeners
 } = useFormControl<HTMLAttributes, SearchableSelectFieldSizePrefix, ModelValue|undefined, ModelValue>({ model, props, emit });
@@ -247,7 +246,7 @@ export type SearchableSelectFieldProps<ModelValue, Value> = FormControlProps<
             class="searchable-select-field-input"
             :class="{ 'has-clear-button': canClear, formGroupClasses }"
             :size="size"
-            v-bind="{ ...$attrs, controlAttributes, listeners }"
+            v-bind="{ ...$attrs, ...listeners }"
             :name="name"
             :label="label"
             :model-value="input ?? (model && props?.display ? props?.display?.(model) : model)"
