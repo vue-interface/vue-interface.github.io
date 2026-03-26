@@ -1,5 +1,11 @@
 # @vue-interface/btn-dropdown
 
+## 4.1.6
+
+### Patch Changes
+
+- b808d60: chore: add css export to fix styling issue
+
 ## 4.1.5
 
 ### Patch Changes
