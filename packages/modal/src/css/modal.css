@@ -352,6 +352,17 @@
     }
 }
 
+@utility modal-h-* {
+    .modal-header {
+        .modal-header-text {
+            .modal-body {
+                height: --value(--modal-size-*, [length], [percentage]);
+                height: calc(--spacing(--value(number)));
+            }
+        }
+    }
+}
+
 @utility modal-max-h-* {
     .modal-header {
         .modal-header-text {
