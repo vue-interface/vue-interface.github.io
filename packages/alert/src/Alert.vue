@@ -7,8 +7,10 @@ export type AlertSize = ComponentSize<AlertSizePrefix>;
 
 withDefaults(defineProps<{
     size?: AlertSize;
+    showIcon?: boolean;
 }>(), {
-    size: 'alert-md'
+    size: 'alert-md',
+    showIcon: true,
 });
 </script>
 
@@ -17,7 +19,7 @@ withDefaults(defineProps<{
         class="alert"
         :class="size">
         <div class="alert-icon">
-            <slot name="icon">
+            <slot v-if="showIcon" name="icon">
                 <InformationCircleIcon />
             </slot>
         </div>
