@@ -4,6 +4,12 @@
 
 ### Patch Changes
 
+- 726f98e: Add showIcon prop
+
+## 4.0.4
+
+### Patch Changes
+
 - 90e39db: Add showIcon boolean prop for alerts
 - 785c5d1: Add show-icon prop
 
