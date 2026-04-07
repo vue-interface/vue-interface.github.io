@@ -127,6 +127,10 @@ import {ExclamationTriangleIcon, ExclamationCircleIcon, InformationCircleIcon, C
 <<< ./index.md#customIcons{vue}
 :::
 
+::: info 
+Use the `:show-icon="false"` prop to remove the icon from the alert.
+:::
+
 ## Sizes
 
 Customize the size of an `alert` using a [predetermined size](#predetermined-sizes), [tailwind's numeric sizing classes](#tailwind-sizes), or an [arbitrary](#arbitrary-sizes) CSS length unit.
