@@ -40,18 +40,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Debug npm auth
-        run: |
-          echo "--- .npmrc ---"
-          cat "$NPM_CONFIG_USERCONFIG" 2>/dev/null || echo "No NPM_CONFIG_USERCONFIG"
-          cat .npmrc 2>/dev/null || echo "No .npmrc in project"
-          echo "--- npm whoami ---"
-          npm whoami 2>&1 || true
-          echo "--- npm config get registry ---"
-          npm config get registry
-          echo "--- env ---"
-          echo "NODE_AUTH_TOKEN set: $([ -n \"$NODE_AUTH_TOKEN\" ] && echo yes || echo no)"
-          echo "NPM_CONFIG_PROVENANCE: $NPM_CONFIG_PROVENANCE"
+      - name: Update npm
+        run: npm install -g npm@11
 
       - name: Build Packages
         run: pnpm build
