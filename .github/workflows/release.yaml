@@ -33,9 +33,7 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 22
-          cache: pnpm 
-          registry-url: 'https://registry.npmjs.org' 
-          scope: '@vue-interface'
+          cache: pnpm
           
       - name: Install dependencies
         run: pnpm install
