@@ -1,5 +1,11 @@
 # @vue-interface/searchable-select-field
 
+## 2.0.6
+
+### Patch Changes
+
+- d164d30: Emit `selected`, `clear`, and `input` events from SearchableSelectField so consumers can react to selection, clearing, and input changes.
+
 ## 2.0.5
 
 ### Patch Changes
