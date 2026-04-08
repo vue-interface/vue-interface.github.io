@@ -22,7 +22,10 @@ defineSlots<FormControlSlots<SearchableSelectFieldSizePrefix,ModelValue> & {
     default(props: { option: ModelValue; display?: (option: ModelValue) => string }): any;
 }>();
 
-const emit = defineEmits<FormControlEvents>();
+const emit = defineEmits<FormControlEvents & {
+    selected: [option: ModelValue | undefined];
+    clear: [];
+}>();
 
 const {
     formGroupClasses,
@@ -123,6 +126,7 @@ function select(option?: ModelValue) {
         : undefined;
     input.value = undefined;
     showOptions.value = false;
+    emit('selected', option);
 }
 
 function onInput(e: Event) {
@@ -139,6 +143,8 @@ function onInput(e: Event) {
     if(props.allowCustom) {
         model.value = input.value as ModelValue;
     }
+
+    emit('input', e);
 }
 
 function onKeypressEnter() {
@@ -203,6 +209,7 @@ function clear() {
     if (!isInteractive.value) return;
     input.value = undefined;
     model.value = undefined;
+    emit('clear');
 }
 
 function toggle() {
