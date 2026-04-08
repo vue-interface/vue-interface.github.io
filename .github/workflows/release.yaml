@@ -41,7 +41,7 @@ jobs:
         run: pnpm install
 
       - name: Update npm
-        run: npm install -g npm@11
+        run: npx -y npm@11 install -g npm@11
 
       - name: Build Packages
         run: pnpm build
