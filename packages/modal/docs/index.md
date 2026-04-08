@@ -805,6 +805,7 @@ The appearance and layout of the modal can be further customized using the follo
 | <div class="whitespace-nowrap min-w-70">Class</div> | Description |
 | :--- | :--- |
 | `modal-max-h-[value]` | Sets maximum height allowable before overflowing. Supports [predetermined](#predetermined-sizes), [tailwind](#tailwind-sizes), or [arbitrary](#arbitrary-sizes) sizes. |
+| `modal-h-[size]` | Set a fixed height using [predetermined](#predetermined-sizes), [tailwind](#tailwind-sizes), or [arbitrary](#arbitrary-sizes) sizes.|
 | `modal-header-text-[size]` | Set header text size via the `header-size` prop (predetermined, Tailwind, or arbitrary). |
 | `modal-header-text-[color/value]` | Customize header text appearance (color or other utility classes). |
 | `modal-body-text-[size]` | Set body text size via the `body-size` prop (predetermined, Tailwind, or arbitrary). |
@@ -819,7 +820,7 @@ The appearance and layout of the modal can be further customized using the follo
         close-button
         button-orientation="vertical"
         title="Some Title"
-        class="modal-header-text-blue-400 modal-body-text-blue-400 modal-footer-btn-green-400 modal-footer-btn-sm"
+        class="modal-h-[50vh] modal-header-text-blue-400 modal-body-text-blue-400 modal-footer-btn-green-400 modal-footer-btn-sm"
     >
         Some Content
         <template #buttons="{close}">

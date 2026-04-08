@@ -1,5 +1,11 @@
 # @vue-interface/modal
 
+## 4.1.1
+
+### Patch Changes
+
+- 14f8734: Add support for fixed modal height using modal-h-[size]
+
 ## 4.1.0
 
 ### Minor Changes
