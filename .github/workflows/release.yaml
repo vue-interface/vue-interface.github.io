@@ -36,9 +36,6 @@ jobs:
           registry-url: 'https://registry.npmjs.org' 
           scope: '@vue-interface'
           
-      - name: Update npm
-        run: npm install -g npm@10.9.2  
-
       - name: Install dependencies
         run: pnpm install
 
