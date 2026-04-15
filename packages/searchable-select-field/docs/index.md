@@ -160,7 +160,7 @@ For precise sizing, specify exact pixel values using the syntax `form-control-[N
 
 ## Icons
 
-The following `searchable-select-field` components combine the an [input field](/packages/input-field) with a [heroicon](https://heroicons.com/). Customize the size of searchable-select-field/icon combinations using the same [sizing prop values](#sizes) described above. 
+The following `searchable-select-field` components combine the an [input field](/packages/input-field/) with a [heroicon](https://heroicons.com/). Customize the size of searchable-select-field/icon combinations using the same [sizing prop values](#sizes) described above. 
 
 ```ts
 import { CalendarDaysIcon } from '@heroicons/vue/24/outline';

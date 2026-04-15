@@ -336,7 +336,7 @@ import { CalendarDaysIcon } from '@heroicons/vue/24/outline';
 
 ## Activity Indicator
 
-Display an [activity indicator](/packages/activity-indicator) within the tag field to indicate loading or processing states.
+Display an [activity indicator](/packages/activity-indicator/) within the tag field to indicate loading or processing states.
 
 <div class="flex flex-col gap-4">
     <!-- #region activityIndicator -->
