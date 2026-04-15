@@ -1,6 +1,6 @@
 <script setup lang="ts" generic="ModelValue, Value extends ModelValue">
 import { ChevronDownIcon, XMarkIcon } from '@heroicons/vue/24/outline';
-import { ActivityIndicator, Pulse } from '@vue-interface/activity-indicator';
+import { ActivityIndicator } from '@vue-interface/activity-indicator';
 import type { FormControlEvents, FormControlProps, FormControlSlots } from '@vue-interface/form-control';
 import { useFormControl } from '@vue-interface/form-control';
 import { InputField } from '@vue-interface/input-field';
