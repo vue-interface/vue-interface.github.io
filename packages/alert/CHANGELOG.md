@@ -1,5 +1,11 @@
 # @vue-interface/alert
 
+## 4.0.5
+
+### Patch Changes
+
+- 4c034e6: Fix dist export issue
+
 ## 4.0.4
 
 ### Patch Changes
