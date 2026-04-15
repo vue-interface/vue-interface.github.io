@@ -363,7 +363,7 @@ Add an [icon](#icons) to the animated searchable-select-fields using the steps d
 
 ## Activity Indicator
 
-Display an [activity indicator](/packages/activity-indicator/docs/index.md) within the searchable-select-field to indicate loading or processing states.
+Display an [activity indicator](/packages/activity-indicator/docs/index.md) within the `searchable-select-field` to indicate loading or processing states.
 
 <div class="flex flex-col gap-4">
     <!-- #region activityIndicator -->
