@@ -160,7 +160,7 @@ For precise sizing, specify exact pixel values using the syntax `form-control-[N
 
 ## Icons
 
-The following `searchable-select-field` components combine the an input field with a [heroicon](https://heroicons.com/). Customize the size of searchable-select-field/icon combinations using the same [sizing prop values](#sizes) described above. 
+The following `searchable-select-field` components combine the an [input field](/packages/input-field) with a [heroicon](https://heroicons.com/). Customize the size of searchable-select-field/icon combinations using the same [sizing prop values](#sizes) described above. 
 
 ```ts
 import { CalendarDaysIcon } from '@heroicons/vue/24/outline';
@@ -363,7 +363,7 @@ Add an [icon](#icons) to the animated searchable-select-fields using the steps d
 
 ## Activity Indicator
 
-Display an [activity indicator](/packages/activity-indicator/docs/index.md) within the `searchable-select-field` to indicate loading or processing states.
+Display an [activity indicator](/packages/activity-indicator/) within the `searchable-select-field` to indicate loading or processing states.
 
 <div class="flex flex-col gap-4">
     <!-- #region activityIndicator -->
