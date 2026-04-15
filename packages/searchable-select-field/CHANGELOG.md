@@ -1,5 +1,12 @@
 # @vue-interface/searchable-select-field
 
+## 2.0.7
+
+### Patch Changes
+
+- 95be03f: fix activity-indicator slot
+- acc01d8: fix activity-indicator slot
+
 ## 2.0.6
 
 ### Patch Changes
