@@ -281,9 +281,10 @@ export type SearchableSelectFieldProps<ModelValue, Value> = FormControlProps<
                     name="activity"
                     v-bind="{ disabled, options, invalid, valid }">
                     <ActivityIndicator
-                        v-if="!disabled && !options"
-                        :type="Pulse"
-                        size="activity-indicator-sm" />
+                        key="activity"
+                        v-if="props.activity && props.indicator"
+                        :type="props.indicator"
+                        :size="props.indicatorSize ?? 'activity-indicator-sm'" />
                     <button
                         v-else-if="canClear"
                         type="button"

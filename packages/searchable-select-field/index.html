@@ -158,9 +158,23 @@
             </searchable-select-field>
         </div>
 
+        <h2 class="text-2xl mb-3">Activity Indicator</h2>
+
+        <div class="flex flex-col gap-4 mb-4">
+            <searchable-select-field :options="options" label="Small" size="form-control-sm" :indicator="Dots()" indicator-size="activity-indicator-sm" :activity="showActivity"></searchable-select-field>
+            <searchable-select-field :options="options" label="Medium" size="form-control-md" :indicator="Pulse()" indicator-size="activity-indicator-sm" :activity="showActivity"></searchable-select-field>
+            <searchable-select-field :options="options" label="Large" size="form-control-lg" :indicator="Spinner()" indicator-size="activity-indicator-sm" :activity="showActivity"></searchable-select-field>
+
+            <button type="button" class="underline text-blue-600" @click="showActivity = !showActivity">
+                <span v-if="!showActivity">Show</span><span v-else>Hide</span> Activity
+            </button>
+        </div>
+    </div>
+
     <script type="module">
         import "./demo.css";
         import { createApp, ref } from 'vue/dist/vue.esm-bundler.js';
+        import { Dots, Pulse, Spinner } from '@vue-interface/activity-indicator';
         import { CalendarDaysIcon } from '@heroicons/vue/24/outline';
         import { SearchableSelectField } from './index';
 
@@ -171,6 +185,7 @@
             },
             setup() {
                 const selected = ref();
+                const showActivity = ref(false);
                 const options = [
                     'Option 1',
                     'Option 2',
@@ -197,8 +212,12 @@
                 ];
                 return {
                     selected,
+                    showActivity,
                     options,
-                    languages
+                    languages,
+                    Dots: () => Dots,
+                    Pulse: () => Pulse,
+                    Spinner: () => Spinner
                 };
             }
         });

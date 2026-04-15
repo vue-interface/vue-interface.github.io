@@ -7,9 +7,10 @@ import '../demo.css'
 import { ref } from 'vue'
 import SearchableSelectField from '../src/SearchableSelectField.vue';
 import { CalendarDaysIcon } from '@heroicons/vue/24/outline';
+import { Dots, Pulse, Spinner } from '@vue-interface/activity-indicator';
 
-const value = ref()
 const selected = ref()
+const showActivity = ref(false)
 const options = [
     'Option 1',
     'Option 2',
@@ -358,4 +359,23 @@ Add an [icon](#icons) to the animated searchable-select-fields using the steps d
 
 ::: details Show Code
 <<< ./index.md#animatedIcons{html}
+:::
+
+## Activity Indicator
+
+Display an [activity indicator](/packages/activity-indicator/docs/index.md) within the searchable-select-field to indicate loading or processing states.
+
+<div class="flex flex-col gap-4">
+    <!-- #region activityIndicator -->
+    <SearchableSelectField :options="options" label="Small" size="form-control-sm" :indicator="Dots" indicator-size="activity-indicator-sm" :activity="showActivity"></SearchableSelectField>
+    <SearchableSelectField :options="options" label="Medium" size="form-control-md" :indicator="Pulse" indicator-size="activity-indicator-sm" :activity="showActivity"></SearchableSelectField>
+    <SearchableSelectField :options="options" label="Large" size="form-control-lg" :indicator="Spinner" indicator-size="activity-indicator-sm" :activity="showActivity"></SearchableSelectField>
+    <!-- #endregion activityIndicator -->
+    <button type="button" class="underline text-blue-600 self-start" @click="showActivity = !showActivity">
+        <span v-if="!showActivity">Show</span><span v-else>Hide</span> Activity
+    </button>
+</div>
+
+::: details Show Code
+<<< ./index.md#activityIndicator{vue}
 :::
