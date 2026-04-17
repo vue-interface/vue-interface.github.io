@@ -62,14 +62,16 @@ function createFuse() {
 }
 
 const filtered = computed<ModelValue[]>(() => {
+    const options = props.options ?? [];
+
     if(!input.value) {
-        return props.options ?? [];
+        return options;
     }
 
     const matches = fuse.search(input.value).map(({ item }) => item);
 
     if(props.allowCustom && !matches.length) {
-        return props.options;
+        return options;
     }
 
     return matches;
