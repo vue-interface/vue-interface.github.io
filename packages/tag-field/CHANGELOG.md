@@ -1,5 +1,11 @@
 # @vue-interface/tag-field
 
+## 1.0.3
+
+### Patch Changes
+
+- 75ea2a9: Fixed input clear when not focused, creating badge when unfocused, adding badge option to dropdown when using allow-custom
+
 ## 1.0.2
 
 ### Patch Changes
