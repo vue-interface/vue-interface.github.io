@@ -64,7 +64,7 @@ function createFuse() {
 const filtered = computed<ModelValue[]>(() => {
     const options = props.options ?? [];
 
-    if(!input.value) {
+    if(!input.value || props.searchable === false) {
         return options;
     }
 
@@ -244,6 +244,7 @@ export type SearchableSelectFieldProps<ModelValue, Value> = FormControlProps<
     display?: (option: ModelValue) => string;
     allowCustom?: boolean;
     clearable?: boolean;
+    searchable?: boolean;
 };
 </script>
 
