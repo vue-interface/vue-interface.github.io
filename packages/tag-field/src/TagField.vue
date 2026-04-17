@@ -143,9 +143,7 @@ function addCustomTag(value: string) {
 
     const tag = props.format?.(value) ?? value as ModelValue;
 
-    if(!options.value.find(option => isEqual(option, tag))) {
-        options.value.push(tag);
-
+    if(!(model.value ?? []).find(item => isEqual(item, tag))) {
         addTag(tag);
 
         input.value = undefined;
@@ -373,11 +371,8 @@ function onEscape() {
 }
 
 function onBlur(e: FocusEvent) {
-    if(props.allowCustom && input.value) {
-        addCustomTag(input.value);
-    }
-
     hasFocus.value = false;
+    input.value = undefined;
 
     deactivateTags();
 
