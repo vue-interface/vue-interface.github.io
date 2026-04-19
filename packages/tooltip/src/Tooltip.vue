@@ -54,6 +54,8 @@ watchEffect(() => {
         targetEl.value.setAttribute('data-tooltip-id', hash);
         targetEl.value.addEventListener('mouseover', open);
         targetEl.value.addEventListener('mouseout', close);
+        targetEl.value.addEventListener('click', close);
+        targetEl.value.addEventListener('blur', close);
     }
 });
 
@@ -127,6 +129,8 @@ onUnmounted(() => {
         targetEl.value.removeAttribute('data-tooltip-id');
         targetEl.value.removeEventListener('mouseover', open);
         targetEl.value.removeEventListener('mouseout', close);
+        targetEl.value.removeEventListener('click', close);
+        targetEl.value.removeEventListener('blur', close);
     }
 });
 
