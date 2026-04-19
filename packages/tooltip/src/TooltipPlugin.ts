@@ -4,6 +4,8 @@ import Tooltip, { type TooltipProps } from './Tooltip.vue';
 const prefix = 'data-tooltip';
 const prefixRegExp = new RegExp(`^${prefix}\-`);
 
+const containers = new WeakMap<Element, HTMLElement>();
+
 function getAttributes(el: Element): Record<string,string> {
     return Array.from(el.attributes)
         .map(a => [a.name, a.value])
@@ -13,13 +15,18 @@ function getAttributes(el: Element): Record<string,string> {
 }
 
 function createTooltip(target: Element, props?: TooltipProps) {
+    if(containers.has(target)) {
+        return;
+    }
+
     const container = document.createElement('template');
-    
+
     const vnode = h(Tooltip, Object.assign({
         target
     }, getAttributes(target), props));
 
     render(vnode, container);
+    containers.set(target, container);
 
     const title = target.getAttribute('title');
 
@@ -27,29 +34,31 @@ function createTooltip(target: Element, props?: TooltipProps) {
         target.setAttribute(`${prefix}-og-title`, title);
         target.removeAttribute('title');
     }
-
-    return () => {
-        if(vnode.component) {
-            vnode.component.exposed?.tooltipEl.value?.remove();
-        }
-    };
 }
 
 function destroyTooltip(target: Element) {
-    const tooltips = document.querySelectorAll(
-        `[${prefix}-id="${target.getAttribute(`${prefix}-id`)}"]`
-    );
+    const id = target.getAttribute(`${prefix}-id`);
 
-    for(const tooltip of tooltips) {
-        tooltip.remove();
+    if(id) {
+        document
+            .querySelectorAll(`[${prefix}-id="${id}"]`)
+            .forEach((el) => el.remove());
+    }
+
+    const container = containers.get(target);
+
+    if(container) {
+        render(null, container);
+        containers.delete(target);
     }
 
     target.removeAttribute(`${prefix}-id`);
 
-    const title = target.getAttribute(`${prefix}-og-title`);
+    const ogTitle = target.getAttribute(`${prefix}-og-title`);
 
-    if(title) {
-        target.setAttribute('title', title);
+    if(ogTitle) {
+        target.setAttribute('title', ogTitle);
+        target.removeAttribute(`${prefix}-og-title`);
     }
 }
 
@@ -94,9 +103,15 @@ export function TooltipPlugin(app: App<Element>) {
                     });
 
                     removedNodes.forEach((node) => {
-                        if(shouldRemoveTooltip(node)) {
+                        if (!(node instanceof Element)) { return; }
+
+                        if (shouldRemoveTooltip(node)) {
                             destroyTooltip(node);
                         }
+
+                        node.querySelectorAll(`[${prefix}-id]`).forEach((descendant) => {
+                            destroyTooltip(descendant);
+                        });
                     });
                 }
             });

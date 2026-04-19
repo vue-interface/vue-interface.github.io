@@ -77,6 +77,7 @@ const dynamicOffset = computed<OffsetOptions>(() => {
 
 const { floatingStyles, middlewareData, placement } = useFloating(targetEl, tooltipEl, {
     placement: props.placement,
+    strategy: props.strategy ?? 'fixed',
     middleware: props.middleware?.(arrowEl) ?? [
         flipFn(props.flip),
         offsetFn(dynamicOffset.value),
@@ -124,6 +125,8 @@ function close() {
 onUnmounted(() => {
     if(targetEl.value instanceof Element) {
         targetEl.value.removeAttribute('data-tooltip-id');
+        targetEl.value.removeEventListener('mouseover', open);
+        targetEl.value.removeEventListener('mouseout', close);
     }
 });
 
