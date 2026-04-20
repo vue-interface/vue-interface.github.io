@@ -10,6 +10,7 @@ import { type HTMLAttributes, computed, nextTick, ref, useTemplateRef, watch, wa
 const props = withDefaults(defineProps<SearchableSelectFieldProps<ModelValue,Value>>(), {
     formControlClass: 'form-control',
     labelClass: 'form-label',
+    searchable: true,
     size: 'form-control-md',
     clearable: true,
     options: () => []
