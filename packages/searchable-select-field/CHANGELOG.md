@@ -1,5 +1,11 @@
 # @vue-interface/searchable-select-field
 
+## 2.1.1
+
+### Patch Changes
+
+- aea316e: Fixed an issue where `searchable` was not true by default on SearchableSelectField
+
 ## 2.1.0
 
 ### Minor Changes
