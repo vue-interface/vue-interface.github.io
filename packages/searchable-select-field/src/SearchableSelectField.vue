@@ -13,6 +13,8 @@ const props = withDefaults(defineProps<SearchableSelectFieldProps<ModelValue,Val
     searchable: true,
     size: 'form-control-md',
     clearable: true,
+    noResultsText: 'No results found',
+    showNoResults: true,
     options: () => []
 });
 
@@ -21,6 +23,7 @@ const isInteractive = computed(() => !props.disabled && !props.readonly);
 
 defineSlots<FormControlSlots<SearchableSelectFieldSizePrefix,ModelValue> & {
     default(props: { option: ModelValue; display?: (option: ModelValue) => string }): any;
+    'no-results'(props: { input?: string }): any;
 }>();
 
 const emit = defineEmits<FormControlEvents & {
@@ -246,6 +249,8 @@ export type SearchableSelectFieldProps<ModelValue, Value> = FormControlProps<
     allowCustom?: boolean;
     clearable?: boolean;
     searchable?: boolean;
+    noResultsText?: string;
+    showNoResults?: boolean;
 };
 </script>
 
@@ -306,7 +311,7 @@ export type SearchableSelectFieldProps<ModelValue, Value> = FormControlProps<
             </template>
         </InputField>
         <div
-            v-if="showOptions && filtered.length"
+            v-if="showOptions && (filtered.length || (showNoResults && !allowCustom && input))"
             ref="optionsEl"
             tabindex="-1"
             class="searchable-select-field-dropdown"
@@ -330,6 +335,13 @@ export type SearchableSelectFieldProps<ModelValue, Value> = FormControlProps<
                     </div>
                 </slot>
             </button>
+            <div
+                v-if="showNoResults && !filtered.length && !allowCustom"
+                class="py-2 px-4 text-neutral-400 dark:text-neutral-500">
+                <slot name="no-results" :input="input">
+                    {{ noResultsText }}
+                </slot>
+            </div>
         </div>
     </div>
 </template>
