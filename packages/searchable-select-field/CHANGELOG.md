@@ -1,5 +1,11 @@
 # @vue-interface/searchable-select-field
 
+## 2.2.0
+
+### Minor Changes
+
+- 943e0de: Add no results slot and associated props
+
 ## 2.1.1
 
 ### Patch Changes
