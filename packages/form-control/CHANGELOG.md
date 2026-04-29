@@ -1,5 +1,11 @@
 # @vue-interface/form-control
 
+## 2.0.24
+
+### Patch Changes
+
+- 0feb1d9: fix: remove faint background-color on custom color input fields, checkboxes, light-switches.
+
 ## 2.0.23
 
 ### Patch Changes
