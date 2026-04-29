@@ -311,7 +311,7 @@ export type SearchableSelectFieldProps<ModelValue, Value> = FormControlProps<
             </template>
         </InputField>
         <div
-            v-if="showOptions && (filtered.length || (showNoResults && !allowCustom && input))"
+            v-if="showOptions"
             ref="optionsEl"
             tabindex="-1"
             class="searchable-select-field-dropdown"
@@ -336,7 +336,7 @@ export type SearchableSelectFieldProps<ModelValue, Value> = FormControlProps<
                 </slot>
             </button>
             <div
-                v-if="showNoResults && !filtered.length && !allowCustom"
+                v-if="showNoResults && !filtered.length"
                 class="py-2 px-4 text-neutral-400 dark:text-neutral-500">
                 <slot name="no-results" :input="input">
                     {{ noResultsText }}

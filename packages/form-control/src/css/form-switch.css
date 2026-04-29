@@ -210,7 +210,6 @@
 
     color: --value(--color-*, [color]);
     border-color: --value(--color-*, [color]);
-    background-color: color-mix(in oklch, --value(--color-*, [color]) 10%, transparent);
 
     &::after {
         background-color: --value(--color-*, [color]);
