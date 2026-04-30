@@ -190,6 +190,11 @@ import { CalendarDaysIcon } from '@heroicons/vue/24/outline';
             <CalendarDaysIcon />
         </template>
     </SearchableSelectField>
+    <SearchableSelectField :options="options" size="form-control-md" placeholder="MD Icon">
+        <template #icon>
+            <CalendarDaysIcon />
+        </template>
+    </SearchableSelectField>
     <SearchableSelectField :options="options" size="form-control-lg" placeholder="Large Icon">
         <template #icon>
             <CalendarDaysIcon />
