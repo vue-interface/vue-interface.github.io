@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ProgressBar</title>
+</head>
+<body class="dark:bg-neutral-900 dark:text-white">
+    <div id="app" class="container mx-auto mb-6">
+        <h1 class="text-4xl mb-6">progress-bar</h1>
+
+        <h3 class="text-2xl mb-3">Basic Usage</h3>
+
+        <div class="flex flex-col gap-4">
+            <progress-bar :value="progress"></progress-bar>
+            <progress-bar :value="progress" label="Progress Bar"></progress-bar>
+            <progress-bar :value="progress" show-value></progress-bar>
+            <progress-bar :value="50" striped></progress-bar>
+            <progress-bar :value="50" striped animated></progress-bar>
+        </div>
+
+        <h3 class="text-2xl mt-3 mb-3">Colors</h3>
+
+        <div class="flex flex-col gap-4">
+            <progress-bar :value="50" class="progress-bar-primary"></progress-bar>
+            <progress-bar :value="50" class="progress-bar-secondary"></progress-bar>
+            <progress-bar :value="50" class="progress-bar-success"></progress-bar>
+            <progress-bar :value="50" class="progress-bar-danger"></progress-bar>
+            <progress-bar :value="50" class="progress-bar-warning"></progress-bar>
+            <progress-bar :value="50" class="progress-bar-info"></progress-bar>
+            <progress-bar :value="50" class="progress-bar-dark"></progress-bar>
+            <progress-bar :value="50" class="progress-bar-light"></progress-bar>
+        </div>
+
+        <h3 class="text-2xl mt-3 mb-3">Custom Colors</h3>
+
+        <div class="flex flex-col gap-4">
+            <progress-bar :value="50" class="progress-bar-amber-500"></progress-bar>
+            <progress-bar :value="50" class="progress-bar-green-500"></progress-bar>
+            <progress-bar :value="50" class="progress-bar-purple-500"></progress-bar>
+            <progress-bar :value="50" class="progress-bar-neutral-500"></progress-bar>
+        </div>
+
+        <h3 class="text-2xl mt-3 mb-3">Sizes</h3>
+
+        <div class="flex flex-col gap-4">
+            <progress-bar :value="50" size="progress-bar-2xs"></progress-bar>
+            <progress-bar :value="50" size="progress-bar-xs"></progress-bar>
+            <progress-bar :value="50" size="progress-bar-sm"></progress-bar>
+            <progress-bar :value="50" size="progress-bar-md"></progress-bar>
+            <progress-bar :value="50" size="progress-bar-lg"></progress-bar>
+            <progress-bar :value="50" size="progress-bar-xl"></progress-bar>
+            <progress-bar :value="50" size="progress-bar-2xl"></progress-bar>
+            <progress-bar :value="50" size="progress-bar-3xl"></progress-bar>
+            <progress-bar :value="50" size="progress-bar-4xl"></progress-bar>
+            <progress-bar :value="50" size="progress-bar-5xl"></progress-bar>
+        </div>
+
+        <h3 class="text-2xl mt-3 mb-3">Tailwind Sizes</h3>
+
+        <div class="flex flex-col gap-4">
+            <progress-bar :value="50" size="progress-bar-3"></progress-bar>
+            <progress-bar :value="50" size="progress-bar-4"></progress-bar>
+            <progress-bar :value="50" size="progress-bar-5"></progress-bar>
+        </div>
+
+        <h3 class="text-2xl mt-3 mb-3">Arbitrary Sizes</h3>
+
+        <div class="flex flex-col gap-4">
+            <progress-bar :value="50" size="progress-bar-[16px]"></progress-bar>
+            <progress-bar :value="50" size="progress-bar-[1.5rem]"></progress-bar>
+        </div>
+
+        <h3 class="text-2xl mt-3 mb-3">Striped</h3>
+
+        <div class="flex flex-col gap-4">
+            <progress-bar :value="50" class="progress-bar-primary" striped></progress-bar>
+            <progress-bar :value="50" class="progress-bar-secondary" striped></progress-bar>
+            <progress-bar :value="50" class="progress-bar-success" striped></progress-bar>
+            <progress-bar :value="50" class="progress-bar-danger" striped></progress-bar>
+            <progress-bar :value="50" class="progress-bar-warning" striped></progress-bar>
+            <progress-bar :value="50" class="progress-bar-info" striped></progress-bar>
+            <progress-bar :value="50" class="progress-bar-dark" striped></progress-bar>
+            <progress-bar :value="50" class="progress-bar-light" striped></progress-bar>
+        </div>
+
+        <h3 class="text-2xl mt-3 mb-3">Striped & Animated</h3>
+
+        <div class="flex flex-col gap-4">
+            <progress-bar :value="50" class="progress-bar-primary" striped animated></progress-bar>
+            <progress-bar :value="50" class="progress-bar-secondary" striped animated></progress-bar>
+            <progress-bar :value="50" class="progress-bar-success" striped animated></progress-bar>
+            <progress-bar :value="50" class="progress-bar-danger" striped animated></progress-bar>
+            <progress-bar :value="50" class="progress-bar-warning" striped animated></progress-bar>
+            <progress-bar :value="50" class="progress-bar-info" striped animated></progress-bar>
+            <progress-bar :value="50" class="progress-bar-dark" striped animated></progress-bar>
+            <progress-bar :value="50" class="progress-bar-light" striped animated></progress-bar>
+        </div>
+    </div>
+
+    <script type="module">
+        import './index.css';
+        import { createApp } from 'vue/dist/vue.esm-bundler';
+        import { ProgressBar } from './index.ts';
+
+        createApp({
+            components: {
+                ProgressBar
+            },
+            data() {
+                return {
+                    progress: 0
+                };
+            },
+            mounted() {
+                const progress = () => {
+                    setTimeout(() => {
+                        this.progress++;
+
+                        if (this.progress < 100) {
+                            progress();
+                        }
+
+                    }, 500);
+                };
+
+                progress();
+            }
+        }).mount('#app');
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+{
+  "name": "@vue-interface/progress-bar",
+  "version": "3.0.0",
+  "description": "A Vue progress bar component.",
+  "type": "module",
+  "main": "./dist/progress-bar.umd.cjs",
+  "module": "./dist/progress-bar.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "source": "./index.ts",
+      "types": "./dist/index.d.ts",
+      "style": "./index.css",
+      "import": "./dist/progress-bar.js",
+      "require": "./dist/progress-bar.umd.cjs"
+    },
+    "./css": "./index.css"
+  },
+  "browserslist": "last 2 versions, > 0.5%, ie >= 11",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vue-interface/vue-interface.github.io"
+  },
+  "keywords": [
+    "Progress",
+    "Bar",
+    "Vue",
+    "Component",
+    "Tailwind",
+    "Bootstrap"
+  ],
+  "author": "Justin Kimbrell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vue-interface/vue-interface.github.io"
+  },
+  "homepage": "https://vue-interface.github.io/packages/progress-bar",
+  "readme": "README.md",
+  "files": [
+    "src",
+    "dist",
+    "index.ts",
+    "index.css",
+    "README.md",
+    "LICENSE"
+  ],
+  "peerDependencies": {
+    "@vue-interface/sizeable": "workspace:*",
+    "vue": "^3.3.4"
+  }
+}
