@@ -1,6 +1,6 @@
 {
   "name": "@vue-interface/progress-bar",
-  "version": "3.0.0",
+  "version": "2.0.0-beta.6",
   "description": "A Vue progress bar component.",
   "type": "module",
   "main": "./dist/progress-bar.umd.cjs",
