@@ -1,0 +1,6 @@
+@import 'tailwindcss';
+
+@import './src/css/sizes.css';
+@import './src/css/colors.css';
+
+@import './src/css/progress-bar.css';

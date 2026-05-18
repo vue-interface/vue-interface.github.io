@@ -1,0 +1,92 @@
+@theme {
+    --progress-bar-display: flex;
+    --progress-bar-overflow: hidden;
+    --progress-bar-font-size: --spacing(4);
+    --progress-bar-height: var(--progress-bar-font-size);
+    --progress-bar-background-color: oklch(0% 0 0 / 0.025);
+    --progress-bar-dark-background-color: oklch(0% 0 0 / 0.1);
+    --progress-bar-border-radius: --spacing(1);
+    --progress-bar-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .075);
+
+    --progress-bar-inner-display: flex;
+    --progress-bar-inner-flex-direction: column;
+    --progress-bar-inner-justify-content: center;
+    --progress-bar-inner-overflow: hidden;
+    --progress-bar-inner-text-align: center;
+    --progress-bar-inner-white-space: nowrap;
+    --progress-bar-inner-transition: width .6s ease;
+    --progress-bar-inner-color: var(--progress-bar-primary);
+    --progress-bar-light-gradient-color: oklch(0% 0 0 / 0.15);
+    --progress-bar-dark-gradient-color: oklch(0% 0 0 / 0.15);
+    --progress-bar-inner-animation: progress-bar-stripes 1s linear infinite;
+    --progress-bar-inner-striped-background-image: linear-gradient(45deg, var(--progress-bar-light-gradient-color) 25%, transparent 25%, transparent 50%, var(--progress-bar-light-gradient-color) 50%, var(--progress-bar-light-gradient-color) 75%, transparent 75%, transparent);
+    --progress-bar-inner-striped-light-background-image: linear-gradient(45deg, var(--progress-bar-dark-gradient-color) 25%, transparent 25%, transparent 50%, var(--progress-bar-dark-gradient-color) 50%, var(--progress-bar-dark-gradient-color) 75%, transparent 75%, transparent);
+    --progress-bar-inner-striped-background-size: 1rem 1rem;
+}
+
+@utility progress-bar {
+    display: var(--progress-bar-display);
+    overflow: var(--progress-bar-overflow);
+    height: var(--progress-bar-height);
+    font-size: var(--progress-bar-font-size);
+    background-color: var(--progress-bar-background-color);
+    border-radius: var(--progress-bar-border-radius);
+    box-shadow: var(--progress-bar-box-shadow);
+
+    @variant dark {
+        background-color: var(--progress-bar-dark-background-color);
+    }
+
+    .progress-bar-inner {
+        display: var(--progress-bar-inner-display);
+        flex-direction: var(--progress-bar-inner-flex-direction);
+        justify-content: var(--progress-bar-inner-justify-content);
+        overflow: var(--progress-bar-inner-overflow);
+        background-color: var(--progress-bar-inner-color);
+        border-radius: var(--progress-bar-border-radius);
+        text-align: var(--progress-bar-inner-text-align);
+        white-space: var(--progress-bar-inner-white-space);
+        transition: var(--progress-bar-inner-transition);
+
+        &.progress-bar-inner-striped {
+            background-image: var(--progress-bar-inner-striped-background-image);
+            background-size: var(--progress-bar-inner-striped-background-size);
+
+            &.bg-light,
+            &.bg-muted {
+                background-image: var(--progress-bar-inner-striped-light-background-image);
+            }
+
+            &.progress-bar-inner-animated {
+                animation: var(--progress-bar-inner-animation);
+            }
+        }
+
+        .progress-bar-label {
+            color: white;
+            font-size: calc(var(--progress-bar-height) / 1.5);
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+        }
+    }
+}
+
+@utility progress-bar-* {
+    --progress-bar-height: --value(--progress-bar-font-size-*, [length]);
+    --progress-bar-height: --spacing(--value(number));
+
+    .progress-bar-inner {
+        background-color: --value(--progress-bar-*, --color-*, [color]);
+
+        .progress-bar-label {
+            color: --value(--progress-bar-*-text, --text-for-*);
+        }
+    }
+}
+
+@keyframes progress-bar-stripes {
+    0% {
+        background-position-x: 1rem;
+    }
+}

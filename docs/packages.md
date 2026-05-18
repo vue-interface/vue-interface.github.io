@@ -30,6 +30,7 @@ All packages combine [Vue.js](https://vuejs.org/) and [TailwindCSS v4](https://t
 - [Modal](/packages/modal/)
 - [Pagination](/packages/pagination/)
 - [Popover](/packages/popover/)
+- [Progress Bar](/packages/progress-bar/)
 - [Sizeable](/packages/sizeable/)
 - [Slide Deck](/packages/slide-deck/)
 - [Slide Panel](/packages/slide-panel/)

@@ -239,6 +239,15 @@ importers:
         specifier: ^3.3.4
         version: 3.5.27(typescript@5.9.3)
 
+  packages/progress-bar:
+    dependencies:
+      '@vue-interface/sizeable':
+        specifier: workspace:*
+        version: link:../sizeable
+      vue:
+        specifier: ^3.3.4
+        version: 3.5.27(typescript@5.9.3)
+
   packages/radio-field:
     dependencies:
       '@vue-interface/form-control':

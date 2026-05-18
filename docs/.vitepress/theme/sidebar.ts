@@ -102,6 +102,9 @@ export const sidebar: DefaultTheme.SidebarItem[] = [{
     text: 'Popover',
     link: '/packages/popover/'
 }, {
+    text: 'Progress Bar',
+    link: '/packages/progress-bar/'
+}, {
     text: 'Sizeable',
     link: '/packages/sizeable/'
 }, {
