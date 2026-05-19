@@ -49,7 +49,7 @@ bun i @vue-interface/input-field
 
 ### Tailwind Setup
 
-The input-field component depends the [Form Control](/packages/form-control) component for Tailwind styles. To use, [install](/packages/form-control/index.md#installation) the `form-control` component and [import](/packages/form-control/index.md#tailwind-setup) the TailwindCSS.
+The input-field component depends the [Form Control](/packages/form-control/index.md) component for Tailwind styles. To use, [install](/packages/form-control/index.md#installation) the `form-control` component and [import](/packages/form-control/index.md#tailwind-setup) the TailwindCSS.
 
 ```css
 @import '@vue-interface/form-control';

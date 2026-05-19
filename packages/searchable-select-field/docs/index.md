@@ -68,7 +68,7 @@ bun i @vue-interface/searchable-select-field
 
 ### Tailwind Setup
 
-The searchable-select-field component depends the [Form Control](/packages/form-control) component for Tailwind styles. To use, [install](/packages/form-control/index.md#installation) the `form-control` component and [import](/packages/form-control/index.md#tailwind-setup) the TailwindCSS.
+The searchable-select-field component depends the [Form Control](/packages/form-control/index.md) component for Tailwind styles. To use, [install](/packages/form-control/index.md#installation) the `form-control` component and [import](/packages/form-control/index.md#tailwind-setup) the TailwindCSS.
 
 ```css
 @import '@vue-interface/form-control';

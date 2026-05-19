@@ -29,7 +29,7 @@ function onBlur(e) {
 
 # Checkbox Field
 
-The `CheckboxField` component extends the [form-control](/packages/form-control/) component and provides a flexible checkbox input with support for custom colors, sizes, states, and validation.
+The `CheckboxField` component extends the [form-control](/packages/form-control/index.md) component and provides a flexible checkbox input with support for custom colors, sizes, states, and validation.
 
 ### Installation
 
@@ -53,7 +53,7 @@ bun i @vue-interface/checkbox-field
 
 ### Tailwind Setup
 
-The checkbox-field component depends the [Form Control](/packages/form-control) component for Tailwind styles. To use, [install](/packages/form-control/index.md#installation) the `form-control` component and [import](/packages/form-control/index.md#tailwind-setup) the TailwindCSS.
+The checkbox-field component depends the [Form Control](/packages/form-control/index.md) component for Tailwind styles. To use, [install](/packages/form-control/index.md#installation) the `form-control` component and [import](/packages/form-control/index.md#tailwind-setup) the TailwindCSS.
 
 ```css
 @import '@vue-interface/form-control';
