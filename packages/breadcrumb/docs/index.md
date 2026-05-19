@@ -33,7 +33,7 @@ bun i @vue-interface/breadcrumb
 ### Tailwind Setup
 
 ```css
-@import '@vue-interface/breadcrumb/index.css';
+@import '@vue-interface/breadcrumb';
 ```
 
 ## Basic Usage

@@ -64,8 +64,11 @@ bun i @vue-interface/tag-field
 
 ### Tailwind Setup
 
+The tag-field component depends the [Form Control](/packages/form-control) component for Tailwind styles. To use, [install](/packages/form-control/index.md#installation) the `form-control` component and [import](/packages/form-control/index.md#tailwind-setup) the TailwindCSS.
+
 ```css
-@import '@vue-interface/tag-field/index.css';
+@import '@vue-interface/form-control';
+@import '@vue-interface/tag-field';
 ```
 
 ## Basic Usage

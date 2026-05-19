@@ -33,7 +33,7 @@ bun i @vue-interface/btn
 ### Tailwind Setup
 
 ```css
-@import '@vue-interface/btn/index.css';
+@import '@vue-interface/btn';
 ```
 
 ### Basic Usage

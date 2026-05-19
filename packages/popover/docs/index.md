@@ -35,7 +35,7 @@ bun i @vue-interface/popover
 ### Tailwind Setup
 
 ```css
-@import '@vue-interface/popover/index.css';
+@import '@vue-interface/popover';
 ```
 
 ## Basic Usage

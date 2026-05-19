@@ -40,7 +40,7 @@ bun i @vue-interface/tooltip
 ### Tailwind Setup
 
 ```css
-@import '@vue-interface/tooltip/index.css';
+@import '@vue-interface/tooltip';
 ```
 
 ## Basic Usage

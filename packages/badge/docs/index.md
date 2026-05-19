@@ -35,7 +35,7 @@ bun i @vue-interface/badge
 ### Tailwind Setup
 
 ```css
-@import '@vue-interface/badge/index.css';
+@import '@vue-interface/badge';
 ```
 
 ## Basic Usage

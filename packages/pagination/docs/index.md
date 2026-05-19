@@ -33,7 +33,7 @@ bun i @vue-interface/pagination
 ### Tailwind Setup
 
 ```css
-@import '@vue-interface/pagination/index.css';
+@import '@vue-interface/pagination';
 ```
 
 ## Basic Usage

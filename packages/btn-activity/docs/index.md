@@ -59,7 +59,7 @@ bun i @vue-interface/btn-activity
 ### Tailwind Setup
 
 ```css
-@import '@vue-interface/btn-activity/index.css';
+@import '@vue-interface/btn-activity';
 ```
 
 ## Basic Usage

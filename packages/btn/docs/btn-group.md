@@ -36,8 +36,10 @@ bun i @vue-interface/btn
 
 ### Tailwind Setup
 
+The button-group package depends the [button](/packages/btn/) btn utility for the Tailwind styles. To use, [install](/packages/btn/index.md#installation) the `btn` utility and [import](/packages/btn/index.md#tailwind-setup) the TailwindCSS.
+
 ```css
-@import '@vue-interface/btn-group/index.css';
+@import '@vue-interface/btn';
 ```
 
 ## Basic Usage

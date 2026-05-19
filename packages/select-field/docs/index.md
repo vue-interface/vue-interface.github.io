@@ -45,8 +45,10 @@ bun i @vue-interface/select-field
 
 ### Tailwind Setup
 
+The select-field component depends the [Form Control](/packages/form-control) component for Tailwind styles. To use, [install](/packages/form-control/index.md#installation) the `form-control` component and [import](/packages/form-control/index.md#tailwind-setup) the TailwindCSS.
+
 ```css
-@import '@vue-interface/select-field/index.css';
+@import '@vue-interface/form-control';
 ```
 
 ## Variations and States
@@ -248,11 +250,11 @@ The following `select-field` components combine a select field with a [heroicon]
 import { CalendarDaysIcon } from '@heroicons/vue/24/outline';
 ```
 ```vue
-<InputField label="Icon">
+<SelectField label="Icon">
     <template #icon>
         <CalendarDaysIcon />                      
     </template>
-</InputField>
+</SelectField>
 ```
 
 <div class="flex flex-col gap-3">

@@ -119,9 +119,9 @@ Validation classes provides error-checking styling for the form-switch element. 
         <div>
             <label class="flex gap-2 valid-feedback"><input type="checkbox" class="form-switch" valid> Valid</label>
             <label class="flex gap-2 valid-feedback"><input type="checkbox" class="form-switch" checked valid> Valid</label>
-            <div class="valid-feedback">This is an inline sucess message.</div>
+            <div class="valid-feedback">This is an inline success message.</div>
         </div>
-        <div class="valid-feedback">This is an inline sucess message.</div>
+        <div class="valid-feedback">This is an inline success message.</div>
         <div>
             <div class="valid-feedback">This is an inline success message.</div>
         </div>

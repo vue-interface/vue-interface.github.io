@@ -48,7 +48,7 @@ bun i @vue-interface/dropdown-menu
 ### Tailwind Setup
 
 ```css
-@import '@vue-interface/dropdown-menu/index.css';
+@import '@vue-interface/dropdown-menu';
 ```
 
 ## Basic Usage

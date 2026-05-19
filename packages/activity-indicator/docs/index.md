@@ -53,7 +53,8 @@ bun i @vue-interface/activity-indicator
 ### Tailwind Setup
 
 ```css
-@import '@vue-interface/activity-indicator/index.css';
+@import '@vue-interface/activity-indicator';
+@import '@vue-interface/activity-indicator/css';
 ```
 
 ## Sizing

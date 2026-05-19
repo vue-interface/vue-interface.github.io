@@ -47,7 +47,7 @@ bun i @vue-interface/btn-dropdown
 ### Tailwind Setup
 
 ```css
-@import '@vue-interface/btn-dropdown/index.css';
+@import '@vue-interface/btn-dropdown';
 ```
 
 ## Basic Usage
@@ -141,7 +141,7 @@ The split dropdown button is a combination of a [button-group](/packages/btn/btn
 <<< ./index.md#custom1{html}
 :::
 
-::: details Show Code - Elipses
+::: details Show Code - Ellipsis
 <<< ./index.md#custom2{html}
 :::
 

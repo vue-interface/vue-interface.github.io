@@ -39,7 +39,7 @@ bun i @vue-interface/modal
 ### Tailwind Setup
 
 ```css
-@import '@vue-interface/modal/index.css';
+@import '@vue-interface/modal';
 ```
 
 ## Basic Usage
@@ -168,7 +168,7 @@ There are four variants of modals: `Info`, `Warning`, `Critical`, and `Success`.
 
 ## Centered
 
-Centered modals come in two variations: centerd single action or centered double action. The `action` keyword specifies the number and layout of the modal buttons. Add `class="modal-center"` to the list of attributes to create the custom centered modal.
+Centered modals come in two variations: centered single action or centered double action. The `action` keyword specifies the number and layout of the modal buttons. Add `class="modal-center"` to the list of attributes to create the custom centered modal.
 
 <div class="flex gap-2 mb-3">
     <button id="centeredSingle" class="btn btn-primary">Centered Single Action</button>

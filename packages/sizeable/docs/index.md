@@ -86,8 +86,8 @@ import { Badge } from '@vue-interface/badge';
 
 <template>
     <Badge size="badge-sm">sm</Badge>
-    <Badge size="badge-4">alert-4</Badge>
-    <Badge size="badge-[16px]">alert-[16px]</Badge>
+    <Badge size="badge-4">badge-4</Badge>
+    <Badge size="badge-[16px]">badge-[16px]</Badge>
 </template>
 ```
 

@@ -53,8 +53,10 @@ bun i @vue-interface/checkbox-field
 
 ### Tailwind Setup
 
+The checkbox-field component depends the [Form Control](/packages/form-control) component for Tailwind styles. To use, [install](/packages/form-control/index.md#installation) the `form-control` component and [import](/packages/form-control/index.md#tailwind-setup) the TailwindCSS.
+
 ```css
-@import '@vue-interface/checkbox-field/index.css';
+@import '@vue-interface/form-control';
 ```
 
 ## Basic Usage

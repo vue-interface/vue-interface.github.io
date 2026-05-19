@@ -42,7 +42,7 @@ bun i @vue-interface/alert
 ### Tailwind Setup
 
 ```css
-@import '@vue-interface/alert/index.css';
+@import '@vue-interface/alert';
 ```
 
 ## Basic Usage

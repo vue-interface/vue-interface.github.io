@@ -52,7 +52,7 @@ bun i @vue-interface/progress-bar
 ### Tailwind Setup
 
 ```css
-@import '@vue-interface/progress-bar/index.css';
+@import '@vue-interface/progress-bar';
 ```
 
 ## Basic Usage

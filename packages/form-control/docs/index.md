@@ -33,7 +33,7 @@ bun i @vue-interface/form-control
 ### Tailwind Setup
 
 ```css
-@import '@vue-interface/form-control/index.css';
+@import '@vue-interface/form-control';
 ```
 
 ## Basic Usage
@@ -149,7 +149,7 @@ Validation classes provides error-checking styling for the form-control element.
 <div class="flex flex-col gap-4">
     <!-- #region validation -->
     <div>
-        <label class="flex-shrink-0 invalid-feedback">Invalid Field</label>
+        <label class="shrink-0 invalid-feedback">Invalid Field</label>
         <div>
             <input type="text" class="form-control is-invalid" value="This field is invalid" />
             <div class="invalid-feedback">This is an inline error.</div>
@@ -160,7 +160,7 @@ Validation classes provides error-checking styling for the form-control element.
         </div>
     </div>
     <div>
-        <label class="flex-shrink-0 valid-feedback">Valid Field</label>
+        <label class="shrink-0 valid-feedback">Valid Field</label>
         <div>
             <input type="text" class="form-control is-valid" value="This field is invalid" />
             <div class="valid-feedback">This is an inline success message.</div>
@@ -274,7 +274,7 @@ There are two custom components: a [color picker](#color-picker) and a custom [l
 
 ### Color Picker 
 
-Add a color picker to your UI using the `form-control-color` class. This allows for pixel-level anaylsis of the colors within the UI.
+Add a color picker to your UI using the `form-control-color` class. This allows for pixel-level analysis of the colors within the UI.
 
 <div>
 <!-- #region colorPicker -->
@@ -287,7 +287,7 @@ Add a color picker to your UI using the `form-control-color` class. This allows 
 
 ### Light/Dark Mode Switch
 
-Add this switch to the UI using the the `form-switch-light-dark` class. It is a custom component of the [form-switch](./form-switch) element
+Add this switch to the UI using the `form-switch-light-dark` class. It is a custom component of the [form-switch](./form-switch) element
 
 <!-- #region customSwitch -->
 <div class="flex items-center gap-2">

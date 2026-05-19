@@ -213,9 +213,9 @@ Validation classes provides error-checking styling for the form-check element. T
             <label class="flex gap-2 valid-feedback"><input type="checkbox" class="form-check" checked valid> Valid</label>
             <label class="flex gap-2 valid-feedback"><input type="radio" name="radio8" class="form-check" valid> Valid</label>
             <label class="flex gap-2 valid-feedback"><input type="radio" name="radio8" class="form-check" checked valid> Valid</label>
-            <div class="valid-feedback">This is an inline sucess message.</div>
+            <div class="valid-feedback">This is an inline success message.</div>
         </div>
-        <div class="valid-feedback">This is an inline sucess message.</div>
+        <div class="valid-feedback">This is an inline success message.</div>
         <div>
             <div class="valid-feedback">This is an inline success message.</div>
         </div>

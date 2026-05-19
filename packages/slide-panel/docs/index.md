@@ -35,7 +35,7 @@ bun i @vue-interface/slide-panel
 ### Tailwind Setup
 
 ```css
-@import '@vue-interface/slide-panel/index.css';
+@import '@vue-interface/slide-panel';
 ```
 
 ## Basic Usage

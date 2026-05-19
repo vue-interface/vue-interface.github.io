@@ -45,8 +45,10 @@ bun i @vue-interface/textarea-field
 
 ### Tailwind Setup
 
+The textarea-field component depends the [Form Control](/packages/form-control) component for Tailwind styles. To use, [install](/packages/form-control/index.md#installation) the `form-control` component and [import](/packages/form-control/index.md#tailwind-setup) the TailwindCSS.
+
 ```css
-@import '@vue-interface/textarea-field/index.css';
+@import '@vue-interface/form-control';
 ```
 
 ## Variations and States
@@ -137,11 +139,11 @@ The following `textarea-field` components combine a textarea field with a [heroi
 import { CalendarDaysIcon } from '@heroicons/vue/24/outline';
 ```
 ```vue
-<InputField label="Icon">
+<TextareaField label="Icon">
     <template #icon>
         <CalendarDaysIcon />                      
     </template>
-</InputField>
+</TextareaField>
 ```
 
 <div class="flex flex-col gap-3">
