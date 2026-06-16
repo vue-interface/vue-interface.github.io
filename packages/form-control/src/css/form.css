@@ -59,4 +59,26 @@
     --form-plaintext-outline: none;
     --form-plaintext-cursor: default;
     --form-plaintext-appearance: none;
+
+    /* Label */
+    --form-label-display: block;
+    --form-label-margin-bottom: 0.5rem;
+    --form-label-font-size: var(--form-font-size, 1rem);
+    --form-label-font-weight: 500;
+    --form-label-line-height: 1.5;
+    --form-label-color: inherit;
+    --form-label-dark-color: inherit;
+}
+
+@utility form-label {
+    display: var(--form-label-display);
+    margin-bottom: var(--form-label-margin-bottom);
+    font-size: var(--form-label-font-size);
+    font-weight: var(--form-label-font-weight);
+    line-height: var(--form-label-line-height);
+    color: var(--form-label-color);
+
+    @variant dark {
+        color: var(--form-label-dark-color);
+    }
 }
