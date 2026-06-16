@@ -1,5 +1,12 @@
 # @vue-interface/tag-field
 
+## 2.0.0
+
+### Patch Changes
+
+- Updated dependencies [16e0206]
+  - @vue-interface/form-control@2.1.0
+
 ## 1.0.4
 
 ### Patch Changes
