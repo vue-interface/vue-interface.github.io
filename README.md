@@ -36,7 +36,6 @@ Each package is independently versioned using strict [semantic versioning](https
 ### Creating a Changeset
 After making changes to one or more packages, create a changeset to document what changed:
 
-::: code-group
 ```bash [pnpm]
 pnpm changeset
 ```
@@ -44,7 +43,6 @@ pnpm changeset
 ```bash [yarn]
 yarn changeset
 ```
-:::
 
 This interactive command will:
 
