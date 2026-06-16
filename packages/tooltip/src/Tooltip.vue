@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { arrow, autoUpdate, flip as flipFn, FlipOptions, MaybeElement, offset as offsetFn, OffsetOptions, ReferenceElement, useFloating, UseFloatingOptions } from '@floating-ui/vue';
+import { arrow, autoUpdate, flip as flipFn, FlipOptions, MaybeElement, offset as offsetFn, OffsetOptions, ReferenceElement, shift as shiftFn, useFloating, UseFloatingOptions } from '@floating-ui/vue';
 import { computed, isRef, onUnmounted, Ref, ref, shallowReadonly, ShallowRef, useTemplateRef, watchEffect } from 'vue';
 
 export type TooltipProps = {
@@ -77,12 +77,13 @@ const dynamicOffset = computed<OffsetOptions>(() => {
     };
 });
 
-const { floatingStyles, middlewareData, placement } = useFloating(targetEl, tooltipEl, {
+const { floatingStyles, middlewareData, placement, update } = useFloating(targetEl, tooltipEl, {
     placement: props.placement,
     strategy: props.strategy ?? 'fixed',
     middleware: props.middleware?.(arrowEl) ?? [
         flipFn(props.flip),
         offsetFn(dynamicOffset.value),
+        shiftFn({ padding: 8 }),
         arrow({
             element: arrowEl
         }),
@@ -118,6 +119,11 @@ const arrowRotation = computed<Record<Side,string>>(() => ({
 
 function open() {
     isShowing.value = true;
+
+    // Recompute position on open so the tooltip is correct even after the
+    // target has moved due to a layout shift that autoUpdate doesn't track
+    // (e.g. an animated expand/collapse with no scroll or resize event).
+    update();
 }
 
 function close() {
