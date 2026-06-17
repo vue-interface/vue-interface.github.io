@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-import { arrow, autoUpdate, flip as flipFn, FlipOptions, MaybeElement, offset as offsetFn, OffsetOptions, ReferenceElement, shift as shiftFn, useFloating, UseFloatingOptions } from '@floating-ui/vue';
+import { arrow, autoUpdate, flip as flipFn, FlipOptions, MaybeElement, offset as offsetFn, OffsetOptions, Placement, ReferenceElement, shift as shiftFn, useFloating } from '@floating-ui/vue';
 import { computed, isRef, onUnmounted, Ref, ref, shallowReadonly, ShallowRef, useTemplateRef, watchEffect } from 'vue';
 
 export type TooltipProps = {
     title?: string;
     show?: boolean;
     target?: Ref<MaybeElement<ReferenceElement>> | ReferenceElement;
-    placement?: UseFloatingOptions['placement'];
+    placement?: Placement;
     strategy?: UseFloatingOptions['strategy'];
     middleware?: (arrow: Readonly<ShallowRef<HTMLDivElement | null>>) => UseFloatingOptions['middleware'];
     flip?: FlipOptions;
