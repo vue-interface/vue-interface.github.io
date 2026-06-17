@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { arrow, autoUpdate, flip as flipFn, FlipOptions, MaybeElement, offset as offsetFn, OffsetOptions, Placement, ReferenceElement, shift as shiftFn, useFloating } from '@floating-ui/vue';
+import { arrow, autoUpdate, flip as flipFn, FlipOptions, MaybeElement, offset as offsetFn, OffsetOptions, Placement, ReferenceElement, shift as shiftFn, useFloating, UseFloatingOptions } from '@floating-ui/vue';
 import { computed, isRef, onUnmounted, Ref, ref, shallowReadonly, ShallowRef, useTemplateRef, watchEffect } from 'vue';
 
 export type TooltipProps = {
@@ -60,7 +60,7 @@ watchEffect(() => {
 });
 
 watchEffect(() => {
-    isShowing.value = props.show;
+    isShowing.value = props.show ?? false;
 });
 
 const dynamicOffset = computed<OffsetOptions>(() => {
