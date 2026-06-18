@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { arrow as arrowFn, autoUpdate, flip as flipFn, FlipOptions, offset as offsetFn, OffsetOptions, shift as shiftFn, size as sizeFn, useFloating, UseFloatingOptions } from '@floating-ui/vue';
+import { arrow as arrowFn, autoUpdate, flip as flipFn, FlipOptions, offset as offsetFn, OffsetOptions, Placement, shift as shiftFn, size as sizeFn, Strategy, useFloating, UseFloatingOptions } from '@floating-ui/vue';
 import { ComponentPublicInstance, computed, ref, ShallowRef } from 'vue';
 
 export type PopoverProps = {
     arrow?: boolean;
-    placement?: UseFloatingOptions['placement'];
-    strategy?: UseFloatingOptions['strategy'];
+    placement?: Placement;
+    strategy?: Strategy;
     middleware?: (arrow: Readonly<ShallowRef<HTMLDivElement | null>>) => UseFloatingOptions['middleware'];
     flip?: FlipOptions;
     offset?: OffsetOptions;
@@ -104,7 +104,7 @@ defineExpose({ open, close, toggle });
 </script>
 
 <template>
-    <div>
+    <div ref="triggerEl">
         <slot
             name="trigger"
             v-bind="{ ref: setTriggerRef, isOpen, open, close, toggle }" />
