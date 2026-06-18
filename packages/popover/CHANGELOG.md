@@ -1,5 +1,11 @@
 # @vue-interface/popover
 
+## 1.0.7
+
+### Patch Changes
+
+- 4640f5a: fix positioning and styling with new middleware options
+
 ## 1.0.6
 
 ### Patch Changes
