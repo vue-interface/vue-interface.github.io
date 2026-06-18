@@ -1,5 +1,11 @@
 # @vue-interface/popover
 
+## 1.0.8
+
+### Patch Changes
+
+- 398d8d6: update types for placement and strategy props
+
 ## 1.0.7
 
 ### Patch Changes
