@@ -3,7 +3,7 @@
   "scripts": {
     "build": "pnpm turbo run build --affected",
     "dev": "turbo run dev",
-    "lint": "eslint packages/**/*.{js,ts,vue}",
+    "lint": "eslint packages/**/*.{ts,vue}",
     "lint:fix": "npm run lint -- --fix",
     "prepare": "husky",
     "docs:dev": "vitepress dev docs",

@@ -30,7 +30,7 @@ export default typescriptEslint.config(
         },
         rules: {
             'no-useless-escape': ['off'],
-            'vue/component-tags-order': ['error', {
+            'vue/block-order': ['error', {
                 'order': ['script', 'template', 'style']
             }],
             'vue/component-name-in-template-casing': ['warn', 'PascalCase', {
