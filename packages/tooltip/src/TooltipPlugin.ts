@@ -103,9 +103,9 @@ export function TooltipPlugin(app: App<Element>) {
                     });
 
                     removedNodes.forEach((node) => {
-                        if (!(node instanceof Element)) { return; }
+                        if(!(node instanceof Element)) { return; }
 
-                        if (shouldRemoveTooltip(node)) {
+                        if(shouldRemoveTooltip(node)) {
                             destroyTooltip(node);
                         }
 

@@ -136,7 +136,7 @@ function select(option?: ModelValue) {
 }
 
 function onInput(e: Event) {
-    if (!isInteractive.value) return;
+    if(!isInteractive.value) return;
 
     showOptions.value = true;
     active.value = undefined;
@@ -154,7 +154,7 @@ function onInput(e: Event) {
 }
 
 function onKeypressEnter() {
-    if (!isInteractive.value) return;
+    if(!isInteractive.value) return;
 
     if(!showOptions.value) {
         showOptions.value = true;
@@ -176,7 +176,7 @@ function onKeypressEnter() {
 }
 
 function onKeydownUp() {
-    if (!isInteractive.value) return;
+    if(!isInteractive.value) return;
     
     showOptions.value = true;
 
@@ -189,7 +189,7 @@ function onKeydownUp() {
 }
 
 function onKeydownDown() {
-    if (!isInteractive.value) return;
+    if(!isInteractive.value) return;
 
     showOptions.value = true;
 
@@ -207,19 +207,19 @@ function onBlur() {
 }
 
 function onClickOption(option: ModelValue) {
-    if (!isInteractive.value) return;
+    if(!isInteractive.value) return;
     select(option);
 }
 
 function clear() {
-    if (!isInteractive.value) return;
+    if(!isInteractive.value) return;
     input.value = undefined;
     model.value = undefined;
     emit('clear');
 }
 
 function toggle() {
-    if (!isInteractive.value) return;
+    if(!isInteractive.value) return;
     
     if(showOptions.value ) {
         showOptions.value = false;

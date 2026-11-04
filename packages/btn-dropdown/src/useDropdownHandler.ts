@@ -64,15 +64,15 @@ export function useDropdownHandler(props: BtnDropdownProps, emit: EmitFn<BtnDrop
     const alignment = computed<Alignment>(() => props.align ?? 'start');
 
     const side = computed<Side>(() => {
-        if (props.dropup) {
+        if(props.dropup) {
             return 'top';
         }
 
-        if (props.dropleft) {
+        if(props.dropleft) {
             return 'left';
         }
 
-        if (props.dropright) {
+        if(props.dropright) {
             return 'right';
         }
 
@@ -98,15 +98,15 @@ export function useDropdownHandler(props: BtnDropdownProps, emit: EmitFn<BtnDrop
             'no-caret': !props.caret
         };
 
-        if (typeof props.buttonClass === 'string') {
+        if(typeof props.buttonClass === 'string') {
             classes[props.buttonClass] = true;
         }
-        else if (Array.isArray(props.buttonClass)) {
-            for (const value of props.buttonClass) {
+        else if(Array.isArray(props.buttonClass)) {
+            for(const value of props.buttonClass) {
                 classes[value] = true;
             }
         }
-        else if (props.buttonClass) {
+        else if(props.buttonClass) {
             Object.assign(classes, props.buttonClass);
         }
 
@@ -124,7 +124,7 @@ export function useDropdownHandler(props: BtnDropdownProps, emit: EmitFn<BtnDrop
     function show() {
         expanded.value = true;
 
-        if (!target.value || !menu.value) {
+        if(!target.value || !menu.value) {
             return;
         }
 
@@ -136,7 +136,7 @@ export function useDropdownHandler(props: BtnDropdownProps, emit: EmitFn<BtnDrop
     function hide() {
         expanded.value = false;
 
-        if (target.value instanceof HTMLElement) {
+        if(target.value instanceof HTMLElement) {
             target.value?.blur();
         }
 
@@ -144,7 +144,7 @@ export function useDropdownHandler(props: BtnDropdownProps, emit: EmitFn<BtnDrop
     }
 
     function toggle() {
-        if (!expanded.value) {
+        if(!expanded.value) {
             show();
         }
         else {
@@ -155,8 +155,8 @@ export function useDropdownHandler(props: BtnDropdownProps, emit: EmitFn<BtnDrop
     function isFocusable(element: HTMLElement) {
         const nodes = Array.from(menu.value?.$el.querySelectorAll('label, input, select, textarea') ?? []);
 
-        for (const i in nodes) {
-            if (element === nodes[i]) {
+        for(const i in nodes) {
+            if(element === nodes[i]) {
                 return true;
             }
         }
@@ -165,13 +165,13 @@ export function useDropdownHandler(props: BtnDropdownProps, emit: EmitFn<BtnDrop
     }
 
     function onBlur(e: FocusEvent) {
-        if (!(e.relatedTarget instanceof HTMLElement) || !(target.value instanceof Element)) {
+        if(!(e.relatedTarget instanceof HTMLElement) || !(target.value instanceof Element)) {
             hide();
 
             return;
         }
 
-        if (menu.value && !menu.value?.$el.contains(e.relatedTarget) || !target.value?.contains(e.relatedTarget)) {
+        if(menu.value && !menu.value?.$el.contains(e.relatedTarget) || !target.value?.contains(e.relatedTarget)) {
             hide();
         }
     }
@@ -185,25 +185,25 @@ export function useDropdownHandler(props: BtnDropdownProps, emit: EmitFn<BtnDrop
 
         emit('clickToggle', e);
 
-        if (!e.defaultPrevented) {
+        if(!e.defaultPrevented) {
             toggle();
         }
     }
 
     function onClickItem(e: PointerEvent) {
-        if (!(e.target instanceof HTMLElement)) {
+        if(!(e.target instanceof HTMLElement)) {
             hide();
 
             return;
         }
 
-        if (!isFocusable(e.target) && !e.defaultPrevented) {
+        if(!isFocusable(e.target) && !e.defaultPrevented) {
             hide();
         }
     }
 
     watchEffect(() => {
-        if (expanded.value) {
+        if(expanded.value) {
             window.addEventListener('resize', update);
         }
         else {

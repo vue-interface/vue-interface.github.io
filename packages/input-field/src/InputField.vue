@@ -36,7 +36,7 @@ const canClear = computed(() => {
 });
 
 function clear() {
-    if (!isInteractive.value) return;
+    if(!isInteractive.value) return;
     model.value = undefined;
 }
 

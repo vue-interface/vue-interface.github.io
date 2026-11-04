@@ -40,10 +40,10 @@ const cancelButton = useTemplateRef<HTMLButtonElement>('cancelButton');
 const confirmButton = useTemplateRef<HTMLButtonElement>('confirmButton');
 
 function handleConfirm(event: MouseEvent, context: ModalContext) {
-    if (confirmButton.value) {
+    if(confirmButton.value) {
         emit('confirm', event, confirmButton.value, context);
 
-        if (!event.defaultPrevented) {
+        if(!event.defaultPrevented) {
             context.close();
         }
     }

@@ -217,7 +217,7 @@ export function useFormControl<
     });
 
     const isDirty = computed(() => {
-        if (Array.isArray(model.value)) {
+        if(Array.isArray(model.value)) {
             return !!model.value.length;
         }
 
@@ -291,7 +291,7 @@ export function useFormControl<
             emit('focusout', e);
         },
         onClick: (e: MouseEvent) => {
-            if (props.readonly) {
+            if(props.readonly) {
                 e.preventDefault();
             }
             nextTick(() => {
@@ -305,7 +305,7 @@ export function useFormControl<
             emit('contextmenu', e);
         },
         onMousedown: (e: MouseEvent) => {
-            if (props.readonly) {
+            if(props.readonly) {
                 e.preventDefault();
             }
             emit('mousedown', e);
@@ -338,7 +338,7 @@ export function useFormControl<
             emit('beforeinput', e);
         },
         onKeydown: (e: KeyboardEvent) => {
-            if (props.readonly) {
+            if(props.readonly) {
                 e.preventDefault();
             }
             emit('keydown', e);
@@ -403,7 +403,7 @@ export function useFormControl<
     }));
 
     onBeforeMount(() => {
-        if (isDirty.value) {
+        if(isDirty.value) {
             hasChanged.value = true;
         }
     });

@@ -394,7 +394,7 @@ function onClickAddTag() {
 }
 
 function clear() {
-    if (!isInteractive.value) return;
+    if(!isInteractive.value) return;
     input.value = undefined;
     model.value = [];
 }
