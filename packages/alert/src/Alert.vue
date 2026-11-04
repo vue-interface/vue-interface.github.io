@@ -19,7 +19,9 @@ withDefaults(defineProps<{
         class="alert"
         :class="size">
         <div class="alert-icon">
-            <slot v-if="showIcon" name="icon">
+            <slot
+                v-if="showIcon"
+                name="icon">
                 <InformationCircleIcon />
             </slot>
         </div>

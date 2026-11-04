@@ -178,7 +178,7 @@ watch(showing, () => {
     else if(!showing.value) {
         window.removeEventListener('keydown', onEsc);
     }
-})
+});
 
 onMounted(() => {
     mounted.value = props.show;
@@ -304,8 +304,8 @@ const attrs = useAttrs();
                                 name="buttons"
                                 v-bind="context">
                                 <Component
-                                    v-if="buttons"
                                     :is="buttons"
+                                    v-if="buttons"
                                     v-bind="context" />
                             </slot>
                         </div>

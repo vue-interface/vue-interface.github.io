@@ -282,7 +282,9 @@ export type SearchableSelectFieldProps<ModelValue, Value> = FormControlProps<
             @keydown.down.prevent="onKeydownDown"
             @keyup.escape="showOptions = false"
             @input="onInput">
-            <template #icon v-if="$slots.icon">
+            <template
+                v-if="$slots.icon"
+                #icon>
                 <slot name="icon" />
             </template>
             <template #activity>
@@ -290,8 +292,8 @@ export type SearchableSelectFieldProps<ModelValue, Value> = FormControlProps<
                     name="activity"
                     v-bind="{ disabled, options, invalid, valid }">
                     <ActivityIndicator
-                        key="activity"
                         v-if="props.activity && props.indicator"
+                        key="activity"
                         :type="props.indicator"
                         :size="props.indicatorSize ?? 'activity-indicator-sm'" />
                     <button
@@ -338,7 +340,9 @@ export type SearchableSelectFieldProps<ModelValue, Value> = FormControlProps<
             <div
                 v-if="showNoResults && !filtered.length"
                 class="py-2 px-4 text-neutral-400 dark:text-neutral-500">
-                <slot name="no-results" :input="input">
+                <slot
+                    name="no-results"
+                    :input="input">
                     {{ noResultsText }}
                 </slot>
             </div>

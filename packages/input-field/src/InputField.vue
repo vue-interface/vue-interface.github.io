@@ -54,7 +54,7 @@ defineExpose({
     wrapper,
     focus: () => field.value?.focus(),
     blur: () => field.value?.blur(),
-})
+});
 </script>
 
 <script lang="ts">
@@ -102,7 +102,9 @@ export type InputFieldProps<ModelValue, Value> = FormControlProps<
             </slot>
             
             <div class="form-control-activity-indicator">
-                <slot name="activity" v-bind="{ canClear, clear, isInteractive }">
+                <slot
+                    name="activity"
+                    v-bind="{ canClear, clear, isInteractive }">
                     <button
                         v-if="canClear"
                         type="button"
@@ -110,7 +112,9 @@ export type InputFieldProps<ModelValue, Value> = FormControlProps<
                         @click.stop="clear">
                         <XMarkIcon class="size-[1.25em]" />
                     </button>
-                    <Transition name="input-field-fade" v-else>
+                    <Transition
+                        v-else
+                        name="input-field-fade">
                         <ActivityIndicator
                             v-if="props.activity && indicator"
                             key="activity"

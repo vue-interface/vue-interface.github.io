@@ -32,7 +32,7 @@ const emit = defineEmits<{
         :class="[
             size, 
             { 'close-left': closeLeft }
-            ]">
+        ]">
         <div
             class="badge-inner"
             @click="emit('click', $event)">

@@ -485,11 +485,15 @@ onBeforeUnmount(() => {
                             @click.exact.meta="toggleActiveTag(tag, true)"
                             @click.exact="toggleActiveTag(tag)"
                             @click.exact.shift="toggleActiveTagRange(tag)">
-                            <slot :option="tag" :display="display">
+                            <slot
+                                :option="tag"
+                                :display="display">
                                 {{ display?.(tag) ?? tag }}
                             </slot>
                             <template #close-icon>
-                                <XMarkIcon class="size-[1.25em]" @mousedown.prevent />
+                                <XMarkIcon
+                                    class="size-[1.25em]"
+                                    @mousedown.prevent />
                             </template>
                         </Badge>
 
@@ -518,7 +522,9 @@ onBeforeUnmount(() => {
             </slot>
 
             <div class="form-control-activity-indicator">
-                <slot name="activity" v-bind="{ canClear, clear, isInteractive }">
+                <slot
+                    name="activity"
+                    v-bind="{ canClear, clear, isInteractive }">
                     <button
                         v-if="canClear"
                         type="button"
@@ -526,7 +532,9 @@ onBeforeUnmount(() => {
                         @click.stop="clear">
                         <XMarkIcon class="size-[1.25em]" />
                     </button>
-                    <Transition name="tag-field-fade" v-else>
+                    <Transition
+                        v-else
+                        name="tag-field-fade">
                         <ActivityIndicator
                             v-if="props.activity && props.indicator"
                             key="activity"
@@ -568,7 +576,9 @@ onBeforeUnmount(() => {
             <div
                 v-if="showNoResults && !filtered.length && !allowCustom"
                 class="py-2 px-4 text-neutral-400 dark:text-neutral-500">
-                <slot name="no-results" :input="input">
+                <slot
+                    name="no-results"
+                    :input="input">
                     {{ noResultsText }}
                 </slot>
             </div>

@@ -32,8 +32,8 @@ defineSlots<{
 
 <template>
     <Component
-        ref="el"
         :is="!split ? BtnDropdownSingle : BtnDropdownSplit"
+        ref="el"
         v-bind="props"
         @click="(e: MouseEvent) => emit('click', e)"
         @click-toggle="(e: MouseEvent) => emit('clickToggle', e)"

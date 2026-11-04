@@ -39,7 +39,10 @@ function uom(value: number | string, unit: string) {
             :style="{
                 width: value ? uom(value, '%') : undefined
             }">
-            <slot name="label" :label="label" :value="value">
+            <slot
+                name="label"
+                :label="label"
+                :value="value">
                 <div
                     v-if="label || showValue"
                     class="progress-bar-label">
