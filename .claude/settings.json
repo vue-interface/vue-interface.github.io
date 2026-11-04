@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(pnpm install)",
+      "Bash(pnpm i)",
+      "Bash(pnpm lint)",
+      "Bash(pnpm lint:fix)",
+      "Bash(pnpm docs:build)",
+      "Bash(pnpm --filter * build)",
+      "Bash(pnpm exec vue-tsc *)",
+      "Bash(pnpm exec eslint *)",
+      "Bash(pnpm changeset status *)",
+      "Bash(npx vue-tsc *)",
+      "Bash(npx eslint *)",
+      "Bash(npm view *)",
+      "Bash(git status *)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git show *)",
+      "Bash(git ls-files *)",
+      "Bash(git branch *)",
+      "Bash(gh pr view *)",
+      "Bash(gh pr list *)",
+      "Bash(gh pr diff *)",
+      "Bash(gh pr checks *)",
+      "Bash(gh run list *)",
+      "Bash(gh run view *)"
+    ],
+    "deny": [
+      "Bash(pnpm release *)",
+      "Bash(pnpm publish *)",
+      "Bash(npm publish *)",
+      "Bash(pnpm changeset publish *)",
+      "Bash(pnpm changeset version *)",
+      "Bash(pnpm version *)"
+    ]
+  }
+}

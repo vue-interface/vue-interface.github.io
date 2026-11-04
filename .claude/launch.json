@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "docs",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["docs:dev", "--port", "5173", "--strictPort"],
+      "port": 5173
+    },
+    {
+      "name": "demo",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["--filter", "@vue-interface/popover", "dev", "--port", "5174", "--strictPort"],
+      "port": 5174
+    }
+  ]
+}
