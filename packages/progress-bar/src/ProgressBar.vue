@@ -4,7 +4,7 @@ import type { ComponentSize } from '@vue-interface/sizeable';
 export type ProgressBarSizePrefix = 'progress-bar';
 export type ProgressBarSize = ComponentSize<ProgressBarSizePrefix>;
 
-const props = withDefaults(defineProps<{
+withDefaults(defineProps<{
     label?: string;
     value?: number | string;
     showValue?: boolean;
