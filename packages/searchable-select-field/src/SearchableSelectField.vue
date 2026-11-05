@@ -5,7 +5,7 @@ import type { FormControlEvents, FormControlProps, FormControlSlots } from '@vue
 import { useFormControl } from '@vue-interface/form-control';
 import { InputField } from '@vue-interface/input-field';
 import Fuse, { IFuseOptions } from 'fuse.js';
-import { type HTMLAttributes, computed, nextTick, ref, useTemplateRef, watch, watchEffect } from 'vue';
+import { type ComponentPublicInstance, type HTMLAttributes, computed, nextTick, ref, useTemplateRef, watch, watchEffect } from 'vue';
 
 const props = withDefaults(defineProps<SearchableSelectFieldProps<ModelValue,Value>>(), {
     formControlClass: 'form-control',
@@ -24,8 +24,8 @@ const model = defineModel<ModelValue>();
 const isInteractive = computed(() => !props.disabled && !props.readonly);
 
 defineSlots<FormControlSlots<SearchableSelectFieldSizePrefix,ModelValue> & {
-    default(props: { option: ModelValue; display?: (option: ModelValue) => string }): any;
-    'no-results'(props: { input?: string }): any;
+    default(props: { option: ModelValue; display?: (option: ModelValue) => string }): unknown;
+    'no-results'(props: { input?: string }): unknown;
 }>();
 
 const emit = defineEmits<FormControlEvents & {
@@ -45,7 +45,7 @@ watchEffect(() => {
 });
 
 const input = ref<string>();
-const field = useTemplateRef<any>('field');
+const field = useTemplateRef<ComponentPublicInstance>('field');
 const showOptions = ref(false);
 const active = ref<number>();
 const buttons = useTemplateRef<HTMLButtonElement[]>('buttons');

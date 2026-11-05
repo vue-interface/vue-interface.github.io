@@ -60,8 +60,8 @@ defineOptions({
 const model = defineModel<ModelValue[]>();
 
 defineSlots<FormControlSlots<TagFieldSizePrefix, ModelValue[]> & {
-    default(props: { option: ModelValue; display?: (option: ModelValue) => string }): any;
-    'no-results'(props: { input: string | undefined }): any;
+    default(props: { option: ModelValue; display?: (option: ModelValue) => string }): unknown;
+    'no-results'(props: { input: string | undefined }): unknown;
 }>();
 
 const emit = defineEmits<FormControlEvents>();

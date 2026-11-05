@@ -27,7 +27,7 @@ export type ModalProps = {
     size?: ModalSize;
     headerSize?: ModalHeaderTextSize;
     bodySize?: ModalBodyTextSize;
-    buttons?: (context: ModalContext) => any;
+    buttons?: (context: ModalContext) => unknown;
     colors?: {
         info?: string;
         warning?: string;
@@ -88,7 +88,7 @@ const icon = computed<Component | RenderFunction | undefined>(() => {
             critical: ExclamationCircleIcon,
             danger: ExclamationCircleIcon,
             success: CheckCircleIcon
-        } as Record<string, any>)[props.type];
+        } as Record<string, Component>)[props.type];
     }
 
     if(props.icon) {

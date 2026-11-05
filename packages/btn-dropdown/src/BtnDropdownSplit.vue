@@ -36,9 +36,9 @@ defineSlots<{
         expanded: BtnDropdownSlotProps['expanded'],
         onBlur: BtnDropdownSlotProps['onBlur'],
         onClickToggle: BtnDropdownSlotProps['onClickToggle']
-    }): any;
-    toggle(props: BtnDropdownSlotProps): any;
-    default(): any;
+    }): unknown;
+    toggle(props: BtnDropdownSlotProps): unknown;
+    default(): unknown;
 }>();
 </script>
 

@@ -23,10 +23,10 @@ defineExpose({
 });
 
 defineSlots<{
-    button(props: BtnDropdownSlotProps): any;
-    toggle(props: BtnDropdownSlotProps): any;
-    split(props: BtnDropdownSlotProps): any;
-    default(): any;
+    button(props: BtnDropdownSlotProps): unknown;
+    toggle(props: BtnDropdownSlotProps): unknown;
+    split(props: BtnDropdownSlotProps): unknown;
+    default(): unknown;
 }>();
 </script>
 

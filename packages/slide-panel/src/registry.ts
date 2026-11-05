@@ -8,8 +8,8 @@ export type SlidePanelRegistry = {
 };
 
 export type SlidePanel = {
-    open: Function;
-    close: Function;
+    open: () => void;
+    close: () => void;
     isOpen: Ref<boolean>;
     isTopSlide: Ref<boolean>;
     el: Ref<HTMLDivElement>;
@@ -24,9 +24,9 @@ export function createRegistry(): SlidePanelRegistry {
     
     const panels = ref<Record<string,SlidePanel>>({});
 
-    const elements = ref<any[]>([]);
+    const elements = ref<HTMLElement[]>([]);
 
-    const topSlide = ref<any>();
+    const topSlide = ref<HTMLElement>();
     
     watch(elements, () => {
         topSlide.value = elements.value[elements.value.length - 1];

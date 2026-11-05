@@ -1,14 +1,19 @@
 <script lang="ts">
-import { Fragment, h } from 'vue';
+import { Fragment, h, type SetupContext, type Slot, type VNode } from 'vue';
 
-function appendClass(vnode: any, str: any) {
+type MenuItemVNode = VNode & {
+    props: { class?: string } & Record<string, unknown>;
+    attrs: { on?: Record<string, unknown> } & Record<string, unknown>;
+};
+
+function appendClass(vnode: MenuItemVNode, str: string) {
     vnode.props.class = `${vnode.props.class || ''} ${str}`.trim();
 }
 
-function changeMenuItems(items: any) {
+function changeMenuItems(items: MenuItemVNode[]) {
     for(const vnode of items) {
         if(vnode.type === Fragment) {
-            changeMenuItems(vnode.children);
+            changeMenuItems(vnode.children as MenuItemVNode[]);
         }
 
         vnode.props = Object.assign({ class: undefined }, vnode.props);
@@ -37,7 +42,7 @@ function changeMenuItems(items: any) {
     return items;
 }
 
-const DropdownMenuItems = (_: any, context: any) => h('div', {}, changeMenuItems(context.slots.default()));
+const DropdownMenuItems = (_: unknown, context: SetupContext) => h('div', {}, changeMenuItems((context.slots.default as Slot)() as MenuItemVNode[]));
 
 export default DropdownMenuItems;
 </script>

@@ -32,8 +32,8 @@ defineExpose({
 });
 
 defineSlots<{
-    button(props: BtnDropdownSlotProps): any;
-    default(): any;
+    button(props: BtnDropdownSlotProps): unknown;
+    default(): unknown;
 }>();
 </script>
 
