@@ -15,7 +15,9 @@ const props = withDefaults(defineProps<SearchableSelectFieldProps<ModelValue,Val
     clearable: true,
     noResultsText: 'No results found',
     showNoResults: true,
-    options: () => []
+    options: () => [],
+    fuseOptions: undefined,
+    display: undefined
 });
 
 const model = defineModel<ModelValue>();
