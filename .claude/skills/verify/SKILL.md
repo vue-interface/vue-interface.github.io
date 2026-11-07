@@ -58,18 +58,13 @@ Lint only the changed `.ts` and `.vue` files under `packages/`, not the whole re
 npx eslint <file> <file> ...
 ```
 
-17 files already have problems from the period when lint wasn't running (see
-`.claude/rules/vue.md`). Don't fix or report those as part of this change. To
-tell new problems from existing ones, lint the committed version of the same
-file and compare:
+Lint is clean across the repo, so every problem reported in a changed file
+counts against the change. Fix it if it's in code the change touched. If one
+looks unrelated, check whether `main` already had it before blaming the change:
 
 ```bash
 git show HEAD:<file> | npx eslint --stdin --stdin-filename <file>
 ```
-
-A problem counts against the change only if it isn't in the `HEAD` output, or if
-it's on a line the change touched. New files have no baseline, so every problem
-in them counts.
 
 ## 4. Render
 

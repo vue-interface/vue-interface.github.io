@@ -56,8 +56,9 @@ slightly differently, match the file.
 ## TypeScript
 
 - `export type`, never `interface`.
-- Strict mode with `noUnusedLocals` and `noUnusedParameters`. Some files use
-  `any`; don't add new ones.
+- Strict mode with `noUnusedLocals` and `noUnusedParameters`. No `any` (ESLint
+  errors on it): use `unknown` or a real type. The one exception is a
+  commented `eslint-disable` in `autogrow/src/vAutogrow.ts`.
 - Type-only imports use `import type { ... }` or inline `type` modifiers.
 - Each package's `index.ts` imports its components, re-exports their types with
   `export *`, and exports the components by name:
@@ -74,15 +75,13 @@ slightly differently, match the file.
 
 ## Style
 
-`eslint.config.ts` describes the style, and most files follow it:
+`eslint.config.ts` describes the style, and every file passes it:
 
 - 4-space indent in scripts and templates, single quotes, semicolons.
-- No space after `if`, `for`, `while`: `if(open) {` (a few files use `if (`;
-  match the file).
+- No space after `if`, `for`, `while`: `if(open) {`.
 - Multi-line tags close on the last attribute line: `class="relative">`.
 - PascalCase component names in templates.
 
 Run `pnpm lint`, or `npx eslint <files>` for just the files you changed. Lint
-didn't run from December 2025 until it was fixed in November 2026, and 17 files
-built up problems in that time (mostly `if (` spacing, `any`, attribute order).
-Don't fix those unless asked; just don't add new ones in files you touch.
+is clean (0 problems since November 2026), so any problem it reports in a file
+you touched is yours to fix before committing.
